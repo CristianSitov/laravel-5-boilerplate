@@ -14,6 +14,7 @@ return [
     */
 
     'default' => env('DB_CONNECTION', 'mysql'),
+    'default_nosql' => 'orientdb',
 
     /*
     |--------------------------------------------------------------------------
@@ -73,6 +74,14 @@ return [
             'sslmode' => 'prefer',
         ],
 
+        'orientdb' => [
+            'driver' => 'orientdb',
+            'host'   => 'localhost',
+            'port'   => '2480',
+            'database' => 'hot',
+            'username' => 'root',
+            'password' => 'root'
+        ]
     ],
 
     /*
