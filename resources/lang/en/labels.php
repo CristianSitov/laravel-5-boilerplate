@@ -97,6 +97,22 @@ return [
                 'view' => 'View User',
             ],
         ],
+        'heritage' => [
+            'resources' => [
+                'list'       => 'Resources list',
+                'create'     => 'Create Resource',
+                'edit'       => 'Edit Resource',
+                'management' => 'Resource Management',
+
+                'table' => [
+//                    'number_of_users' => 'Number of Users',
+//                    'permissions'     => 'Permissions',
+//                    'role'            => 'Role',
+//                    'sort'            => 'Sort',
+//                    'total'           => 'role total|roles total',
+                ],
+            ]
+        ]
     ],
 
     'frontend' => [

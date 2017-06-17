@@ -37,6 +37,17 @@ return [
             ],
         ],
 
+        'heritage' => [
+            'title'     => 'Heritage',
+
+            'resources' => [
+                'all'             => 'All Resources',
+                'management'      => 'Resources Management',
+                'create'          => 'Create Resource',
+                'main'            => 'Heritage Resources',
+            ],
+        ],
+
         'log-viewer' => [
             'main'      => 'Log Viewer',
             'dashboard' => 'Dashboard',
@@ -45,6 +56,7 @@ return [
 
         'sidebar' => [
             'dashboard' => 'Dashboard',
+            'heritage'  => 'Heritage',
             'general'   => 'General',
             'system'    => 'System',
         ],
