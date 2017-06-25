@@ -21,6 +21,7 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "5.4.*",
         "sgpatil/oriquent": "dev-master",
+        "webpatser/laravel-uuid": "^2.0",
         "yajra/laravel-datatables-oracle": "^7.0"
     },
     "require-dev": {

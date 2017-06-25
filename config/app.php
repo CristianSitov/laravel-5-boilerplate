@@ -261,7 +261,7 @@ return [
         'Gravatar'    => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Html'        => Collective\Html\HtmlFacade::class,
         'Socialite'   => Laravel\Socialite\Facades\Socialite::class,
-
+        'Uuid'        => Webpatser\Uuid\Uuid::class,
     ],
 
 ];
