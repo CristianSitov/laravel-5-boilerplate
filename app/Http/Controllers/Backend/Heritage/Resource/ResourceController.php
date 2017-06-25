@@ -4,27 +4,24 @@ namespace App\Http\Controllers\Backend\Heritage\Resource;
 
 use App\Http\Controllers\Controller;
 use App\Models\Heritage\HeritageResource;
+use App\Repositories\Backend\Heritage\ResourceRepository;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class ResourceController extends Controller
 {
     /**
-     * @var EntityManager
+     * @var ResourceRepository
      */
-    private $entityManager;
-
-    /**
-     * @var BaseRepository
-     */
-    private $resourceRepository;
+    protected $resources;
 
     /**
      * HeritageResource constructor.
      * @param EntityManager $entityManager
      */
-    public function __construct()
+    public function __construct(ResourceRepository $resources)
     {
+        $this->resources = $resources;
     }
 
     /**
@@ -46,7 +43,8 @@ class ResourceController extends Controller
     public function create()
     {
         return view('backend.heritage.create')
-            ->withRoles($this->roles->getAll());
+//            ->withRoles($this->roles->getAll())
+            ;
     }
 
     /**
@@ -57,7 +55,9 @@ class ResourceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->resources->create(['data' => $request->all()]);
+
+        return redirect()->route('admin.heritage.resource.index')->withFlashSuccess(trans('alerts.backend.resources.created'));
     }
 
     /**

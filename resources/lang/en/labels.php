@@ -105,11 +105,12 @@ return [
                 'management' => 'Resource Management',
 
                 'table' => [
-//                    'number_of_users' => 'Number of Users',
-//                    'permissions'     => 'Permissions',
-//                    'role'            => 'Role',
-//                    'sort'            => 'Sort',
-//                    'total'           => 'role total|roles total',
+                    'confirmed'      => 'Confirmed',
+                    'created'        => 'Created',
+                    'rid'            => 'ID',
+                    'name'           => 'Name',
+                    'description'    => 'Description',
+                    'last_updated'   => 'Last Updated',
                 ],
             ]
         ]

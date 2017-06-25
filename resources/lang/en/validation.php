@@ -151,6 +151,13 @@ return [
                     'send_confirmation_email' => 'Send Confirmation E-mail',
                 ],
             ],
+
+            'heritage' => [
+                'resources' => [
+                    'name'                    => 'Name',
+                    'description'             => 'Description',
+                ],
+            ],
         ],
 
         'frontend' => [

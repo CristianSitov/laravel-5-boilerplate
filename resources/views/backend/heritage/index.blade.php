@@ -25,13 +25,14 @@
 
         <div class="box-body">
             <div class="table-responsive">
-                <table id="users-table" class="table table-condensed table-hover">
+                <table id="resources-table" class="table table-condensed table-hover">
                     <thead>
                     <tr>
-                        <th>{{ trans('labels.backend.access.users.table.id') }}</th>
-                        {{--<th>{{ trans('labels.backend.access.users.table.name') }}</th>--}}
-                        <th>{{ trans('labels.backend.access.users.table.created') }}</th>
-                        <th>{{ trans('labels.backend.access.users.table.last_updated') }}</th>
+                        <th>{{ trans('labels.backend.heritage.resources.table.rid') }}</th>
+                        <th>{{ trans('labels.backend.heritage.resources.table.name') }}</th>
+                        <th>{{ trans('labels.backend.heritage.resources.table.description') }}</th>
+                        <th>{{ trans('labels.backend.heritage.resources.table.created') }}</th>
+                        <th>{{ trans('labels.backend.heritage.resources.table.last_updated') }}</th>
                         <th>{{ trans('labels.general.actions') }}</th>
                     </tr>
                     </thead>
@@ -48,7 +49,7 @@
             </div><!-- /.box tools -->
         </div><!-- /.box-header -->
         <div class="box-body">
-            {!! history()->renderType('User') !!}
+            {!! history()->renderType('HeritageResource') !!}
         </div><!-- /.box-body -->
     </div><!--box box-success-->
 @endsection
@@ -59,7 +60,7 @@
 
     <script>
         $(function() {
-            $('#users-table').DataTable({
+            $('#resources-table').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: {
@@ -68,11 +69,9 @@
                     data: {status: 1, trashed: false}
                 },
                 columns: [
-                    {data: 'id', name: '{{config('access.users_table')}}.id'},
-//                    {data: 'name', name: '{{config('access.users_table')}}.name'},
-//                    {data: 'email', name: '{{config('access.users_table')}}.email'},
-//                    {data: 'confirmed', name: '{{config('access.users_table')}}.confirmed'},
-//                    {data: 'roles', name: '{{config('access.roles_table')}}.name', sortable: false},
+                    {data: '@rid', name: '{{config('access.users_table')}}.rid'},
+                    {data: 'name', name: '{{config('access.users_table')}}.name'},
+                    {data: 'description', name: '{{config('access.users_table')}}.description'},
                     {data: 'created_at', name: '{{config('access.users_table')}}.created_at'},
                     {data: 'updated_at', name: '{{config('access.users_table')}}.updated_at'},
                     {data: 'actions', name: 'actions', searchable: false, sortable: false}

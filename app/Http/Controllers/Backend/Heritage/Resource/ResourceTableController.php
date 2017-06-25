@@ -33,6 +33,7 @@ class ResourceTableController extends Controller
     public function __invoke(HeritageResourceRequest $request)
     {
         return Datatables::of($this->resources->getForDataTable($request->get('status'), $request->get('trashed')))
+            ->escapeColumns(['name', 'description'])
             ->addColumn('actions', function ($resource) {
                 return $resource->action_buttons;
             })

@@ -45,6 +45,10 @@ return [
                 'update_error'          => 'There was a problem updating this user. Please try again.',
                 'update_password_error' => 'There was a problem changing this users password. Please try again.',
             ],
+
+            'resources' => [
+                'create_error'          => 'There was a problem creating this resource. Please try again.'
+            ]
         ],
     ],
 

@@ -10,111 +10,32 @@
 @endsection
 
 @section('content')
-    {{ Form::open(['route' => 'admin.heritage.resource.create', 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'post']) }}
+    {{ Form::open(['route' => 'admin.heritage.resource.store', 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'post']) }}
 
         <div class="box box-success">
             <div class="box-header with-border">
                 <h3 class="box-title">{{ trans('labels.backend.heritage.resources.create') }}</h3>
 
                 <div class="box-tools pull-right">
-                    @include('backend.access.includes.partials.user-header-buttons')
+                    @include('backend.heritage.includes.header-buttons')
                 </div><!--box-tools pull-right-->
             </div><!-- /.box-header -->
 
             <div class="box-body">
                 <div class="form-group">
-                    {{ Form::label('name', trans('validation.attributes.backend.access.users.name'), ['class' => 'col-lg-2 control-label']) }}
+                    {{ Form::label('name', trans('validation.attributes.backend.heritage.resources.name'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-10">
-                        {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.access.users.name'), 'required' => 'required']) }}
+                        {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.heritage.resources.name'), 'required' => 'required']) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
 
                 <div class="form-group">
-                    {{ Form::label('email', trans('validation.attributes.backend.access.users.email'), ['class' => 'col-lg-2 control-label']) }}
+                    {{ Form::label('description', trans('validation.attributes.backend.heritage.resources.description'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-10">
-                        {{ Form::text('email', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.access.users.email'), 'required' => 'required']) }}
+                        {{ Form::textarea('description', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.heritage.resources.description'), 'required' => 'required']) }}
                     </div><!--col-lg-10-->
-                </div><!--form control-->
-
-                <div class="form-group">
-                    {{ Form::label('password', trans('validation.attributes.backend.access.users.password'), ['class' => 'col-lg-2 control-label']) }}
-
-                    <div class="col-lg-10">
-                        {{ Form::password('password', ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.access.users.password'), 'required' => 'required']) }}
-                    </div><!--col-lg-10-->
-                </div><!--form control-->
-
-                <div class="form-group">
-                    {{ Form::label('password_confirmation', trans('validation.attributes.backend.access.users.password_confirmation'), ['class' => 'col-lg-2 control-label']) }}
-
-                    <div class="col-lg-10">
-                        {{ Form::password('password_confirmation', ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.access.users.password_confirmation'), 'required' => 'required']) }}
-                    </div><!--col-lg-10-->
-                </div><!--form control-->
-
-                <div class="form-group">
-                    {{ Form::label('status', trans('validation.attributes.backend.access.users.active'), ['class' => 'col-lg-2 control-label']) }}
-
-                    <div class="col-lg-1">
-                        {{ Form::checkbox('status', '1', true) }}
-                    </div><!--col-lg-1-->
-                </div><!--form control-->
-
-                <div class="form-group">
-                    {{ Form::label('confirmed', trans('validation.attributes.backend.access.users.confirmed'), ['class' => 'col-lg-2 control-label']) }}
-
-                    <div class="col-lg-1">
-                        {{ Form::checkbox('confirmed', '1', true) }}
-                    </div><!--col-lg-1-->
-                </div><!--form control-->
-
-                <div class="form-group">
-                    <label class="col-lg-2 control-label">{{ trans('validation.attributes.backend.access.users.send_confirmation_email') }}<br/>
-                        <small>{{ trans('strings.backend.access.users.if_confirmed_off') }}</small>
-                    </label>
-
-                    <div class="col-lg-1">
-                        {{ Form::checkbox('confirmation_email', '1') }}
-                    </div><!--col-lg-1-->
-                </div><!--form control-->
-
-                <div class="form-group">
-                    {{ Form::label('status', trans('validation.attributes.backend.access.users.associated_roles'), ['class' => 'col-lg-2 control-label']) }}
-
-                    <div class="col-lg-3">
-                        @if (count($roles) > 0)
-                            @foreach($roles as $role)
-                                <input type="checkbox" value="{{ $role->id }}" name="assignees_roles[{{ $role->id }}]" id="role-{{ $role->id }}" {{ is_array(old('assignees_roles')) && in_array($role->id, old('assignees_roles')) ? 'checked' : '' }} /> <label for="role-{{ $role->id }}">{{ $role->name }}</label>
-                                <a href="#" data-role="role_{{ $role->id }}" class="show-permissions small">
-                                    (
-                                        <span class="show-text">{{ trans('labels.general.show') }}</span>
-                                        <span class="hide-text hidden">{{ trans('labels.general.hide') }}</span>
-                                        {{ trans('labels.backend.access.users.permissions') }}
-                                    )
-                                </a>
-                                <br/>
-                                <div class="permission-list hidden" data-role="role_{{ $role->id }}">
-                                    @if ($role->all)
-                                        {{ trans('labels.backend.access.users.all_permissions') }}<br/><br/>
-                                    @else
-                                        @if (count($role->permissions) > 0)
-                                            <blockquote class="small">{{--
-                                        --}}@foreach ($role->permissions as $perm){{--
-                                            --}}{{$perm->display_name}}<br/>
-                                                @endforeach
-                                            </blockquote>
-                                        @else
-                                            {{ trans('labels.backend.access.users.no_permissions') }}<br/><br/>
-                                        @endif
-                                    @endif
-                                </div><!--permission list-->
-                            @endforeach
-                        @else
-                            {{ trans('labels.backend.access.users.no_roles') }}
-                        @endif
-                    </div><!--col-lg-3-->
                 </div><!--form control-->
             </div><!-- /.box-body -->
         </div><!--box-->
@@ -122,7 +43,7 @@
         <div class="box box-info">
             <div class="box-body">
                 <div class="pull-left">
-                    {{ link_to_route('admin.access.user.index', trans('buttons.general.cancel'), [], ['class' => 'btn btn-danger btn-xs']) }}
+                    {{ link_to_route('admin.heritage.resource.index', trans('buttons.general.cancel'), [], ['class' => 'btn btn-danger btn-xs']) }}
                 </div><!--pull-left-->
 
                 <div class="pull-right">
