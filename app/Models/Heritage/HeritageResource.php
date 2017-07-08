@@ -12,12 +12,16 @@ class HeritageResource extends \Orientdb
     protected $connection = 'orientdb';
     protected $table = 'HeritageResources';
     protected $fillable = [
-        'name',
-        'description',
+        'uuid',
     ];
 
-    public function has_type()
+    public function hasClassificationType()
     {
-        return $this->hasOne(\App\Models\Heritage\ResourceClassificationType::class, \App\Models\Heritage\Has::class);
+        return $this->hasOne(ResourceClassificationType::class, HasClassificationType::class);
+    }
+
+    public function hasNote()
+    {
+        return $this->hasOne(Description::class, HasNote::class);
     }
 }

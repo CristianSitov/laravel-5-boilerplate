@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend\Heritage\Resource;
 
 use App\Http\Controllers\Controller;
 use App\Models\Heritage\HeritageResource;
+use App\Models\Heritage\ResourceClassificationType;
 use App\Repositories\Backend\Heritage\ResourceRepository;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -19,9 +20,10 @@ class ResourceController extends Controller
      * HeritageResource constructor.
      * @param EntityManager $entityManager
      */
-    public function __construct(ResourceRepository $resources)
+    public function __construct(ResourceRepository $resources, ResourceClassificationType $resourceClassificationType)
     {
         $this->resources = $resources;
+        $this->resourceClassificationType = $resourceClassificationType;
     }
 
     /**
@@ -32,7 +34,6 @@ class ResourceController extends Controller
     public function index()
     {
         return view('backend.heritage.index');
-//        return HeritageResource::all();
     }
 
     /**
@@ -42,9 +43,14 @@ class ResourceController extends Controller
      */
     public function create()
     {
+        $types = $this->resourceClassificationType
+            ->get()
+            ->mapWithKeys(function ($item) {
+                return [$item->uuid => $item->type];
+            });
+
         return view('backend.heritage.create')
-//            ->withRoles($this->roles->getAll())
-            ;
+            ->withResourceClassificationType($types);
     }
 
     /**

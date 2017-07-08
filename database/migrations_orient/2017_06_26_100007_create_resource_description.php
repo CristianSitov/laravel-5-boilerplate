@@ -3,7 +3,7 @@
 use Sgpatil\Orientdb\Schema\Blueprint;
 use Sgpatil\Orientdb\Migrations\Migration;
 
-class CreateResource extends Migration {
+class CreateResourceDescription extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,9 +12,10 @@ class CreateResource extends Migration {
 	 */
 	public function up()
 	{
-		Schema::connection('orientdb')->create('HeritageResources', function(Blueprint $table)
+		Schema::connection('orientdb')->create('Description', function(Blueprint $table)
 		{
             $table->string('uuid');
+            $table->string('description');
 			$table->timestamps();
 		});
 	}
@@ -26,7 +27,7 @@ class CreateResource extends Migration {
 	 */
 	public function down()
 	{
-		Schema::connection('orientdb')->drop('HeritageResources');
+		Schema::connection('orientdb')->drop('Description');
 	}
 
 }

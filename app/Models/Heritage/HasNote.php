@@ -2,8 +2,7 @@
 
 namespace App\Models\Heritage;
 
-class Has extends \Orientdb
+class HasNote extends \Orientdb
 {
     protected $connection = 'orientdb';
-    protected $fillable = ['some'];
 }

@@ -3,6 +3,7 @@
 namespace App\Repositories\Backend\Heritage;
 
 use App\Http\Requests\Request;
+use App\Models\Heritage\Description;
 use App\Models\Heritage\HeritageResource;
 use App\Models\Heritage\ResourceClassificationType;
 use Illuminate\Support\Facades\DB;
@@ -19,6 +20,8 @@ use App\Events\Backend\Access\User\UserPasswordChanged;
 use App\Repositories\Backend\Access\Role\RoleRepository;
 use App\Events\Backend\Access\User\UserPermanentlyDeleted;
 use App\Notifications\Frontend\Auth\UserNeedsConfirmation;
+use Sgpatil\Orientphp\Batch\Query;
+use Webpatser\Uuid\Uuid;
 
 /**
  * Class ResourceRepository.
@@ -38,8 +41,18 @@ class ResourceRepository extends BaseRepository
      */
     public function getForDataTable($status = 1, $trashed = false)
     {
-        $dataTableQuery = $this->query()
-            ->get();
+//        $dataTableQuery = $this->query()
+//            ->with(['HasClassificationType']) // .ResourceClassificationType
+//            ->get();
+//            ->carry(['HasClassificationType' => 'ResourceClassificationType'])
+//        $dataTableQuery = HeritageResource::all();
+
+        $client = new \Sgpatil\Orientphp\Client("localhost", 2480, "hot");
+        $client->getTransport()
+            ->setAuth("root", "root");
+        $query = new Query($client, "select * from `HeritageResources`", []);
+        $result = $client->executeBatchQuery($query)->getData();
+        dd($result);
 
         if ($trashed == 'true') {
             return $dataTableQuery->onlyTrashed();
@@ -56,18 +69,18 @@ class ResourceRepository extends BaseRepository
         $data = $input['data'];
 
         $resourceClassName = self::MODEL;
-        $resource = $resourceClassName::create([
-            'name' => $data['name'],
-            'description' => $data['description']
+        $resource = $resourceClassName::create();
+
+        $type = ResourceClassificationType::where('uuid', '=', $data['ResourceClassificationType'])->first();
+        $description = Description::create([
+            'uuid' => Uuid::generate(4),
+            'description' => $data['description'],
         ]);
 
-        $type = ResourceClassificationType::where('type', '=', 'edifice')->first();
-        if (!$type instanceof ResourceClassificationType) {
-            $type = new ResourceClassificationType(['type' => 'edifice']);
-        }
-
-        if ($resource->has_type()->save($type)) {
-            event(new ResourceCreated($resource));
+        if ($resource->hasClassificationType()->save($type)) {
+            if ($resource->hasNote()->save($description)) {
+                event(new ResourceCreated($resource));
+            }
 
             return true;
         }
