@@ -2,25 +2,13 @@
 
 namespace App\Repositories\Backend\Heritage;
 
-use App\Http\Requests\Request;
+use App\Http\Transformers\HeritageResourceTransformer;
 use App\Models\Heritage\Description;
 use App\Models\Heritage\HeritageResource;
-use App\Models\Heritage\ResourceClassificationType;
-use Illuminate\Support\Facades\DB;
-use App\Exceptions\GeneralException;
+use App\Models\Heritage\HeritageResourceClassificationType;
 use App\Repositories\BaseRepository;
 use Illuminate\Database\Eloquent\Model;
 use App\Events\Backend\Heritage\ResourceCreated;
-use App\Events\Backend\Access\User\UserDeleted;
-use App\Events\Backend\Access\User\UserUpdated;
-use App\Events\Backend\Access\User\UserRestored;
-use App\Events\Backend\Access\User\UserDeactivated;
-use App\Events\Backend\Access\User\UserReactivated;
-use App\Events\Backend\Access\User\UserPasswordChanged;
-use App\Repositories\Backend\Access\Role\RoleRepository;
-use App\Events\Backend\Access\User\UserPermanentlyDeleted;
-use App\Notifications\Frontend\Auth\UserNeedsConfirmation;
-use Sgpatil\Orientphp\Batch\Query;
 use Webpatser\Uuid\Uuid;
 
 /**
@@ -29,11 +17,6 @@ use Webpatser\Uuid\Uuid;
 class ResourceRepository extends BaseRepository
 {
     /**
-     * Associated Repository Model.
-     */
-    const MODEL = HeritageResource::class;
-
-    /**
      * @param int  $status
      * @param bool $trashed
      *
@@ -41,24 +24,25 @@ class ResourceRepository extends BaseRepository
      */
     public function getForDataTable($status = 1, $trashed = false)
     {
-//        $dataTableQuery = $this->query()
-//            ->with(['HasClassificationType']) // .ResourceClassificationType
-//            ->get();
-//            ->carry(['HasClassificationType' => 'ResourceClassificationType'])
-//        $dataTableQuery = HeritageResource::all();
+        $query = $this->entityManager->createQuery("MATCH (r:HeritageResource)-[:HasNote]->(d:Description)
+                RETURN *
+                LIMIT 10")
+            ->addEntityMapping('r', HeritageResource::class)
+//            ->addEntityMapping('t', ResourceTypeClassification::class)
+//            ->addEntityMapping('p', Place::class)
+            ->addEntityMapping('d', Description::class)
+//            ->addEntityMapping('n', Name::class)
+        ;
+        $heritageResources = $query->execute();
 
-        $client = new \Sgpatil\Orientphp\Client("localhost", 2480, "hot");
-        $client->getTransport()
-            ->setAuth("root", "root");
-        $query = new Query($client, "select * from `HeritageResources`", []);
-        $result = $client->executeBatchQuery($query)->getData();
-        dd($result);
+//        $repository = $this->entityManager->getRepository(HeritageResource::class);
+//        $heritageResources = $repository->findAll();
 
-        if ($trashed == 'true') {
-            return $dataTableQuery->onlyTrashed();
-        }
+//        if ($trashed == 'true') {
+//            return $results->onlyTrashed();
+//        }
 
-        return $dataTableQuery;
+        return $heritageResources;
     }
 
     /**
@@ -68,21 +52,14 @@ class ResourceRepository extends BaseRepository
     {
         $data = $input['data'];
 
-        $resourceClassName = self::MODEL;
-        $resource = $resourceClassName::create();
+        $description = new Description();
+        $description->setUuid((string) Uuid::generate(4));
+        $description->setDescription($data['description']);
 
-        $type = ResourceClassificationType::where('uuid', '=', $data['ResourceClassificationType'])->first();
-        $description = Description::create([
-            'uuid' => Uuid::generate(4),
-            'description' => $data['description'],
-        ]);
+        $resource = new HeritageResource($description);
+        $resource->setUuid((string) Uuid::generate(4));
 
-        if ($resource->hasClassificationType()->save($type)) {
-            if ($resource->hasNote()->save($description)) {
-                event(new ResourceCreated($resource));
-            }
-
-            return true;
-        }
+        $this->entityManager->persist($resource);
+        $this->entityManager->flush();
     }
 }

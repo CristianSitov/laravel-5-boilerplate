@@ -2,11 +2,20 @@
 
 namespace App\Repositories;
 
+use GraphAware\Neo4j\OGM\EntityManager;
+
 /**
  * Class BaseRepository.
  */
 class BaseRepository
 {
+    protected $entityManager;
+
+    public function __construct(EntityManager $entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
+
     /**
      * @return mixed
      */

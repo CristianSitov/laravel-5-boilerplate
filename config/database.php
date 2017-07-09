@@ -81,7 +81,13 @@ return [
             'database' => 'hot',
             'username' => 'root',
             'password' => 'root'
-        ]
+        ],
+
+        'neo4j' => env('NEO4J_PROTOCOL').'://'.
+            env('NEO4J_USER').':'.
+            env('NEO4J_PASS').'@'.
+            env('NEO4J_URL').':'.
+            env('NEO4J_PORT'),
     ],
 
     /*

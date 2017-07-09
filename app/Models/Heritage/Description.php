@@ -3,20 +3,71 @@
 namespace App\Models\Heritage;
 
 use App\Models\Heritage\Traits\Columns\Uuids;
+use GraphAware\Neo4j\OGM\Annotations as OGM;
 
-class Description extends \Orientdb
+/**
+ *
+ * @OGM\Node(label="Description")
+ */
+class Description
 {
     use Uuids;
 
-    protected $connection = 'orientdb';
-    protected $table = 'Description';
-    protected $fillable = [
-        'uuid',
-        'description'
-    ];
+    /**
+     * @var int
+     *
+     * @OGM\GraphId()
+     */
+    protected $id;
 
-    public function heritageResource()
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $uuid;
+
+    /**
+     * @var Description[]|Collection
+     */
+    protected $description;
+
+    /**
+     * @return int
+     */
+    public function getId()
     {
-        return $this->belongsTo(HeritageResource::class, HasClassificationType::class);
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUuid()
+    {
+        return $this->uuid;
+    }
+    /**
+     * @param string $uuid
+     */
+    public function setUuid($uuid)
+    {
+        $this->uuid = $uuid;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @return string
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
     }
 }

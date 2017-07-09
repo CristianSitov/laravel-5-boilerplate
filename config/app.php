@@ -186,7 +186,8 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
-        Sgpatil\Orientdb\OrientdbServiceProvider::class,
+//        Sgpatil\Orientdb\OrientdbServiceProvider::class,
+        App\Providers\Neo4jOGMServiceProvider::class,
 
         /*
          * Application Service Providers...

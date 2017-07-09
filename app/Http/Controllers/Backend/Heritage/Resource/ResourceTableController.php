@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Backend\Heritage\Resource;
 
 use App\Http\Controllers\Controller;
+use App\Http\Transformers\HeritageResourceTransformer;
+use League\Fractal;
 use Yajra\Datatables\Facades\Datatables;
 use App\Repositories\Backend\Heritage\ResourceRepository;
 use App\Http\Requests\Backend\Heritage\HeritageResourceRequest;
@@ -32,8 +34,14 @@ class ResourceTableController extends Controller
      */
     public function __invoke(HeritageResourceRequest $request)
     {
-        return Datatables::of($this->resources->getForDataTable($request->get('status'), $request->get('trashed')))
-            ->escapeColumns(['name', 'description'])
+//        $heritageResources = new Fractal\Resource\Collection(
+        $heritageResources = $this->resources->getForDataTable($request->get('status'), $request->get('trashed'));
+//            new HeritageResourceTransformer
+//        );
+        dd($heritageResources);
+
+        return Datatables::of($heritageResources)
+            ->escapeColumns(['uuid', 'description'])
             ->addColumn('actions', function ($resource) {
                 return $resource->action_buttons;
             })

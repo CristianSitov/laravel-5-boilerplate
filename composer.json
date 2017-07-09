@@ -15,11 +15,13 @@
         "creativeorange/gravatar": "~1.0",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
         "graham-campbell/exceptions": "^9.3",
+        "graphaware/neo4j-php-ogm": "@rc",
         "hieu-le/active": "~3.0",
         "laravel/framework": "5.4.*",
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "5.4.*",
+        "league/fractal": "^0.16.0",
         "sgpatil/oriquent": "dev-master",
         "webpatser/laravel-uuid": "^2.0",
         "yajra/laravel-datatables-oracle": "^7.0"

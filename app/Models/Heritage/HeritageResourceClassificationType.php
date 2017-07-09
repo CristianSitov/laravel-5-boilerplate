@@ -4,16 +4,9 @@ namespace App\Models\Heritage;
 
 use App\Models\Heritage\Traits\Columns\Uuids;
 
-class ResourceClassificationType extends \Orientdb
+class HeritageResourceClassificationType
 {
     use Uuids;
-
-    protected $connection = 'orientdb';
-    protected $table = 'ResourceClassificationType';
-    protected $fillable = [
-        'uuid',
-        'type'
-    ];
 
     public function heritageResource()
     {

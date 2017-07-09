@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend\Heritage\Resource;
 
 use App\Http\Controllers\Controller;
 use App\Models\Heritage\HeritageResource;
-use App\Models\Heritage\ResourceClassificationType;
+use App\Models\Heritage\HeritageResourceClassificationType;
 use App\Repositories\Backend\Heritage\ResourceRepository;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -14,16 +14,20 @@ class ResourceController extends Controller
     /**
      * @var ResourceRepository
      */
-    protected $resources;
+    protected $resource;
+
+    /**
+     * @var ResourceRepository
+     */
+    protected $resourceClassificationType;
 
     /**
      * HeritageResource constructor.
      * @param EntityManager $entityManager
      */
-    public function __construct(ResourceRepository $resources, ResourceClassificationType $resourceClassificationType)
+    public function __construct(ResourceRepository $resourceRepository)
     {
-        $this->resources = $resources;
-        $this->resourceClassificationType = $resourceClassificationType;
+        $this->resource = $resourceRepository;
     }
 
     /**
@@ -43,14 +47,14 @@ class ResourceController extends Controller
      */
     public function create()
     {
-        $types = $this->resourceClassificationType
-            ->get()
-            ->mapWithKeys(function ($item) {
-                return [$item->uuid => $item->type];
-            });
+//        $types = $this->resourceClassificationType
+//            ->all()
+//            ->mapWithKeys(function ($item) {
+//                return [$item->uuid => $item->type];
+//            });
 
-        return view('backend.heritage.create')
-            ->withResourceClassificationType($types);
+        return view('backend.heritage.create');
+//            ->withResourceClassificationType($types);
     }
 
     /**
@@ -61,7 +65,7 @@ class ResourceController extends Controller
      */
     public function store(Request $request)
     {
-        $this->resources->create(['data' => $request->all()]);
+        $this->resource->create(['data' => $request->all()]);
 
         return redirect()->route('admin.heritage.resource.index')->withFlashSuccess(trans('alerts.backend.resources.created'));
     }
