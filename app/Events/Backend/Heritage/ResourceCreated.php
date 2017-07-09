@@ -2,6 +2,7 @@
 
 namespace App\Events\Backend\Heritage;
 
+use App\Models\Heritage\Resource;
 use Illuminate\Queue\SerializesModels;
 
 /**
@@ -12,9 +13,9 @@ class ResourceCreated
     use SerializesModels;
 
     /**
-     * @var
+     * @var Resource $resource
      */
-    public $user;
+    public $resource;
 
     /**
      * @param $resource

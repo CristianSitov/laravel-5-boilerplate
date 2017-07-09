@@ -63,5 +63,7 @@ class ResourceRepository extends BaseRepository
         $resource->setDescription($description);
         $this->entityManager->persist($resource);
         $this->entityManager->flush();
+
+        event(new ResourceCreated($resource));
     }
 }
