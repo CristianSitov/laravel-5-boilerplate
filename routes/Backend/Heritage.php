@@ -21,8 +21,17 @@ Route::group([
         Route::group(['namespace' => 'Resource'], function () {
             Route::resource('resource', 'ResourceController');
 
-            //For DataTables
+            // For DataTables
             Route::post('resource/get', 'ResourceTableController')->name('resource.get');
+        });
+        /*
+        * Heritage Resource Classification Type Management
+        */
+        Route::group(['namespace' => 'Resource'], function () {
+            Route::resource('resource/classification', 'ResourceClassificationTypeController');
+
+            // For DataTables
+            // Route::post('resource/get', 'ResourceTableController')->name('resource.get');
         });
     });
 });

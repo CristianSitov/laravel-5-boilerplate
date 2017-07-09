@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Backend\Heritage\Resource;
 
 use App\Http\Controllers\Controller;
-use App\Models\Heritage\HeritageResource;
-use App\Models\Heritage\HeritageResourceClassificationType;
 use App\Repositories\Backend\Heritage\ResourceRepository;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -23,7 +21,8 @@ class ResourceController extends Controller
 
     /**
      * HeritageResource constructor.
-     * @param EntityManager $entityManager
+     *
+     * @param ResourceRepository $resourceRepository
      */
     public function __construct(ResourceRepository $resourceRepository)
     {
