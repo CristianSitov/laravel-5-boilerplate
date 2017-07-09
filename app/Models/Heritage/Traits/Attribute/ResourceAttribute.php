@@ -12,7 +12,7 @@ trait ResourceAttribute
      */
     public function getShowButtonAttribute()
     {
-        return '<a href="'.route('admin.heritage.resource.show', $this).'" class="btn btn-xs btn-info"><i class="fa fa-search" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.general.crud.view').'"></i></a> ';
+        return '<a href="'.route('admin.heritage.resource.show', $this->getId()).'" class="btn btn-xs btn-info"><i class="fa fa-search" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.general.crud.view').'"></i></a> ';
     }
 
     /**
@@ -20,7 +20,7 @@ trait ResourceAttribute
      */
     public function getEditButtonAttribute()
     {
-        return '<a href="'.route('admin.heritage.resource.edit', $this).'" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.general.crud.edit').'"></i></a> ';
+        return '<a href="'.route('admin.heritage.resource.edit', $this->getId()).'" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.general.crud.edit').'"></i></a> ';
     }
 
     /**
@@ -28,8 +28,8 @@ trait ResourceAttribute
      */
     public function getDeleteButtonAttribute()
     {
-        if ($this->id != access()->id() && $this->id != 1) {
-            return '<a href="'.route('admin.heritage.resource.destroy', $this).'"
+        if ($this->getId() != access()->id() && $this->getId() != 1) {
+            return '<a href="'.route('admin.heritage.resource.destroy', $this->getId()).'"
                  data-method="delete"
                  data-trans-button-cancel="'.trans('buttons.general.cancel').'"
                  data-trans-button-confirm="'.trans('buttons.general.crud.delete').'"
