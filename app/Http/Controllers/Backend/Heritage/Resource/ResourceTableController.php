@@ -16,12 +16,12 @@ use App\Http\Requests\Backend\Heritage\HeritageResourceRequest;
 class ResourceTableController extends Controller
 {
     /**
-     * @var UserRepository
+     * @var ResourceRepository
      */
     protected $resources;
 
     /**
-     * @param UserRepository $resources
+     * @param ResourceRepository $resources
      */
     public function __construct(ResourceRepository $resources)
     {
@@ -38,10 +38,7 @@ class ResourceTableController extends Controller
         $heritageResources = $this->resources->getForDataTable($request->get('status'), $request->get('trashed'));
 
         return Datatables::of($heritageResources)
-            ->escapeColumns(['resource_uuid', 'description_description'])
-//            ->addColumn('actions', function ($resource) {
-//                return $resource->action_buttons;
-//            })
+            ->escapeColumns(['uuid', 'description'])
             ->make(true);
     }
 }

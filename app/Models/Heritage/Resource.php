@@ -2,16 +2,20 @@
 
 namespace App\Models\Heritage;
 
+use App\Models\Heritage\Traits\Attribute\ResourceAttribute;
 use Carbon\Carbon;
 use GraphAware\Neo4j\OGM\Annotations as OGM;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Resource
  *
  * @OGM\Node(label="Resource")
  */
-class Resource
+class Resource extends Model
 {
+    use ResourceAttribute;
+
     /**
      * @var int
      *

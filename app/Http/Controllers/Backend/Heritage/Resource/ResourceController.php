@@ -67,7 +67,9 @@ class ResourceController extends Controller
     {
         $this->resource->create(['data' => $request->all()]);
 
-        return redirect()->route('admin.heritage.resource.index')->withFlashSuccess(trans('alerts.backend.resources.created'));
+        return redirect()
+            ->route('admin.heritage.resource.index')
+            ->withFlashSuccess(trans('alerts.backend.resources.created'));
     }
 
     /**

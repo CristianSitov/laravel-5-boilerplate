@@ -36,6 +36,7 @@ class ResourceRepository extends BaseRepository
             $results[$k]['description'] = $resource->getDescription()->getNote();
             $results[$k]['created_at'] = $resource->getCreatedAt();
             $results[$k]['updated_at'] = $resource->getUpdatedAt();
+            $results[$k]['actions'] = $resource->getActionButtonsAttribute();
         }
 
         return $results;
