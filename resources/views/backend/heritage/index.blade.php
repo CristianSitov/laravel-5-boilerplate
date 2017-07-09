@@ -49,7 +49,7 @@
             </div><!-- /.box tools -->
         </div><!-- /.box-header -->
         <div class="box-body">
-            {!! history()->renderType('HeritageResource') !!}
+            {!! history()->renderType('Resource') !!}
         </div><!-- /.box-body -->
     </div><!--box box-success-->
 @endsection

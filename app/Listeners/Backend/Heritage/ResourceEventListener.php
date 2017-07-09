@@ -17,14 +17,13 @@ class ResourceEventListener
      */
     public function onCreated($event)
     {
-        dd($event);
         history()->withType($this->history_slug)
-            ->withEntity($event->user->id)
+            ->withEntity($event->resource->id)
             ->withText('trans("history.backend.resource.created") <strong>{resource}</strong>')
             ->withIcon('plus')
             ->withClass('bg-green')
             ->withAssets([
-                'user_link' => ['admin.access.user.show', $event->user->name, $event->user->id],
+                'user_link' => ['admin.heritage.resource.show', $event->resource->name, $event->resource->id],
             ])
             ->log();
     }
