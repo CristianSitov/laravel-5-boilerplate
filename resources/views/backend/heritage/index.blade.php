@@ -29,11 +29,11 @@
                     <thead>
                     <tr>
                         <th>{{ trans('labels.backend.heritage.resources.table.rid') }}</th>
-                        <th>{{ trans('labels.backend.heritage.resources.table.name') }}</th>
+{{--                        <th>{{ trans('labels.backend.heritage.resources.table.name') }}</th>--}}
                         <th>{{ trans('labels.backend.heritage.resources.table.description') }}</th>
                         <th>{{ trans('labels.backend.heritage.resources.table.created') }}</th>
                         <th>{{ trans('labels.backend.heritage.resources.table.last_updated') }}</th>
-                        <th>{{ trans('labels.general.actions') }}</th>
+{{--                        <th>{{ trans('labels.general.actions') }}</th>--}}
                     </tr>
                     </thead>
                 </table>
@@ -69,12 +69,12 @@
                     data: {status: 1, trashed: false}
                 },
                 columns: [
-                    {data: '@rid', name: '{{config('access.users_table')}}.rid'},
-                    {data: 'name', name: '{{config('access.users_table')}}.name'},
-                    {data: 'description', name: '{{config('access.users_table')}}.description'},
+                    {data: 'resource_uuid', name: '{{config('access.users_table')}}.rid'},
+                    {{--{data: 'name', name: '{{config('access.users_table')}}.name'},--}}
+                    {data: 'description_description', name: '{{config('access.users_table')}}.description'},
                     {data: 'created_at', name: '{{config('access.users_table')}}.created_at'},
                     {data: 'updated_at', name: '{{config('access.users_table')}}.updated_at'},
-                    {data: 'actions', name: 'actions', searchable: false, sortable: false}
+//                    {data: 'actions', name: 'actions', searchable: false, sortable: false}
                 ],
                 order: [[0, "asc"]],
                 searchDelay: 500

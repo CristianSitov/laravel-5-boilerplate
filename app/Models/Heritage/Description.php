@@ -25,12 +25,14 @@ class Description
      *
      * @OGM\Property(type="string")
      */
-    protected $uuid;
+    public $uuid;
 
     /**
-     * @var Description[]|Collection
+     * @var string
+     *
+     * @OGM\Property(type="string")
      */
-    protected $description;
+    public $description;
 
     /**
      * @return int
@@ -64,7 +66,7 @@ class Description
     }
 
     /**
-     * @return string
+     * @param string $description
      */
     public function setDescription($description)
     {

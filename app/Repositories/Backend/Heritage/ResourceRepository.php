@@ -24,25 +24,23 @@ class ResourceRepository extends BaseRepository
      */
     public function getForDataTable($status = 1, $trashed = false)
     {
-        $query = $this->entityManager->createQuery("MATCH (r:HeritageResource)-[:HasNote]->(d:Description)
-                RETURN *
-                LIMIT 10")
-            ->addEntityMapping('r', HeritageResource::class)
-//            ->addEntityMapping('t', ResourceTypeClassification::class)
-//            ->addEntityMapping('p', Place::class)
-            ->addEntityMapping('d', Description::class)
-//            ->addEntityMapping('n', Name::class)
+        $query = $this->entityManager
+            ->createQuery("MATCH (resource:HeritageResource)-[:HasNote]->(description:Description) RETURN *")
+//            ->addEntityMapping('resource', HeritageResource::class)
+//            ->addEntityMapping('description', Description::class, \GraphAware\Neo4j\OGM\Query::HYDRATE_RAW)
         ;
         $heritageResources = $query->execute();
 
-//        $repository = $this->entityManager->getRepository(HeritageResource::class);
-//        $heritageResources = $repository->findAll();
+        $results = [];
+        foreach ($heritageResources as $k => $resource) {
+            foreach ($resource as $i => $component) {
+                foreach($component->values() as $j => $value) {
+                    $results[$k][$i."_".$j] = $value;
+                }
+            }
+        }
 
-//        if ($trashed == 'true') {
-//            return $results->onlyTrashed();
-//        }
-
-        return $heritageResources;
+        return $results;
     }
 
     /**

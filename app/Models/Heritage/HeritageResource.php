@@ -26,14 +26,14 @@ class HeritageResource
      *
      * @OGM\Property(type="string")
      */
-    protected $uuid;
+    public $uuid;
 
     /**
-     * @var Description[]
+     * @var Description
      *
-     * @OGM\Relationship(type="HasNote", direction="OUTGOING", collection=false, mappedBy="description", targetEntity="Description")
+     * @OGM\Relationship(type="HasNote", direction="OUTGOING", collection=false, mappedBy="resource", targetEntity="Description")
      */
-    protected $description;
+    public $description;
 
     public function __construct(Description $description)
     {
@@ -64,7 +64,7 @@ class HeritageResource
     }
 
     /**
-     * @return Description[]
+     * @return Description[]|Collection
      */
     public function getDescription()
     {
@@ -72,7 +72,7 @@ class HeritageResource
     }
 
     /**
-     * @param Description[]
+     * @param Description $description
      */
     public function setDescription($description)
     {

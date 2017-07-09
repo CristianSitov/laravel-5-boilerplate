@@ -7,12 +7,5 @@ use App\Models\Heritage\HeritageResource;
 
 class HeritageResourceTransformer extends TransformerAbstract
 {
-    public function transform(HeritageResource $heritageResource)
-    {
-        return [
-            'id' => (int) $heritageResource->getId(),
-            'uuid' => (string) $heritageResource->getUuid(),
-            'description' => (string) $heritageResource->getDescription(),
-        ];
-    }
+    public function transform() {}
 }
