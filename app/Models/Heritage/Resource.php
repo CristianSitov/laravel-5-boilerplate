@@ -2,17 +2,16 @@
 
 namespace App\Models\Heritage;
 
-use App\Models\Heritage\Traits\Columns\Uuids;
+use Carbon\Carbon;
 use GraphAware\Neo4j\OGM\Annotations as OGM;
 
 /**
+ * Class Resource
  *
- * @OGM\Node(label="Description")
+ * @OGM\Node(label="Resource")
  */
-class Description
+class Resource
 {
-    use Uuids;
-
     /**
      * @var int
      *
@@ -26,13 +25,6 @@ class Description
      * @OGM\Property(type="string")
      */
     protected $uuid;
-
-    /**
-     * @var string
-     *
-     * @OGM\Property(type="string")
-     */
-    protected $note;
 
     /**
      * @var \DateTime
@@ -51,16 +43,11 @@ class Description
     protected $updated_at;
 
     /**
-     * @var Resource
+     * @var Description
      *
-     * @OGM\Relationship(type="HasNote", direction="INCOMING", targetEntity="HeritageResource", mappedBy="description")
+     * @OGM\Relationship(type="HasNote", direction="OUTGOING", targetEntity="Description", mappedBy="resource")
      */
-    protected $resource;
-
-    public function __construct(Resource $resource = null)
-    {
-        $this->resource = $resource;
-    }
+    protected $description;
 
     /**
      * @return int
@@ -86,11 +73,11 @@ class Description
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
     public function getCreatedAt()
     {
-        return $this->created_at;
+        return Carbon::instance($this->created_at)->toDateTimeString();
     }
     /**
      * @param \DateTime $created_at
@@ -101,11 +88,11 @@ class Description
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
     public function getUpdatedAt()
     {
-        return $this->updated_at;
+        return Carbon::instance($this->updated_at)->toDateTimeString();
     }
     /**
      * @param \DateTime $updated_at
@@ -116,34 +103,18 @@ class Description
     }
 
     /**
-     * @return string
+     * @return Description
      */
-    public function getNote()
+    public function getDescription()
     {
-        return $this->note;
+        return $this->description;
     }
 
     /**
-     * @param string $note
+     * @param Description $description
      */
-    public function setNote($note)
+    public function setDescription($description)
     {
-        $this->note = $note;
-    }
-
-    /**
-     * @return Resource
-     */
-    public function getResource()
-    {
-        return $this->resource;
-    }
-
-    /**
-     * @param Resource $resource
-     */
-    public function setResource($resource)
-    {
-        $this->resource = $resource;
+        $this->description = $description;
     }
 }

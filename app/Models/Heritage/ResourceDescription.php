@@ -8,7 +8,7 @@ use GraphAware\Neo4j\OGM\Annotations as OGM;
  *
  * @OGM\RelationshipEntity(type="HasNote")
  */
-class HasNote
+class ResourceDescription
 {
     /**
      * @var int
@@ -35,5 +35,21 @@ class HasNote
     {
         $this->resource = $resource;
         $this->description = $description;
+    }
+
+    /**
+     * @return HeritageResource
+     */
+    public function getResource()
+    {
+        return $this->resource;
+    }
+
+    /**
+     * @return Description
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }

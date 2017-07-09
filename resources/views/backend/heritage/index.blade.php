@@ -69,9 +69,9 @@
                     data: {status: 1, trashed: false}
                 },
                 columns: [
-                    {data: 'resource_uuid', name: '{{config('access.users_table')}}.rid'},
+                    {data: 'uuid', name: '{{config('access.users_table')}}.rid'},
                     {{--{data: 'name', name: '{{config('access.users_table')}}.name'},--}}
-                    {data: 'description_description', name: '{{config('access.users_table')}}.description'},
+                    {data: 'description', name: '{{config('access.users_table')}}.description'},
                     {data: 'created_at', name: '{{config('access.users_table')}}.created_at'},
                     {data: 'updated_at', name: '{{config('access.users_table')}}.updated_at'},
 //                    {data: 'actions', name: 'actions', searchable: false, sortable: false}
