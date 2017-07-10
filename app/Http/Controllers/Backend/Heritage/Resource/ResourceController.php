@@ -70,7 +70,7 @@ class ResourceController extends Controller
      */
     public function store(Request $request)
     {
-        $this->resource->create(['data' => $request->all()]);
+        $this->resourceRepository->create(['data' => $request->all()]);
 
         return redirect()
             ->route('admin.heritage.resource.index')

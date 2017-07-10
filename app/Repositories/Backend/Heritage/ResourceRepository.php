@@ -7,7 +7,6 @@ use App\Models\Heritage\Description;
 use App\Models\Heritage\Resource;
 use App\Models\Heritage\ResourceClassificationType;
 use App\Repositories\BaseRepository;
-use Illuminate\Database\Eloquent\Model;
 use GraphAware\Neo4j\OGM\EntityManager;
 use Webpatser\Uuid\Uuid;
 
@@ -16,6 +15,8 @@ use Webpatser\Uuid\Uuid;
  */
 class ResourceRepository extends BaseRepository
 {
+    protected $resourceRepository;
+
     public function __construct(EntityManager $entityManager)
     {
         $this->entityManager = $entityManager;
@@ -48,7 +49,7 @@ class ResourceRepository extends BaseRepository
     }
 
     /**
-     * @param Model $input
+     * @param array $input
      */
     public function create($input)
     {
@@ -65,7 +66,11 @@ class ResourceRepository extends BaseRepository
         $description->setCreatedAt(new \DateTime());
         $description->setUpdatedAt(new \DateTime());
 
+        $classificationType = $this->entityManager->find(ResourceClassificationType::class, $data['type']);
+
         $resource->setDescription($description);
+        $resource->setClassificationType($classificationType);
+
         $this->entityManager->persist($resource);
         $this->entityManager->flush();
 

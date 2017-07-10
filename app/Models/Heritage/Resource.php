@@ -54,6 +54,13 @@ class Resource extends Model
     protected $description;
 
     /**
+     * @var ResourceClassificationType
+     *
+     * @OGM\Relationship(type="HasClassificationType", direction="OUTGOING", targetEntity="ResourceClassificationType", mappedBy="resource")
+     */
+    protected $classification_type;
+
+    /**
      * @return int
      */
     public function getId()
@@ -120,5 +127,21 @@ class Resource extends Model
     public function setDescription($description)
     {
         $this->description = $description;
+    }
+
+    /**
+     * @return ResourceClassificationType
+     */
+    public function getClassificationType()
+    {
+        return $this->classification_type;
+    }
+
+    /**
+     * @param ResourceClassificationType $classification_type
+     */
+    public function setClassificationType($classification_type)
+    {
+        $this->classification_type = $classification_type;
     }
 }
