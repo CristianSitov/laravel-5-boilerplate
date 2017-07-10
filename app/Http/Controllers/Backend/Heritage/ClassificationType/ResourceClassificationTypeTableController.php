@@ -19,14 +19,14 @@ class ResourceClassificationTypeTableController extends Controller
     /**
      * @var ResourceRepository
      */
-    protected $resourceClassificationType;
+    protected $resourceClassificationTypeRepository;
 
     /**
      * @param ResourceClassificationTypeRepository $resourceClassificationType
      */
-    public function __construct(ResourceClassificationTypeRepository $resourceClassificationType)
+    public function __construct(ResourceClassificationTypeRepository $resourceClassificationTypeRepository)
     {
-        $this->resourceClassificationType = $resourceClassificationType;
+        $this->resourceClassificationTypeRepository = $resourceClassificationTypeRepository;
     }
 
     /**
@@ -36,7 +36,7 @@ class ResourceClassificationTypeTableController extends Controller
      */
     public function __invoke(HeritageResourceRequest $request)
     {
-        $resourceClassificationTypes = $this->resourceClassificationType
+        $resourceClassificationTypes = $this->resourceClassificationTypeRepository
             ->getForDataTable($request->get('status'), $request->get('trashed'));
 
         return Datatables::of($resourceClassificationTypes)

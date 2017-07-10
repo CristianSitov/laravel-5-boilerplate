@@ -2,13 +2,13 @@
 
 namespace App\Repositories\Backend\Heritage;
 
-use App\Http\Transformers\HeritageResourceTransformer;
+use App\Events\Backend\Heritage\ResourceCreated;
 use App\Models\Heritage\Description;
 use App\Models\Heritage\Resource;
-use App\Models\Heritage\HeritageResourceClassificationType;
+use App\Models\Heritage\ResourceClassificationType;
 use App\Repositories\BaseRepository;
 use Illuminate\Database\Eloquent\Model;
-use App\Events\Backend\Heritage\ResourceCreated;
+use GraphAware\Neo4j\OGM\EntityManager;
 use Webpatser\Uuid\Uuid;
 
 /**
@@ -16,6 +16,12 @@ use Webpatser\Uuid\Uuid;
  */
 class ResourceRepository extends BaseRepository
 {
+    public function __construct(EntityManager $entityManager)
+    {
+        $this->entityManager = $entityManager;
+        $this->model = $this->entityManager->getRepository(Resource::class);
+    }
+
     /**
      * @param int  $status
      * @param bool $trashed
@@ -27,8 +33,7 @@ class ResourceRepository extends BaseRepository
 //        $query = $this->entityManager
 //            ->createQuery("MATCH (resource:HeritageResource)-[:HasNote]->(description:Description) RETURN *");
 //        $heritageResources = $query->execute();
-        $resourceRepository = $this->entityManager->getRepository(Resource::class);
-        $resources = $resourceRepository->findAll();
+        $resources = $this->model->findAll();
 
         $results = [];
         foreach ($resources as $k => $resource) {

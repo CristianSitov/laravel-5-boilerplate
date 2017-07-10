@@ -4,6 +4,7 @@ namespace App\Repositories\Backend\Heritage;
 
 use App\Models\Heritage\ResourceClassificationType;
 use App\Repositories\BaseRepository;
+use GraphAware\Neo4j\OGM\EntityManager;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -20,6 +21,12 @@ class ResourceClassificationTypeRepository extends BaseRepository
      * n.type = row.type,
      * n.published = toBoolean(row.published)
      */
+    public function __construct(EntityManager $entityManager)
+    {
+        $this->entityManager = $entityManager;
+        $this->model = $this->entityManager->getRepository(ResourceClassificationType::class);
+    }
+
     /**
      * @param int  $status
      * @param bool $trashed
@@ -28,8 +35,8 @@ class ResourceClassificationTypeRepository extends BaseRepository
      */
     public function getForDataTable($status = 1, $trashed = false)
     {
-        $resourceClassificationTypeRepository = $this->entityManager->getRepository(ResourceClassificationType::class);
-        $classificationTypes = $resourceClassificationTypeRepository->findAll();
+//        $resourceClassificationTypeRepository = $this->entityManager->getRepository(ResourceClassificationType::class);
+        $classificationTypes = $this->model->findAll();
 
         $results = [];
         foreach ($classificationTypes as $k => $classificationType) {
