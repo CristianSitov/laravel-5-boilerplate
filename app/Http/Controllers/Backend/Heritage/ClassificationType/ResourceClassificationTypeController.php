@@ -1,32 +1,28 @@
 <?php
 
-namespace App\Http\Controllers\Backend\Heritage\Resource;
+namespace App\Http\Controllers\Backend\Heritage\ClassificationType;
 
 use App\Http\Controllers\Controller;
+use App\Repositories\Backend\Heritage\ResourceClassificationTypeRepository;
 use App\Repositories\Backend\Heritage\ResourceRepository;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
-class ResourceController extends Controller
+class ResourceClassificationTypeController extends Controller
 {
-    /**
-     * @var ResourceRepository
-     */
-    protected $resource;
-
     /**
      * @var ResourceRepository
      */
     protected $resourceClassificationType;
 
     /**
-     * HeritageResource constructor.
+     * Heritage Resource Classification Type constructor.
      *
-     * @param ResourceRepository $resourceRepository
+     * @param ResourceClassificationTypeRepository $resourceClassificationTypeRepository
      */
-    public function __construct(ResourceRepository $resourceRepository)
+    public function __construct(ResourceClassificationTypeRepository $resourceClassificationTypeRepository)
     {
-        $this->resource = $resourceRepository;
+        $this->resourceClassificationType = $resourceClassificationTypeRepository;
     }
 
     /**
@@ -36,7 +32,7 @@ class ResourceController extends Controller
      */
     public function index()
     {
-        return view('backend.heritage.resource.index');
+        return view('backend.heritage.classification_type.index');
     }
 
     /**
@@ -46,14 +42,14 @@ class ResourceController extends Controller
      */
     public function create()
     {
-//        $types = $this->resourceClassificationType
-//            ->all()
+        $types = $this->resourceClassificationType
+            ->all();
 //            ->mapWithKeys(function ($item) {
 //                return [$item->uuid => $item->type];
 //            });
 
-        return view('backend.heritage.resource.create');
-//            ->withResourceClassificationType($types);
+        return view('backend.heritage.classification_type.create')
+            ->withResourceClassificationType($types);
     }
 
     /**
@@ -64,7 +60,7 @@ class ResourceController extends Controller
      */
     public function store(Request $request)
     {
-        $this->resource->create(['data' => $request->all()]);
+        $this->resourceClassificationType->create(['data' => $request->all()]);
 
         return redirect()
             ->route('admin.heritage.resource.index')

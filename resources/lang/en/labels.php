@@ -105,12 +105,26 @@ return [
                 'management' => 'Resource Management',
 
                 'table' => [
-                    'confirmed'      => 'Confirmed',
-                    'created'        => 'Created',
-                    'rid'            => 'ID',
+                    'id'             => 'ID',
                     'name'           => 'Name',
                     'description'    => 'Description',
+                    'created'        => 'Created',
                     'last_updated'   => 'Last Updated',
+                    'confirmed'      => 'Confirmed',
+                ],
+            ],
+            'classification' => [
+                'list'      => 'Types list',
+                'create'     => 'Create type',
+                'management' => 'Type Management',
+
+                'table' => [
+                    'id'             => 'ID',
+                    'type_set'       => 'Set',
+                    'type'           => 'Type',
+                    'published'      => 'Published',
+                    'created'        => 'Created',
+                    'updated'        => 'Updated',
                 ],
             ]
         ]

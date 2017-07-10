@@ -49,8 +49,14 @@
                 <ul class="treeview-menu {{ active_class(Active::checkUriPattern('admin/heritage/*'), 'menu-open') }}" style="display: none; {{ active_class(Active::checkUriPattern('admin/heritage/*'), 'display: block;') }}">
                     <li class="{{ active_class(Active::checkUriPattern('admin/heritage/resource*')) }}">
                         <a href="{{ route('admin.heritage.resource.index') }}">
-                            <i class="fa fa-dashboard"></i>
+                            <i class="fa fa-bank"></i>
                             <span>{{ trans('menus.backend.heritage.resources.management') }}</span>
+                        </a>
+                    </li>
+                    <li class="{{ active_class(Active::checkUriPattern('admin/heritage/classification-type/*')) }}">
+                        <a href="{{ route('admin.heritage.classification-type.index') }}">
+                            <i class="fa fa-file-o"></i>
+                            <span>{{ trans('menus.backend.heritage.classification.management') }}</span>
                         </a>
                     </li>
                 </ul>

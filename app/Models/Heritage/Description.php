@@ -53,7 +53,7 @@ class Description
     /**
      * @var Resource
      *
-     * @OGM\Relationship(type="HasNote", direction="INCOMING", targetEntity="HeritageResource", mappedBy="description")
+     * @OGM\Relationship(type="HasNote", direction="INCOMING", targetEntity="Resource", mappedBy="description")
      */
     protected $resource;
 

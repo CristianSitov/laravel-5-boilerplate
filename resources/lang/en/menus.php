@@ -46,6 +46,10 @@ return [
                 'create'          => 'Create Resource',
                 'main'            => 'Heritage Resources',
             ],
+
+            'classification' => [
+                'management'      => 'Type Management',
+            ]
         ],
 
         'log-viewer' => [
