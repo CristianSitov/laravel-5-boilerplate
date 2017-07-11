@@ -53,10 +53,10 @@
                             <span>{{ trans('menus.backend.heritage.resources.management') }}</span>
                         </a>
                     </li>
-                    <li class="{{ active_class(Active::checkUriPattern('admin/heritage/classification-type/*')) }}">
-                        <a href="{{ route('admin.heritage.classification-type.index') }}">
+                    <li class="{{ active_class(Active::checkUriPattern('admin/heritage/resource-type-classification/*')) }}">
+                        <a href="{{ route('admin.heritage.resource-type-classification.index') }}">
                             <i class="fa fa-file-o"></i>
-                            <span>{{ trans('menus.backend.heritage.classification.management') }}</span>
+                            <span>{{ trans('menus.backend.heritage.resource_type_classification.management') }}</span>
                         </a>
                     </li>
                 </ul>

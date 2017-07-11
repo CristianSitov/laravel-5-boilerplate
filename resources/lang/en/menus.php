@@ -47,7 +47,7 @@ return [
                 'main'            => 'Heritage Resources',
             ],
 
-            'classification' => [
+            'resource_type_classification' => [
                 'management'      => 'Type Management',
             ]
         ],

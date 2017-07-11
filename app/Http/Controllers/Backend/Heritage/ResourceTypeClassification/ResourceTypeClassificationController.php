@@ -1,28 +1,28 @@
 <?php
 
-namespace App\Http\Controllers\Backend\Heritage\ClassificationType;
+namespace App\Http\Controllers\Backend\Heritage\ResourceTypeClassification;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\Backend\Heritage\ResourceClassificationTypeRepository;
+use App\Repositories\Backend\Heritage\ResourceTypeClassificationRepository;
 use App\Repositories\Backend\Heritage\ResourceRepository;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
-class ResourceClassificationTypeController extends Controller
+class ResourceTypeClassificationController extends Controller
 {
     /**
      * @var ResourceRepository
      */
-    protected $resourceClassificationType;
+    protected $resourceTypeClassification;
 
     /**
-     * Heritage Resource Classification Type constructor.
+     * Heritage Resource Type Classification constructor.
      *
-     * @param ResourceClassificationTypeRepository $resourceClassificationTypeRepository
+     * @param ResourceTypeClassificationRepository $resourceTypeClassificationRepository
      */
-    public function __construct(ResourceClassificationTypeRepository $resourceClassificationTypeRepository)
+    public function __construct(ResourceTypeClassificationRepository $resourceTypeClassificationRepository)
     {
-        $this->resourceClassificationType = $resourceClassificationTypeRepository;
+        $this->resourceTypeClassification = $resourceTypeClassificationRepository;
     }
 
     /**
@@ -32,7 +32,7 @@ class ResourceClassificationTypeController extends Controller
      */
     public function index()
     {
-        return view('backend.heritage.classification_type.index');
+        return view('backend.heritage.resource_type_classification.index');
     }
 
     /**
@@ -42,14 +42,14 @@ class ResourceClassificationTypeController extends Controller
      */
     public function create()
     {
-        $types = $this->resourceClassificationType
+        $types = $this->resourceTypeClassification
             ->all();
 //            ->mapWithKeys(function ($item) {
 //                return [$item->uuid => $item->type];
 //            });
 
-        return view('backend.heritage.classification_type.create')
-            ->withResourceClassificationType($types);
+        return view('backend.heritage.resource_type_classification.create')
+            ->withResourceTypeClassifications($types);
     }
 
     /**
@@ -60,7 +60,7 @@ class ResourceClassificationTypeController extends Controller
      */
     public function store(Request $request)
     {
-        $this->resourceClassificationType->create(['data' => $request->all()]);
+        $this->resourceTypeClassification->create(['data' => $request->all()]);
 
         return redirect()
             ->route('admin.heritage.resource.index')

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Backend\Heritage\Resource;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\Heritage\HeritageResourceRequest;
 use App\Models\Heritage\Resource;
-use App\Repositories\Backend\Heritage\ResourceClassificationTypeRepository;
+use App\Repositories\Backend\Heritage\ResourceTypeClassificationRepository;
 use App\Repositories\Backend\Heritage\ResourceRepository;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -18,20 +18,21 @@ class ResourceController extends Controller
     protected $resourceRepository;
 
     /**
-     * @var ResourceClassificationTypeRepository
+     * @var ResourceTypeClassificationRepository
      */
-    protected $resourceClassificationTypeRepository;
+    protected $resourceTypeClassificationRepository;
 
     /**
      * HeritageResource constructor.
      *
      * @param ResourceRepository $resourceRepository
+     * @param ResourceRepository $resourceRepository
      */
     public function __construct(ResourceRepository $resourceRepository,
-                                ResourceClassificationTypeRepository $resourceClassificationTypeRepository)
+                                ResourceTypeClassificationRepository $resourceTypeClassificationRepository)
     {
         $this->resourceRepository = $resourceRepository;
-        $this->resourceClassificationTypeRepository = $resourceClassificationTypeRepository;
+        $this->resourceTypeClassificationRepository = $resourceTypeClassificationRepository;
     }
 
     /**
@@ -51,17 +52,13 @@ class ResourceController extends Controller
      */
     public function create()
     {
-        $resourceClassificationTypes = collect($this->resourceClassificationTypeRepository->model->findAll())
+        $resourceTypeClassifications = collect($this->resourceTypeClassificationRepository->model->findAll())
             ->mapWithKeys(function ($item) {
-                return [$item->getId() => [
-                    'id' => $item->getId(),
-                    'type_set' => $item->getTypeSet(),
-                    'type' => $item->getType(),
-                ]];
+                return [$item->getId() => $item->getType()];
             });
 
         return view('backend.heritage.resource.create')
-            ->withResourceClassificationTypes($resourceClassificationTypes);
+            ->withResourceTypeClassifications($resourceTypeClassifications);
     }
 
     /**
@@ -102,7 +99,7 @@ class ResourceController extends Controller
     {
         $resource = $this->resourceRepository->model->find($resource_id);
 
-        $resourceClassificationTypes = collect($this->resourceClassificationTypeRepository->model->findAll())
+        $resourceTypeClassifications = collect($this->resourceTypeClassificationRepository->model->findAll())
             ->mapWithKeys(function ($item) {
                 return [$item->getId() => [
                     'id' => $item->getId(),
@@ -112,7 +109,7 @@ class ResourceController extends Controller
             });
 
         return view('backend.heritage.resource.edit')
-            ->withResourceClassificationTypes($resourceClassificationTypes)
+            ->withResourceTypeClassifications($resourceTypeClassifications)
             ->withResource($resource);
     }
 

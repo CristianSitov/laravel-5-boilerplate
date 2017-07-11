@@ -9,9 +9,9 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  *
- * @OGM\Node(label="ResourceClassificationType")
+ * @OGM\Node(label="ResourceTypeClassification")
  */
-class ResourceClassificationType extends Model
+class ResourceTypeClassification extends Model
 {
     use ResourceAttribute;
 
@@ -76,7 +76,7 @@ class ResourceClassificationType extends Model
     /**
      * @var Resource
      *
-     * @OGM\Relationship(type="HasClassificationType", direction="OUTGOING", targetEntity="Resource", mappedBy="resourceClassificationType")
+     * @OGM\Relationship(type="HasResourceTypeClassification", direction="OUTGOING", targetEntity="Resource", mappedBy="resourceTypeClassification")
      */
     protected $resource;
 

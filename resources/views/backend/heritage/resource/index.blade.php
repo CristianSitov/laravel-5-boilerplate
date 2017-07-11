@@ -29,7 +29,7 @@
                     <thead>
                     <tr>
                         <th>{{ trans('labels.backend.heritage.resources.table.id') }}</th>
-                        {{--<th>{{ trans('labels.backend.heritage.resources.table.name') }}</th>--}}
+                        <th>{{ trans('labels.backend.heritage.resources.table.resource_type_classification') }}</th>
                         <th>{{ trans('labels.backend.heritage.resources.table.description') }}</th>
                         <th>{{ trans('labels.backend.heritage.resources.table.created') }}</th>
                         <th>{{ trans('labels.backend.heritage.resources.table.last_updated') }}</th>
@@ -69,8 +69,10 @@
                     data: {status: 1, trashed: false}
                 },
                 columns: [
-                    {data: 'uuid', name: 'resources.uuid'},
-                    // {data: 'name', name: 'resources.name'},
+                    {data: 'uuid', name: 'resources.uuid', render: function ( data, type, full, meta ) {
+                        return '<small>' + data + '<small>';
+                    }, width: 300},
+                    {data: 'resource_type_classification', name: 'resources.resource_type_classification'},
                     {data: 'description', name: 'resources.description'},
                     {data: 'created_at', name: 'resources.created_at'},
                     {data: 'updated_at', name: 'resources.updated_at'},

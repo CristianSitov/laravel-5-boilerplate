@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Backend\Heritage\ClassificationType;
+namespace App\Http\Controllers\Backend\Heritage\ResourceTypeClassification;
 
 use App\Http\Controllers\Controller;
 use App\Http\Transformers\HeritageResourceTransformer;
-use App\Repositories\Backend\Heritage\ResourceClassificationTypeRepository;
+use App\Repositories\Backend\Heritage\ResourceTypeClassificationRepository;
 use GraphAware\Bolt\Result\Type\Node;
 use League\Fractal;
 use Yajra\Datatables\Facades\Datatables;
@@ -14,19 +14,19 @@ use App\Http\Requests\Backend\Heritage\HeritageResourceRequest;
 /**
  * Class ResourceTableController.
  */
-class ResourceClassificationTypeTableController extends Controller
+class ResourceTypeClassificationTableController extends Controller
 {
     /**
      * @var ResourceRepository
      */
-    protected $resourceClassificationTypeRepository;
+    protected $resourceTypeClassificationRepository;
 
     /**
-     * @param ResourceClassificationTypeRepository $resourceClassificationType
+     * @param ResourceTypeClassificationRepository $resourceClassificationType
      */
-    public function __construct(ResourceClassificationTypeRepository $resourceClassificationTypeRepository)
+    public function __construct(ResourceTypeClassificationRepository $resourceTypeClassificationRepository)
     {
-        $this->resourceClassificationTypeRepository = $resourceClassificationTypeRepository;
+        $this->resourceTypeClassificationRepository = $resourceTypeClassificationRepository;
     }
 
     /**
@@ -36,10 +36,10 @@ class ResourceClassificationTypeTableController extends Controller
      */
     public function __invoke(HeritageResourceRequest $request)
     {
-        $resourceClassificationTypes = $this->resourceClassificationTypeRepository
+        $resourceTypeClassifications = $this->resourceTypeClassificationRepository
             ->getForDataTable($request->get('status'), $request->get('trashed'));
 
-        return Datatables::of($resourceClassificationTypes)
+        return Datatables::of($resourceTypeClassifications)
             ->escapeColumns(['type_set', 'type'])
             ->make(true);
     }

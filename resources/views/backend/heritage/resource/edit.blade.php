@@ -26,7 +26,7 @@
                     {{ Form::label('type', trans('validation.attributes.backend.heritage.resources.type'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-10">
-                        {{ Form::selectOpt($resource_classification_types, 'type', 'type_set', 'type', 'id', $resource->getResourceClassificationType()->getId(), ['required']) }}
+                        {{ Form::selectOpt($resource_type_classifications, 'type', 'type_set', 'type', 'id', $resource->getResourceTypeClassification()->getId(), ['required']) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
 

@@ -8,8 +8,8 @@
 
 @section('page-header')
     <h1>
-        {{ trans('labels.backend.heritage.classification.management') }}
-        <small>{{ trans('labels.backend.heritage.classification.list') }}</small>
+        {{ trans('labels.backend.heritage.resource_type_classification.management') }}
+        <small>{{ trans('labels.backend.heritage.resource_type_classification.list') }}</small>
     </h1>
 @endsection
 
@@ -28,12 +28,11 @@
                 <table id="resources-table" class="table table-condensed table-hover">
                     <thead>
                     <tr>
-                        <th>{{ trans('labels.backend.heritage.classification.table.id') }}</th>
-                        <th>{{ trans('labels.backend.heritage.classification.table.type_set') }}</th>
-                        <th>{{ trans('labels.backend.heritage.classification.table.type') }}</th>
-                        <th>{{ trans('labels.backend.heritage.classification.table.published') }}</th>
-                        <th>{{ trans('labels.backend.heritage.classification.table.created') }}</th>
-                        <th>{{ trans('labels.backend.heritage.classification.table.updated') }}</th>
+                        <th>{{ trans('labels.backend.heritage.resource_type_classification.table.id') }}</th>
+                        <th>{{ trans('labels.backend.heritage.resource_type_classification.table.uuid') }}</th>
+                        <th>{{ trans('labels.backend.heritage.resource_type_classification.table.type') }}</th>
+                        <th>{{ trans('labels.backend.heritage.resource_type_classification.table.created') }}</th>
+                        <th>{{ trans('labels.backend.heritage.resource_type_classification.table.updated') }}</th>
                         <th>{{ trans('labels.general.actions') }}</th>
                     </tr>
                     </thead>
@@ -50,7 +49,7 @@
             </div><!-- /.box tools -->
         </div><!-- /.box-header -->
         <div class="box-body">
-            {!! history()->renderType('Classification') !!}
+            {!! history()->renderType('ResourceTypeClassification') !!}
         </div><!-- /.box-body -->
     </div><!--box box-success-->
 @endsection
@@ -65,17 +64,16 @@
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: '{{ route("admin.heritage.classification-type.get") }}',
+                    url: '{{ route("admin.heritage.resource-type-classification.get") }}',
                     type: 'post',
                     data: {status: 1, trashed: false}
                 },
                 columns: [
-                    {data: 'id', name: 'classification.id'},
-                    {data: 'type_set', name: 'classification.type_set'},
-                    {data: 'type', name: 'classification.type'},
-                    {data: 'published', name: 'classification.published'},
-                    {data: 'created_at', name: 'classification.created_at'},
-                    {data: 'updated_at', name: 'classification.updated_at'},
+                    {data: 'id', name: 'resource_type_classification.id'},
+                    {data: 'type_set', name: 'resource_type_classification.uuid'},
+                    {data: 'type', name: 'resource_type_classification.type'},
+                    {data: 'created_at', name: 'resource_type_classification.created_at'},
+                    {data: 'updated_at', name: 'resource_type_classification.updated_at'},
                     {data: 'actions', name: 'actions', searchable: false, sortable: false}
                 ],
                 order: [[0, "asc"]],

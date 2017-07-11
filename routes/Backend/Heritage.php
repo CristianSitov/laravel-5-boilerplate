@@ -28,12 +28,12 @@ Route::group([
         /*
         * Heritage Resource Classification Type Management
         */
-        Route::group(['namespace' => 'ClassificationType'], function () {
-            Route::resource('classification-type', 'ResourceClassificationTypeController');
+        Route::group(['namespace' => 'ResourceTypeClassification'], function () {
+            Route::resource('resource-type-classification', 'ResourceTypeClassificationController');
 
             // For DataTables
-             Route::post('classification-type/get', 'ResourceClassificationTypeTableController')
-                 ->name('classification-type.get');
+             Route::post('resource-type-classification/get', 'ResourceTypeClassificationTableController')
+                 ->name('resource-type-classification.get');
         });
     });
 });
