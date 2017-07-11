@@ -101,11 +101,7 @@ class ResourceController extends Controller
 
         $resourceTypeClassifications = collect($this->resourceTypeClassificationRepository->model->findAll())
             ->mapWithKeys(function ($item) {
-                return [$item->getId() => [
-                    'id' => $item->getId(),
-                    'type_set' => $item->getTypeSet(),
-                    'type' => $item->getType(),
-                ]];
+                return [$item->getId() =>  $item->getType()];
             });
 
         return view('backend.heritage.resource.edit')
