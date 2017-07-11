@@ -3,6 +3,7 @@
 namespace App\Repositories\Backend\Heritage;
 
 use App\Events\Backend\Heritage\ResourceCreated;
+use App\Events\Backend\Heritage\ResourceUpdated;
 use App\Models\Heritage\Description;
 use App\Models\Heritage\Resource;
 use App\Models\Heritage\ResourceClassificationType;
@@ -15,8 +16,6 @@ use Webpatser\Uuid\Uuid;
  */
 class ResourceRepository extends BaseRepository
 {
-    protected $resourceRepository;
-
     public function __construct(EntityManager $entityManager)
     {
         $this->entityManager = $entityManager;
@@ -24,7 +23,7 @@ class ResourceRepository extends BaseRepository
     }
 
     /**
-     * @param int  $status
+     * @param int $status
      * @param bool $trashed
      *
      * @return mixed
@@ -56,12 +55,12 @@ class ResourceRepository extends BaseRepository
         $data = $input['data'];
 
         $resource = new Resource();
-        $resource->setUuid((string) Uuid::generate(4));
+        $resource->setUuid((string)Uuid::generate(4));
         $resource->setCreatedAt(new \DateTime());
         $resource->setUpdatedAt(new \DateTime());
 
         $description = new Description($resource);
-        $description->setUuid((string) Uuid::generate(4));
+        $description->setUuid((string)Uuid::generate(4));
         $description->setNote($data['description']);
         $description->setCreatedAt(new \DateTime());
         $description->setUpdatedAt(new \DateTime());
@@ -69,11 +68,37 @@ class ResourceRepository extends BaseRepository
         $classificationType = $this->entityManager->find(ResourceClassificationType::class, $data['type']);
 
         $resource->setDescription($description);
-        $resource->setClassificationType($classificationType);
+        $resource->setResourceClassificationType($classificationType);
 
         $this->entityManager->persist($resource);
         $this->entityManager->flush();
 
         event(new ResourceCreated($resource));
+    }
+
+    /**
+     * @param array $input
+     */
+    public function update($id, $input)
+    {
+        $data = $input['data'];
+
+        $this->entityManager->getDatabaseDriver()
+            ->run('MATCH (res:Resource)-[rel:HasClassificationType]->() WHERE id(res) = '.$id.' DELETE rel');
+
+        $resource = $this->entityManager->find(Resource::class, $id);
+        $newClassificationType = $this->entityManager->find(ResourceClassificationType::class, $data['type']);
+        $resource->setResourceClassificationType($newClassificationType);
+        $resource->getDescription()->setNote($data['description']);
+        $this->entityManager->persist($resource);
+        $this->entityManager->flush();
+
+        event(new ResourceUpdated($resource));
+
+    }
+
+    public function removeResourceClassificationType($id)
+    {
+
     }
 }

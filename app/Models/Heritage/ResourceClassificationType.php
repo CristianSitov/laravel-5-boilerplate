@@ -2,6 +2,7 @@
 
 namespace App\Models\Heritage;
 
+use App\Models\Heritage\Resource;
 use App\Models\Heritage\Traits\Attribute\ResourceAttribute;
 use GraphAware\Neo4j\OGM\Annotations as OGM;
 use Illuminate\Database\Eloquent\Model;
@@ -75,7 +76,7 @@ class ResourceClassificationType extends Model
     /**
      * @var Resource
      *
-     * @OGM\Relationship(type="HasClassificationType", direction="INCOMING", targetEntity="Resource", mappedBy="classification_type")
+     * @OGM\Relationship(type="HasClassificationType", direction="OUTGOING", targetEntity="Resource", mappedBy="resourceClassificationType")
      */
     protected $resource;
 

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Backend\Heritage\Resource;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Backend\Heritage\HeritageResourceRequest;
+use App\Models\Heritage\Resource;
 use App\Repositories\Backend\Heritage\ResourceClassificationTypeRepository;
 use App\Repositories\Backend\Heritage\ResourceRepository;
 use Illuminate\Contracts\View\View;
@@ -49,7 +51,7 @@ class ResourceController extends Controller
      */
     public function create()
     {
-        $types = collect($this->resourceClassificationTypeRepository->model->findAll())
+        $resourceClassificationTypes = collect($this->resourceClassificationTypeRepository->model->findAll())
             ->mapWithKeys(function ($item) {
                 return [$item->getId() => [
                     'id' => $item->getId(),
@@ -59,7 +61,7 @@ class ResourceController extends Controller
             });
 
         return view('backend.heritage.resource.create')
-            ->withResourceClassificationType($types);
+            ->withResourceClassificationTypes($resourceClassificationTypes);
     }
 
     /**
@@ -91,12 +93,27 @@ class ResourceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Resource                $resource
+     * @param HeritageResourceRequest $request
+     *
+     * @return mixed
      */
-    public function edit($id)
+    public function edit($resource_id, HeritageResourceRequest $request)
     {
-        //
+        $resource = $this->resourceRepository->model->find($resource_id);
+
+        $resourceClassificationTypes = collect($this->resourceClassificationTypeRepository->model->findAll())
+            ->mapWithKeys(function ($item) {
+                return [$item->getId() => [
+                    'id' => $item->getId(),
+                    'type_set' => $item->getTypeSet(),
+                    'type' => $item->getType(),
+                ]];
+            });
+
+        return view('backend.heritage.resource.edit')
+            ->withResourceClassificationTypes($resourceClassificationTypes)
+            ->withResource($resource);
     }
 
     /**
@@ -106,9 +123,13 @@ class ResourceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id, Request $request)
     {
-        //
+        $this->resourceRepository->update($id, ['data' => $request->all()]);
+
+        return redirect()
+            ->route('admin.heritage.resource.index')
+            ->withFlashSuccess(trans('alerts.backend.resources.created'));
     }
 
     /**

@@ -29,6 +29,22 @@ class ResourceEventListener
     }
 
     /**
+     * @param $event
+     */
+    public function onUpdated($event)
+    {
+        history()->withType($this->history_slug)
+            ->withEntity($event->resource->id)
+            ->withText('trans("history.backend.resource.updated") <strong>{resource}</strong>')
+            ->withIcon('plus')
+            ->withClass('bg-yellow')
+            ->withAssets([
+                'user_link' => ['admin.heritage.resource.show', $event->resource->name, $event->resource->id],
+            ])
+            ->log();
+    }
+
+    /**
      * Register the listeners for the subscriber.
      *
      * @param \Illuminate\Events\Dispatcher $events
@@ -38,6 +54,10 @@ class ResourceEventListener
         $events->listen(
             \App\Events\Backend\Heritage\ResourceCreated::class,
             'App\Listeners\Backend\Heritage\ResourceEventListener@onCreated'
+        );
+        $events->listen(
+            \App\Events\Backend\Heritage\ResourceUpdated::class,
+            'App\Listeners\Backend\Heritage\ResourceEventListener@onUpdated'
         );
     }
 }

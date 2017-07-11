@@ -58,7 +58,7 @@ class Resource extends Model
      *
      * @OGM\Relationship(type="HasClassificationType", direction="OUTGOING", targetEntity="ResourceClassificationType", mappedBy="resource")
      */
-    protected $classification_type;
+    protected $resourceClassificationType;
 
     /**
      * @return int
@@ -130,18 +130,19 @@ class Resource extends Model
     }
 
     /**
-     * @return ResourceClassificationType
+     * @return ResourceClassificationType $resource_classification_type
      */
-    public function getClassificationType()
+    public function getResourceClassificationType()
     {
-        return $this->classification_type;
+        return $this->resourceClassificationType;
     }
 
     /**
-     * @param ResourceClassificationType $classification_type
+     * @param ResourceClassificationType $resource_classification_type
      */
-    public function setClassificationType($classification_type)
+    public function setResourceClassificationType($resource_classification_type)
     {
-        $this->classification_type = $classification_type;
+        $oldResourceClassificationType = $this->getResourceClassificationType();
+        $this->resourceClassificationType = $resource_classification_type;
     }
 }

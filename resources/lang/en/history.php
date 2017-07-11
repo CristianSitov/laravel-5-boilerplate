@@ -35,6 +35,7 @@ return [
         ],
         'resource' => [
             'created'               => 'created resource',
+            'updated'               => 'updated resource',
         ]
     ],
 ];
