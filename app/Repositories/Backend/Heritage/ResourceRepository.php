@@ -84,13 +84,20 @@ class ResourceRepository extends BaseRepository
     {
         $data = $input['data'];
 
-        $this->entityManager->getDatabaseDriver()
-            ->run('MATCH (res:Resource)-[rel:HasResourceTypeClassification]->() WHERE id(res) = '.$id.' DELETE rel');
-
         $resource = $this->entityManager->find(Resource::class, $id);
-        $newResourceTypeClassification = $this->entityManager->find(ResourceTypeClassification::class, $data['type']);
-        $resource->setResourceTypeClassification($newResourceTypeClassification);
+
+        if ($resource->getResourceTypeClassification()->getType() != $data['type']) {
+            $this->entityManager->getDatabaseDriver()
+                ->run('MATCH (res:Resource)-[rel:HasResourceTypeClassification]->() WHERE id(res) = '.$id.' DELETE rel');
+            $newResourceTypeClassification = $this->entityManager->find(ResourceTypeClassification::class, $data['type']);
+            $resource->setResourceTypeClassification($newResourceTypeClassification);
+        }
+
+        if ($resource->getName() != $data['name']) {
+            dd($name);
+        }
         $resource->getDescription()->setNote($data['description']);
+
         $this->entityManager->persist($resource);
         $this->entityManager->flush();
 

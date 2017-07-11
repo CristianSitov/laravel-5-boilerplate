@@ -47,6 +47,13 @@ class Resource extends Model
     protected $updated_at;
 
     /**
+     * @var Name
+     *
+     * @OGM\Relationship(type="IsIdentifiedBy", direction="OUTGOING", targetEntity="Name", mappedBy="resource")
+     */
+    protected $name;
+
+    /**
      * @var Description
      *
      * @OGM\Relationship(type="HasNote", direction="OUTGOING", targetEntity="Description", mappedBy="resource")
@@ -127,6 +134,22 @@ class Resource extends Model
     public function setDescription($description)
     {
         $this->description = $description;
+    }
+
+    /**
+     * @return Name
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param Name $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
     }
 
     /**

@@ -22,6 +22,8 @@ mix.sass('resources/assets/sass/frontend/app.scss', 'public/css/frontend.css')
     .js([
         'resources/assets/js/backend/app.js',
         'resources/assets/js/plugin/sweetalert/sweetalert.min.js',
+        'resources/assets/js/plugin/select2/select2.full.min.js',
+        'resources/assets/js/plugin/inputmask/jquery.inputmask.bundle.min.js',
         'resources/assets/js/plugins.js'
     ], 'public/js/backend.js')
     .webpackConfig({
