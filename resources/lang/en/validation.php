@@ -155,7 +155,7 @@ return [
             'heritage' => [
                 'resources' => [
                     'name'                    => 'Name',
-                    'type'                    => 'Type',
+                    'type'                    => 'Resource Type',
                     'description'             => 'Description',
                 ],
             ],
