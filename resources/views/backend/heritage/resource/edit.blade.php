@@ -29,10 +29,10 @@
                         {{ Form::text('name', $resource->getName() != null ? $resource->getName()->getName() : '', ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.heritage.resources.name')]) }}
                     </div><!--col-lg-10-->
                     <div class="col-lg-2">
-                        {{ Form::text('date_from', $resource->getName() != null ? $resource->getName()->getName() : '', ['class' => 'form-control', 'data-inputmask' => '"alias": "date"', 'data-mask', 'placeholder' => 'dd/mm/yyyy']) }}
+                        {{ Form::text('date_from', '', ['class' => 'form-control', 'data-inputmask' => '"alias": "date"', 'data-mask', 'placeholder' => 'dd/mm/yyyy']) }}
                     </div>
                     <div class="col-lg-2">
-                        {{ Form::text('date_to', $resource->getName() != null ? $resource->getName()->getName() : '', ['class' => 'form-control', 'data-inputmask' => '"alias": "date"', 'data-mask', 'placeholder' => 'dd/mm/yyyy']) }}
+                        {{ Form::text('date_to', date("d/m/Y"), ['class' => 'form-control', 'data-inputmask' => '"alias": "date"', 'data-mask', 'placeholder' => 'dd/mm/yyyy']) }}
                     </div>
                     <div class="col-lg-1">+
                     </div>

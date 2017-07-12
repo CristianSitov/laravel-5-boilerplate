@@ -23,6 +23,22 @@
 
             <div class="box-body">
                 <div class="form-group">
+                    {{ Form::label('name', trans('validation.attributes.backend.heritage.resources.name'), ['class' => 'col-lg-2 control-label']) }}
+
+                    <div class="col-lg-5">
+                        {{ Form::text('name', '', ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.heritage.resources.name')]) }}
+                    </div><!--col-lg-10-->
+                    <div class="col-lg-2">
+                        {{ Form::text('date_from', '', ['class' => 'form-control', 'data-inputmask' => '"alias": "date"', 'data-mask', 'placeholder' => 'dd/mm/yyyy']) }}
+                    </div>
+                    <div class="col-lg-2">
+                        {{ Form::text('date_to', date("d/m/Y"), ['class' => 'form-control', 'data-inputmask' => '"alias": "date"', 'data-mask', 'placeholder' => 'dd/mm/yyyy']) }}
+                    </div>
+                    <div class="col-lg-1">+
+                    </div>
+                </div><!--form control-->
+
+                <div class="form-group">
                     {{ Form::label('type', trans('validation.attributes.backend.heritage.resources.type'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-10">
