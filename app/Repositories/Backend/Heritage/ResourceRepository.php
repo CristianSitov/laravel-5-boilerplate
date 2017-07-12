@@ -6,6 +6,7 @@ use App\Events\Backend\Heritage\ResourceCreated;
 use App\Events\Backend\Heritage\ResourceUpdated;
 use App\Models\Heritage\Description;
 use App\Models\Heritage\Name;
+use App\Models\Heritage\Place;
 use App\Models\Heritage\Resource;
 use App\Models\Heritage\ResourceTypeClassification;
 use App\Repositories\BaseRepository;
@@ -71,6 +72,10 @@ class ResourceRepository extends BaseRepository
 
         $resource->setDescription($description);
         $resource->setResourceTypeClassification($resourceTypeClassification);
+
+        // initialize nodes
+        $place = new Place();
+        $resource->setPlace($place);
 
         $this->entityManager->persist($resource);
         $this->entityManager->flush();

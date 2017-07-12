@@ -68,6 +68,13 @@ class Resource extends Model
     protected $resourceTypeClassification;
 
     /**
+     * @var Place
+     *
+     * @OGM\Relationship(type="HasCurrentLocation", direction="OUTGOING", targetEntity="Place", mappedBy="resource")
+     */
+    protected $place;
+
+    /**
      * @return int
      */
     public function getId()
@@ -166,5 +173,21 @@ class Resource extends Model
     public function setResourceTypeClassification($resource_type_classification)
     {
         $this->resourceTypeClassification = $resource_type_classification;
+    }
+
+    /**
+     * @return Place
+     */
+    public function getPlace()
+    {
+        return $this->place;
+    }
+
+    /**
+     * @param Place $place
+     */
+    public function setPlace($place)
+    {
+        $this->place = $place;
     }
 }
