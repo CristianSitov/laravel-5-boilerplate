@@ -7,8 +7,10 @@ use App\Events\Backend\Heritage\ResourceUpdated;
 use App\Models\Heritage\AdministrativeSubdivision;
 use App\Models\Heritage\Description;
 use App\Models\Heritage\Name;
+use App\Models\Heritage\PhaseTypeAssignment;
 use App\Models\Heritage\Place;
 use App\Models\Heritage\PlaceAddress;
+use App\Models\Heritage\Production;
 use App\Models\Heritage\Resource;
 use App\Models\Heritage\ResourceTypeClassification;
 use App\Repositories\BaseRepository;
@@ -82,6 +84,10 @@ class ResourceRepository extends BaseRepository
         // initialize nodes
         $place = new Place();
         $resource->setPlace($place);
+        $production = new Production();
+        $phaseTypeAssignment = new PhaseTypeAssignment();
+        $production->setPhaseTypeAssignment($phaseTypeAssignment);
+        $resource->setProduction($production);
 
         $this->entityManager->persist($resource);
         $this->entityManager->flush();

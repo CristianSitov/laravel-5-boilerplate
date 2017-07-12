@@ -75,6 +75,13 @@ class Resource extends Model
     protected $place;
 
     /**
+     * @var Production
+     *
+     * @OGM\Relationship(type="HasProduced", direction="OUTGOING", targetEntity="Production", mappedBy="resource")
+     */
+    protected $production;
+
+    /**
      * @return int
      */
     public function getId()
@@ -128,22 +135,6 @@ class Resource extends Model
     }
 
     /**
-     * @return Description
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * @param Description $description
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    }
-
-    /**
      * @return Name
      */
     public function getName()
@@ -157,6 +148,22 @@ class Resource extends Model
     public function setName($name)
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return Description
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param Description $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
     }
 
     /**
@@ -189,5 +196,21 @@ class Resource extends Model
     public function setPlace($place)
     {
         $this->place = $place;
+    }
+
+    /**
+     * @return Production
+     */
+    public function getProduction()
+    {
+        return $this->production;
+    }
+
+    /**
+     * @param Production $production
+     */
+    public function setProduction($production)
+    {
+        $this->production = $production;
     }
 }
