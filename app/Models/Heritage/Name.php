@@ -128,7 +128,7 @@ class Name
      */
     public function setName($name)
     {
-        $this->note = $name;
+        $this->name = $name;
     }
 
     /**

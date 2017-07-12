@@ -5,6 +5,7 @@ namespace App\Repositories\Backend\Heritage;
 use App\Events\Backend\Heritage\ResourceCreated;
 use App\Events\Backend\Heritage\ResourceUpdated;
 use App\Models\Heritage\Description;
+use App\Models\Heritage\Name;
 use App\Models\Heritage\Resource;
 use App\Models\Heritage\ResourceTypeClassification;
 use App\Repositories\BaseRepository;
@@ -86,15 +87,23 @@ class ResourceRepository extends BaseRepository
 
         $resource = $this->entityManager->find(Resource::class, $id);
 
-        if ($resource->getResourceTypeClassification()->getType() != $data['type']) {
+        if ($resource->getResourceTypeClassification()->getId() != $data['type']) {
             $this->entityManager->getDatabaseDriver()
                 ->run('MATCH (res:Resource)-[rel:HasResourceTypeClassification]->() WHERE id(res) = '.$id.' DELETE rel');
             $newResourceTypeClassification = $this->entityManager->find(ResourceTypeClassification::class, $data['type']);
             $resource->setResourceTypeClassification($newResourceTypeClassification);
         }
 
-        if ($resource->getName() != $data['name']) {
-            dd($name);
+        if ($data['name']) {
+            if ($resource->getName()) {
+                if ($resource->getName()->getName() != $data['name']) {
+                    $resource->getName()->setName($data['name']);
+                }
+            } else {
+                $name = new Name();
+                $name->setName($data['name']);
+                $resource->setName($name);
+            }
         }
         $resource->getDescription()->setNote($data['description']);
 

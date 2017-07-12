@@ -76,7 +76,7 @@ class ResourceTypeClassification extends Model
     /**
      * @var Resource
      *
-     * @OGM\Relationship(type="HasResourceTypeClassification", direction="OUTGOING", targetEntity="Resource", mappedBy="resourceTypeClassification")
+     * @OGM\Relationship(type="HasResourceTypeClassification", direction="INCOMING", targetEntity="Resource", mappedBy="resourceTypeClassification")
      */
     protected $resource;
 
