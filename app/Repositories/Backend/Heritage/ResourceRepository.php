@@ -39,9 +39,9 @@ class ResourceRepository extends BaseRepository
 
         $results = [];
         foreach ($resources as $k => $resource) {
-            $results[$k]['uuid'] = $resource->getUuid();
+            $results[$k]['uuid'] = explode("-", $resource->getUuid())[0];
             $results[$k]['resource_type_classification'] = $resource->getResourceTypeClassification()->getType();
-            $results[$k]['description'] = $resource->getDescription()->getNote();
+            $results[$k]['name'] = $resource->getName()->getName();
             $results[$k]['created_at'] = $resource->getCreatedAt();
             $results[$k]['updated_at'] = $resource->getUpdatedAt();
             $results[$k]['actions'] = $resource->getActionButtonsAttribute();
@@ -61,6 +61,10 @@ class ResourceRepository extends BaseRepository
         $resource->setUuid((string)Uuid::generate(4));
         $resource->setCreatedAt(new \DateTime());
         $resource->setUpdatedAt(new \DateTime());
+
+        $name = new Name();
+        $name->setName($data['building_name']);
+        $resource->setName($name);
 
         $description = new Description($resource);
         $description->setUuid((string)Uuid::generate(4));
@@ -99,14 +103,14 @@ class ResourceRepository extends BaseRepository
             $resource->setResourceTypeClassification($newResourceTypeClassification);
         }
 
-        if ($data['name']) {
+        if ($data['building_name']) {
             if ($resource->getName()) {
-                if ($resource->getName()->getName() != $data['name']) {
-                    $resource->getName()->setName($data['name']);
+                if ($resource->getName()->getName() != $data['building_name']) {
+                    $resource->getName()->setName($data['building_name']);
                 }
             } else {
                 $name = new Name();
-                $name->setName($data['name']);
+                $name->setName($data['building_name']);
                 $resource->setName($name);
             }
         }

@@ -23,10 +23,10 @@
 
             <div class="box-body">
                 <div class="form-group">
-                    {{ Form::label('name', trans('validation.attributes.backend.heritage.resources.name'), ['class' => 'col-lg-2 control-label']) }}
+                    {{ Form::label('building_name', trans('validation.attributes.backend.heritage.resources.name'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-5">
-                        {{ Form::text('name', '', ['class' => 'form-control', 'required', 'placeholder' => trans('validation.attributes.backend.heritage.resources.name')]) }}
+                        {{ Form::text('building_name', '', ['class' => 'form-control', 'required', 'placeholder' => trans('validation.attributes.backend.heritage.resources.name')]) }}
                     </div><!--col-lg-10-->
                     <div class="col-lg-2">
                         {{ Form::text('date_from', '', ['class' => 'form-control', 'data-inputmask' => '"alias": "date"', 'data-mask', 'placeholder' => 'dd/mm/yyyy']) }}
