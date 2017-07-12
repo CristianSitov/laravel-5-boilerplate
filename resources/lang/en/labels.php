@@ -99,10 +99,19 @@ return [
         ],
         'heritage' => [
             'resources' => [
-                'list'       => 'Resources list',
-                'create'     => 'Create Resource',
-                'edit'       => 'Edit Resource',
-                'management' => 'Resource Management',
+                'list'          => 'Resources list',
+                'create'        => 'Create Resource',
+                'edit'          => 'Edit Resource',
+                'management'    => 'Resource Management',
+                'general'       => 'General',
+                'location'      => 'Location',
+                'structure'     => 'Structure &amp; Classification',
+                'components'    => 'Components',
+                'dimensions'    => 'Dimensions',
+                'changes'       => 'Changes',
+                'relations'     => 'Relations',
+                'evaluations'   => 'Evaluations',
+                'legal'         => 'Legal',
 
                 'table' => [
                     'id'                           => 'ID',
