@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Heritage\Resource;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\Heritage\HeritageResourceRequest;
 use App\Models\Heritage\Resource;
+use App\Repositories\Backend\Heritage\AdministrativeSubdivisionRepository;
 use App\Repositories\Backend\Heritage\ResourceTypeClassificationRepository;
 use App\Repositories\Backend\Heritage\ResourceRepository;
 use Illuminate\Contracts\View\View;
@@ -23,16 +24,23 @@ class ResourceController extends Controller
     protected $resourceTypeClassificationRepository;
 
     /**
+     * @var AdministrativeSubdivisionRepository
+     */
+    protected $administrativeSubdivisionRepository;
+
+    /**
      * HeritageResource constructor.
      *
      * @param ResourceRepository $resourceRepository
      * @param ResourceRepository $resourceRepository
      */
     public function __construct(ResourceRepository $resourceRepository,
-                                ResourceTypeClassificationRepository $resourceTypeClassificationRepository)
+                                ResourceTypeClassificationRepository $resourceTypeClassificationRepository,
+                                AdministrativeSubdivisionRepository $administrativeSubdivisionRepository)
     {
         $this->resourceRepository = $resourceRepository;
         $this->resourceTypeClassificationRepository = $resourceTypeClassificationRepository;
+        $this->administrativeSubdivisionRepository = $administrativeSubdivisionRepository;
     }
 
     /**
@@ -104,8 +112,14 @@ class ResourceController extends Controller
                 return [$item->getId() =>  $item->getType()];
             });
 
+        $administrativeSubdivision = collect($this->administrativeSubdivisionRepository->model->findAll())
+            ->mapWithKeys(function ($item) {
+                return [$item->getId() =>  $item->getName()];
+            });
+
         return view('backend.heritage.resource.edit')
             ->withResourceTypeClassifications($resourceTypeClassifications)
+            ->withAdministrativeSubdivision($administrativeSubdivision)
             ->withResource($resource);
     }
 

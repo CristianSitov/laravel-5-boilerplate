@@ -4,9 +4,11 @@ namespace App\Repositories\Backend\Heritage;
 
 use App\Events\Backend\Heritage\ResourceCreated;
 use App\Events\Backend\Heritage\ResourceUpdated;
+use App\Models\Heritage\AdministrativeSubdivision;
 use App\Models\Heritage\Description;
 use App\Models\Heritage\Name;
 use App\Models\Heritage\Place;
+use App\Models\Heritage\PlaceAddress;
 use App\Models\Heritage\Resource;
 use App\Models\Heritage\ResourceTypeClassification;
 use App\Repositories\BaseRepository;
@@ -114,7 +116,15 @@ class ResourceRepository extends BaseRepository
                 $resource->setName($name);
             }
         }
+
         $resource->getDescription()->setNote($data['description']);
+
+        $district = $this->entityManager->find(AdministrativeSubdivision::class, $data['district']);
+        $resource->getPlace()->setAdministrativeSubdivision($district);
+        $placeAddress = new PlaceAddress();
+        $placeAddress->setStreet($data['street']);
+        $placeAddress->setNumber($data['number']);
+        $resource->getPlace()->setPlaceAddress($placeAddress);
 
         $this->entityManager->persist($resource);
         $this->entityManager->flush();

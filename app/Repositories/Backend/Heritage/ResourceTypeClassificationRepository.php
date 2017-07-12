@@ -14,12 +14,12 @@ class ResourceTypeClassificationRepository extends BaseRepository
 {
     /**
      * import process script
-     * LOAD CSV WITH HEADERS FROM "http://heritageoftimisoara.dev/E55.ResourceTypeClassification_01.csv" AS row
-     * CREATE (n:ResourceTypeClassification)
+     * LOAD CSV WITH HEADERS FROM "http://heritageoftimisoara.dev/E55.ResourceClassificationType_01.csv" AS row CREATE (n:ResourceTypeClassification)
      * SET n = row,
-     * n.typeSet = row.typeSet,
+     * n.uuid = row.uuid,
      * n.type = row.type,
-     * n.published = toBoolean(row.published)
+     * n.created = row.created,
+     * n.updated = row.updated;
      */
     public function __construct(EntityManager $entityManager)
     {

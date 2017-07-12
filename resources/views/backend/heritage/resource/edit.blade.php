@@ -53,7 +53,7 @@
                                 <div class="form-group">
                                     {{ Form::label('type', trans('validation.attributes.backend.heritage.resources.type'), ['class' => 'col-lg-2 control-label']) }}
 
-                                    <div class="col-lg-10">
+                                    <div class="col-lg-2">
                                         {{ Form::select('type', $resource_type_classifications, $resource->getResourceTypeClassification()->getId(), ['required' => 'required', 'class' => 'col-lg-2 control-label js-example-basic-single']) }}
                                     </div><!--col-lg-10-->
                                 </div><!--form control-->
@@ -79,18 +79,16 @@
                         <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                             <div class="panel-body">
                                 <div class="form-group">
-                                    {{ Form::label('name', trans('validation.attributes.backend.heritage.resources.name'), ['class' => 'col-lg-2 control-label']) }}
+                                    {{ Form::label('district', trans('validation.attributes.backend.heritage.resources.address'), ['class' => 'col-lg-2 control-label']) }}
 
-                                    <div class="col-lg-5">
-                                        {{ Form::text('name', $resource->getName() != null ? $resource->getName()->getName() : '', ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.heritage.resources.name')]) }}
+                                    <div class="col-lg-3">
+                                        {{ Form::select('district', $administrative_subdivision, $resource->getPlace()->getAdministrativeSubdivision() ? $resource->getPlace()->getAdministrativeSubdivision()->getId() : '', ['required' => 'required', 'class' => 'col-lg-2 control-label js-example-basic-single']) }}
                                     </div><!--col-lg-10-->
-                                    <div class="col-lg-2">
-                                        {{ Form::text('date_from', '', ['class' => 'form-control', 'data-inputmask' => '"alias": "date"', 'data-mask', 'placeholder' => 'dd/mm/yyyy']) }}
+                                    <div class="col-lg-5">
+                                        {{ Form::text('street', '', ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.heritage.resources.street')]) }}
                                     </div>
                                     <div class="col-lg-2">
-                                        {{ Form::text('date_to', date("d/m/Y"), ['class' => 'form-control', 'data-inputmask' => '"alias": "date"', 'data-mask', 'placeholder' => 'dd/mm/yyyy']) }}
-                                    </div>
-                                    <div class="col-lg-1">+
+                                        {{ Form::text('number', '', ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.heritage.resources.number')]) }}
                                     </div>
                                 </div><!--form control-->
                             </div>
@@ -218,7 +216,9 @@
 @section('after-scripts')
 <script type="text/javascript">
     $(document).ready(function() {
-        $(".js-example-basic-single").select2();
+        $(".js-example-basic-single").select2({
+            width: '100%'
+        });
         $(":input").inputmask();
     });
 </script>

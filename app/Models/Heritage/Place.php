@@ -60,7 +60,7 @@ class Place
     /**
      * @var Resource
      *
-     * @OGM\Relationship(type="IsIdentifiedBy", direction="INCOMING", targetEntity="Resource", mappedBy="place")
+     * @OGM\Relationship(type="HasCurrentLocation", direction="INCOMING", targetEntity="Resource", mappedBy="place")
      */
     protected $resource;
 
