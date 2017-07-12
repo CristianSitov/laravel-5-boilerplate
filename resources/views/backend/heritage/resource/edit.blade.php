@@ -54,7 +54,7 @@
                                     {{ Form::label('type', trans('validation.attributes.backend.heritage.resources.type'), ['class' => 'col-lg-2 control-label']) }}
 
                                     <div class="col-lg-10">
-                                        {{ Form::select('type', $resource_type_classifications, $resource->getResourceTypeClassification()->getId(), ['required' => 'required', 'class' => 'js-example-basic-single']) }}
+                                        {{ Form::select('type', $resource_type_classifications, $resource->getResourceTypeClassification()->getId(), ['required' => 'required', 'class' => 'col-lg-2 control-label js-example-basic-single']) }}
                                     </div><!--col-lg-10-->
                                 </div><!--form control-->
 

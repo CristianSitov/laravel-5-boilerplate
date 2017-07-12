@@ -26,13 +26,13 @@
                     {{ Form::label('name', trans('validation.attributes.backend.heritage.resources.name'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-5">
-                        {{ Form::text('name', '', ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.heritage.resources.name')]) }}
+                        {{ Form::text('name', '', ['class' => 'form-control', 'required', 'placeholder' => trans('validation.attributes.backend.heritage.resources.name')]) }}
                     </div><!--col-lg-10-->
                     <div class="col-lg-2">
                         {{ Form::text('date_from', '', ['class' => 'form-control', 'data-inputmask' => '"alias": "date"', 'data-mask', 'placeholder' => 'dd/mm/yyyy']) }}
                     </div>
                     <div class="col-lg-2">
-                        {{ Form::text('date_to', date("d/m/Y"), ['class' => 'form-control', 'data-inputmask' => '"alias": "date"', 'data-mask', 'placeholder' => 'dd/mm/yyyy']) }}
+                        {{ Form::text('date_to', date("d/m/Y"), ['class' => 'form-control', 'required', 'data-inputmask' => '"alias": "date"', 'data-mask', 'placeholder' => 'dd/mm/yyyy']) }}
                     </div>
                     <div class="col-lg-1">+
                     </div>
@@ -42,7 +42,7 @@
                     {{ Form::label('type', trans('validation.attributes.backend.heritage.resources.type'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-10">
-                        {{ Form::select('type', $resource_type_classifications, null, ['required']) }}
+                        {{ Form::select('type', $resource_type_classifications, null, ['required' => 'required', 'class' => 'col-lg-2 control-label js-example-basic-single']) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
 
@@ -74,5 +74,10 @@
 @endsection
 
 @section('after-scripts')
-    {{ Html::script('js/backend/access/users/script.js') }}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".js-example-basic-single").select2();
+            $(":input").inputmask();
+        });
+    </script>
 @endsection
