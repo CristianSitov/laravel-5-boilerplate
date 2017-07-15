@@ -57,6 +57,55 @@ class PhaseTypeAssignment
      */
     protected $production;
 
+    /**
+     * @var ArchitecturalStyle
+     *
+     * @OGM\Relationship(type="HasArchitecturalStyleType", direction="OUTGOING", targetEntity="ArchitecturalStyle", mappedBy="phaseTypeAssignment")
+     */
+    protected $architectural_style;
+
+    /**
+     * @var HeritageResourceType
+     *
+     * @OGM\Relationship(type="Assigned", direction="OUTGOING", targetEntity="HeritageResourceType", mappedBy="phaseTypeAssignment")
+     */
+    protected $heritage_resource_type;
+
+    /**
+     * @var AncilaryFeatureType
+     *
+     * @OGM\Relationship(type="Assigned", direction="OUTGOING", targetEntity="AncilaryFeatureType", mappedBy="phaseTypeAssignment")
+     */
+    protected $ancilary_feature_type;
+
+    /**
+     * @var CulturalPeriod
+     *
+     * @OGM\Relationship(type="Assigned", direction="OUTGOING", targetEntity="CulturalPeriod", mappedBy="phaseTypeAssignment")
+     */
+    protected $cultural_period;
+
+    /**
+     * @var HeritageResourceUseType
+     *
+     * @OGM\Relationship(type="Assigned", direction="OUTGOING", targetEntity="HeritageResourceUseType", mappedBy="phaseTypeAssignment")
+     */
+    protected $heritage_resource_use_type;
+
+    /**
+     * @var TimeSpanPhase
+     *
+     * @OGM\Relationship(type="HasTimeSpan", direction="OUTGOING", targetEntity="TimeSpanPhase", mappedBy="phaseTypeAssignment")
+     */
+    protected $time_span_phase;
+
+    /**
+     * @var SubjectiveDescription
+     *
+     * @OGM\Relationship(type="HasSubjectiveDescription", direction="OUTGOING", targetEntity="SubjectiveDescription", mappedBy="phaseTypeAssignment")
+     */
+    protected $subjective_description;
+
     public function __construct(Resource $resource = null)
     {
         $this->resource = $resource;
@@ -145,5 +194,21 @@ class PhaseTypeAssignment
     public function setProduction($production)
     {
         $this->production = $production;
+    }
+
+    /**
+     * @return ArchitecturalStyle
+     */
+    public function getArchitecturalStyle()
+    {
+        return $this->architectural_style;
+    }
+
+    /**
+     * @param ArchitecturalStyle $architectural_style
+     */
+    public function setArchitecturalStyle($architectural_style)
+    {
+        $this->architectural_style = $architectural_style;
     }
 }

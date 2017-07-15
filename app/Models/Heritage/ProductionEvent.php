@@ -7,9 +7,9 @@ use GraphAware\Neo4j\OGM\Annotations as OGM;
 
 /**
  *
- * @OGM\Node(label="Production")
+ * @OGM\Node(label="ProductionEvent")
  */
-class Production
+class ProductionEvent
 {
     use Uuids;
 
@@ -44,18 +44,27 @@ class Production
     protected $updated_at;
 
     /**
-     * @var Building
+     * @var \DateTime
      *
-     * @OGM\Relationship(type="HasProduced", direction="OUTGOING", targetEntity="Building", mappedBy="production")
+     * @OGM\Property()
+     * @OGM\Convert(type="datetime", options={"format":"timestamp"})
      */
-    protected $building;
+    protected $to_date;
 
     /**
-     * @var Resource
+     * @var \DateTime
      *
-     * @OGM\Relationship(type="HasProduced", direction="INCOMING", targetEntity="Resource", mappedBy="production")
+     * @OGM\Property()
+     * @OGM\Convert(type="datetime", options={"format":"timestamp"})
      */
-    protected $resource;
+    protected $from_date;
+
+    /**
+     * @var Production
+     *
+     * @OGM\Relationship(type="HasProduced", direction="INCOMING", targetEntity="Resource", mappedBy="productionEvent")
+     */
+    protected $production;
 
     public function __construct(Resource $resource = null)
     {
@@ -92,6 +101,7 @@ class Production
     {
         return $this->created_at;
     }
+
     /**
      * @param \DateTime $created_at
      */
@@ -107,6 +117,7 @@ class Production
     {
         return $this->updated_at;
     }
+
     /**
      * @param \DateTime $updated_at
      */
@@ -116,34 +127,42 @@ class Production
     }
 
     /**
-     * @return Building
+     * @return \DateTime
      */
-    public function getBuilding()
+    public function getToDate()
     {
-        return $this->building;
+        return $this->to_date;
     }
 
     /**
-     * @param Building $building
+     * @param \DateTime $to_date
      */
-    public function setBuilding($building)
+    public function setToDate($to_date)
     {
-        $this->building = $building;
+        $this->to_date = $to_date;
     }
 
     /**
-     * @return Resource
+     * @return \DateTime
      */
-    public function getResource()
+    public function getFromDate()
     {
-        return $this->resource;
+        return $this->from_date;
     }
 
     /**
-     * @param Resource $resource
+     * @return Production
      */
-    public function setResource($resource)
+    public function getProduction()
     {
-        $this->resource = $resource;
+        return $this->production;
+    }
+
+    /**
+     * @param Production $production
+     */
+    public function setProduction($production)
+    {
+        $this->production = $production;
     }
 }

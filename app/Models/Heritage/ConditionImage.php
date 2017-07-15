@@ -7,9 +7,9 @@ use GraphAware\Neo4j\OGM\Annotations as OGM;
 
 /**
  *
- * @OGM\Node(label="Production")
+ * @OGM\Node(label="ConditionImage")
  */
-class Production
+class ConditionImage
 {
     use Uuids;
 
@@ -44,18 +44,18 @@ class Production
     protected $updated_at;
 
     /**
-     * @var Building
+     * @var string
      *
-     * @OGM\Relationship(type="HasProduced", direction="OUTGOING", targetEntity="Building", mappedBy="production")
+     * @OGM\Property(type="string")
      */
-    protected $building;
+    protected $image;
 
     /**
-     * @var Resource
+     * @var ConditionState
      *
-     * @OGM\Relationship(type="HasProduced", direction="INCOMING", targetEntity="Resource", mappedBy="production")
+     * @OGM\Relationship(type="HasNote", direction="INCOMING", targetEntity="ConditionState", mappedBy="conditionDescription")
      */
-    protected $resource;
+    protected $condition_state;
 
     public function __construct(Resource $resource = null)
     {
@@ -116,34 +116,34 @@ class Production
     }
 
     /**
-     * @return Building
+     * @return string
      */
-    public function getBuilding()
+    public function getImage()
     {
-        return $this->building;
+        return $this->image;
     }
 
     /**
-     * @param Building $building
+     * @param string $image
      */
-    public function setBuilding($building)
+    public function setImage($image)
     {
-        $this->building = $building;
+        $this->image = $image;
     }
 
     /**
-     * @return Resource
+     * @return ConditionState
      */
-    public function getResource()
+    public function getConditionState()
     {
-        return $this->resource;
+        return $this->condition_state;
     }
 
     /**
-     * @param Resource $resource
+     * @param ConditionState $condition_state
      */
-    public function setResource($resource)
+    public function setConditionState($condition_state)
     {
-        $this->resource = $resource;
+        $this->condition_state = $condition_state;
     }
 }

@@ -82,6 +82,20 @@ class Resource extends Model
     protected $production;
 
     /**
+     * @var Modification
+     *
+     * @OGM\Relationship(type="HasModified", direction="OUTGOING", targetEntity="Modification", mappedBy="resource")
+     */
+    protected $modification;
+
+    /**
+     * @var ModificationEvent
+     *
+     * @OGM\Relationship(type="WasModified", direction="OUTGOING", targetEntity="ModificationEvent", mappedBy="building")
+     */
+    protected $modification_event;
+
+    /**
      * @return int
      */
     public function getId()
@@ -212,5 +226,37 @@ class Resource extends Model
     public function setProduction($production)
     {
         $this->production = $production;
+    }
+
+    /**
+     * @return ProductionEvent
+     */
+    public function getProductionEvent()
+    {
+        return $this->production_event;
+    }
+
+    /**
+     * @param ProductionEvent $production_event
+     */
+    public function setProductionEvent($production_event)
+    {
+        $this->production_event = $production_event;
+    }
+
+    /**
+     * @return ModificationEvent
+     */
+    public function getModificationEvent()
+    {
+        return $this->modification_event;
+    }
+
+    /**
+     * @param ModificationEvent $modification_event
+     */
+    public function setModificationEvent($modification_event)
+    {
+        $this->modification_event = $modification_event;
     }
 }

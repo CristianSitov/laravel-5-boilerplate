@@ -117,6 +117,14 @@ class ResourceController extends Controller
                 return [$item->getId() =>  $item->getName()];
             });
 
+        $heritageResourceTypes = collect($this->heritageResourceTypeRepository->model->findAll())
+            ->mapWithKeys(function ($item) {
+                return [$item->getId() =>  [
+                    'type_set' => $item->getTypeSet(),
+                    'type' => $item->getType(),
+                ]];
+            });
+
         return view('backend.heritage.resource.edit')
             ->withResourceTypeClassifications($resourceTypeClassifications)
             ->withAdministrativeSubdivision($administrativeSubdivision)

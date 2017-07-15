@@ -7,9 +7,9 @@ use GraphAware\Neo4j\OGM\Annotations as OGM;
 
 /**
  *
- * @OGM\Node(label="Production")
+ * @OGM\Node(label="ComponentType")
  */
-class Production
+class ComponentType
 {
     use Uuids;
 
@@ -44,18 +44,33 @@ class Production
     protected $updated_at;
 
     /**
-     * @var Building
+     * @var \DateTime
      *
-     * @OGM\Relationship(type="HasProduced", direction="OUTGOING", targetEntity="Building", mappedBy="production")
+     * @OGM\Property()
+     * @OGM\Convert(type="datetime", options={"format":"timestamp"})
      */
-    protected $building;
+    protected $published_at;
 
     /**
-     * @var Resource
+     * @var string
      *
-     * @OGM\Relationship(type="HasProduced", direction="INCOMING", targetEntity="Resource", mappedBy="production")
+     * @OGM\Property(type="string")
      */
-    protected $resource;
+    protected $type;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $type_ro;
+
+    /**
+     * @var Component
+     *
+     * @OGM\Relationship(type="HasProduced", direction="INCOMING", targetEntity="Component", mappedBy="componentType")
+     */
+    protected $component;
 
     public function __construct(Resource $resource = null)
     {
@@ -116,34 +131,65 @@ class Production
     }
 
     /**
-     * @return Building
+     * @return \DateTime
      */
-    public function getBuilding()
+    public function getPublishedAt()
+    {
+        return $this->published_at;
+    }
+    /**
+     * @param \DateTime $published_at
+     */
+    public function setPublishedAt($published_at)
+    {
+        $this->published_at = $published_at;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTypeRo()
+    {
+        return $this->type_ro;
+    }
+
+    /**
+     * @param string $type_ro
+     */
+    public function setTypeRo($type_ro)
+    {
+        $this->type_ro = $type_ro;
+    }
+
+    /**
+     * @return Component
+     */
+    public function getComponent()
     {
         return $this->building;
     }
 
     /**
-     * @param Building $building
+     * @param Component $building
      */
-    public function setBuilding($building)
+    public function setComponent($building)
     {
         $this->building = $building;
-    }
-
-    /**
-     * @return Resource
-     */
-    public function getResource()
-    {
-        return $this->resource;
-    }
-
-    /**
-     * @param Resource $resource
-     */
-    public function setResource($resource)
-    {
-        $this->resource = $resource;
     }
 }

@@ -7,9 +7,9 @@ use GraphAware\Neo4j\OGM\Annotations as OGM;
 
 /**
  *
- * @OGM\Node(label="Production")
+ * @OGM\Node(label="Modification")
  */
-class Production
+class Modification
 {
     use Uuids;
 
@@ -44,16 +44,16 @@ class Production
     protected $updated_at;
 
     /**
-     * @var Building
+     * @var ModificationEvent
      *
-     * @OGM\Relationship(type="HasProduced", direction="OUTGOING", targetEntity="Building", mappedBy="production")
+     * @OGM\Relationship(type="HasModified", direction="OUTGOING", targetEntity="ModificationEvent", mappedBy="modification")
      */
-    protected $building;
+    protected $modification_event;
 
     /**
      * @var Resource
      *
-     * @OGM\Relationship(type="HasProduced", direction="INCOMING", targetEntity="Resource", mappedBy="production")
+     * @OGM\Relationship(type="HasModified", direction="INCOMING", targetEntity="Resource", mappedBy="modification")
      */
     protected $resource;
 
@@ -116,19 +116,19 @@ class Production
     }
 
     /**
-     * @return Building
+     * @return ModificationEvent
      */
-    public function getBuilding()
+    public function getModificationEvent()
     {
-        return $this->building;
+        return $this->modification_event;
     }
 
     /**
-     * @param Building $building
+     * @param ModificationEvent $modification_event
      */
-    public function setBuilding($building)
+    public function setModificationEvent($modification_event)
     {
-        $this->building = $building;
+        $this->modification_event = $modification_event;
     }
 
     /**

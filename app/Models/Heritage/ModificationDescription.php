@@ -7,9 +7,9 @@ use GraphAware\Neo4j\OGM\Annotations as OGM;
 
 /**
  *
- * @OGM\Node(label="Production")
+ * @OGM\Node(label="ModificationDescription")
  */
-class Production
+class ModificationDescription
 {
     use Uuids;
 
@@ -28,6 +28,13 @@ class Production
     protected $uuid;
 
     /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $note;
+
+    /**
      * @var \DateTime
      *
      * @OGM\Property()
@@ -44,18 +51,11 @@ class Production
     protected $updated_at;
 
     /**
-     * @var Building
+     * @var ModificationEvent
      *
-     * @OGM\Relationship(type="HasProduced", direction="OUTGOING", targetEntity="Building", mappedBy="production")
+     * @OGM\Relationship(type="HasNote", direction="INCOMING", targetEntity="ModificationEvent", mappedBy="modificationDescription")
      */
-    protected $building;
-
-    /**
-     * @var Resource
-     *
-     * @OGM\Relationship(type="HasProduced", direction="INCOMING", targetEntity="Resource", mappedBy="production")
-     */
-    protected $resource;
+    protected $modification_event;
 
     public function __construct(Resource $resource = null)
     {
@@ -116,34 +116,34 @@ class Production
     }
 
     /**
-     * @return Building
+     * @return string
      */
-    public function getBuilding()
+    public function getNote()
     {
-        return $this->building;
+        return $this->note;
     }
 
     /**
-     * @param Building $building
+     * @param string $note
      */
-    public function setBuilding($building)
+    public function setNote($note)
     {
-        $this->building = $building;
+        $this->note = $note;
     }
 
     /**
-     * @return Resource
+     * @return ModificationEvent
      */
-    public function getResource()
+    public function getModificationEvent()
     {
-        return $this->resource;
+        return $this->modification_event;
     }
 
     /**
-     * @param Resource $resource
+     * @param ModificationEvent $modification_event
      */
-    public function setResource($resource)
+    public function setModificationEvent($modification_event)
     {
-        $this->resource = $resource;
+        $this->modification_event = $modification_event;
     }
 }

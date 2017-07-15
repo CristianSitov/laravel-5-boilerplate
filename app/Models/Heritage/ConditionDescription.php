@@ -7,9 +7,9 @@ use GraphAware\Neo4j\OGM\Annotations as OGM;
 
 /**
  *
- * @OGM\Node(label="Production")
+ * @OGM\Node(label="ConditionDescription")
  */
-class Production
+class ConditionDescription
 {
     use Uuids;
 
@@ -28,6 +28,13 @@ class Production
     protected $uuid;
 
     /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $note;
+
+    /**
      * @var \DateTime
      *
      * @OGM\Property()
@@ -44,18 +51,11 @@ class Production
     protected $updated_at;
 
     /**
-     * @var Building
+     * @var ConditionState
      *
-     * @OGM\Relationship(type="HasProduced", direction="OUTGOING", targetEntity="Building", mappedBy="production")
+     * @OGM\Relationship(type="HasNote", direction="INCOMING", targetEntity="ConditionState", mappedBy="conditionDescription")
      */
-    protected $building;
-
-    /**
-     * @var Resource
-     *
-     * @OGM\Relationship(type="HasProduced", direction="INCOMING", targetEntity="Resource", mappedBy="production")
-     */
-    protected $resource;
+    protected $condition_state;
 
     public function __construct(Resource $resource = null)
     {
@@ -116,34 +116,34 @@ class Production
     }
 
     /**
-     * @return Building
+     * @return string
      */
-    public function getBuilding()
+    public function getNote()
     {
-        return $this->building;
+        return $this->note;
     }
 
     /**
-     * @param Building $building
+     * @param string $note
      */
-    public function setBuilding($building)
+    public function setNote($note)
     {
-        $this->building = $building;
+        $this->note = $note;
     }
 
     /**
-     * @return Resource
+     * @return ConditionState
      */
-    public function getResource()
+    public function getConditionState()
     {
-        return $this->resource;
+        return $this->condition_state;
     }
 
     /**
-     * @param Resource $resource
+     * @param ConditionState $condition_state
      */
-    public function setResource($resource)
+    public function setConditionState($condition_state)
     {
-        $this->resource = $resource;
+        $this->condition_state = $condition_state;
     }
 }

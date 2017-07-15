@@ -7,9 +7,9 @@ use GraphAware\Neo4j\OGM\Annotations as OGM;
 
 /**
  *
- * @OGM\Node(label="Production")
+ * @OGM\Node(label="ArchitecturalElement")
  */
-class Production
+class ArchitecturalElement
 {
     use Uuids;
 
@@ -44,18 +44,26 @@ class Production
     protected $updated_at;
 
     /**
-     * @var Building
+     * @var \DateTime
      *
-     * @OGM\Relationship(type="HasProduced", direction="OUTGOING", targetEntity="Building", mappedBy="production")
+     * @OGM\Property()
+     * @OGM\Convert(type="datetime", options={"format":"timestamp"})
      */
-    protected $building;
+    protected $published_at;
 
     /**
-     * @var Resource
+     * @var ElementType
      *
-     * @OGM\Relationship(type="HasProduced", direction="INCOMING", targetEntity="Resource", mappedBy="production")
+     * @OGM\Relationship(type="HasElementType", direction="OUTGOING", targetEntity="ElementType", mappedBy="architecturalElement")
      */
-    protected $resource;
+    protected $element_type;
+
+    /**
+     * @var Component
+     *
+     * @OGM\Relationship(type="HasProduced", direction="INCOMING", targetEntity="Component", mappedBy="architecturalElement")
+     */
+    protected $component;
 
     public function __construct(Resource $resource = null)
     {
@@ -116,34 +124,49 @@ class Production
     }
 
     /**
-     * @return Building
+     * @return \DateTime
      */
-    public function getBuilding()
+    public function getPublishedAt()
     {
-        return $this->building;
+        return $this->published_at;
+    }
+    /**
+     * @param \DateTime $published_at
+     */
+    public function setPublishedAt($published_at)
+    {
+        $this->published_at = $published_at;
     }
 
     /**
-     * @param Building $building
+     * @return ElementType
      */
-    public function setBuilding($building)
+    public function getElementType()
     {
-        $this->building = $building;
+        return $this->element_type;
     }
 
     /**
-     * @return Resource
+     * @param ElementType $element_type
      */
-    public function getResource()
+    public function setElementType($element_type)
     {
-        return $this->resource;
+        $this->element_type = $element_type;
     }
 
     /**
-     * @param Resource $resource
+     * @return Component
      */
-    public function setResource($resource)
+    public function getComponent()
     {
-        $this->resource = $resource;
+        return $this->component;
+    }
+
+    /**
+     * @param Component $component
+     */
+    public function setComponent($component)
+    {
+        $this->component = $component;
     }
 }

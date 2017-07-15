@@ -7,9 +7,9 @@ use GraphAware\Neo4j\OGM\Annotations as OGM;
 
 /**
  *
- * @OGM\Node(label="Production")
+ * @OGM\Node(label="PlotPlan")
  */
-class Production
+class PlotPlan
 {
     use Uuids;
 
@@ -28,6 +28,20 @@ class Production
     protected $uuid;
 
     /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $name;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $name_ro;
+
+    /**
      * @var \DateTime
      *
      * @OGM\Property()
@@ -44,18 +58,19 @@ class Production
     protected $updated_at;
 
     /**
-     * @var Building
+     * @var \DateTime
      *
-     * @OGM\Relationship(type="HasProduced", direction="OUTGOING", targetEntity="Building", mappedBy="production")
+     * @OGM\Property()
+     * @OGM\Convert(type="datetime", options={"format":"timestamp"})
      */
-    protected $building;
+    protected $published_at;
 
     /**
-     * @var Resource
+     * @var Building
      *
-     * @OGM\Relationship(type="HasProduced", direction="INCOMING", targetEntity="Resource", mappedBy="production")
+     * @OGM\Relationship(type="Assigned", direction="INCOMING", targetEntity="Building", mappedBy="building")
      */
-    protected $resource;
+    protected $building;
 
     public function __construct(Resource $resource = null)
     {
@@ -83,6 +98,38 @@ class Production
     public function setUuid($uuid)
     {
         $this->uuid = $uuid;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNameRo()
+    {
+        return $this->name_ro;
+    }
+
+    /**
+     * @param string $name_ro
+     */
+    public function setNameRo($name_ro)
+    {
+        $this->name_ro = $name_ro;
     }
 
     /**
@@ -116,6 +163,21 @@ class Production
     }
 
     /**
+     * @return \DateTime
+     */
+    public function getPublishedAt()
+    {
+        return $this->published_at;
+    }
+    /**
+     * @param \DateTime $published_at
+     */
+    public function setPublishedAt($published_at)
+    {
+        $this->published_at = $published_at;
+    }
+
+    /**
      * @return Building
      */
     public function getBuilding()
@@ -129,21 +191,5 @@ class Production
     public function setBuilding($building)
     {
         $this->building = $building;
-    }
-
-    /**
-     * @return Resource
-     */
-    public function getResource()
-    {
-        return $this->resource;
-    }
-
-    /**
-     * @param Resource $resource
-     */
-    public function setResource($resource)
-    {
-        $this->resource = $resource;
     }
 }

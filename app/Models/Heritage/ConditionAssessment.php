@@ -7,9 +7,9 @@ use GraphAware\Neo4j\OGM\Annotations as OGM;
 
 /**
  *
- * @OGM\Node(label="Production")
+ * @OGM\Node(label="ConditionAssessment")
  */
-class Production
+class ConditionAssessment
 {
     use Uuids;
 
@@ -44,16 +44,16 @@ class Production
     protected $updated_at;
 
     /**
-     * @var Building
+     * @var ConditionState
      *
-     * @OGM\Relationship(type="HasProduced", direction="OUTGOING", targetEntity="Building", mappedBy="production")
+     * @OGM\Relationship(type="HasIdentified", direction="OUTGOING", targetEntity="ConditionState", mappedBy="conditionAssessment")
      */
-    protected $building;
+    protected $condition_state;
 
     /**
-     * @var Resource
+     * @var Component
      *
-     * @OGM\Relationship(type="HasProduced", direction="INCOMING", targetEntity="Resource", mappedBy="production")
+     * @OGM\Relationship(type="Concerned", direction="INCOMING", targetEntity="Component", mappedBy="conditionAssessment")
      */
     protected $resource;
 
@@ -116,19 +116,19 @@ class Production
     }
 
     /**
-     * @return Building
+     * @return ConditionState
      */
-    public function getBuilding()
+    public function getConditionState()
     {
-        return $this->building;
+        return $this->condition_state;
     }
 
     /**
-     * @param Building $building
+     * @param ConditionState $condition_state
      */
-    public function setBuilding($building)
+    public function setName($condition_state)
     {
-        $this->building = $building;
+        $this->condition_state = $condition_state;
     }
 
     /**

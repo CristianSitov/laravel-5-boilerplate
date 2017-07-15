@@ -7,9 +7,9 @@ use GraphAware\Neo4j\OGM\Annotations as OGM;
 
 /**
  *
- * @OGM\Node(label="Production")
+ * @OGM\Node(label="ElementType")
  */
-class Production
+class ElementType
 {
     use Uuids;
 
@@ -44,18 +44,33 @@ class Production
     protected $updated_at;
 
     /**
-     * @var Building
+     * @var \DateTime
      *
-     * @OGM\Relationship(type="HasProduced", direction="OUTGOING", targetEntity="Building", mappedBy="production")
+     * @OGM\Property()
+     * @OGM\Convert(type="datetime", options={"format":"timestamp"})
      */
-    protected $building;
+    protected $published_at;
 
     /**
-     * @var Resource
+     * @var string
      *
-     * @OGM\Relationship(type="HasProduced", direction="INCOMING", targetEntity="Resource", mappedBy="production")
+     * @OGM\Property(type="string")
      */
-    protected $resource;
+    protected $type;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $type_ro;
+
+    /**
+     * @var ArchitecturalElement
+     *
+     * @OGM\Relationship(type="HasElementType", direction="INCOMING", targetEntity="ArchitecturalElement", mappedBy="componentType")
+     */
+    protected $architectural_element;
 
     public function __construct(Resource $resource = null)
     {
@@ -116,34 +131,65 @@ class Production
     }
 
     /**
-     * @return Building
+     * @return \DateTime
      */
-    public function getBuilding()
+    public function getPublishedAt()
     {
-        return $this->building;
+        return $this->published_at;
+    }
+    /**
+     * @param \DateTime $published_at
+     */
+    public function setPublishedAt($published_at)
+    {
+        $this->published_at = $published_at;
     }
 
     /**
-     * @param Building $building
+     * @return string
      */
-    public function setBuilding($building)
+    public function getType()
     {
-        $this->building = $building;
+        return $this->type;
     }
 
     /**
-     * @return Resource
+     * @param string $type
      */
-    public function getResource()
+    public function setType($type)
     {
-        return $this->resource;
+        $this->type = $type;
     }
 
     /**
-     * @param Resource $resource
+     * @return string
      */
-    public function setResource($resource)
+    public function getTypeRo()
     {
-        $this->resource = $resource;
+        return $this->type_ro;
+    }
+
+    /**
+     * @param string $type_ro
+     */
+    public function setTypeRo($type_ro)
+    {
+        $this->type_ro = $type_ro;
+    }
+
+    /**
+     * @return ArchitecturalElement
+     */
+    public function getArchitecturalElement()
+    {
+        return $this->architectural_element;
+    }
+
+    /**
+     * @param ArchitecturalElement $architectural_element
+     */
+    public function setArchitecturalElement($architectural_element)
+    {
+        $this->architectural_element = $architectural_element;
     }
 }
