@@ -87,21 +87,6 @@ class HeritageResourceType
     protected $published_at;
 
     /**
-     * @return \DateTime
-     */
-    public function getPublishedAt()
-    {
-        return $this->published_at;
-    }
-    /**
-     * @param \DateTime $published_at
-     */
-    public function setPublishedAt($published_at)
-    {
-        $this->published_at = $published_at;
-    }
-
-    /**
      * @var Building
      *
      * @OGM\Relationship(type="Assigned", direction="INCOMING", targetEntity="Building", mappedBy="building")
@@ -244,6 +229,21 @@ class HeritageResourceType
     public function setUpdatedAt($updated_at)
     {
         $this->updated_at = $updated_at;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getPublishedAt()
+    {
+        return $this->published_at;
+    }
+    /**
+     * @param \DateTime $published_at
+     */
+    public function setPublishedAt($published_at)
+    {
+        $this->published_at = $published_at;
     }
 
     /**

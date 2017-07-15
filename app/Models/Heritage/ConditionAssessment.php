@@ -55,7 +55,7 @@ class ConditionAssessment
      *
      * @OGM\Relationship(type="Concerned", direction="INCOMING", targetEntity="Component", mappedBy="conditionAssessment")
      */
-    protected $resource;
+    protected $component;
 
     public function __construct(Resource $resource = null)
     {
@@ -126,24 +126,24 @@ class ConditionAssessment
     /**
      * @param ConditionState $condition_state
      */
-    public function setName($condition_state)
+    public function setConditionState($condition_state)
     {
         $this->condition_state = $condition_state;
     }
 
     /**
-     * @return Resource
+     * @return Component
      */
-    public function getResource()
+    public function getComponent()
     {
-        return $this->resource;
+        return $this->component;
     }
 
     /**
-     * @param Resource $resource
+     * @param Component $component
      */
-    public function setResource($resource)
+    public function setComponent($component)
     {
-        $this->resource = $resource;
+        $this->component = $component;
     }
 }

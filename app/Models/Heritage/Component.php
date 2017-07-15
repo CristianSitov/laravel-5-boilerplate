@@ -59,6 +59,13 @@ class Component
     protected $component_type;
 
     /**
+     * @var ComponentField
+     *
+     * @OGM\Relationship(type="ConsistsOf", direction="OUTGOING", targetEntity="ComponentField", mappedBy="component")
+     */
+    protected $component_field;
+
+    /**
      * @var Material
      *
      * @OGM\Relationship(type="ConsistsOf", direction="OUTGOING", targetEntity="Material", mappedBy="component")
@@ -173,6 +180,22 @@ class Component
     public function setComponentType($component_type)
     {
         $this->component_type = $component_type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getComponentField()
+    {
+        return $this->component_field;
+    }
+
+    /**
+     * @param string $component_field
+     */
+    public function setComponentField($component_field)
+    {
+        $this->component_field = $component_field;
     }
 
     /**

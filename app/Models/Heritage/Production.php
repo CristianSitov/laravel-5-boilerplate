@@ -51,6 +51,13 @@ class Production
     protected $building;
 
     /**
+     * @var ProductionEvent
+     *
+     * @OGM\Relationship(type="HasProduced", direction="OUTGOING", targetEntity="ProductionEvent", mappedBy="building")
+     */
+    protected $production_event;
+
+    /**
      * @var Resource
      *
      * @OGM\Relationship(type="HasProduced", direction="INCOMING", targetEntity="Resource", mappedBy="production")
@@ -129,6 +136,22 @@ class Production
     public function setBuilding($building)
     {
         $this->building = $building;
+    }
+
+    /**
+     * @return ProductionEvent
+     */
+    public function getProductionEvent()
+    {
+        return $this->production_event;
+    }
+
+    /**
+     * @param ProductionEvent $production_event
+     */
+    public function setProductionEvent($production_event)
+    {
+        $this->production_event = $production_event;
     }
 
     /**

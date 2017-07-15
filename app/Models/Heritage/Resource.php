@@ -89,13 +89,6 @@ class Resource extends Model
     protected $modification;
 
     /**
-     * @var ModificationEvent
-     *
-     * @OGM\Relationship(type="WasModified", direction="OUTGOING", targetEntity="ModificationEvent", mappedBy="building")
-     */
-    protected $modification_event;
-
-    /**
      * @return int
      */
     public function getId()
@@ -229,34 +222,18 @@ class Resource extends Model
     }
 
     /**
-     * @return ProductionEvent
+     * @return Modification
      */
-    public function getProductionEvent()
+    public function getModification()
     {
-        return $this->production_event;
+        return $this->modification;
     }
 
     /**
-     * @param ProductionEvent $production_event
+     * @param Modification $modification
      */
-    public function setProductionEvent($production_event)
+    public function setModification($modification)
     {
-        $this->production_event = $production_event;
-    }
-
-    /**
-     * @return ModificationEvent
-     */
-    public function getModificationEvent()
-    {
-        return $this->modification_event;
-    }
-
-    /**
-     * @param ModificationEvent $modification_event
-     */
-    public function setModificationEvent($modification_event)
-    {
-        $this->modification_event = $modification_event;
+        $this->modification = $modification;
     }
 }

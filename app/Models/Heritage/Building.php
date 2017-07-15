@@ -80,13 +80,6 @@ class Building
     protected $component;
 
     /**
-     * @var ProductionEvent
-     *
-     * @OGM\Relationship(type="HasProduced", direction="OUTGOING", targetEntity="ProductionEvent", mappedBy="building")
-     */
-    protected $production_event;
-
-    /**
      * @var Production
      *
      * @OGM\Relationship(type="HasProduced", direction="INCOMING", targetEntity="Production", mappedBy="production")
