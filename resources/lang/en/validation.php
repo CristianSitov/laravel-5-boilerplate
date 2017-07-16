@@ -155,12 +155,18 @@ return [
             'heritage' => [
                 'resources' => [
                     'name'                    => 'Name',
+                    'date_from'               => 'Date From',
+                    'date_to'                 => 'Date To',
                     'type'                    => 'Resource Type',
                     'description'             => 'Description',
                     'address'                 => 'Address',
                     'district'                => 'District',
                     'street'                  => 'Street',
                     'number'                  => 'Number',
+                    'heritage_resource_type'  => 'Heritage Resource Type',
+                    'action_button'           => 'Actions',
+                    'add_name_button'         => '+ Add Name',
+                    'delete_name_button'      => '× Delete Name',
                 ],
             ],
         ],

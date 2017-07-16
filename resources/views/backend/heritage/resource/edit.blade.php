@@ -15,7 +15,7 @@
 
         <div class="box box-success">
             <div class="box-header with-border">
-                <h3 class="box-title">{{ trans('labels.backend.heritage.resources.edit') }}</h3>
+                <h3 class="box-title">{{ trans('labels.backend.heritage.resources.edit') }} // {{ ($resource->getName() != null) ? $resource->getPlace()->getPlaceAddress()->getStreetName()->getCurrentName() . ' ' . $resource->getPlace()->getPlaceAddress()->getNumber() : $resource->getName()->getName() }}</h3>
 
                 <div class="box-tools pull-right">
                     @include('backend.heritage.includes.header-buttons')
@@ -85,10 +85,10 @@
                                         {{ Form::select('district', $administrative_subdivision, $resource->getPlace()->getAdministrativeSubdivision() ? $resource->getPlace()->getAdministrativeSubdivision()->getId() : '', ['required' => 'required', 'class' => 'col-lg-2 control-label js-example-basic-single']) }}
                                     </div><!--col-lg-10-->
                                     <div class="col-lg-5">
-                                        {{ Form::text('street', '', ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.heritage.resources.street')]) }}
+                                        {{ Form::select('street', $street_names, $resource->getPlace()->getPlaceAddress() ? $resource->getPlace()->getPlaceAddress()->getStreetName()->getId() : '', ['required' => 'required', 'class' => 'col-lg-2 control-label street-name']) }}
                                     </div>
                                     <div class="col-lg-2">
-                                        {{ Form::text('number', '', ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.heritage.resources.number')]) }}
+                                        {{ Form::text('number', $resource->getPlace()->getPlaceAddress()->getNumber(), ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.heritage.resources.number')]) }}
                                     </div>
                                 </div><!--form control-->
                             </div>
@@ -104,91 +104,13 @@
                         </div>
                         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                             <div class="panel-body">
-                                Anim
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingThree">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    {{ trans('labels.backend.heritage.resources.components') }}
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                            <div class="panel-body">
-                                Anim
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingThree">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    {{ trans('labels.backend.heritage.resources.dimensions') }}
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                            <div class="panel-body">
-                                Anim
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingThree">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    {{ trans('labels.backend.heritage.resources.changes') }}
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                            <div class="panel-body">
-                                Anim
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingThree">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    {{ trans('labels.backend.heritage.resources.relations') }}
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                            <div class="panel-body">
-                                Anim
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingThree">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    {{ trans('labels.backend.heritage.resources.evaluations') }}
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                            <div class="panel-body">
-                                Anim
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingThree">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    {{ trans('labels.backend.heritage.resources.legal') }}
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                            <div class="panel-body">
-                                Anim
+                                <div class="form-group">
+                                    {{ Form::label('heritage_resource_type', trans('validation.attributes.backend.heritage.resources.heritage_resource_type'), ['class' => 'col-lg-2 control-label']) }}
+
+                                    <div class="col-lg-10">
+                                        {{ Form::select('heritage_resource_type', $heritage_resource_types, $resource->getPlace()->getAdministrativeSubdivision() ? $resource->getPlace()->getAdministrativeSubdivision()->getId() : '', ['required' => 'required', 'class' => 'col-lg-2 control-label heritage-resource-type', 'multiple' => 'multiple']) }}
+                                    </div><!--col-lg-10-->
+                                </div><!--form control-->
                             </div>
                         </div>
                     </div>
@@ -217,6 +139,12 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $(".js-example-basic-single").select2({
+            width: '100%'
+        });
+        $(".heritage-resource-type").select2({
+            width: '100%'
+        });
+        $(".street-name").select2({
             width: '100%'
         });
         $(":input").inputmask();

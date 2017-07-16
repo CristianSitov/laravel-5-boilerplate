@@ -35,6 +35,29 @@ class Name
     protected $name;
 
     /**
+     * @var boolean
+     *
+     * @OGM\Property(type="boolean")
+     */
+    protected $current;
+
+    /**
+     * @var \DateTime
+     *
+     * @OGM\Property()
+     * @OGM\Convert(type="datetime", options={"format":"timestamp"})
+     */
+    protected $date_from;
+
+    /**
+     * @var \DateTime
+     *
+     * @OGM\Property()
+     * @OGM\Convert(type="datetime", options={"format":"timestamp"})
+     */
+    protected $date_to;
+
+    /**
      * @var \DateTime
      *
      * @OGM\Property()
@@ -57,9 +80,18 @@ class Name
      */
     protected $resource;
 
-    public function __construct(Resource $resource = null)
+    /**
+     * Name constructor.
+     *
+     * @param string $name
+     * @param string $from
+     * @param string $to
+     */
+    public function __construct($name, $from, $to)
     {
-        $this->resource = $resource;
+        $this->name = $name;
+        $this->date_from = $from;
+        $this->date_to = $to;
     }
 
     /**
@@ -129,6 +161,52 @@ class Name
     public function setName($name)
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getCurrent()
+    {
+        return $this->current;
+    }
+
+    /**
+     * @param boolean $current
+     */
+    public function setCurrent($current)
+    {
+        $this->current = $current;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateFrom()
+    {
+        return $this->date_from;
+    }
+    /**
+     * @param \DateTime $date_from
+     */
+    public function setDateFrom($date_from)
+    {
+        $this->date_from = $date_from;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateTo()
+    {
+        return $this->date_to;
+    }
+    /**
+     * @param \DateTime $date_to
+     */
+    public function setDateTo($date_to)
+    {
+        $this->date_to = $date_to;
     }
 
     /**

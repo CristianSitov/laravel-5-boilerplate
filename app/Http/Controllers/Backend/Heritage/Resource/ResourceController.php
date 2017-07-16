@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Backend\Heritage\Resource;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\Heritage\HeritageResourceRequest;
 use App\Models\Heritage\Resource;
+use App\Models\Heritage\StreetName;
 use App\Repositories\Backend\Heritage\AdministrativeSubdivisionRepository;
+use App\Repositories\Backend\Heritage\HeritageResourceTypeRepository;
 use App\Repositories\Backend\Heritage\ResourceTypeClassificationRepository;
 use App\Repositories\Backend\Heritage\ResourceRepository;
+use App\Repositories\Backend\Heritage\StreetNameRepository;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
@@ -29,6 +32,16 @@ class ResourceController extends Controller
     protected $administrativeSubdivisionRepository;
 
     /**
+     * @var HeritageResourceTypeRepository
+     */
+    protected $heritageResourceTypeRepository;
+
+    /**
+     * @var StreetNameRepository
+     */
+    protected $streetNameRepository;
+
+    /**
      * HeritageResource constructor.
      *
      * @param ResourceRepository $resourceRepository
@@ -36,11 +49,15 @@ class ResourceController extends Controller
      */
     public function __construct(ResourceRepository $resourceRepository,
                                 ResourceTypeClassificationRepository $resourceTypeClassificationRepository,
-                                AdministrativeSubdivisionRepository $administrativeSubdivisionRepository)
+                                AdministrativeSubdivisionRepository $administrativeSubdivisionRepository,
+                                HeritageResourceTypeRepository $heritageResourceTypeRepository,
+                                StreetNameRepository $streetNameRepository)
     {
         $this->resourceRepository = $resourceRepository;
         $this->resourceTypeClassificationRepository = $resourceTypeClassificationRepository;
         $this->administrativeSubdivisionRepository = $administrativeSubdivisionRepository;
+        $this->heritageResourceTypeRepository = $heritageResourceTypeRepository;
+        $this->streetNameRepository = $streetNameRepository;
     }
 
     /**
@@ -65,7 +82,19 @@ class ResourceController extends Controller
                 return [$item->getId() => $item->getType()];
             });
 
+        $administrativeSubdivision = collect($this->administrativeSubdivisionRepository->model->findAll())
+            ->mapWithKeys(function ($item) {
+                return [$item->getId() =>  $item->getName()];
+            });
+
+        $streetNames = collect($this->streetNameRepository->model->findAll())
+            ->mapWithKeys(function ($item) {
+                return [$item->getId() => $item->getCurrentName()];
+            });
+
         return view('backend.heritage.resource.create')
+            ->withAdministrativeSubdivision($administrativeSubdivision)
+            ->withStreetNames($streetNames)
             ->withResourceTypeClassifications($resourceTypeClassifications);
     }
 
@@ -125,9 +154,16 @@ class ResourceController extends Controller
                 ]];
             });
 
+        $streetNames = collect($this->streetNameRepository->model->findAll())
+            ->mapWithKeys(function ($item) {
+                return [$item->getId() => $item->getCurrentName()];
+            });
+
         return view('backend.heritage.resource.edit')
             ->withResourceTypeClassifications($resourceTypeClassifications)
             ->withAdministrativeSubdivision($administrativeSubdivision)
+            ->withHeritageResourceTypes($heritageResourceTypes)
+            ->withStreetNames($streetNames)
             ->withResource($resource);
     }
 
@@ -155,6 +191,16 @@ class ResourceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $resource = $this->resourceRepository->model->find($id);
+        $place = $resource->getPlace();
+        $placeAddress = $resource->getPlace()->getPlaceAddress();
+        $this->resourceRepository->em->remove($placeAddress, true);
+        $this->resourceRepository->em->remove($place, true);
+        $this->resourceRepository->em->remove($resource, true);
+        $this->resourceRepository->em->flush();
+
+        return redirect()
+            ->route('admin.heritage.resource.index')
+            ->withFlashSuccess(trans('alerts.backend.resources.created'));
     }
 }

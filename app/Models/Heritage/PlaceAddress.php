@@ -28,20 +28,6 @@ class PlaceAddress
     protected $uuid;
 
     /**
-     * @var string
-     *
-     * @OGM\Property(type="string")
-     */
-    protected $street;
-
-    /**
-     * @var string
-     *
-     * @OGM\Property(type="string")
-     */
-    protected $number;
-
-    /**
      * @var \DateTime
      *
      * @OGM\Property()
@@ -56,6 +42,20 @@ class PlaceAddress
      * @OGM\Convert(type="datetime", options={"format":"timestamp"})
      */
     protected $updated_at;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $number;
+
+    /**
+     * @var StreetName
+     *
+     * @OGM\Relationship(type="IsIdentifiedBy", direction="OUTGOING", targetEntity="StreetName", mappedBy="placeAddress")
+     */
+    protected $streetName;
 
     /**
      * @var Place
@@ -123,19 +123,19 @@ class PlaceAddress
     }
 
     /**
-     * @return string
+     * @return StreetName
      */
-    public function getStreet()
+    public function getStreetName()
     {
-        return $this->street;
+        return $this->streetName;
     }
 
     /**
-     * @param string $street
+     * @param string $streetName
      */
-    public function setStreet($street)
+    public function setStreetName($streetName)
     {
-        $this->street = $street;
+        $this->streetName = $streetName;
     }
 
     /**

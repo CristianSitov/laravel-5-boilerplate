@@ -23,21 +23,21 @@
             </div><!--box-tools pull-right-->
         </div><!-- /.box-header -->
 
-        <div class="box-body">
-            <div class="table-responsive">
-                <table id="resources-table" class="table table-condensed table-hover">
-                    <thead>
-                    <tr>
-                        <th>{{ trans('labels.backend.heritage.resources.table.id') }}</th>
-                        <th>{{ trans('labels.backend.heritage.resources.table.name') }}</th>
-                        <th>{{ trans('labels.backend.heritage.resources.table.resource_type_classification') }}</th>
-                        <th>{{ trans('labels.backend.heritage.resources.table.created') }}</th>
-                        <th>{{ trans('labels.backend.heritage.resources.table.last_updated') }}</th>
-                        <th>{{ trans('labels.general.actions') }}</th>
-                    </tr>
-                    </thead>
-                </table>
-            </div><!--table-responsive-->
+        <div class="box-body table-responsive">
+            <table id="resources-table" class="table table-condensed table-hover">
+                <thead>
+                <tr>
+                    <th>{{ trans('labels.backend.heritage.resources.table.id') }}</th>
+                    <th>{{ trans('labels.backend.heritage.resources.table.address') }}</th>
+                    <th>{{ trans('labels.backend.heritage.resources.table.name') }}</th>
+                    <th>{{ trans('labels.backend.heritage.resources.table.status') }}</th>
+                    <th>{{ trans('labels.backend.heritage.resources.table.progress') }}</th>
+                    <th>{{ trans('labels.backend.heritage.resources.table.created') }}</th>
+                    <th>{{ trans('labels.backend.heritage.resources.table.last_updated') }}</th>
+                    <th>{{ trans('labels.general.actions') }}</th>
+                </tr>
+                </thead>
+            </table>
         </div><!-- /.box-body -->
     </div><!--box-->
 
@@ -72,8 +72,10 @@
                     {data: 'uuid', name: 'resources.uuid', render: function ( data, type, full, meta ) {
                         return '<small>' + data + '<small>';
                     }},
+                    {data: 'address', name: 'resources.address'},
                     {data: 'name', name: 'resources.name'},
-                    {data: 'resource_type_classification', name: 'resources.resource_type_classification'},
+                    {data: 'status', name: 'resources.status'},
+                    {data: 'progress', name: 'resources.progress'},
                     {data: 'created_at', name: 'resources.created_at'},
                     {data: 'updated_at', name: 'resources.updated_at'},
                     {data: 'actions', name: 'actions', searchable: false, sortable: false}

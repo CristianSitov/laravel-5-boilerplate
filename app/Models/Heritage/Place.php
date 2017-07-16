@@ -48,14 +48,14 @@ class Place
      *
      * @OGM\Relationship(type="IsIncorporatedIn", direction="OUTGOING", targetEntity="AdministrativeSubdivision", mappedBy="place")
      */
-    protected $administrative_subdivision;
+    protected $administrativeSubdivision;
 
     /**
      * @var PlaceAddress
      *
      * @OGM\Relationship(type="IsIdentifiedBy", direction="OUTGOING", targetEntity="PlaceAddress", mappedBy="place")
      */
-    protected $place_address;
+    protected $placeAddress;
 
     /**
      * @var Resource
@@ -123,6 +123,38 @@ class Place
     }
 
     /**
+     * @return AdministrativeSubdivision
+     */
+    public function getAdministrativeSubdivision()
+    {
+        return $this->administrativeSubdivision;
+    }
+
+    /**
+     * @param AdministrativeSubdivision $administrativeSubdivision
+     */
+    public function setAdministrativeSubdivision($administrativeSubdivision)
+    {
+        $this->administrativeSubdivision = $administrativeSubdivision;
+    }
+
+    /**
+     * @return PlaceAddress
+     */
+    public function getPlaceAddress()
+    {
+        return $this->placeAddress;
+    }
+
+    /**
+     * @param PlaceAddress $placeAddress
+     */
+    public function setPlaceAddress($placeAddress)
+    {
+        $this->placeAddress = $placeAddress;
+    }
+
+    /**
      * @return Resource
      */
     public function getResource()
@@ -136,37 +168,5 @@ class Place
     public function setResource($resource)
     {
         $this->resource = $resource;
-    }
-
-    /**
-     * @return AdministrativeSubdivision
-     */
-    public function getAdministrativeSubdivision()
-    {
-        return $this->administrative_subdivision;
-    }
-
-    /**
-     * @param AdministrativeSubdivision $administrative_subdivision
-     */
-    public function setAdministrativeSubdivision($administrative_subdivision)
-    {
-        $this->administrative_subdivision = $administrative_subdivision;
-    }
-
-    /**
-     * @return PlaceAddress
-     */
-    public function getPlaceAddress()
-    {
-        return $this->place_address;
-    }
-
-    /**
-     * @param PlaceAddress $place_address
-     */
-    public function setPlaceAddress($place_address)
-    {
-        $this->place_address = $place_address;
     }
 }

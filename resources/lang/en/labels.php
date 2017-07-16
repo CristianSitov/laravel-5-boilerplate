@@ -116,8 +116,9 @@ return [
                 'table' => [
                     'id'                           => 'ID',
                     'name'                         => 'Name',
-                    'resource_type_classification' => 'Type',
-                    'description'                  => 'Description',
+                    'address'                      => 'Address',
+                    'status'                       => 'Status',
+                    'progress'                     => 'Progress',
                     'created'                      => 'Created',
                     'last_updated'                 => 'Last Updated',
                     'confirmed'                    => 'Confirmed',

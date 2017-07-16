@@ -32,7 +32,8 @@ return [
         ],
 
         'resources' => [
-            'created' => 'The Heritage Resource was successfully created.'
+            'created' => 'The Heritage Resource was successfully created.',
+            'deleted' => 'The Heritage Resource was successfully deleted.'
         ]
     ],
 ];

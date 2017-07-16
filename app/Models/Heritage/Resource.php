@@ -5,6 +5,7 @@ namespace App\Models\Heritage;
 use App\Models\Heritage\Traits\Attribute\ResourceAttribute;
 use Carbon\Carbon;
 use GraphAware\Neo4j\OGM\Annotations as OGM;
+use GraphAware\Neo4j\OGM\Common\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -47,11 +48,41 @@ class Resource extends Model
     protected $updated_at;
 
     /**
-     * @var Name
+     * @var \DateTime
      *
-     * @OGM\Relationship(type="IsIdentifiedBy", direction="OUTGOING", targetEntity="Name", mappedBy="resource")
+     * @OGM\Property()
+     * @OGM\Convert(type="datetime", options={"format":"timestamp"})
      */
-    protected $name;
+    protected $published_at;
+
+    /**
+     * @var \DateTime
+     *
+     * @OGM\Property()
+     * @OGM\Convert(type="datetime", options={"format":"timestamp"})
+     */
+    protected $deleted_at;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $status;
+
+    /**
+     * @var int
+     *
+     * @OGM\Property(type="int")
+     */
+    protected $progress;
+
+    /**
+     * @var Name[]|Collection
+     *
+     * @OGM\Relationship(type="IsIdentifiedBy", direction="OUTGOING", targetEntity="Name", collection=true, mappedBy="resource")
+     */
+    protected $names;
 
     /**
      * @var Description
@@ -75,18 +106,27 @@ class Resource extends Model
     protected $place;
 
     /**
-     * @var Production
+     * @var Production[]|Collection
      *
-     * @OGM\Relationship(type="HasProduced", direction="OUTGOING", targetEntity="Production", mappedBy="resource")
+     * @OGM\Relationship(type="HasProduced", direction="OUTGOING", targetEntity="Production", collection=true, mappedBy="resource")
      */
-    protected $production;
+    protected $productions;
 
     /**
-     * @var Modification
+     * @var Modification[]|Collection
      *
-     * @OGM\Relationship(type="HasModified", direction="OUTGOING", targetEntity="Modification", mappedBy="resource")
+     * @OGM\Relationship(type="HasModified", direction="OUTGOING", targetEntity="Modification", collection=true, mappedBy="resource")
      */
-    protected $modification;
+    protected $modifications;
+
+    public function __construct()
+    {
+        $this->status = 'field_ready';
+        $this->published_at = null;
+        $this->names = new Collection();
+        $this->productions = new Collection();
+        $this->modifications = new Collection();
+    }
 
     /**
      * @return int
@@ -142,19 +182,85 @@ class Resource extends Model
     }
 
     /**
-     * @return Name
+     * @return string
      */
-    public function getName()
+    public function getPublishedAt()
     {
-        return $this->name;
+        return Carbon::instance($this->published_at)->toDateTimeString();
+    }
+    /**
+     * @param \DateTime $published_at
+     */
+    public function setPublishedAt($published_at)
+    {
+        $this->published_at = $published_at;
     }
 
     /**
-     * @param Name $name
+     * @return string
      */
-    public function setName($name)
+    public function getDeletedAt()
     {
-        $this->name = $name;
+        return Carbon::instance($this->deleted_at)->toDateTimeString();
+    }
+    /**
+     * @param \DateTime $deleted_at
+     */
+    public function setDeletedAt($deleted_at)
+    {
+        $this->deleted_at = $deleted_at;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+    /**
+     * @param string $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return int
+     */
+    public function getProgress()
+    {
+        return $this->progress;
+    }
+    /**
+     * @param int $progress
+     */
+    public function setProgress($progress)
+    {
+        $this->progress = $progress;
+    }
+
+    /**
+     * @return Name[]|Collection
+     */
+    public function getNames()
+    {
+        return $this->names;
+    }
+
+    /**
+     * @return Name
+     */
+    public function getCurrentName()
+    {
+        $names = $this->getNames();
+        foreach ($names as $name) {
+            if ($name->getCurrent()) {
+                return $name;
+            }
+        }
+        return false;
     }
 
     /**
@@ -206,34 +312,29 @@ class Resource extends Model
     }
 
     /**
-     * @return Production
+     * @return Production[]|Collection
      */
-    public function getProduction()
+    public function getProductions()
     {
-        return $this->production;
+        return $this->productions;
+    }
+
+    public function getProductionByAddress($address)
+    {
+        foreach ($this->getProductions() as $production) {
+            if ($production->getHouse()->getAddress() === $address) {
+                return $production;
+            }
+        }
+
+        return null;
     }
 
     /**
-     * @param Production $production
+     * @return Modification[]|Collection
      */
-    public function setProduction($production)
+    public function getModifications()
     {
-        $this->production = $production;
-    }
-
-    /**
-     * @return Modification
-     */
-    public function getModification()
-    {
-        return $this->modification;
-    }
-
-    /**
-     * @param Modification $modification
-     */
-    public function setModification($modification)
-    {
-        $this->modification = $modification;
+        return $this->modifications;
     }
 }
