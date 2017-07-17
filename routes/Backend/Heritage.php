@@ -13,7 +13,7 @@ Route::group([
      * Heritage Management
      */
     Route::group([
-        'middleware' => 'access.routeNeedsRole:1',
+        'middleware' => 'access.routeNeedsPermission:view-backend;scout',
     ], function () {
         /*
         * Heritage Resource Management

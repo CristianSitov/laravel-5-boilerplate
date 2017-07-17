@@ -53,12 +53,14 @@
                             <span>{{ trans('menus.backend.heritage.resources.management') }}</span>
                         </a>
                     </li>
+@if (access()->hasRoles(['Administrator', 1]))
                     <li class="{{ active_class(Active::checkUriPattern('admin/heritage/resource-type-classification/*')) }}">
                         <a href="{{ route('admin.heritage.resource-type-classification.index') }}">
                             <i class="fa fa-file-o"></i>
                             <span>{{ trans('menus.backend.heritage.resource_type_classification.management') }}</span>
                         </a>
                     </li>
+@endif
                 </ul>
             </li>
 
