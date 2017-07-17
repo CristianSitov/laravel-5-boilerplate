@@ -24,6 +24,48 @@ use Webpatser\Uuid\Uuid;
  */
 class ResourceRepository extends BaseRepository
 {
+    const STATUSES = [
+        'field_ready' => [
+            'label' => 'default',
+            'name' => 'I. Desk - Imported'
+        ],
+        'field_done' => [
+            'label' => 'danger',
+            'name' => 'II. Field - Mapped',
+        ],
+        'moderated' => [
+            'label' => 'warning',
+            'name' => 'III. Desk - Evaluated',
+        ],
+        'published' => [
+            'label' => 'info',
+            'name' => 'IV. Published',
+        ],
+    ];
+
+    const PROGRESSES = [
+        '15' => [
+            'label' => 'default',
+            'value' => '15'
+        ],
+        '30' => [
+            'label' => 'danger',
+            'value' => '30',
+        ],
+        '60' => [
+            'label' => 'warning',
+            'value' => '60',
+        ],
+        '80' => [
+            'label' => 'info',
+            'value' => '80',
+        ],
+        '100' => [
+            'label' => 'success',
+            'value' => '100',
+        ],
+    ];
+
     /**
      * @var EntityManager
      */
@@ -54,6 +96,8 @@ class ResourceRepository extends BaseRepository
             $results[$k]['address'] = $resource->getPlace()->getPlaceAddress()->getStreetName()->getCurrentName() . ', ' .
                                       $resource->getPlace()->getPlaceAddress()->getNumber();
             $results[$k]['name'] = $resource->getCurrentName()->getName();
+            $results[$k]['status'] = $resource->getStatus();
+            $results[$k]['progress'] = $resource->getProgress();
             $results[$k]['created_at'] = $resource->getCreatedAt();
             $results[$k]['updated_at'] = $resource->getUpdatedAt();
             $results[$k]['actions'] = $resource->getActionButtonsAttribute();
@@ -71,6 +115,7 @@ class ResourceRepository extends BaseRepository
 
         $resource = new Resource();
         $resource->setUuid((string)Uuid::generate(4));
+        $resource->setProgress(10);
         $resource->setCreatedAt(new \DateTime());
         $resource->setUpdatedAt(new \DateTime());
 
@@ -125,49 +170,72 @@ class ResourceRepository extends BaseRepository
     }
 
     /**
+     * @param int $id
      * @param array $input
      */
     public function update($id, $input)
     {
         $data = $input['data'];
 
-        $resource = $this->entityManager->find(Resource::class, $id);
+        $resource = $this->em->find(Resource::class, $id);
 
         // GENERAL
         // type: BUILDING
         if ($resource->getResourceTypeClassification()->getId() != $data['type']) {
-            $this->entityManager->getDatabaseDriver()
+            $this->em->getDatabaseDriver()
                 ->run('MATCH (res:Resource)-[rel:HasResourceTypeClassification]->() WHERE id(res) = '.$id.' DELETE rel');
-            $newResourceTypeClassification = $this->entityManager->find(ResourceTypeClassification::class, $data['type']);
+            $newResourceTypeClassification = $this->em->find(ResourceTypeClassification::class, $data['type']);
             $resource->setResourceTypeClassification($newResourceTypeClassification);
         }
 
         // name
-        if ($data['building_name']) {
-            if ($resource->getName()) {
-                if ($resource->getName()->getName() != $data['building_name']) {
-                    $resource->getName()->setName($data['building_name']);
-                }
-            } else {
-                $name = new Name();
-                $name->setName($data['building_name']);
-                $resource->setName($name);
-            }
-        }
+//        if ($data['building_name']) {
+//            if ($resource->getName()) {
+//                if ($resource->getName()->getName() != $data['building_name']) {
+//                    $resource->getName()->setName($data['building_name']);
+//                }
+//            } else {
+//                $name = new Name();
+//                $name->setName($data['building_name']);
+//                $resource->setName($name);
+//            }
+//        }
 
         // description
         $resource->getDescription()->setNote($data['description']);
 
         // STRUCTURE
-        $heritageResourceType = $this->entityManager->find(HeritageResourceType::class, $data['heritage_resource_type']);
+        $heritageResourceType = $this->em->find(HeritageResourceType::class, $data['heritage_resource_type']);
         $productions = $resource->getProductions();
         foreach ($productions as $production) {
 
         }
 
-        $this->entityManager->persist($resource);
-        $this->entityManager->flush();
+        $this->em->persist($resource);
+        $this->em->flush();
 
         event(new ResourceUpdated($resource));
+    }
+
+    /**
+     * @param int $id
+     */
+    public function softDelete($id)
+    {
+        $resource = $this->em->find(Resource::class, $id);
+        $resource->setDeletedAt(new \DateTime());
+        $this->em->persist($resource);
+        $this->em->flush();
+    }
+
+    /**
+     * @param int $id
+     */
+    public function restoreDelete($id)
+    {
+        $resource = $this->em->find(Resource::class, $id);
+        $resource->setDeletedAt(null);
+        $this->em->persist($resource);
+        $this->em->flush();
     }
 }

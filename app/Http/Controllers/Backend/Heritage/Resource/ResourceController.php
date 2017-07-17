@@ -67,7 +67,9 @@ class ResourceController extends Controller
      */
     public function index()
     {
-        return view('backend.heritage.resource.index');
+        return view('backend.heritage.resource.index')
+            ->withStatuses(ResourceRepository::STATUSES)
+            ->withProgresses(ResourceRepository::PROGRESSES);
     }
 
     /**
@@ -184,6 +186,21 @@ class ResourceController extends Controller
     }
 
     /**
+     * Undelete the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function restore($id)
+    {
+        $this->resourceRepository->restoreDelete($id);
+
+        return redirect()
+            ->route('admin.heritage.resource.index')
+            ->withFlashSuccess(trans('alerts.backend.resources.created'));
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
@@ -191,13 +208,7 @@ class ResourceController extends Controller
      */
     public function destroy($id)
     {
-        $resource = $this->resourceRepository->model->find($id);
-        $place = $resource->getPlace();
-        $placeAddress = $resource->getPlace()->getPlaceAddress();
-        $this->resourceRepository->em->remove($placeAddress, true);
-        $this->resourceRepository->em->remove($place, true);
-        $this->resourceRepository->em->remove($resource, true);
-        $this->resourceRepository->em->flush();
+        $this->resourceRepository->softDelete($id);
 
         return redirect()
             ->route('admin.heritage.resource.index')

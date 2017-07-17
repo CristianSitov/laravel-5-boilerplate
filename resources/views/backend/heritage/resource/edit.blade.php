@@ -15,7 +15,10 @@
 
         <div class="box box-success">
             <div class="box-header with-border">
-                <h3 class="box-title">{{ trans('labels.backend.heritage.resources.edit') }} // {{ ($resource->getName() != null) ? $resource->getPlace()->getPlaceAddress()->getStreetName()->getCurrentName() . ' ' . $resource->getPlace()->getPlaceAddress()->getNumber() : $resource->getName()->getName() }}</h3>
+                <h3 class="box-title">{{ trans('labels.backend.heritage.resources.edit') }} // {{ ucwords(
+                $resource->getPlace()->getPlaceAddress()->getStreetName()->getType() . ' ' .
+                $resource->getPlace()->getPlaceAddress()->getStreetName()->getCurrentName() .
+                ', no. ' . $resource->getPlace()->getPlaceAddress()->getNumber()) }}</h3>
 
                 <div class="box-tools pull-right">
                     @include('backend.heritage.includes.header-buttons')
@@ -38,7 +41,7 @@
                                     {{ Form::label('building_name', trans('validation.attributes.backend.heritage.resources.name'), ['class' => 'col-lg-2 control-label']) }}
 
                                     <div class="col-lg-5">
-                                        {{ Form::text('building_name', $resource->getName() != null ? $resource->getName()->getName() : '', ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.heritage.resources.name')]) }}
+                                        {{ Form::text('building_name', $resource->getCurrentName() != null ? $resource->getCurrentName()->getName() : '', ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.heritage.resources.name')]) }}
                                     </div><!--col-lg-10-->
                                     <div class="col-lg-2">
                                         {{ Form::text('date_from', '', ['class' => 'form-control', 'data-inputmask' => '"alias": "date"', 'data-mask', 'placeholder' => 'dd/mm/yyyy']) }}

@@ -41,7 +41,7 @@
         </div><!-- /.box-body -->
     </div><!--box-->
 
-    <div class="box box-info">
+    <div class="box box-info collapsed-box">
         <div class="box-header with-border">
             <h3 class="box-title">{{ trans('history.backend.recent_history') }}</h3>
             <div class="box-tools pull-right">
@@ -60,6 +60,8 @@
 
     <script>
         $(function() {
+            var mapStatus = JSON.parse('{!! json_encode($statuses) !!}');
+            var mapProgress = JSON.parse('{!! json_encode($progresses) !!}');
             $('#resources-table').DataTable({
                 processing: true,
                 serverSide: true,
@@ -74,10 +76,14 @@
                     }},
                     {data: 'address', name: 'resources.address'},
                     {data: 'name', name: 'resources.name'},
-                    {data: 'status', name: 'resources.status'},
-                    {data: 'progress', name: 'resources.progress'},
-                    {data: 'created_at', name: 'resources.created_at'},
-                    {data: 'updated_at', name: 'resources.updated_at'},
+                    {data: 'status', name: 'resources.status', render: function ( data, type, full, meta ) {
+                        return '<span class="label label-'+mapStatus[data]['label']+'">' + mapStatus[data]['name'] + '<span>';
+                    }},
+                    {data: 'progress', name: 'resources.progress', render: function ( data, type, full, meta ) {
+                        return '<div class="progress"><div class="progress-bar progress-bar-'+mapProgress[data]['label']+'" role="progressbar" aria-valuenow="'+data+'" aria-valuemin="0" aria-valuemax="100" style="width: '+data+'%"><span class="sr-only">'+data+'% Complete (success)</span></div></div>';
+                    }},
+                    {data: 'created_at', name: 'resources.created_at', width: 150},
+                    {data: 'updated_at', name: 'resources.updated_at', width: 150},
                     {data: 'actions', name: 'actions', searchable: false, sortable: false}
                 ],
                 order: [[0, "asc"]],

@@ -20,6 +20,8 @@ Route::group([
         */
         Route::group(['namespace' => 'Resource'], function () {
             Route::resource('resource', 'ResourceController');
+            Route::put('resource/{resource}/restore', 'ResourceController@restore')
+                ->name('resource.restore');
 
             // For DataTables
             Route::post('resource/get', 'ResourceTableController')

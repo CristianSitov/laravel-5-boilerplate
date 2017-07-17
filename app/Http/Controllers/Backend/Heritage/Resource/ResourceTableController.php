@@ -38,7 +38,7 @@ class ResourceTableController extends Controller
         $heritageResources = $this->resources->getForDataTable($request->get('status'), $request->get('trashed'));
 
         return Datatables::of($heritageResources)
-            ->escapeColumns(['uuid', 'address', 'name', 'status'])
+            ->escapeColumns(['uuid', 'address', 'name', 'status', 'progress'])
             ->make(true);
     }
 }
