@@ -1,4 +1,4 @@
-type_set,type_set_ro,type,type_ro,published,uuid
+set,set_ro,name,name_ro,published,uuid
 Commercial,Comerț / Servicii,Mortuary/Funeral Home,Casă funerară / Magazin pompe funebre,true,5561af30-f31d-48a8-a26f-22cbe9848bfb
 Commercial,Comerț / Servicii,Corridor,,false,cb4afd04-b14a-4918-b2e8-2f1d4ce5212c
 Commercial,Comerț / Servicii,Neighborhood/Village Commercial Center,,false,f59c72f4-670c-4f27-ab48-304d70709e2a

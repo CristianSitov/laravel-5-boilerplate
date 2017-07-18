@@ -2,23 +2,23 @@
 
 namespace App\Repositories\Backend\Heritage;
 
-use App\Models\Heritage\HeritageResourceType;
+use App\Models\Heritage\ArchitecturalStyle;
 use App\Repositories\BaseRepository;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\Common\Collections\Expr\Comparison;
 use GraphAware\Neo4j\OGM\EntityManager;
 
 /**
- * Class ResourceRepository.
+ * Class ArchitecturalStyleRepository.
  */
-class HeritageResourceTypeRepository extends BaseRepository
+class ArchitecturalStyleRepository extends BaseRepository
 {
     protected $em;
 
     public function __construct(EntityManager $entityManager)
     {
         $this->em = $entityManager;
-        $this->model = $this->em->getRepository(HeritageResourceType::class);
+        $this->model = $this->em->getRepository(ArchitecturalStyle::class);
     }
 
     /**

@@ -164,6 +164,8 @@ return [
                     'street'                  => 'Street',
                     'number'                  => 'Number',
                     'heritage_resource_type'  => 'Heritage Resource Type',
+                    'architectural_style'     => 'Architectural Style',
+                    'plot_plan'               => 'Plot plan',
                     'action_button'           => 'Actions',
                     'add_name_button'         => '+ Add Name',
                     'delete_name_button'      => '× Delete Name',

@@ -250,7 +250,7 @@ class Resource extends Model
     }
 
     /**
-     * @return Name
+     * @return Name|false
      */
     public function getCurrentName()
     {
@@ -260,6 +260,7 @@ class Resource extends Model
                 return $name;
             }
         }
+
         return false;
     }
 
@@ -319,10 +320,10 @@ class Resource extends Model
         return $this->productions;
     }
 
-    public function getProductionByAddress($address)
+    public function getProductionById($id)
     {
         foreach ($this->getProductions() as $production) {
-            if ($production->getHouse()->getAddress() === $address) {
+            if ($production->getId() === $id) {
                 return $production;
             }
         }

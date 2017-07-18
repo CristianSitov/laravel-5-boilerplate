@@ -20,7 +20,9 @@ trait ResourceAttribute
      */
     public function getEditButtonAttribute()
     {
-        return '<a href="'.route('admin.heritage.resource.edit', $this->getId()).'" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.general.crud.edit').'"></i></a> ';
+        if (access()->hasRole('Administrator')) {
+            return '<a href="' . route('admin.heritage.resource.edit', $this->getId()) . '" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="' . trans('buttons.general.crud.edit') . '"></i></a> ';
+        }
     }
 
     /**
@@ -28,7 +30,7 @@ trait ResourceAttribute
      */
     public function getDeleteButtonAttribute()
     {
-        if ($this->getId() != access()->id() && $this->getId() != 1) {
+        if (access()->hasRole('Administrator')) {
             if ($this->deleted_at) {
                 return '<a href="'.route('admin.heritage.resource.restore', $this->getId()).'"
                  data-method="put"
@@ -52,11 +54,20 @@ trait ResourceAttribute
     /**
      * @return string
      */
+    public function getBuildingsButtonAttribute()
+    {
+        return '<a href="'.route('admin.heritage.building.get', $this->getId()).'" class="btn btn-xs btn-warning"><i class="fa fa-building" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.backend.heritage.resources.edit_buildings').'"></i></a> ';
+    }
+
+    /**
+     * @return string
+     */
     public function getActionButtonsAttribute()
     {
         return
             $this->getShowButtonAttribute().
             $this->getEditButtonAttribute().
+            $this->getBuildingsButtonAttribute().
             $this->getDeleteButtonAttribute();
     }
 }

@@ -47,6 +47,13 @@ return [
                 'main'            => 'Heritage Resources',
             ],
 
+            'buildings' => [
+                'all'             => 'All Buildings',
+                'management'      => 'Buildings Management',
+                'create'          => 'Create Building',
+                'main'            => 'Buildings',
+            ],
+
             'resource_type_classification' => [
                 'management'      => 'Type Management',
             ]

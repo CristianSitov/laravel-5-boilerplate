@@ -87,26 +87,6 @@
 
             </div><!-- /.box-body -->
         </div><!--box-->
-    @endif
-
-        <div class="box box-success">
-            <div class="box-header with-border">
-                <h4 class="panel-title">{{ trans('labels.backend.heritage.resources.structure') }}</h4>
-                <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
-                </div><!--box-tools pull-right-->
-            </div><!-- /.box-header -->
-
-            <div class="box-body">
-                <div class="form-group">
-                    {{ Form::label('heritage_resource_type', trans('validation.attributes.backend.heritage.resources.heritage_resource_type'), ['class' => 'col-lg-2 control-label']) }}
-
-                    <div class="col-lg-10">
-                        {{ Form::select('heritage_resource_type', $heritage_resource_types, $resource->getPlace()->getAdministrativeSubdivision() ? $resource->getPlace()->getAdministrativeSubdivision()->getId() : '', ['required' => 'required', 'class' => 'col-lg-2 control-label heritage-resource-type', 'multiple' => 'multiple']) }}
-                    </div><!--col-lg-10-->
-                </div><!--form control-->
-            </div><!-- /.box-body -->
-        </div><!--box-->
 
         <div class="box box-success">
             <div class="box-body">
@@ -121,12 +101,16 @@
                 <div class="clearfix"></div>
             </div><!-- /.box-body -->
         </div><!--box-->
+    @endif
 
     {{ Form::close() }}
 @endsection
 
 @section('after-scripts')
-<script type="text/javascript">
+    <!-- Bootstrap WYSIHTML5 -->
+    {{ Html::script('js/backend/plugin/duplicate/duplicate-fields.min.js') }}
+
+    <script type="text/javascript">
     $(document).ready(function() {
         $(".js-example-basic-single").select2({
             width: '100%'
@@ -138,6 +122,10 @@
             width: '100%'
         });
         $(":input").inputmask();
+        $('#additional-field-model').duplicateElement({
+            "class_remove": ".remove-this-field",
+            "class_create": ".create-new-field"
+        });
     });
 </script>
 @endsection

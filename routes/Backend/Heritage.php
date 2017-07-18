@@ -22,10 +22,20 @@ Route::group([
             Route::resource('resource', 'ResourceController');
             Route::put('resource/{resource}/restore', 'ResourceController@restore')
                 ->name('resource.restore');
-
             // For DataTables
             Route::post('resource/get', 'ResourceTableController')
                 ->name('resource.get');
+        });
+        Route::group([
+            'namespace' => 'Building',
+            'prefix'    => 'resource/{resource}',
+        ], function () {
+            Route::get('building', 'BuildingController@index')
+                ->name('building.get');
+            Route::get('building/edit', 'BuildingController@edit')
+                ->name('building.edit');
+            Route::put('building', 'BuildingController@update')
+                ->name('building.update');
         });
         /*
         * Heritage Resource Classification Type Management

@@ -115,7 +115,7 @@ class ResourceRepository extends BaseRepository
 
         $resource = new Resource();
         $resource->setUuid((string)Uuid::generate(4));
-        $resource->setProgress(10);
+        $resource->setProgress(15);
         $resource->setCreatedAt(new \DateTime());
         $resource->setUpdatedAt(new \DateTime());
 
@@ -159,9 +159,8 @@ class ResourceRepository extends BaseRepository
         $place->setPlaceAddress($placeAddress);
         $resource->setPlace($place);
 
-        // PRODUCTION
-        $production = new Production();
-        $resource->getProductions()->add($production);
+        // LEGALS (judicial, proprietary)
+        // @TODO
 
         $this->em->persist($resource);
         $this->em->flush();
@@ -179,33 +178,9 @@ class ResourceRepository extends BaseRepository
 
         $resource = $this->em->find(Resource::class, $id);
 
-        // GENERAL
-        // type: BUILDING
-        if ($resource->getResourceTypeClassification()->getId() != $data['type']) {
-            $this->em->getDatabaseDriver()
-                ->run('MATCH (res:Resource)-[rel:HasResourceTypeClassification]->() WHERE id(res) = '.$id.' DELETE rel');
-            $newResourceTypeClassification = $this->em->find(ResourceTypeClassification::class, $data['type']);
-            $resource->setResourceTypeClassification($newResourceTypeClassification);
-        }
-
-        // name
-//        if ($data['building_name']) {
-//            if ($resource->getName()) {
-//                if ($resource->getName()->getName() != $data['building_name']) {
-//                    $resource->getName()->setName($data['building_name']);
-//                }
-//            } else {
-//                $name = new Name();
-//                $name->setName($data['building_name']);
-//                $resource->setName($name);
-//            }
-//        }
-
-        // description
-        $resource->getDescription()->setNote($data['description']);
-
         // STRUCTURE
-        $heritageResourceType = $this->em->find(HeritageResourceType::class, $data['heritage_resource_type']);
+        $heritageResourceType = $this->em->find(HeritageResourceType::class, $data['type_ro']);
+        dd($heritageResourceType);
         $productions = $resource->getProductions();
         foreach ($productions as $production) {
 
@@ -215,6 +190,17 @@ class ResourceRepository extends BaseRepository
         $this->em->flush();
 
         event(new ResourceUpdated($resource));
+    }
+
+    public function updateBuilding($id, $data)
+    {
+        $resource = $this->em->find(Resource::class, $id);
+
+        $production = new Production();
+        $resource->getProductions()->add($production);
+
+        $this->em->persist($resource);
+        $this->em->flush();
     }
 
     /**

@@ -39,28 +39,28 @@ class HeritageResourceType
      *
      * @OGM\Property(type="string")
      */
-    protected $type_set;
+    protected $set;
 
     /**
      * @var string
      *
      * @OGM\Property(type="string")
      */
-    protected $type_set_ro;
+    protected $set_ro;
 
     /**
      * @var string
      *
      * @OGM\Property(type="string")
      */
-    protected $type;
+    protected $name;
 
     /**
      * @var string
      *
      * @OGM\Property(type="string")
      */
-    protected $type_ro;
+    protected $name_ro;
 
     /**
      * @var \DateTime
@@ -140,65 +140,65 @@ class HeritageResourceType
     /**
      * @return string
      */
-    public function getType()
+    public function getName()
     {
-        return $this->type;
+        return $this->name;
     }
 
     /**
-     * @param string $type
+     * @param string $name
      */
-    public function setType($type)
+    public function setName($name)
     {
-        $this->type = $type;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTypeRo()
-    {
-        return $this->type_ro;
-    }
-
-    /**
-     * @param string $type_ro
-     */
-    public function setTypeRo($type_ro)
-    {
-        $this->type_ro = $type_ro;
+        $this->name = $name;
     }
 
     /**
      * @return string
      */
-    public function getTypeSet()
+    public function getNameRo()
     {
-        return $this->type_set;
+        return $this->name_ro;
     }
 
     /**
-     * @param string $type_set
+     * @param string $name_ro
      */
-    public function setTypeSet($type_set)
+    public function setNameRo($name_ro)
     {
-        $this->type_set = $type_set;
+        $this->name_ro = $name_ro;
     }
 
     /**
      * @return string
      */
-    public function getTypeSetRo()
+    public function getSet()
     {
-        return $this->type_set_ro;
+        return $this->set;
     }
 
     /**
-     * @param string $type_set_ro
+     * @param string $set
      */
-    public function setTypeSetRo($type_set_ro)
+    public function setSet($set)
     {
-        $this->type_set_ro = $type_set_ro;
+        $this->set = $set;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSetRo()
+    {
+        return $this->set_ro;
+    }
+
+    /**
+     * @param string $set_ro
+     */
+    public function setSetRo($set_ro)
+    {
+        $this->set_ro = $set_ro;
     }
 
     /**
