@@ -46,16 +46,16 @@ class Production
     /**
      * @var Building
      *
-     * @OGM\Relationship(type="HasProduced", direction="OUTGOING", targetEntity="Building", mappedBy="production")
+     * @OGM\Relationship(type="HasRaised", direction="OUTGOING", targetEntity="Building", mappedBy="production")
      */
     protected $building;
 
     /**
      * @var ProductionEvent
      *
-     * @OGM\Relationship(type="HasProduced", direction="OUTGOING", targetEntity="ProductionEvent", mappedBy="building")
+     * @OGM\Relationship(type="HasProducedEvent", direction="OUTGOING", targetEntity="ProductionEvent", mappedBy="production")
      */
-    protected $production_event;
+    protected $productionEvent;
 
     /**
      * @var Resource
@@ -63,11 +63,6 @@ class Production
      * @OGM\Relationship(type="HasProduced", direction="INCOMING", targetEntity="Resource", mappedBy="production")
      */
     protected $resource;
-
-    public function __construct(Resource $resource = null)
-    {
-        $this->resource = $resource;
-    }
 
     /**
      * @return int
@@ -93,11 +88,11 @@ class Production
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
     public function getCreatedAt()
     {
-        return $this->created_at;
+        return Carbon::instance($this->created_at)->toDateTimeString();
     }
     /**
      * @param \DateTime $created_at
@@ -108,11 +103,11 @@ class Production
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
     public function getUpdatedAt()
     {
-        return $this->updated_at;
+        return Carbon::instance($this->updated_at)->toDateTimeString();
     }
     /**
      * @param \DateTime $updated_at
@@ -143,7 +138,7 @@ class Production
      */
     public function getProductionEvent()
     {
-        return $this->production_event;
+        return $this->productionEvent;
     }
 
     /**
@@ -151,7 +146,7 @@ class Production
      */
     public function setProductionEvent($production_event)
     {
-        $this->production_event = $production_event;
+        $this->productionEvent = $production_event;
     }
 
     /**

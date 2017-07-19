@@ -170,6 +170,9 @@ return [
                     'add_name_button'         => '+ Add Name',
                     'delete_name_button'      => '× Delete Name',
                 ],
+                'buildings' => [
+                    'type'                    => 'Building Type',
+                ]
             ],
         ],
 

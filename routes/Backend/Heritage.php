@@ -30,12 +30,7 @@ Route::group([
             'namespace' => 'Building',
             'prefix'    => 'resource/{resource}',
         ], function () {
-            Route::get('building', 'BuildingController@index')
-                ->name('building.get');
-            Route::get('building/edit', 'BuildingController@edit')
-                ->name('building.edit');
-            Route::put('building', 'BuildingController@update')
-                ->name('building.update');
+            Route::resource('buildings', 'BuildingController');
         });
         /*
         * Heritage Resource Classification Type Management

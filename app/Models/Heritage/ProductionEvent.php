@@ -4,6 +4,7 @@ namespace App\Models\Heritage;
 
 use App\Models\Heritage\Traits\Columns\Uuids;
 use GraphAware\Neo4j\OGM\Annotations as OGM;
+use Carbon\Carbon;
 
 /**
  *
@@ -62,13 +63,14 @@ class ProductionEvent
     /**
      * @var Production
      *
-     * @OGM\Relationship(type="HasProduced", direction="INCOMING", targetEntity="Resource", mappedBy="productionEvent")
+     * @OGM\Relationship(type="HasProducedEvent", direction="INCOMING", targetEntity="Production", mappedBy="productionEvent")
      */
-    protected $production;
+    public $production;
 
-    public function __construct(Resource $resource = null)
+    public function __construct($date_from = null, $date_to = null)
     {
-        $this->resource = $resource;
+        $this->from_date = $date_from;
+        $this->to_date = $date_to;
     }
 
     /**
@@ -94,14 +96,14 @@ class ProductionEvent
         $this->uuid = $uuid;
     }
 
+
     /**
-     * @return \DateTime
+     * @return string
      */
     public function getCreatedAt()
     {
-        return $this->created_at;
+        return Carbon::instance($this->created_at)->toDateTimeString();
     }
-
     /**
      * @param \DateTime $created_at
      */
@@ -111,13 +113,12 @@ class ProductionEvent
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
     public function getUpdatedAt()
     {
-        return $this->updated_at;
+        return Carbon::instance($this->updated_at)->toDateTimeString();
     }
-
     /**
      * @param \DateTime $updated_at
      */
@@ -127,11 +128,11 @@ class ProductionEvent
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
     public function getToDate()
     {
-        return $this->to_date;
+        return Carbon::instance($this->to_date)->format('Y/m/d');
     }
 
     /**
@@ -143,11 +144,19 @@ class ProductionEvent
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
     public function getFromDate()
     {
-        return $this->from_date;
+        return Carbon::instance($this->from_date)->format('Y/m/d');
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function setFromDate($from_date)
+    {
+        $this->from_date = $from_date;
     }
 
     /**

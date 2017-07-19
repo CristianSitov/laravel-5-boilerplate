@@ -169,7 +169,7 @@ class ResourceController extends Controller
         // SCOUT
         $heritageResourceTypes = collect($this->heritageResourceTypeRepository->findPublished())
             ->mapWithKeys(function ($item) {
-                return [$item->getId() =>  [
+                return [$item->getId() => [
                     'id' => $item->getId(),
                     'set_ro' => $item->getSetRo(),
                     'name_ro' => $item->getNameRo(),

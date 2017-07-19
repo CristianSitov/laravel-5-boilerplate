@@ -4,6 +4,7 @@ namespace App\Models\Heritage;
 
 use App\Models\Heritage\Traits\Columns\Uuids;
 use GraphAware\Neo4j\OGM\Annotations as OGM;
+use GraphAware\Neo4j\OGM\Common\Collection;
 
 /**
  *
@@ -52,18 +53,25 @@ class Building
     protected $published_at;
 
     /**
-     * @var HeritageResourceType
-     * @todo - add multiple here & even ancilaryFeatureType
-     * @OGM\Relationship(type="Assigned", direction="OUTGOING", targetEntity="HeritageResourceType", mappedBy="building")
+     * @var string
+     *
+     * @OGM\Property(type="string")
      */
-    protected $heritage_resource_type;
+    protected $type;
 
     /**
-     * @var ArchitecturalStyle
-     *
-     * @OGM\Relationship(type="HasArchitecturalStyleType", direction="OUTGOING", targetEntity="ArchitecturalStyle", mappedBy="building")
+     * @var HeritageResourceType
+     * @todo - add multiple here & even ancilaryFeatureType
+     * @OGM\Relationship(type="Assigned", direction="OUTGOING", collection=true, targetEntity="HeritageResourceType", mappedBy="building")
      */
-    protected $architectural_style;
+    protected $heritageResourceTypes;
+
+    /**
+     * @var ArchitecturalStyle[]|Collection
+     *
+     * @OGM\Relationship(type="HasArchitecturalStyleType", direction="OUTGOING", collection=true, targetEntity="ArchitecturalStyle", mappedBy="building")
+     */
+    protected $architecturalStyles;
 
     /**
      * @var PlotPlan
@@ -82,13 +90,14 @@ class Building
     /**
      * @var Production
      *
-     * @OGM\Relationship(type="HasProduced", direction="INCOMING", targetEntity="Production", mappedBy="production")
+     * @OGM\Relationship(type="HasRaised", direction="INCOMING", targetEntity="Production", mappedBy="building")
      */
     protected $production;
 
-    public function __construct(Resource $resource = null)
+    public function __construct()
     {
-        $this->resource = $resource;
+        $this->architecturalStyles = new Collection();
+        $this->heritageResourceTypes = new Collection();
     }
 
     /**
@@ -114,12 +123,13 @@ class Building
         $this->uuid = $uuid;
     }
 
+
     /**
-     * @return \DateTime
+     * @return string
      */
     public function getCreatedAt()
     {
-        return $this->created_at;
+        return Carbon::instance($this->created_at)->toDateTimeString();
     }
     /**
      * @param \DateTime $created_at
@@ -130,11 +140,11 @@ class Building
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
     public function getUpdatedAt()
     {
-        return $this->updated_at;
+        return Carbon::instance($this->updated_at)->toDateTimeString();
     }
     /**
      * @param \DateTime $updated_at
@@ -160,35 +170,47 @@ class Building
     }
 
     /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
      * @return HeritageResourceType
      */
-    public function getHeritageResourceType()
+    public function getHeritageResourceTypes()
     {
-        return $this->heritage_resource_type;
+        return $this->heritageResourceTypes;
     }
 
     /**
-     * @param HeritageResourceType $heritage_resource_type
+     * @return array
      */
-    public function setHeritageResourceType($heritage_resource_type)
+    public function getHeritageResourceTypeIds()
     {
-        $this->heritage_resource_type = $heritage_resource_type;
+        $types = [];
+        foreach($this->heritageResourceTypes as $heritageResourceType) {
+            $types[] = $heritageResourceType->getId();
+        }
+        return $types;
     }
 
     /**
-     * @return ArchitecturalStyle
+     * @return ArchitecturalStyle[]|Collection
      */
-    public function getArchitecturalStyle()
+    public function getArchitecturalStyles()
     {
-        return $this->architectural_style;
-    }
-
-    /**
-     * @param ArchitecturalStyle $architectural_style
-     */
-    public function setArchitecturalStyle($architectural_style)
-    {
-        $this->architectural_style = $architectural_style;
+        return $this->architecturalStyles;
     }
 
     /**

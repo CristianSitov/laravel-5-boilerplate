@@ -51,6 +51,7 @@ return [
                 'all'             => 'All Buildings',
                 'management'      => 'Buildings Management',
                 'create'          => 'Create Building',
+                'edit'            => 'Edit Building',
                 'main'            => 'Buildings',
             ],
 

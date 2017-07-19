@@ -10,8 +10,10 @@
         </button>
 
         <ul class="dropdown-menu" role="menu">
-            <li>{{ link_to_route('admin.heritage.resource.index', trans('menus.backend.heritage.resources.all')) }}</li>
+            <li>aaa{{ link_to_route('admin.heritage.resource.index', trans('menus.backend.heritage.resources.all')) }}</li>
+            @if (access()->hasRoles(['Administrator', 1]))
             <li>{{ link_to_route('admin.heritage.resource.create', trans('menus.backend.heritage.resources.create')) }}</li>
+            @endif
         </ul>
     </div><!--btn group-->
 </div><!--pull right-->

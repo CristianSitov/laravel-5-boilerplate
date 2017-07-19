@@ -5,13 +5,15 @@ namespace App\Repositories\Backend\Heritage;
 use App\Events\Backend\Heritage\ResourceCreated;
 use App\Events\Backend\Heritage\ResourceUpdated;
 use App\Models\Heritage\AdministrativeSubdivision;
+use App\Models\Heritage\ArchitecturalStyle;
+use App\Models\Heritage\Building;
 use App\Models\Heritage\Description;
 use App\Models\Heritage\HeritageResourceType;
 use App\Models\Heritage\Name;
-use App\Models\Heritage\PhaseTypeAssignment;
 use App\Models\Heritage\Place;
 use App\Models\Heritage\PlaceAddress;
 use App\Models\Heritage\Production;
+use App\Models\Heritage\ProductionEvent;
 use App\Models\Heritage\Resource;
 use App\Models\Heritage\ResourceTypeClassification;
 use App\Models\Heritage\StreetName;
@@ -192,14 +194,55 @@ class ResourceRepository extends BaseRepository
         event(new ResourceUpdated($resource));
     }
 
-    public function updateBuilding($id, $data)
+    public function createBuilding($resource_id, $input)
     {
-        $resource = $this->em->find(Resource::class, $id);
+        $data = $input['data'];
+        $resource = $this->em->find(Resource::class, $resource_id);
 
         $production = new Production();
+        if ($data['date_from'] || $data['date_to']) {
+            $productionEvent = new ProductionEvent(
+                $data['date_from'] ? \DateTime::createFromFormat('Y/m/d', $data['date_from']) : null,
+                $data['date_to'] ?   \DateTime::createFromFormat('Y/m/d', $data['date_to']) : null);
+            $production->setProductionEvent($productionEvent);
+        }
+
+        $building = new Building();
+        $building->setType($data['type']);
+
+        foreach ($data['heritage_resource_type'] as $type) {
+            $heritageResourceType = $this->em->find(HeritageResourceType::class, $type);
+            $building->getHeritageResourceTypes()->add($heritageResourceType);
+        }
+        foreach ($data['architectural_style'] as $style) {
+            $architecturalStyle = $this->em->find(ArchitecturalStyle::class, $style);
+            $building->getArchitecturalStyles()->add($architecturalStyle);
+        }
+
+        $production->setBuilding($building);
+
         $resource->getProductions()->add($production);
 
         $this->em->persist($resource);
+        $this->em->flush();
+    }
+
+    public function updateBuilding($building_id, $input)
+    {
+        $data = $input['data'];
+        $production = $this->em->find(Production::class, $building_id);
+
+        if ($data['date_from'] || $data['date_to']) {
+            $productionEvent = $production->getProductionEvent();
+            if (!$productionEvent) {
+                $productionEvent = new ProductionEvent();
+            }
+            $productionEvent->setFromDate($data['date_from'] ? \DateTime::createFromFormat('Y/m/d', $data['date_from']) : null);
+            $productionEvent->setToDate($data['date_to'] ?   \DateTime::createFromFormat('Y/m/d', $data['date_to']) : null);
+            $production->setProductionEvent($productionEvent);
+        }
+
+        $this->em->persist($production);
         $this->em->flush();
     }
 

@@ -1,293 +1,293 @@
-set,set_ro,name,name_ro,published,uuid
-Commercial,Comerț / Servicii,Mortuary/Funeral Home,Casă funerară / Magazin pompe funebre,true,5561af30-f31d-48a8-a26f-22cbe9848bfb
-Commercial,Comerț / Servicii,Corridor,,false,cb4afd04-b14a-4918-b2e8-2f1d4ce5212c
-Commercial,Comerț / Servicii,Neighborhood/Village Commercial Center,,false,f59c72f4-670c-4f27-ab48-304d70709e2a
-Commercial,Comerț / Servicii,Node,,false,162cd4d8-3722-4a6c-a285-67360d6e5109
-Commercial,Comerț / Servicii,Other,,false,b9598916-7831-4d0c-a615-8d04b3e8668a
-Commercial,Comerț / Servicii,Shopping Center,,false,c4dc3272-e801-4a67-bfbe-364da430dbe8
-Commercial,Comerț / Servicii,Shopping Mall,,false,2f1c22ba-f6ca-4972-aff9-9c502e72cb44
-Commercial,Comerț / Servicii,Auto Body/Repair,Servicii auto /  Vulcanizare,true,f1133309-2c8e-42d6-8ede-5abd3959949c
-Commercial,Comerț / Servicii,Car Sales/Auto Showroom,,false,1bd0cad6-ca86-4b9f-87a5-0b65fdc57038
-Commercial,Comerț / Servicii,Carwash,Spălătorie auto,true,2675fcfd-50a3-42d2-84bd-e769eb908ab2
-Commercial,Comerț / Servicii,Custom Car Builder,,false,1fd71664-e613-456c-ba63-c38fac60af51
-Commercial,Comerț / Servicii,Gas/Service Station,Benzinărie,true,7da31ced-dde5-4c90-a1d9-10858e8c1b41
-Commercial,Comerț / Servicii,Other,,false,b318e9fa-95b0-454b-bd25-c82a91130d4c
-Commercial,Comerț / Servicii,Parking Structure,,false,ba4f03ca-b152-4a15-ac61-561c319e1028
-Commercial,Comerț / Servicii,Service Station with Carwash,,false,1c13629d-4dbc-4d9c-9d9b-f6fabf943a05
-Commercial,Comerț / Servicii,Music club/night club,Club de noapte,true,3149a2d0-80ce-408f-8046-164a1343be0f
-Commercial,Comerț / Servicii,Other,,false,b3ea7196-d245-4710-9c3c-a7fc530d95ca
-Commercial,Comerț / Servicii,"Theater, Motion Picture",Cinematograf,true,248d315f-7cb7-4d51-a84c-812d05b527af
-Commercial,Comerț / Servicii,"Theater, Performance",Teatru / Sală de spectacole,true,c0790ea2-129d-4243-9b5b-35dfceab2b4a
-Commercial,Comerț / Servicii,Casino,Sală de jocuri de noroc,true,
-Commercial,Comerț / Servicii,Bowling Alley,,false,9c571709-8572-44a6-a918-f409697a2622
-Commercial,Comerț / Servicii,Miniature Golf,,false,f3610dcf-75e1-46e5-9236-6ab083324910
-Commercial,Comerț / Servicii,Skating Rink,,false,1332f473-f1fd-40ef-9742-b42ebff59558
-Commercial,Comerț / Servicii,Bank/Savings &amp,Bancă / Centru asigurări,true,0719a2cb-ed92-4606-ae02-cc78858781ba
-Commercial,Comerț / Servicii,"Insurance, Stocks, etc.",,false,7d05d3cf-637f-4ed5-9d65-118809f582e7
-Commercial,Comerț / Servicii,Other,,false,7dfd7f8d-d821-4861-9003-d1c938464349
-Commercial,Comerț / Servicii,Drive-in,,false,74277dfb-7ad5-4173-952d-eafa1a445fc5
-Commercial,Comerț / Servicii,Walk-up Stand,,false,2b62a086-aa7e-42be-8592-f67e034ded38
-Commercial,Comerț / Servicii,Bar/Lounge,Bar / Lounge / Cafenea,true,336df2a5-9b26-48c6-ac69-95eb6f3939ba
-Commercial,Comerț / Servicii,Sweetshop,Cofetărie,true,15a1acd7-c7a9-4dc0-8636-bc32b34f684b
-Commercial,Comerț / Servicii,Fast Food (drive-thru and/or walk-in),,false,063905fe-0472-49c8-bb1a-2f91d448f78c
-Commercial,Comerț / Servicii,Other,Descriere,true,432a0c31-a344-47c8-a8b0-82286d65442b
-Commercial,Comerț / Servicii,Restaurant,"Alimentație publică (restaurant, autoservire, fast-food etc.)",true,2a8d1ac1-931e-4f00-9483-49f68d919736
-Commercial,Comerț / Servicii,Apartment Hotel,,false,5b949653-4620-4bac-9109-4fac1a9a5a51
-Commercial,Comerț / Servicii,Boarding House,Pensiune / Hostel,true,3f180eba-418b-4e76-b739-02c8247073a4
-Commercial,Comerț / Servicii,Hotel,Hotel,true,93abe961-42ce-4f74-95a7-7129c87df2d5
-Commercial,Comerț / Servicii,Motel,Han,true,12483a01-aaa0-4744-8635-7b54310c87d2
-Commercial,Comerț / Servicii,Other,,false,2f836373-3f30-4763-bd58-117912b56b16
-Commercial,Comerț / Servicii,Mixed Use - Commercial/Office/Residential,Funcțiune mixtă,true,8758a48e-745d-4748-a5e1-b7592ceabc46
-Commercial,Comerț / Servicii,High Rise,,false,6b83c019-f807-43f7-8764-9a292d886b58
-Commercial,Comerț / Servicii,Office Building,Clădire de birouri,true,4e644cef-606a-4e9e-ad28-de852b7b3d36
-Commercial,Comerț / Servicii,Other,Descriere,true,337c5dca-e987-4da5-b1a1-11c082738ed3
-Commercial,Comerț / Servicii,Chain Store,,false,4373a12e-e2a7-4bec-ba89-dbc987abc2dd
-Commercial,Comerț / Servicii,Department Store,,false,2db31d5c-80e2-457b-be7b-4b340fb99dca
-Commercial,Comerț / Servicii,Drive-in Commercial,,false,838c1945-39be-4aad-aa25-6edfe974efd5
-Commercial,Comerț / Servicii,Drive-thru Commercial,,false,84f3f40a-90da-40f9-b409-072971ed489d
-Commercial,Comerț / Servicii,Neighborhood Market,Piață comercială,true,c3c4ed9c-48ae-46fa-accf-91a3136cab6c
-Commercial,Comerț / Servicii,Other,,false,27a015b2-d552-4db9-9d1f-eda0148a63fb
-Commercial,Comerț / Servicii,Produce Market,,false,8a4ffa7d-7461-408f-921c-51265653824c
-Commercial,Comerț / Servicii,Retail Store,Centru comercial,true,d3c0c22d-dbde-4cc3-9f59-7331147da6a2
-Commercial,Comerț / Servicii,Strip Mall,,false,b38dc271-c038-49f1-b173-fa9092a807fb
-Commercial,Comerț / Servicii,Supermarket,Alimentară / Supermarket,true,5a14c615-f251-40a5-9c2d-a3f47cb8f54f
-Commercial,Comerț / Servicii,Marquee,,false,481f99f0-3b9e-410c-951f-b943a8353ef7
-Commercial,Comerț / Servicii,Other,,false,421f8a41-b24f-48a4-9efc-c4ba6fc229cd
-Commercial,Comerț / Servicii,Painted Wall,,false,71f2ebe8-e392-4ba4-ba5c-92cbcba00381
-Commercial,Comerț / Servicii,Projecting Blade,,false,c43cd8c6-c5db-49a8-8721-ef3ca8455d44
-Commercial,Comerț / Servicii,"Pylon, Pole, Stantion",,false,ee52b4f1-aa41-4169-b367-c6913dfd7f52
-Commercial,Comerț / Servicii,Rooftop,,false,93ae3a64-66eb-46b1-ad02-7951a9a0be41
-Commercial,Comerț / Servicii,Sidewalk,,false,2dfb0a39-9d8c-4f98-8692-9565475999d4
-Industrial,Industrie,Other,Descriere,true,a9ab0288-30f2-4af5-8f1f-5263a576e50c
-Industrial,Industrie,Engineering structure,Structură inginerească,true,4c67b39d-531f-4332-b467-c3a26d763248
-Industrial,Industrie,Quonset Hut,,false,1b24e07f-4b9e-446d-944e-694199506b97
-Industrial,Industrie,Industrial Park/Campus,,false,1c72f264-3675-4bfe-9520-3dadf43eac42
-Industrial,Industrie,Industrial Tract,,false,e894d7b3-bb79-42d5-a941-61ec419ac217
-Industrial,Industrie,Plant,,false,17568bc5-3b99-4c63-b0ea-eef9d9d48dd8
-Industrial,Industrie,Other,,false,69b248f8-7089-451d-af52-44597c9a9c1a
-Industrial,Industrie,Agricultural Landscape,,false,96d1ff8e-90b3-49f0-acad-11ea6a0887f2
-Industrial,Industrie,Barn/Stable,,false,3f90622f-7131-4fa1-bbbc-d5e37ef0aa27
-Industrial,Industrie,Cold Storage Warehouse,,false,a695c924-d1d9-415f-a4ef-2b01b32d7c34
-Industrial,Industrie,Dairy,,false,91ff7354-395d-449f-9818-8ecd9508dbeb
-Industrial,Industrie,Fish Processing Plant,,false,a898e31d-b571-48eb-98a5-6bfabcac2278
-Industrial,Industrie,Grove/Orchard,,false,12a15738-5510-40b8-aa76-b89a54abe18c
-Industrial,Industrie,Other,,false,f927a8fc-f2c0-496e-a83b-552601926e10
-Industrial,Industrie,Packing House,,false,8af20371-3ef7-49d7-9566-f330518dca36
-Industrial,Industrie,Vat/Brining Tank,,false,53f652da-df7d-43c8-8fa9-56d2901e8403
-Industrial,Industrie,Agricultural Property,,false,bc603f8d-93f5-4069-bd0a-16d893df8b6c
-Industrial,Industrie,Farm/Ranch House,,false,372e2737-2e5f-41be-9380-3efb86572de4
-Industrial,Industrie,Produce Market,,false,b95578dd-e6b8-4932-a126-797e44df9de4
-Industrial,Industrie,Auto Parts Manufacturer,,false,d47e3960-7fab-4da0-9dfc-96cb3996d333
-Industrial,Industrie,Custom Auto Shop,,false,e44ac162-5945-4129-bf33-a4e1ab6596fa
-Industrial,Industrie,Other,,false,4a2ede1b-55c9-454b-8313-e5a6b317fd75
-Industrial,Industrie,Rubber Factory,,false,93d7f0b4-9b88-431f-b169-5e7c6b78c8fe
-Industrial,Industrie,Aircraft Plant,,false,2f29bb8d-80d0-426c-a687-cbc2de8d4e5e
-Industrial,Industrie,Hangar(s),,false,e0c0e5f0-74e7-451c-88d4-235ba3d9e7ec
-Industrial,Industrie,Aerospace Plant,,false,8e117e83-7318-4612-8cf0-118f2baf10c2
-Industrial,Industrie,Other,,false,db0aefff-f4cf-45bf-ae61-fe370f97b052
-Industrial,Industrie,Carpentry Shop,,false,e850369b-68c8-49ed-afd5-8f6d78c53936
-Industrial,Industrie,Concrete Plant,,false,ef0658c9-7147-4b05-85f1-c27e9b9b926f
-Industrial,Industrie,Lumber Yard/Planing Mill,,false,cb2553f4-fb68-45d5-90b4-fb7a5c3ffb82
-Industrial,Industrie,Metal Shop,,false,d365181f-747c-4f3f-a865-b21afe3d61d6
-Industrial,Industrie,Other,,false,e8b5455c-b571-466b-a416-9e693c40d355
-Industrial,Industrie,Steel Mill,,false,8745a876-2555-472c-92b3-7e2e5ad0061a
-Industrial,Industrie,Stone/Masonry Fabricator,,false,621cc727-85db-4cf5-8fa0-e8ae2a2e22db
-Industrial,Industrie,Motion Picture Related,,false,0043f8be-0300-4268-85f0-b317a3323c4e
-Industrial,Industrie,Motion Picture Studio,,false,567bc229-1daf-4bc7-a120-f184e2444428
-Industrial,Industrie,Other,,false,3a898de4-7e84-4bba-9167-855ea15f4465
-Industrial,Industrie,Radio Broadcasting Studio or Related,,false,c00ae378-7495-4dd7-9e9c-d08034242f9f
-Industrial,Industrie,Radio/TV Transmission Facilities/Microwave Tower,,false,61e1c1d4-be50-43e1-a8a2-fe72b4ffabb3
-Industrial,Industrie,Recording Studio or Related,,false,1129c6f4-8f67-4d55-b868-e6be975f93b4
-Industrial,Industrie,Television Broadcasting Studio or Related,,false,adc22711-f7cc-46fb-957e-985814f60c23
-Industrial,Industrie,Union Hall,,false,846ad1bb-35bf-425b-9b31-ffe51c0f82c1
-Industrial,Industrie,Creamery,,false,c7621224-3be8-4f9b-8c3d-32a143f3d5dc
-Industrial,Industrie,Fish Processing,,false,64aaac02-cc85-4213-870d-6082085f96c9
-Industrial,Industrie,Flour Mill,Moară,true,2ec64187-57aa-471e-938e-6e58e1031676
-Industrial,Industrie,Other,Descriere,true,6d1960fe-a385-43e9-8b8d-b579fc1fa35e
-Industrial,Industrie,Bakery,Fabrică de panificație,true,54ceb2cd-edc3-4cf5-a5a8-74c062204ce5
-Industrial,Industrie,Bottling Plant,Fabrică de îmbuteliere,true,dd4e16d2-85f8-46a6-b5cd-e6989956e40a
-Industrial,Industrie,Garment Factory,Fabrică de confecții / textile,true,0b4c9321-da1c-4ed6-9b4f-150146bd3acb
-Industrial,Industrie,Other,,false,7b5882b1-4219-4588-aa82-cc7c11ccb4ea
-Industrial,Industrie,Textile Mill,,false,550e5a67-ef65-4910-a9ee-532a6c5cbfd7
-Industrial,Industrie,Factory,Fabrică,true,18cae9a8-dab2-4db1-8f0d-cc56bc9dc75e
-Industrial,Industrie,Other,,false,97f10297-d9a7-4d7e-989f-532b841aae53
-Industrial,Industrie,Oil Company Facilities/Offices,,false,98cdd2bb-a7af-4c8c-ac87-564ed2cce5ff
-Industrial,Industrie,Other,,false,57f16e1c-fad3-41d0-a63f-a89ed841b118
-Industrial,Industrie,Natural Gas Plant,,false,b633564b-cfaa-42f5-88d4-4b80abcf2f3d
-Industrial,Industrie,Oil Derrick,,false,f136e84f-6153-4f20-a27d-0b8d02d82c80
-Industrial,Industrie,Refinery,,false,738215f5-ac80-414e-b8b5-41dd8a1fe34d
-Industrial,Industrie,Other,,false,c629ca57-c497-4012-bced-7587432f2612
-Industrial,Industrie,Public Storage,Depozit industrial,true,fe06d55b-2cdc-4cc6-99d0-ae6742cba35f
-Industrial,Industrie,Warehouse,Antrepozit,true,6d804d04-0cab-43f3-8d10-9cb919762ffd
-Infrastrucutre,Infrastructură,Engineering structure,Structură inginerească,true,4c67b39d-531f-4332-b467-c3a26d763248
-Infrastrucutre,Infrastructură,Other,,false,22e4b98a-5bc9-4e7f-81c9-f9924e054a2a
-Infrastrucutre,Infrastructură,Telephone Building,,false,4c4e7876-79bf-4091-a56f-cfd5f44657a0
-Infrastrucutre,Infrastructură,Airport,,false,6d232ce4-d344-4056-824f-6cc488b43352
-Infrastrucutre,Infrastructură,Bridge,pod,true,851632a3-c5be-44c9-8da1-43fbc4381cb0
-Infrastrucutre,Infrastructură,Other,,false,7ac45ccd-dbca-4582-a728-0a3782031a42
-Infrastrucutre,Infrastructură,Railroad depot,depou de trenuri / tramvaie,true,4059e5b3-5d04-42e5-86c2-07d5e074795b
-Infrastrucutre,Infrastructură,Pier/Wharf,,false,bbd97b03-32dc-4ffd-a461-b7f7dc6e64bf
-Infrastrucutre,Infrastructură,"Port, Harbor and Related",,false,b8cc6f87-3de8-4f44-ab46-4cc309f26a65
-Infrastrucutre,Infrastructură,Public Stairs,,false,3226cc02-5022-48f0-9c9c-81854d287935
-Infrastrucutre,Infrastructură,Railroad/Streetcar Building-Depot,,false,ad584ae7-9ec9-4f5d-b5d5-bf4bb4e326ec
-Infrastrucutre,Infrastructură,Railroad/Streetcar Building-Interlocking Tower,,false,f9298ffc-3a04-40c1-bb81-0267525106fa
-Infrastrucutre,Infrastructură,Railroad/Streetcar Building-Maintenance/Shops,,false,b2aa04dd-6dcc-4f0c-ae4d-89cfe62f4281
-Infrastrucutre,Infrastructură,Railroad/Streetcar Right-of-way,,false,c2bfcad9-7eed-40fe-a992-78808e111e60
-Infrastrucutre,Infrastructură,Railroad/Streetcar Rolling Stock,,false,d43a00fc-4e0e-40bb-a37c-cb6386b28a9c
-Infrastrucutre,Infrastructură,Street Furniture,,false,b181e69f-12d1-4900-92b3-3951ca5c4019
-Infrastrucutre,Infrastructură,Street/Road/Highway/Freeway/Alley,,false,27c8a174-c8fc-46b8-b19f-f294785c1159
-Infrastrucutre,Infrastructură,Subway/Rapid Transit/Bus,,false,9ed79781-a2bb-4117-9539-506d33846639
-Infrastrucutre,Infrastructură,Tunnel,,false,d267af30-31e6-457a-b66b-e3f0f4c117f9
-Infrastrucutre,Infrastructură,Tunnel,,false,ca07f242-c460-4e38-9efd-7bd886c31295
-Infrastrucutre,Infrastructură,Canal/Aqueduct,canal / apeduct,true,5e955203-3288-416f-b91e-0ebba6ab8180
-Infrastrucutre,Infrastructură,Dam and Flood Control,baraj / stăvilar,true,8e469a01-32ad-4e1c-b96a-976396d46302
-Infrastrucutre,Infrastructură,Other,altele,true,d541be1d-9ea1-4e4d-a392-650b9ea6ca0e
-Infrastrucutre,Infrastructură,Reservoir,turn de apă,true,a9c61fb2-3955-4922-b58b-606dc27b2c46
-Infrastrucutre,Infrastructură,Sewers and Sewer Utilities,uzină de apă,true,55e57839-3c81-424f-884c-3ad94c947fe1
-Infrastrucutre,Infrastructură,Street Lights,,false,e0c877e3-6c65-4f4e-ab21-a6a7171b0fb6
-Infrastrucutre,Infrastructură,"Utility Building (Water, Electrical Power, Natural Gas)","Cladire utilitară (apă, electricitate, gaz etc.)",true,2c8e4a29-5d95-47f3-958a-f9b27a3a3c28
-Education,Educație,Boarding School,,false,a6ac9d99-97d3-423b-aeac-d8c1e23f9dd8
-Education,Educație,College/University,Universitate,true,12f0cec1-1bfe-4517-ad53-d0235ad22c13
-Education,Educație,Dormitory,Cămin studențesc,true,5fff5650-a70c-41e2-9d80-ff1909347b8c
-Education,Educație,Elementary School,Școală primară,true,0f76ab4a-971a-407c-b18a-3208029a13c5
-Education,Educație,Fraternities and Sororities,,false,a28c1b77-2686-4181-a8d2-11d50d8e877f
-Education,Educație,High School,Liceu,true,805069e9-821a-4326-a6fd-45524264d211
-Education,Educație,Vocational School,Centru educațional / de formare continuă,true,646e21f7-244e-480a-b7cb-b3ffe7bf06ff
-Education,Educație,Middle School,Gimnaziu,true,6887f3b6-f68d-4b16-be73-31ff4e277832
-Education,Educație,Other,Altele,true,881c8d94-409a-4ce2-9795-579895a8d269
-Education,Educație,Pre-School,Grădiniță / Creșă,true,dc06b970-aef4-4d47-b4bc-4f3ed98dd2d7
-Education,Educație,Reform School,,false,717ec53b-d059-43e4-826c-c2a395228ecd
-Education,Educație,School Administration Center/Service Center,Clădire educațională administrativă,true,56b372f6-d54f-43fe-8ac4-460b66878344
-Public Administration,Administrație publică,Central Government Services,Clădire administrativă (autoritate publică națională),true,a3f7eb8b-80c2-4dd8-bfaf-f5ac8995dc77
-Public Administration,Administrație publică,City Hall/Local Administration,Clădire administrativă (autoritate publică locală),true,28768d05-9caf-49d1-80a2-02bc53d69a57
-Public Administration,Administrație publică,Embassy / Consulate,Clădire administrativă diplomatică,true,
-Public Administration,Administrație publică,Civic Center,,false,f37b782f-82e3-4be7-97f0-7b51e9849d84
-Public Administration,Administrație publică,Court Building/Jail,,false,b24f38e3-5fc5-48f1-b8a6-944305a3b3b0
-Public Administration,Administrație publică,Fire Station,ISU / stație pompieri,true,359cf9d3-c333-43ba-b800-1abb931f2cb2
-Public Administration,Administrație publică,Library,Bibliotecă,true,366616e6-3c72-4a97-b269-f62a24099656
-Public Administration,Administrație publică,Other,Altele,true,8897f8d1-2923-493b-a107-e42748d2a204
-Public Administration,Administrație publică,Police Station,Secție de poliție,true,0c169510-7b57-47b4-86e1-b08012a85c89
-Public Administration,Administrație publică,Postal Facility,Oficiu poștal,true,526c01d6-a4a8-413d-988b-b6e1ffd42201
-Public Administration,Administrație publică,Social Services/Welfare,Centru social,true,7402e62c-c266-4727-946c-6740c3341ea9
-Health,Sănătate,Hospital / Clinic,Spital / Clinică,true,e4e5ce1b-3dd4-417c-9887-1346c0bb1f8a
-Health,Sănătate,Medical/Dental Building or Clinic,,false,e9239d1b-6a72-4631-bbe3-46f3c3071b5a
-Health,Sănătate,Mental Health Institution,,false,feae9a0c-0d5e-46a5-a877-63bf9007afa5
-Health,Sănătate,Nursing Home/Rest Home,Asistență socială,true,10daf245-76bc-4cde-aeab-588a98ad6e4f
-Health,Sănătate,Other,Descriere,true,885f9151-9b36-4e7a-9869-9ad07fb5dbb6
-Health,Sănătate,Sanitarium,,false,bdfaa964-7487-4b9e-95c0-b9b347774565
-Health,Sănătate,Veterinary Clinic,Clinică veterinară,true,9c8e6aab-bf16-4928-820f-419401cefdf2
-Institutional-Military,Armată,Air Raid Sirens and Shelters,,false,22e1990c-23a6-4d4a-b0ca-b52b3d0a96f3
-Institutional-Military,Armată,Coastal Defense Facilities,,false,d1e02420-600e-4a64-adca-e14f03f7151c
-Institutional-Military,Armată,Military Cemeteries,,false,a57fdcb1-010b-4c3c-942c-c6cac7ef5e82
-Institutional-Military,Armată,Military Post/Base/Armory,,false,8d19e64f-7717-4eff-bdc1-d9fc8a022dc9
-Institutional-Military,Armată,Organization Headquarters,,false,e96ea012-085a-465c-8911-755137266848
-Institutional-Military,Armată,Other,,false,582aff01-f7a2-46e0-82eb-8de7e57db7c5
-Institutional-Military,Armată,Other,,false,d5fc9e3a-4976-4f1f-8c82-2433fbae881d
-Institutional-Military,Armată,Protest Site,,false,ef42143b-802a-48af-b521-04c65e43fd50
-Institutional-Military,Armată,USO Building,,false,cd3e3690-a513-4ef1-976d-b9e07c2070c9
-Recreation,Agrement,Amusement Facility,Centru de agrement,true,eae0686d-26c0-4c9b-bb30-e0e663098546
-Recreation,Agrement,"Beach, Boating, Water Related",,false,911f279c-e545-418d-96bf-2a544f35f4d7
-Recreation,Agrement,Camp or Trailer Camp Park,,false,87e04f94-e39d-4afc-afe6-c459a4f28378
-Recreation,Agrement,Golf Course,,false,bb70f77c-4911-4925-846d-f4dd755ce25b
-Recreation,Agrement,Other,Descriere,true,968cbf4b-02b6-4ec7-b324-1932001e51c5
-Recreation,Agrement,Public Park,Parc / Grădină / Scuar,true,55f9f736-81fa-426f-8086-6e75e0485549
-Recreation,Agrement,Public Swimming Pool,Baie publică / Bazin de înot,true,44ad0935-1043-4b10-95ec-30452737ddb0
-Recreation,Agrement,Sports Facility,Sală de spor / fitness,true,ff87ee51-0096-4af7-b145-080d8a818e50
-Recreation,Agrement,Stadium,,false,0f9ab739-3158-4a0a-b172-da04a3042e8b
-Religious / Spiritual,Religie / Spiritualitate,Cemetery/Mausoleum,Cimitir / Mausoleu,true,ccff6375-f218-4e4a-a11e-67ab87f25362
-Religious / Spiritual,Religie / Spiritualitate,Chapel,Capelă,true,fd478a7d-d86f-4450-8530-4f574efadd6c
-Religious / Spiritual,Religie / Spiritualitate,Church,Biserică,true,f96b96f4-7ce8-46c9-9ace-694a667bd146
-Religious / Spiritual,Religie / Spiritualitate,Convent,,false,1f5a9e10-0cfe-4a5b-b2ed-888d90c89f92
-Religious / Spiritual,Religie / Spiritualitate,Mission,,false,ac0c0f7b-d929-4658-b16f-0fbdfb7ffeef
-Religious / Spiritual,Religie / Spiritualitate,Monastery,Mânăstire,true,7732b4b2-24fe-466b-88d6-fad87debc5e0
-Religious / Spiritual,Religie / Spiritualitate,Mosque,,false,5368dc4a-6453-4520-8683-421d4d788770
-Religious / Spiritual,Religie / Spiritualitate,Other,Descriere,true,fc009c38-0a84-4b59-b488-aee1dc3ace97
-Religious / Spiritual,Religie / Spiritualitate,Parsonage,Clădire a cultelor religioase,true,e95c70bd-41ba-4a20-b708-8882c8813bc0
-Religious / Spiritual,Religie / Spiritualitate,Religious Headquarters,Sediu religios,true,afd3c564-ff4b-4c0d-8f25-c55d037cf182
-Religious / Spiritual,Religie / Spiritualitate,Religious School,Școală confesională,true,d32c22f8-9c25-4244-a784-9202a8ecfdb6
-Religious / Spiritual,Religie / Spiritualitate,Sanctuary,Altar / Troiță,true,20a7f543-9849-4889-8f5e-5ccbbcefb629
-Religious / Spiritual,Religie / Spiritualitate,Signage,,false,0e925405-025b-4932-871b-b93cd0cd3be7
-Religious / Spiritual,Religie / Spiritualitate,Sinagogue / Jewish Temple,Sinagogă / Templu israelit,true,2f761b5f-593a-48cd-9e88-d7adb6e28bcd
-Culture,Cultură,Clubhouse,,false,a8cc3fc3-f1b1-4025-9396-52f1e18ee540
-Culture,Cultură,Lodge,,false,49494f53-b032-4107-96aa-8cefd33e5f3c
-Culture,Cultură,Meeting Hall,Casă de cultură,true,6bb25f59-93a0-4f60-997d-f4656c7deca5
-Culture,Cultură,Other,,false,5a48f1a0-a32f-4bc6-ba8e-d548911941c1
-Culture,Cultură,Amphitheater,,false,97bf8525-c04e-4d1f-a120-9697f05a44d9
-Culture,Cultură,Art Center/Museum,Centru expozițional / Muzeu,true,7dc8edc2-9aa6-4b30-82cf-84cdd44406bc
-Culture,Cultură,Art School,,false,e7268f51-f623-4d1c-9faa-977b55ed6871
-Culture,Cultură,Art Studio,,false,d55c25df-5f15-4469-85ea-be010ddfefa8
-Culture,Cultură,Auditorium,,false,25e1be82-bf57-4fff-a82f-add0458f67b7
-Culture,Cultură,Concert Hall,Centru de spectacole,true,35e8f8a0-b991-44b3-a351-371764e256a1
-Culture,Cultură,Folk Art,Centru artizanal / meșteșugăresc,true,26bdbb53-c781-4556-83bf-ad406bbf6c9b
-Culture,Cultură,Foundation Headquarters,Sediu de organizație / fundație,true,19aaf90e-8a59-42f3-a674-d13372b55b9e
-Culture,Cultură,Fountain,Fântână,true,9970328a-c62a-4be5-9e73-46d418b0d527
-Culture,Cultură,Monument,Monument de for public,true,8751bd6c-b963-4298-a0d9-a5e21abb9906
-Culture,Cultură,Mural,Artă publică / Street art ,true,d8a61b39-205b-4276-a27e-91f940d8c51b
-Culture,Cultură,Other,Altele,true,e30ad679-faed-4722-9026-6b10e7e2de4f
-Culture,Cultură,Public Art,,false,8811a640-342b-4471-963f-919ed9834096
-Culture,Cultură,Sculpture,,false,0091ee9e-c80f-47b8-b934-4334f237e7bd
-Culture,Cultură,Studio,Atelier de creație,true,1d79c4dc-6b54-45e3-a94d-8f200b62c6fa
-Landscape,Peisaj,Designed Landscape,,false,573d0ada-1848-4b91-9d1f-ec85fb711c87
-Landscape,Peisaj,Historic Vernacular Landscape,,false,edcb5f33-95bf-4ec4-ab8b-5f1188167778
-Landscape,Peisaj,Landscaped Median,,false,3c17e97a-710e-4222-9b53-5562a48459e8
-Landscape,Peisaj,"Tree, Vegetation, or Natural Feature",,false,082e2d13-4616-4a9b-b636-87135ac9b6dc
-Landscape,Peisaj,Other,,false,36e48f00-0c62-494a-8ba2-983f6630b2f0
-Public Places,Spațiu public,Interior Lobbies and Spaces,,false,8f0a2854-aa52-42d1-b4f4-474e29b7579a
-Public Places,Spațiu public,Other,,false,5f38f4a8-095b-42f8-b14c-57d1b1913e0e
-Public Places,Spațiu public,Sites of Historical Events,,false,ff22b08a-134e-485b-91e7-8e3ae4bf472e
-Public Places,Spațiu public,"Squares, intersections, promenades, vistas, etc.",,false,0f86cc83-84b9-4706-8816-7b3ed0b0eaa4
-Residential,Locuire,Single family property,Proprietate unifamilială,true,c8f20b06-62ee-403d-8476-624e8eb7a4b1
-Residential,Locuire,Multiple family property,Proprietate multifamilială,true,1e03d61f-59e5-4da1-91a0-b44cba2baccf
-Residential,Locuire,Ancillary building,Construcție auxiliară / conexă,true,11704d37-43f1-4c98-893f-d7cd6d4dace3
-Residential,Locuire,Carriage house,Remiză / Grajd,true,f59d4bfe-6a53-4b7d-b7ba-c7c9a7f8c14a
-Residential,Locuire,Gates / Fences,Porți / Garduri,true,60616e47-cc7f-489f-b323-c48869559cdb
-Residential,Locuire,Other,,false,612d8419-f575-4837-9257-5b894b134a38
-Residential,Locuire,Employer Built Worker Housing,,false,3e190d15-57ac-45db-b7b3-9327aa3a0472
-Residential,Locuire,Garden Apartment Complex,,false,7b8d53f7-7350-46a2-a107-468bc5496ff1
-Residential,Locuire,Mobile Home Park,,false,a6b89da4-6934-4d14-a6c1-649789b288e9
-Residential,Locuire,Multi-family District,,false,b1127cb1-c561-48f2-9cd1-6c24fc81c789
-Residential,Locuire,Other,,false,6b36ebd9-c9e5-479a-b38e-fc2eed72c32e
-Residential,Locuire,Public Housing Complex,,false,9d48a82c-e2ab-4142-8323-36813415fae3
-Residential,Locuire,Residential Grouping,,false,b8f279a8-7a6c-448b-8a90-cf6ea0006456
-Residential,Locuire,Apartment House,Vilă cu apartamente,true,a6e86f3f-aca7-4b80-b73c-f295a519ccdb
-Residential,Locuire,Apartment Tower,Palat / Imobil de raport,true,16045bf2-74b3-46b7-8514-4cf9f0e51aff
-Residential,Locuire,Bungalow Court,,false,a7eafffc-bbd6-44a2-973e-f43154f10716
-Residential,Locuire,Condominium,,false,6a47c6d9-7076-4817-8754-05ea4141e3c0
-Residential,Locuire,Courtyard Apartment,,false,1194e639-4452-4314-883c-0f4bfada68d9
-Residential,Locuire,Duplex,,false,c86f58ed-83d1-4d62-aa82-c28d5c55d041
-Residential,Locuire,Fourplex,,false,6089031c-b05d-4b22-b84d-77629f808a39
-Residential,Locuire,Garden Apartment,,false,9016f51f-20d1-4d90-8bdd-717cb7185f59
-Residential,Locuire,Other,,false,18dd9bc6-7af2-4953-bf9a-06249889dc1c
-Residential,Locuire,Stucco Box/Dingbat,,false,3dcb4cbd-5d01-4f5a-9ebb-ff5526c64beb
-Residential,Locuire,Triplex,,false,fd1f9273-1253-43f5-886e-e6a070299ae6
-Residential,Locuire,Adobe,,false,802307cc-05ff-4729-919e-11a30a6deb62
-Residential,Locuire,Bungalow,,false,b070c28a-fd9a-454b-9f44-9cc697aec5cd
-Residential,Locuire,Estate,Vilă unifamilială,true,accb908e-7407-44f7-8144-a59a998109f8
-Residential,Locuire,Farm/Ranch House,,false,698c8288-c34c-4f12-8fdd-7af3ad15282a
-Residential,Locuire,House,Casă,true,e2958d13-5c87-4bfb-98b1-93cdf06a4926
-Residential,Locuire,Other,Altele,true,e6de45c4-18e4-4969-a14b-77c9f6955440
-Residential,Locuire,Country Club Suburb,,false,fd8aee06-9dac-4052-8847-f8f821150c00
-Residential,Locuire,Custom Home Subdivision,,false,ac916568-5e64-4841-8500-62a0df33b055
-Residential,Locuire,Early Automobile Suburb,,false,33f9ab34-e4f4-4fd9-a2d0-7b809c80d945
-Residential,Locuire,Hillside Suburb,,false,839c0c2c-95e9-49d7-8ce3-8338c64f7d15
-Residential,Locuire,Mixed Residential Development,,false,0f86236e-e0bd-44f2-be92-8351fd514e6b
-Residential,Locuire,Multi-family,,false,3dd647a0-b837-40ef-a75c-9f8e5336eb8f
-Residential,Locuire,Other,,false,ec3c1ac3-e1d5-41fa-af5c-4430bc618df2
-Residential,Locuire,Planned Development,,false,7b023a21-3f4b-4ace-ac65-55f2abb0295c
-Residential,Locuire,Post World War II and Early Freeway Suburb,,false,219f623f-8f0b-4e8e-9398-b9af334d35c7
-Residential,Locuire,Streetcar Suburb,,false,33e473bc-96e8-4223-b39c-eebf6a9380a6
-Residential,Locuire,Subdivision,,false,a8b4269e-b3bd-44f8-865a-80558805da81
-Cemetery,Cimitir,Altar Tomb,,false,814c709d-b52c-435d-ba4f-885e5b506b33
-Cemetery,Cimitir,Chamber Tomb,,false,581bd6a3-d06a-4a62-886f-96aa626002bd
-Cemetery,Cimitir,Chullpa,,false,a42a34d1-bc1c-492b-ab90-a5632d85b8a0
-Cemetery,Cimitir,Cist Grave,,false,9e17b80f-b842-459a-a770-fd3946a7a9e4
-Cemetery,Cimitir,Mastaba (Tomb),,false,dd9b1272-e035-4216-a642-24fdbb8bad6d
-Cemetery,Cimitir,Naveta,,false,61a42156-75b4-4994-9dd0-41bea4284529
-Cemetery,Cimitir,Pillar Tomb,,false,ddfb948c-f2fd-4977-862a-9602150a2e93
-Cemetery,Cimitir,Pyramid (Tomb or Platform),,false,e3814f94-c8ff-4aee-9eeb-e5fe63c64d7f
-Cemetery,Cimitir,Rock-cut Tomb,,false,acf4864e-6a92-4c3a-9702-fe4eb182e7b4
-Cemetery,Cimitir,Shaft Graves (Tomb),,false,af47e46e-c6c4-4f25-9e19-b11e42874dd4
-Cemetery,Cimitir,Tholos Tomb,,false,0d8e2651-df39-4d2b-a883-f04357e48034
-Cemetery,Cimitir,Tile Grave,,false,83720acc-ee93-4a3a-b5bb-e25b3f2671e2
-Cemetery,Cimitir,Tower-Tomb,,false,623f780f-6df2-40cb-8079-19979519ceaf
-Cemetery,Cimitir,Unfinished Tomb,,false,df763a9a-577d-46fd-b54d-4983bea19d4b
+uuid,set,set_ro,name,name_ro,published
+5561af30-f31d-48a8-a26f-22cbe9848bfb,Commercial,Comerț / Servicii,Mortuary/Funeral Home,Casă funerară / Magazin pompe funebre,true
+cb4afd04-b14a-4918-b2e8-2f1d4ce5212c,Commercial,Comerț / Servicii,Corridor,,false
+f59c72f4-670c-4f27-ab48-304d70709e2a,Commercial,Comerț / Servicii,Neighborhood/Village Commercial Center,,false
+162cd4d8-3722-4a6c-a285-67360d6e5109,Commercial,Comerț / Servicii,Node,,false
+b9598916-7831-4d0c-a615-8d04b3e8668a,Commercial,Comerț / Servicii,Other,,false
+c4dc3272-e801-4a67-bfbe-364da430dbe8,Commercial,Comerț / Servicii,Shopping Center,,false
+2f1c22ba-f6ca-4972-aff9-9c502e72cb44,Commercial,Comerț / Servicii,Shopping Mall,,false
+f1133309-2c8e-42d6-8ede-5abd3959949c,Commercial,Comerț / Servicii,Auto Body/Repair,Servicii auto /  Vulcanizare,true
+1bd0cad6-ca86-4b9f-87a5-0b65fdc57038,Commercial,Comerț / Servicii,Car Sales/Auto Showroom,,false
+2675fcfd-50a3-42d2-84bd-e769eb908ab2,Commercial,Comerț / Servicii,Carwash,Spălătorie auto,true
+1fd71664-e613-456c-ba63-c38fac60af51,Commercial,Comerț / Servicii,Custom Car Builder,,false
+7da31ced-dde5-4c90-a1d9-10858e8c1b41,Commercial,Comerț / Servicii,Gas/Service Station,Benzinărie,true
+b318e9fa-95b0-454b-bd25-c82a91130d4c,Commercial,Comerț / Servicii,Other,,false
+ba4f03ca-b152-4a15-ac61-561c319e1028,Commercial,Comerț / Servicii,Parking Structure,,false
+1c13629d-4dbc-4d9c-9d9b-f6fabf943a05,Commercial,Comerț / Servicii,Service Station with Carwash,,false
+3149a2d0-80ce-408f-8046-164a1343be0f,Commercial,Comerț / Servicii,Music club/night club,Club de noapte,true
+b3ea7196-d245-4710-9c3c-a7fc530d95ca,Commercial,Comerț / Servicii,Other,,false
+248d315f-7cb7-4d51-a84c-812d05b527af,Commercial,Comerț / Servicii,"Theater, Motion Picture",Cinematograf,true
+c0790ea2-129d-4243-9b5b-35dfceab2b4a,Commercial,Comerț / Servicii,"Theater, Performance",Teatru / Sală de spectacole,true
+2974ed7d-6de2-498a-8250-2241b1f0ed86,Commercial,Comerț / Servicii,Casino,Sală de jocuri de noroc,true
+9c571709-8572-44a6-a918-f409697a2622,Commercial,Comerț / Servicii,Bowling Alley,,false
+f3610dcf-75e1-46e5-9236-6ab083324910,Commercial,Comerț / Servicii,Miniature Golf,,false
+1332f473-f1fd-40ef-9742-b42ebff59558,Commercial,Comerț / Servicii,Skating Rink,,false
+0719a2cb-ed92-4606-ae02-cc78858781ba,Commercial,Comerț / Servicii,Bank/Savings &amp,Bancă / Centru asigurări,true
+7d05d3cf-637f-4ed5-9d65-118809f582e7,Commercial,Comerț / Servicii,"Insurance, Stocks, etc.",,false
+7dfd7f8d-d821-4861-9003-d1c938464349,Commercial,Comerț / Servicii,Other,,false
+74277dfb-7ad5-4173-952d-eafa1a445fc5,Commercial,Comerț / Servicii,Drive-in,,false
+2b62a086-aa7e-42be-8592-f67e034ded38,Commercial,Comerț / Servicii,Walk-up Stand,,false
+336df2a5-9b26-48c6-ac69-95eb6f3939ba,Commercial,Comerț / Servicii,Bar/Lounge,Bar / Lounge / Cafenea,true
+15a1acd7-c7a9-4dc0-8636-bc32b34f684b,Commercial,Comerț / Servicii,Sweetshop,Cofetărie,true
+063905fe-0472-49c8-bb1a-2f91d448f78c,Commercial,Comerț / Servicii,Fast Food (drive-thru and/or walk-in),,false
+432a0c31-a344-47c8-a8b0-82286d65442b,Commercial,Comerț / Servicii,Other,Descriere,true
+2a8d1ac1-931e-4f00-9483-49f68d919736,Commercial,Comerț / Servicii,Restaurant,"Alimentație publică (restaurant, autoservire, fast-food etc.)",true
+5b949653-4620-4bac-9109-4fac1a9a5a51,Commercial,Comerț / Servicii,Apartment Hotel,,false
+3f180eba-418b-4e76-b739-02c8247073a4,Commercial,Comerț / Servicii,Boarding House,Pensiune / Hostel,true
+93abe961-42ce-4f74-95a7-7129c87df2d5,Commercial,Comerț / Servicii,Hotel,Hotel,true
+12483a01-aaa0-4744-8635-7b54310c87d2,Commercial,Comerț / Servicii,Motel,Han,true
+2f836373-3f30-4763-bd58-117912b56b16,Commercial,Comerț / Servicii,Other,,false
+8758a48e-745d-4748-a5e1-b7592ceabc46,Commercial,Comerț / Servicii,Mixed Use - Commercial/Office/Residential,Funcțiune mixtă,true
+6b83c019-f807-43f7-8764-9a292d886b58,Commercial,Comerț / Servicii,High Rise,,false
+4e644cef-606a-4e9e-ad28-de852b7b3d36,Commercial,Comerț / Servicii,Office Building,Clădire de birouri,true
+337c5dca-e987-4da5-b1a1-11c082738ed3,Commercial,Comerț / Servicii,Other,Descriere,true
+4373a12e-e2a7-4bec-ba89-dbc987abc2dd,Commercial,Comerț / Servicii,Chain Store,,false
+2db31d5c-80e2-457b-be7b-4b340fb99dca,Commercial,Comerț / Servicii,Department Store,,false
+838c1945-39be-4aad-aa25-6edfe974efd5,Commercial,Comerț / Servicii,Drive-in Commercial,,false
+84f3f40a-90da-40f9-b409-072971ed489d,Commercial,Comerț / Servicii,Drive-thru Commercial,,false
+c3c4ed9c-48ae-46fa-accf-91a3136cab6c,Commercial,Comerț / Servicii,Neighborhood Market,Piață comercială,true
+27a015b2-d552-4db9-9d1f-eda0148a63fb,Commercial,Comerț / Servicii,Other,,false
+8a4ffa7d-7461-408f-921c-51265653824c,Commercial,Comerț / Servicii,Produce Market,,false
+d3c0c22d-dbde-4cc3-9f59-7331147da6a2,Commercial,Comerț / Servicii,Retail Store,Centru comercial,true
+b38dc271-c038-49f1-b173-fa9092a807fb,Commercial,Comerț / Servicii,Strip Mall,,false
+5a14c615-f251-40a5-9c2d-a3f47cb8f54f,Commercial,Comerț / Servicii,Supermarket,Alimentară / Supermarket,true
+481f99f0-3b9e-410c-951f-b943a8353ef7,Commercial,Comerț / Servicii,Marquee,,false
+421f8a41-b24f-48a4-9efc-c4ba6fc229cd,Commercial,Comerț / Servicii,Other,,false
+71f2ebe8-e392-4ba4-ba5c-92cbcba00381,Commercial,Comerț / Servicii,Painted Wall,,false
+c43cd8c6-c5db-49a8-8721-ef3ca8455d44,Commercial,Comerț / Servicii,Projecting Blade,,false
+ee52b4f1-aa41-4169-b367-c6913dfd7f52,Commercial,Comerț / Servicii,"Pylon, Pole, Stantion",,false
+93ae3a64-66eb-46b1-ad02-7951a9a0be41,Commercial,Comerț / Servicii,Rooftop,,false
+2dfb0a39-9d8c-4f98-8692-9565475999d4,Commercial,Comerț / Servicii,Sidewalk,,false
+a9ab0288-30f2-4af5-8f1f-5263a576e50c,Industrial,Industrie,Other,Descriere,true
+4c67b39d-531f-4332-b467-c3a26d763248,Industrial,Industrie,Engineering structure,Structură inginerească,true
+1b24e07f-4b9e-446d-944e-694199506b97,Industrial,Industrie,Quonset Hut,,false
+1c72f264-3675-4bfe-9520-3dadf43eac42,Industrial,Industrie,Industrial Park/Campus,,false
+e894d7b3-bb79-42d5-a941-61ec419ac217,Industrial,Industrie,Industrial Tract,,false
+17568bc5-3b99-4c63-b0ea-eef9d9d48dd8,Industrial,Industrie,Plant,,false
+69b248f8-7089-451d-af52-44597c9a9c1a,Industrial,Industrie,Other,,false
+96d1ff8e-90b3-49f0-acad-11ea6a0887f2,Industrial,Industrie,Agricultural Landscape,,false
+3f90622f-7131-4fa1-bbbc-d5e37ef0aa27,Industrial,Industrie,Barn/Stable,,false
+a695c924-d1d9-415f-a4ef-2b01b32d7c34,Industrial,Industrie,Cold Storage Warehouse,,false
+91ff7354-395d-449f-9818-8ecd9508dbeb,Industrial,Industrie,Dairy,,false
+a898e31d-b571-48eb-98a5-6bfabcac2278,Industrial,Industrie,Fish Processing Plant,,false
+12a15738-5510-40b8-aa76-b89a54abe18c,Industrial,Industrie,Grove/Orchard,,false
+f927a8fc-f2c0-496e-a83b-552601926e10,Industrial,Industrie,Other,,false
+8af20371-3ef7-49d7-9566-f330518dca36,Industrial,Industrie,Packing House,,false
+53f652da-df7d-43c8-8fa9-56d2901e8403,Industrial,Industrie,Vat/Brining Tank,,false
+bc603f8d-93f5-4069-bd0a-16d893df8b6c,Industrial,Industrie,Agricultural Property,,false
+372e2737-2e5f-41be-9380-3efb86572de4,Industrial,Industrie,Farm/Ranch House,,false
+b95578dd-e6b8-4932-a126-797e44df9de4,Industrial,Industrie,Produce Market,,false
+d47e3960-7fab-4da0-9dfc-96cb3996d333,Industrial,Industrie,Auto Parts Manufacturer,,false
+e44ac162-5945-4129-bf33-a4e1ab6596fa,Industrial,Industrie,Custom Auto Shop,,false
+4a2ede1b-55c9-454b-8313-e5a6b317fd75,Industrial,Industrie,Other,,false
+93d7f0b4-9b88-431f-b169-5e7c6b78c8fe,Industrial,Industrie,Rubber Factory,,false
+2f29bb8d-80d0-426c-a687-cbc2de8d4e5e,Industrial,Industrie,Aircraft Plant,,false
+e0c0e5f0-74e7-451c-88d4-235ba3d9e7ec,Industrial,Industrie,Hangar(s),,false
+8e117e83-7318-4612-8cf0-118f2baf10c2,Industrial,Industrie,Aerospace Plant,,false
+db0aefff-f4cf-45bf-ae61-fe370f97b052,Industrial,Industrie,Other,,false
+e850369b-68c8-49ed-afd5-8f6d78c53936,Industrial,Industrie,Carpentry Shop,,false
+ef0658c9-7147-4b05-85f1-c27e9b9b926f,Industrial,Industrie,Concrete Plant,,false
+cb2553f4-fb68-45d5-90b4-fb7a5c3ffb82,Industrial,Industrie,Lumber Yard/Planing Mill,,false
+d365181f-747c-4f3f-a865-b21afe3d61d6,Industrial,Industrie,Metal Shop,,false
+e8b5455c-b571-466b-a416-9e693c40d355,Industrial,Industrie,Other,,false
+8745a876-2555-472c-92b3-7e2e5ad0061a,Industrial,Industrie,Steel Mill,,false
+621cc727-85db-4cf5-8fa0-e8ae2a2e22db,Industrial,Industrie,Stone/Masonry Fabricator,,false
+0043f8be-0300-4268-85f0-b317a3323c4e,Industrial,Industrie,Motion Picture Related,,false
+567bc229-1daf-4bc7-a120-f184e2444428,Industrial,Industrie,Motion Picture Studio,,false
+3a898de4-7e84-4bba-9167-855ea15f4465,Industrial,Industrie,Other,,false
+c00ae378-7495-4dd7-9e9c-d08034242f9f,Industrial,Industrie,Radio Broadcasting Studio or Related,,false
+61e1c1d4-be50-43e1-a8a2-fe72b4ffabb3,Industrial,Industrie,Radio/TV Transmission Facilities/Microwave Tower,,false
+1129c6f4-8f67-4d55-b868-e6be975f93b4,Industrial,Industrie,Recording Studio or Related,,false
+adc22711-f7cc-46fb-957e-985814f60c23,Industrial,Industrie,Television Broadcasting Studio or Related,,false
+846ad1bb-35bf-425b-9b31-ffe51c0f82c1,Industrial,Industrie,Union Hall,,false
+c7621224-3be8-4f9b-8c3d-32a143f3d5dc,Industrial,Industrie,Creamery,,false
+64aaac02-cc85-4213-870d-6082085f96c9,Industrial,Industrie,Fish Processing,,false
+2ec64187-57aa-471e-938e-6e58e1031676,Industrial,Industrie,Flour Mill,Moară,true
+6d1960fe-a385-43e9-8b8d-b579fc1fa35e,Industrial,Industrie,Other,Descriere,true
+54ceb2cd-edc3-4cf5-a5a8-74c062204ce5,Industrial,Industrie,Bakery,Fabrică de panificație,true
+dd4e16d2-85f8-46a6-b5cd-e6989956e40a,Industrial,Industrie,Bottling Plant,Fabrică de îmbuteliere,true
+0b4c9321-da1c-4ed6-9b4f-150146bd3acb,Industrial,Industrie,Garment Factory,Fabrică de confecții / textile,true
+7b5882b1-4219-4588-aa82-cc7c11ccb4ea,Industrial,Industrie,Other,,false
+550e5a67-ef65-4910-a9ee-532a6c5cbfd7,Industrial,Industrie,Textile Mill,,false
+18cae9a8-dab2-4db1-8f0d-cc56bc9dc75e,Industrial,Industrie,Factory,Fabrică,true
+97f10297-d9a7-4d7e-989f-532b841aae53,Industrial,Industrie,Other,,false
+98cdd2bb-a7af-4c8c-ac87-564ed2cce5ff,Industrial,Industrie,Oil Company Facilities/Offices,,false
+57f16e1c-fad3-41d0-a63f-a89ed841b118,Industrial,Industrie,Other,,false
+b633564b-cfaa-42f5-88d4-4b80abcf2f3d,Industrial,Industrie,Natural Gas Plant,,false
+f136e84f-6153-4f20-a27d-0b8d02d82c80,Industrial,Industrie,Oil Derrick,,false
+738215f5-ac80-414e-b8b5-41dd8a1fe34d,Industrial,Industrie,Refinery,,false
+c629ca57-c497-4012-bced-7587432f2612,Industrial,Industrie,Other,,false
+fe06d55b-2cdc-4cc6-99d0-ae6742cba35f,Industrial,Industrie,Public Storage,Depozit industrial,true
+6d804d04-0cab-43f3-8d10-9cb919762ffd,Industrial,Industrie,Warehouse,Antrepozit,true
+4c67b39d-531f-4332-b467-c3a26d763248,Infrastrucutre,Infrastructură,Engineering structure,Structură inginerească,true
+22e4b98a-5bc9-4e7f-81c9-f9924e054a2a,Infrastrucutre,Infrastructură,Other,,false
+4c4e7876-79bf-4091-a56f-cfd5f44657a0,Infrastrucutre,Infrastructură,Telephone Building,,false
+6d232ce4-d344-4056-824f-6cc488b43352,Infrastrucutre,Infrastructură,Airport,,false
+851632a3-c5be-44c9-8da1-43fbc4381cb0,Infrastrucutre,Infrastructură,Bridge,pod,true
+7ac45ccd-dbca-4582-a728-0a3782031a42,Infrastrucutre,Infrastructură,Other,,false
+4059e5b3-5d04-42e5-86c2-07d5e074795b,Infrastrucutre,Infrastructură,Railroad depot,depou de trenuri / tramvaie,true
+bbd97b03-32dc-4ffd-a461-b7f7dc6e64bf,Infrastrucutre,Infrastructură,Pier/Wharf,,false
+b8cc6f87-3de8-4f44-ab46-4cc309f26a65,Infrastrucutre,Infrastructură,"Port, Harbor and Related",,false
+3226cc02-5022-48f0-9c9c-81854d287935,Infrastrucutre,Infrastructură,Public Stairs,,false
+ad584ae7-9ec9-4f5d-b5d5-bf4bb4e326ec,Infrastrucutre,Infrastructură,Railroad/Streetcar Building-Depot,,false
+f9298ffc-3a04-40c1-bb81-0267525106fa,Infrastrucutre,Infrastructură,Railroad/Streetcar Building-Interlocking Tower,,false
+b2aa04dd-6dcc-4f0c-ae4d-89cfe62f4281,Infrastrucutre,Infrastructură,Railroad/Streetcar Building-Maintenance/Shops,,false
+c2bfcad9-7eed-40fe-a992-78808e111e60,Infrastrucutre,Infrastructură,Railroad/Streetcar Right-of-way,,false
+d43a00fc-4e0e-40bb-a37c-cb6386b28a9c,Infrastrucutre,Infrastructură,Railroad/Streetcar Rolling Stock,,false
+b181e69f-12d1-4900-92b3-3951ca5c4019,Infrastrucutre,Infrastructură,Street Furniture,,false
+27c8a174-c8fc-46b8-b19f-f294785c1159,Infrastrucutre,Infrastructură,Street/Road/Highway/Freeway/Alley,,false
+9ed79781-a2bb-4117-9539-506d33846639,Infrastrucutre,Infrastructură,Subway/Rapid Transit/Bus,,false
+d267af30-31e6-457a-b66b-e3f0f4c117f9,Infrastrucutre,Infrastructură,Tunnel,,false
+ca07f242-c460-4e38-9efd-7bd886c31295,Infrastrucutre,Infrastructură,Tunnel,,false
+5e955203-3288-416f-b91e-0ebba6ab8180,Infrastrucutre,Infrastructură,Canal/Aqueduct,canal / apeduct,true
+8e469a01-32ad-4e1c-b96a-976396d46302,Infrastrucutre,Infrastructură,Dam and Flood Control,baraj / stăvilar,true
+d541be1d-9ea1-4e4d-a392-650b9ea6ca0e,Infrastrucutre,Infrastructură,Other,altele,true
+a9c61fb2-3955-4922-b58b-606dc27b2c46,Infrastrucutre,Infrastructură,Reservoir,turn de apă,true
+55e57839-3c81-424f-884c-3ad94c947fe1,Infrastrucutre,Infrastructură,Sewers and Sewer Utilities,uzină de apă,true
+e0c877e3-6c65-4f4e-ab21-a6a7171b0fb6,Infrastrucutre,Infrastructură,Street Lights,,false
+2c8e4a29-5d95-47f3-958a-f9b27a3a3c28,Infrastrucutre,Infrastructură,"Utility Building (Water, Electrical Power, Natural Gas)","Cladire utilitară (apă, electricitate, gaz etc.)",true
+a6ac9d99-97d3-423b-aeac-d8c1e23f9dd8,Education,Educație,Boarding School,,false
+12f0cec1-1bfe-4517-ad53-d0235ad22c13,Education,Educație,College/University,Universitate,true
+5fff5650-a70c-41e2-9d80-ff1909347b8c,Education,Educație,Dormitory,Cămin studențesc,true
+0f76ab4a-971a-407c-b18a-3208029a13c5,Education,Educație,Elementary School,Școală primară,true
+a28c1b77-2686-4181-a8d2-11d50d8e877f,Education,Educație,Fraternities and Sororities,,false
+805069e9-821a-4326-a6fd-45524264d211,Education,Educație,High School,Liceu,true
+646e21f7-244e-480a-b7cb-b3ffe7bf06ff,Education,Educație,Vocational School,Centru educațional / de formare continuă,true
+6887f3b6-f68d-4b16-be73-31ff4e277832,Education,Educație,Middle School,Gimnaziu,true
+881c8d94-409a-4ce2-9795-579895a8d269,Education,Educație,Other,Altele,true
+dc06b970-aef4-4d47-b4bc-4f3ed98dd2d7,Education,Educație,Pre-School,Grădiniță / Creșă,true
+717ec53b-d059-43e4-826c-c2a395228ecd,Education,Educație,Reform School,,false
+56b372f6-d54f-43fe-8ac4-460b66878344,Education,Educație,School Administration Center/Service Center,Clădire educațională administrativă,true
+a3f7eb8b-80c2-4dd8-bfaf-f5ac8995dc77,Public Administration,Administrație publică,Central Government Services,Clădire administrativă (autoritate publică națională),true
+28768d05-9caf-49d1-80a2-02bc53d69a57,Public Administration,Administrație publică,City Hall/Local Administration,Clădire administrativă (autoritate publică locală),true
+b71f1329-544a-41e6-9171-3ba7a1f86a6d,Public Administration,Administrație publică,Embassy / Consulate,Clădire administrativă diplomatică,true
+f37b782f-82e3-4be7-97f0-7b51e9849d84,Public Administration,Administrație publică,Civic Center,,false
+b24f38e3-5fc5-48f1-b8a6-944305a3b3b0,Public Administration,Administrație publică,Court Building/Jail,,false
+359cf9d3-c333-43ba-b800-1abb931f2cb2,Public Administration,Administrație publică,Fire Station,ISU / stație pompieri,true
+366616e6-3c72-4a97-b269-f62a24099656,Public Administration,Administrație publică,Library,Bibliotecă,true
+8897f8d1-2923-493b-a107-e42748d2a204,Public Administration,Administrație publică,Other,Altele,true
+0c169510-7b57-47b4-86e1-b08012a85c89,Public Administration,Administrație publică,Police Station,Secție de poliție,true
+526c01d6-a4a8-413d-988b-b6e1ffd42201,Public Administration,Administrație publică,Postal Facility,Oficiu poștal,true
+7402e62c-c266-4727-946c-6740c3341ea9,Public Administration,Administrație publică,Social Services/Welfare,Centru social,true
+e4e5ce1b-3dd4-417c-9887-1346c0bb1f8a,Health,Sănătate,Hospital / Clinic,Spital / Clinică,true
+e9239d1b-6a72-4631-bbe3-46f3c3071b5a,Health,Sănătate,Medical/Dental Building or Clinic,,false
+feae9a0c-0d5e-46a5-a877-63bf9007afa5,Health,Sănătate,Mental Health Institution,,false
+10daf245-76bc-4cde-aeab-588a98ad6e4f,Health,Sănătate,Nursing Home/Rest Home,Asistență socială,true
+885f9151-9b36-4e7a-9869-9ad07fb5dbb6,Health,Sănătate,Other,Descriere,true
+bdfaa964-7487-4b9e-95c0-b9b347774565,Health,Sănătate,Sanitarium,,false
+9c8e6aab-bf16-4928-820f-419401cefdf2,Health,Sănătate,Veterinary Clinic,Clinică veterinară,true
+22e1990c-23a6-4d4a-b0ca-b52b3d0a96f3,Institutional-Military,Armată,Air Raid Sirens and Shelters,,false
+d1e02420-600e-4a64-adca-e14f03f7151c,Institutional-Military,Armată,Coastal Defense Facilities,,false
+a57fdcb1-010b-4c3c-942c-c6cac7ef5e82,Institutional-Military,Armată,Military Cemeteries,,false
+8d19e64f-7717-4eff-bdc1-d9fc8a022dc9,Institutional-Military,Armată,Military Post/Base/Armory,,false
+e96ea012-085a-465c-8911-755137266848,Institutional-Military,Armată,Organization Headquarters,,false
+582aff01-f7a2-46e0-82eb-8de7e57db7c5,Institutional-Military,Armată,Other,,false
+d5fc9e3a-4976-4f1f-8c82-2433fbae881d,Institutional-Military,Armată,Other,,false
+ef42143b-802a-48af-b521-04c65e43fd50,Institutional-Military,Armată,Protest Site,,false
+cd3e3690-a513-4ef1-976d-b9e07c2070c9,Institutional-Military,Armată,USO Building,,false
+eae0686d-26c0-4c9b-bb30-e0e663098546,Recreation,Agrement,Amusement Facility,Centru de agrement,true
+911f279c-e545-418d-96bf-2a544f35f4d7,Recreation,Agrement,"Beach, Boating, Water Related",,false
+87e04f94-e39d-4afc-afe6-c459a4f28378,Recreation,Agrement,Camp or Trailer Camp Park,,false
+bb70f77c-4911-4925-846d-f4dd755ce25b,Recreation,Agrement,Golf Course,,false
+968cbf4b-02b6-4ec7-b324-1932001e51c5,Recreation,Agrement,Other,Descriere,true
+55f9f736-81fa-426f-8086-6e75e0485549,Recreation,Agrement,Public Park,Parc / Grădină / Scuar,true
+44ad0935-1043-4b10-95ec-30452737ddb0,Recreation,Agrement,Public Swimming Pool,Baie publică / Bazin de înot,true
+ff87ee51-0096-4af7-b145-080d8a818e50,Recreation,Agrement,Sports Facility,Sală de spor / fitness,true
+0f9ab739-3158-4a0a-b172-da04a3042e8b,Recreation,Agrement,Stadium,,false
+ccff6375-f218-4e4a-a11e-67ab87f25362,Religious / Spiritual,Religie / Spiritualitate,Cemetery/Mausoleum,Cimitir / Mausoleu,true
+fd478a7d-d86f-4450-8530-4f574efadd6c,Religious / Spiritual,Religie / Spiritualitate,Chapel,Capelă,true
+f96b96f4-7ce8-46c9-9ace-694a667bd146,Religious / Spiritual,Religie / Spiritualitate,Church,Biserică,true
+1f5a9e10-0cfe-4a5b-b2ed-888d90c89f92,Religious / Spiritual,Religie / Spiritualitate,Convent,,false
+ac0c0f7b-d929-4658-b16f-0fbdfb7ffeef,Religious / Spiritual,Religie / Spiritualitate,Mission,,false
+7732b4b2-24fe-466b-88d6-fad87debc5e0,Religious / Spiritual,Religie / Spiritualitate,Monastery,Mânăstire,true
+5368dc4a-6453-4520-8683-421d4d788770,Religious / Spiritual,Religie / Spiritualitate,Mosque,,false
+fc009c38-0a84-4b59-b488-aee1dc3ace97,Religious / Spiritual,Religie / Spiritualitate,Other,Descriere,true
+e95c70bd-41ba-4a20-b708-8882c8813bc0,Religious / Spiritual,Religie / Spiritualitate,Parsonage,Clădire a cultelor religioase,true
+afd3c564-ff4b-4c0d-8f25-c55d037cf182,Religious / Spiritual,Religie / Spiritualitate,Religious Headquarters,Sediu religios,true
+d32c22f8-9c25-4244-a784-9202a8ecfdb6,Religious / Spiritual,Religie / Spiritualitate,Religious School,Școală confesională,true
+20a7f543-9849-4889-8f5e-5ccbbcefb629,Religious / Spiritual,Religie / Spiritualitate,Sanctuary,Altar / Troiță,true
+0e925405-025b-4932-871b-b93cd0cd3be7,Religious / Spiritual,Religie / Spiritualitate,Signage,,false
+2f761b5f-593a-48cd-9e88-d7adb6e28bcd,Religious / Spiritual,Religie / Spiritualitate,Sinagogue / Jewish Temple,Sinagogă / Templu israelit,true
+a8cc3fc3-f1b1-4025-9396-52f1e18ee540,Culture,Cultură,Clubhouse,,false
+49494f53-b032-4107-96aa-8cefd33e5f3c,Culture,Cultură,Lodge,,false
+6bb25f59-93a0-4f60-997d-f4656c7deca5,Culture,Cultură,Meeting Hall,Casă de cultură,true
+5a48f1a0-a32f-4bc6-ba8e-d548911941c1,Culture,Cultură,Other,,false
+97bf8525-c04e-4d1f-a120-9697f05a44d9,Culture,Cultură,Amphitheater,,false
+7dc8edc2-9aa6-4b30-82cf-84cdd44406bc,Culture,Cultură,Art Center/Museum,Centru expozițional / Muzeu,true
+e7268f51-f623-4d1c-9faa-977b55ed6871,Culture,Cultură,Art School,,false
+d55c25df-5f15-4469-85ea-be010ddfefa8,Culture,Cultură,Art Studio,,false
+25e1be82-bf57-4fff-a82f-add0458f67b7,Culture,Cultură,Auditorium,,false
+35e8f8a0-b991-44b3-a351-371764e256a1,Culture,Cultură,Concert Hall,Centru de spectacole,true
+26bdbb53-c781-4556-83bf-ad406bbf6c9b,Culture,Cultură,Folk Art,Centru artizanal / meșteșugăresc,true
+19aaf90e-8a59-42f3-a674-d13372b55b9e,Culture,Cultură,Foundation Headquarters,Sediu de organizație / fundație,true
+9970328a-c62a-4be5-9e73-46d418b0d527,Culture,Cultură,Fountain,Fântână,true
+8751bd6c-b963-4298-a0d9-a5e21abb9906,Culture,Cultură,Monument,Monument de for public,true
+d8a61b39-205b-4276-a27e-91f940d8c51b,Culture,Cultură,Mural,Artă publică / Street art ,true
+e30ad679-faed-4722-9026-6b10e7e2de4f,Culture,Cultură,Other,Altele,true
+8811a640-342b-4471-963f-919ed9834096,Culture,Cultură,Public Art,,false
+0091ee9e-c80f-47b8-b934-4334f237e7bd,Culture,Cultură,Sculpture,,false
+1d79c4dc-6b54-45e3-a94d-8f200b62c6fa,Culture,Cultură,Studio,Atelier de creație,true
+573d0ada-1848-4b91-9d1f-ec85fb711c87,Landscape,Peisaj,Designed Landscape,,false
+edcb5f33-95bf-4ec4-ab8b-5f1188167778,Landscape,Peisaj,Historic Vernacular Landscape,,false
+3c17e97a-710e-4222-9b53-5562a48459e8,Landscape,Peisaj,Landscaped Median,,false
+082e2d13-4616-4a9b-b636-87135ac9b6dc,Landscape,Peisaj,"Tree, Vegetation, or Natural Feature",,false
+36e48f00-0c62-494a-8ba2-983f6630b2f0,Landscape,Peisaj,Other,,false
+8f0a2854-aa52-42d1-b4f4-474e29b7579a,Public Places,Spațiu public,Interior Lobbies and Spaces,,false
+5f38f4a8-095b-42f8-b14c-57d1b1913e0e,Public Places,Spațiu public,Other,,false
+ff22b08a-134e-485b-91e7-8e3ae4bf472e,Public Places,Spațiu public,Sites of Historical Events,,false
+0f86cc83-84b9-4706-8816-7b3ed0b0eaa4,Public Places,Spațiu public,"Squares, intersections, promenades, vistas, etc.",,false
+c8f20b06-62ee-403d-8476-624e8eb7a4b1,Residential,Locuire,Single family property,Proprietate unifamilială,true
+1e03d61f-59e5-4da1-91a0-b44cba2baccf,Residential,Locuire,Multiple family property,Proprietate multifamilială,true
+11704d37-43f1-4c98-893f-d7cd6d4dace3,Residential,Locuire,Ancillary building,Construcție auxiliară / conexă,true
+f59d4bfe-6a53-4b7d-b7ba-c7c9a7f8c14a,Residential,Locuire,Carriage house,Remiză / Grajd,true
+60616e47-cc7f-489f-b323-c48869559cdb,Residential,Locuire,Gates / Fences,Porți / Garduri,true
+612d8419-f575-4837-9257-5b894b134a38,Residential,Locuire,Other,,false
+3e190d15-57ac-45db-b7b3-9327aa3a0472,Residential,Locuire,Employer Built Worker Housing,,false
+7b8d53f7-7350-46a2-a107-468bc5496ff1,Residential,Locuire,Garden Apartment Complex,,false
+a6b89da4-6934-4d14-a6c1-649789b288e9,Residential,Locuire,Mobile Home Park,,false
+b1127cb1-c561-48f2-9cd1-6c24fc81c789,Residential,Locuire,Multi-family District,,false
+6b36ebd9-c9e5-479a-b38e-fc2eed72c32e,Residential,Locuire,Other,,false
+9d48a82c-e2ab-4142-8323-36813415fae3,Residential,Locuire,Public Housing Complex,,false
+b8f279a8-7a6c-448b-8a90-cf6ea0006456,Residential,Locuire,Residential Grouping,,false
+a6e86f3f-aca7-4b80-b73c-f295a519ccdb,Residential,Locuire,Apartment House,Vilă cu apartamente,true
+16045bf2-74b3-46b7-8514-4cf9f0e51aff,Residential,Locuire,Apartment Tower,Palat / Imobil de raport,true
+a7eafffc-bbd6-44a2-973e-f43154f10716,Residential,Locuire,Bungalow Court,,false
+6a47c6d9-7076-4817-8754-05ea4141e3c0,Residential,Locuire,Condominium,,false
+1194e639-4452-4314-883c-0f4bfada68d9,Residential,Locuire,Courtyard Apartment,,false
+c86f58ed-83d1-4d62-aa82-c28d5c55d041,Residential,Locuire,Duplex,,false
+6089031c-b05d-4b22-b84d-77629f808a39,Residential,Locuire,Fourplex,,false
+9016f51f-20d1-4d90-8bdd-717cb7185f59,Residential,Locuire,Garden Apartment,,false
+18dd9bc6-7af2-4953-bf9a-06249889dc1c,Residential,Locuire,Other,,false
+3dcb4cbd-5d01-4f5a-9ebb-ff5526c64beb,Residential,Locuire,Stucco Box/Dingbat,,false
+fd1f9273-1253-43f5-886e-e6a070299ae6,Residential,Locuire,Triplex,,false
+802307cc-05ff-4729-919e-11a30a6deb62,Residential,Locuire,Adobe,,false
+b070c28a-fd9a-454b-9f44-9cc697aec5cd,Residential,Locuire,Bungalow,,false
+accb908e-7407-44f7-8144-a59a998109f8,Residential,Locuire,Estate,Vilă unifamilială,true
+698c8288-c34c-4f12-8fdd-7af3ad15282a,Residential,Locuire,Farm/Ranch House,,false
+e2958d13-5c87-4bfb-98b1-93cdf06a4926,Residential,Locuire,House,Casă,true
+e6de45c4-18e4-4969-a14b-77c9f6955440,Residential,Locuire,Other,Altele,true
+fd8aee06-9dac-4052-8847-f8f821150c00,Residential,Locuire,Country Club Suburb,,false
+ac916568-5e64-4841-8500-62a0df33b055,Residential,Locuire,Custom Home Subdivision,,false
+33f9ab34-e4f4-4fd9-a2d0-7b809c80d945,Residential,Locuire,Early Automobile Suburb,,false
+839c0c2c-95e9-49d7-8ce3-8338c64f7d15,Residential,Locuire,Hillside Suburb,,false
+0f86236e-e0bd-44f2-be92-8351fd514e6b,Residential,Locuire,Mixed Residential Development,,false
+3dd647a0-b837-40ef-a75c-9f8e5336eb8f,Residential,Locuire,Multi-family,,false
+ec3c1ac3-e1d5-41fa-af5c-4430bc618df2,Residential,Locuire,Other,,false
+7b023a21-3f4b-4ace-ac65-55f2abb0295c,Residential,Locuire,Planned Development,,false
+219f623f-8f0b-4e8e-9398-b9af334d35c7,Residential,Locuire,Post World War II and Early Freeway Suburb,,false
+33e473bc-96e8-4223-b39c-eebf6a9380a6,Residential,Locuire,Streetcar Suburb,,false
+a8b4269e-b3bd-44f8-865a-80558805da81,Residential,Locuire,Subdivision,,false
+814c709d-b52c-435d-ba4f-885e5b506b33,Cemetery,Cimitir,Altar Tomb,,false
+581bd6a3-d06a-4a62-886f-96aa626002bd,Cemetery,Cimitir,Chamber Tomb,,false
+a42a34d1-bc1c-492b-ab90-a5632d85b8a0,Cemetery,Cimitir,Chullpa,,false
+9e17b80f-b842-459a-a770-fd3946a7a9e4,Cemetery,Cimitir,Cist Grave,,false
+dd9b1272-e035-4216-a642-24fdbb8bad6d,Cemetery,Cimitir,Mastaba (Tomb),,false
+61a42156-75b4-4994-9dd0-41bea4284529,Cemetery,Cimitir,Naveta,,false
+ddfb948c-f2fd-4977-862a-9602150a2e93,Cemetery,Cimitir,Pillar Tomb,,false
+e3814f94-c8ff-4aee-9eeb-e5fe63c64d7f,Cemetery,Cimitir,Pyramid (Tomb or Platform),,false
+acf4864e-6a92-4c3a-9702-fe4eb182e7b4,Cemetery,Cimitir,Rock-cut Tomb,,false
+af47e46e-c6c4-4f25-9e19-b11e42874dd4,Cemetery,Cimitir,Shaft Graves (Tomb),,false
+0d8e2651-df39-4d2b-a883-f04357e48034,Cemetery,Cimitir,Tholos Tomb,,false
+83720acc-ee93-4a3a-b5bb-e25b3f2671e2,Cemetery,Cimitir,Tile Grave,,false
+623f780f-6df2-40cb-8079-19979519ceaf,Cemetery,Cimitir,Tower-Tomb,,false
+df763a9a-577d-46fd-b54d-4983bea19d4b,Cemetery,Cimitir,Unfinished Tomb,,false

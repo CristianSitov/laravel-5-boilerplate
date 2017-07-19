@@ -56,7 +56,7 @@ trait ResourceAttribute
      */
     public function getBuildingsButtonAttribute()
     {
-        return '<a href="'.route('admin.heritage.building.get', $this->getId()).'" class="btn btn-xs btn-warning"><i class="fa fa-building" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.backend.heritage.resources.edit_buildings').'"></i></a> ';
+        return '<a href="'.route('admin.heritage.buildings.index', $this->getId()).'" class="btn btn-xs btn-warning"><i class="fa fa-building" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.backend.heritage.resources.edit_buildings').'"></i></a> ';
     }
 
     /**

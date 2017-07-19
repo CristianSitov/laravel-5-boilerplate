@@ -89,7 +89,7 @@ class HeritageResourceType
     /**
      * @var Building
      *
-     * @OGM\Relationship(type="Assigned", direction="INCOMING", targetEntity="Building", mappedBy="building")
+     * @OGM\Relationship(type="Assigned", direction="INCOMING", targetEntity="Building", mappedBy="heritageResourceType")
      */
     protected $building;
 

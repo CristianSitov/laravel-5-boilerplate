@@ -16,7 +16,7 @@
 @endsection
 
 @section('content')
-    {{ Form::model($resource, ['route' => ['admin.heritage.buildings.update', $resource->getid(), $production->getId()], 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'PUT']) }}
+    {{ Form::model($resource, ['route' => ['admin.heritage.buildings.store', $resource->getid()], 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'POST']) }}
 
         <div class="box box-success">
             <div class="box-header with-border">
@@ -41,13 +41,13 @@
                     <div class="col-lg-4">
                         <div class="input-group">
                             <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
-                            {{ Form::text('date_from', $data['date_from'], ['class' => 'form-control input_date_from datepicker', 'data-inputmask' => '"alias": "yyyy/mm/dd"', 'data-mask']) }}
+                            {{ Form::text('date_from', '', ['class' => 'form-control input_date_from datepicker', 'data-inputmask' => '"alias": "yyyy/mm/dd"', 'data-mask']) }}
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="input-group">
                             <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
-                            {{ Form::text('date_to', $data['date_to'], ['class' => 'form-control input_date_to datepicker', 'data-inputmask' => '"alias": "yyyy/mm/dd"', 'data-mask']) }}
+                            {{ Form::text('date_to', '', ['class' => 'form-control input_date_to datepicker', 'data-inputmask' => '"alias": "yyyy/mm/dd"', 'data-mask']) }}
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                     {{ Form::label('heritage_resource_type', trans('validation.attributes.backend.heritage.resources.heritage_resource_type'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-8">
-                        {{ Form::selectOpt($heritage_resource_types, 'heritage_resource_type[]', 'set_ro', 'name_ro', 'id', $current_types, ['required' => 'required', 'class' => 'col-lg-2 control-label', 'multiple' => 'multiple']) }}
+                        {{ Form::selectOpt($heritage_resource_types, 'heritage_resource_type[]', 'set_ro', 'name_ro', 'id', null, ['required' => 'required', 'class' => 'col-lg-2 control-label', 'multiple' => 'multiple']) }}
                     </div><!--col-lg-9-->
                     <div class="col-lg-2"></div>
                 </div>
@@ -81,7 +81,7 @@
         <div class="box box-success">
             <div class="box-body">
                 <div class="pull-left">
-                    {{ link_to_route('admin.heritage.buildings.index', trans('buttons.general.cancel'), [$resource->getid()], ['class' => 'btn btn-danger btn-xs']) }}
+                    {{ link_to_route('admin.access.user.index', trans('buttons.general.cancel'), [], ['class' => 'btn btn-danger btn-xs']) }}
                 </div><!--pull-left-->
 
                 <div class="pull-right">
