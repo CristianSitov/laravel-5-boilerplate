@@ -2,6 +2,11 @@
 
 @section ('title', trans('labels.backend.heritage.resources.management') . ' | ' . trans('labels.backend.heritage.resources.edit'))
 
+@section('after-styles')
+    {{ Html::style("css/backend/plugin/wysihtml5/bootstrap3-wysihtml5.min.css") }}
+    {{ Html::style("css/backend/plugin/datepicker/bootstrap-datepicker.min.css") }}
+@endsection
+
 @section('page-header')
     <h1>
         {{ trans('labels.backend.heritage.resources.edit') }} // {{ ucwords(
@@ -73,7 +78,7 @@
                     {{ Form::label('description', trans('validation.attributes.backend.heritage.resources.description'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-10">
-                        {{ Form::textarea('description', null, ['class' => 'form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.description'), 'required' => 'required']) }}
+                        {{ Form::textarea('description', $resource->getDescription()->getNote(), ['class' => 'form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.description'), 'required' => 'required']) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
 
@@ -149,7 +154,13 @@
 
 @section('after-scripts')
     <!-- Bootstrap WYSIHTML5 -->
-    {{ Html::script('js/backend/plugin/duplicate/duplicate-fields.min.js') }}
+    {{--{{ Html::script('js/backend/plugin/duplicate/duplicate-fields.min.js') }}--}}
+    <!-- iCheck -->
+    {{ Html::script('js/backend/heritage/script.js') }}
+    <!-- Bootstrap Datepicker -->
+    {{ Html::script('js/backend/plugin/datepicker/bootstrap-datepicker.min.js') }}
+    <!-- Bootstrap WYSIHTML5 -->
+    {{ Html::script('js/backend/plugin/wysihtml5/bootstrap3-wysihtml5.all.min.js') }}
 
     <script type="text/javascript">
     $(document).ready(function() {
@@ -158,9 +169,14 @@
         });
         $('.description').wysihtml5();
         $(":input").inputmask();
-        $('#additional-field-model').duplicateElement({
-            "class_remove": ".remove-this-field",
-            "class_create": ".create-new-field"
+//        $('#additional-field-model').duplicateElement({
+//            "class_remove": ".remove-this-field",
+//            "class_create": ".create-new-field"
+//        });
+        $('.datepicker').datepicker({
+            autoclose: true,
+            format: 'yyyy/mm/dd',
+            weekStart: 1
         });
     });
 </script>
