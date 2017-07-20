@@ -85,6 +85,13 @@ class Resource extends Model
     protected $names;
 
     /**
+     * @var PropertyType[]|Collection
+     *
+     * @OGM\Relationship(type="IsIdentifiedBy", direction="OUTGOING", targetEntity="PropertyType", collection=true, mappedBy="resource")
+     */
+    protected $propertyTypes;
+
+    /**
      * @var Description
      *
      * @OGM\Relationship(type="HasNote", direction="OUTGOING", targetEntity="Description", mappedBy="resource")
@@ -124,6 +131,7 @@ class Resource extends Model
         $this->status = 'field_ready';
         $this->published_at = null;
         $this->names = new Collection();
+        $this->propertyType = new Collection();
         $this->productions = new Collection();
         $this->modifications = new Collection();
     }
@@ -258,6 +266,29 @@ class Resource extends Model
         foreach ($names as $name) {
             if ($name->getCurrent()) {
                 return $name;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * @return PropertyType[]|Collection
+     */
+    public function getPropertyTypes()
+    {
+        return $this->propertyTypes;
+    }
+
+    /**
+     * @return PropertyType|false
+     */
+    public function getCurrentPropertyType()
+    {
+        $propertyTypes = $this->getPropertyTypes();
+        foreach ($propertyTypes as $propertyType) {
+            if ($propertyType->getCurrent()) {
+                return $propertyType;
             }
         }
 

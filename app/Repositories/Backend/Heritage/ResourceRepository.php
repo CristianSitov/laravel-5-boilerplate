@@ -14,6 +14,7 @@ use App\Models\Heritage\Place;
 use App\Models\Heritage\PlaceAddress;
 use App\Models\Heritage\Production;
 use App\Models\Heritage\ProductionEvent;
+use App\Models\Heritage\PropertyType;
 use App\Models\Heritage\Resource;
 use App\Models\Heritage\ResourceTypeClassification;
 use App\Models\Heritage\StreetName;
@@ -126,7 +127,7 @@ class ResourceRepository extends BaseRepository
                 \DateTime::createFromFormat('Y/m/d', $data['date_from'][$k]) ?: null,
                 \DateTime::createFromFormat('Y/m/d', $data['date_to'][$k]) ?: null);
 
-            if (isset($data['current'][$k])) {
+            if ($data['current_name'] == $k) {
                 $name->setCurrent(true);
             } else {
                 $name->setCurrent(false);
@@ -162,7 +163,22 @@ class ResourceRepository extends BaseRepository
         $resource->setPlace($place);
 
         // LEGALS (judicial, proprietary)
-        // @TODO
+        foreach ($data['property_type'] as $k => $input_property_type) {
+            $name = new PropertyType($input_property_type,
+                \DateTime::createFromFormat('Y/m/d', $data['property_type_date_from'][$k]) ?: null,
+                \DateTime::createFromFormat('Y/m/d', $data['property_type_date_to'][$k]) ?: null);
+
+            if ($data['current_type'] == $k) {
+                $name->setCurrent(true);
+            } else {
+                $name->setCurrent(false);
+            }
+
+            $name->setUuid((string)Uuid::generate(4));
+            $name->setCreatedAt(new \DateTime());
+            $name->setUpdatedAt(new \DateTime());
+            $resource->getNames()->add($name);
+        }
 
         $this->em->persist($resource);
         $this->em->flush();

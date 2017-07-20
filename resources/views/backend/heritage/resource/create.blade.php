@@ -33,7 +33,7 @@
                     <div class="col-lg-5">
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <input type="radio" name="current[]">
+                                <input type="radio" name="current_name" class="current_name" value="0">
                             </span>
                             {{ Form::text('name[]', '', ['class' => 'form-control input_name', 'required', 'placeholder' => trans('validation.attributes.backend.heritage.resources.name')]) }}
                         </div>
@@ -90,6 +90,39 @@
                         {{ Form::text('number', '', ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.heritage.resources.number')]) }}
                     </div>
                 </div><!--form control-->
+
+                <div id="entryType1" class="form-group clonedType_1">
+                    {{ Form::label('property_type[]', trans('validation.attributes.backend.heritage.resources.property_type'), ['class' => 'col-lg-2 control-label label_name']) }}
+
+                    <div class="col-lg-5">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <input type="radio" name="current_type" class="current_type" value="0">
+                            </span>
+                            {{ Form::select('property_type[]', ['private' => 'Private Property', 'public' => 'Public Property'], '', ['class' => 'col-lg-4 form-control input_property_type', 'placeholder' => trans('validation.attributes.backend.heritage.resources.property_type')]) }}
+                        </div>
+                    </div><!--col-lg-10-->
+                    <div class="col-lg-2">
+                        <div class="input-group">
+                            <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
+                            {{ Form::text('property_type_date_from[]', '', ['class' => 'form-control input_type_date_from datepicker', 'data-inputmask' => '"alias": "yyyy/mm/dd"', 'data-mask']) }}
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="input-group">
+                            <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
+                            {{ Form::text('property_type_date_to[]', date("d-m-Y"), ['class' => 'form-control input_type_date_to datepicker', 'required', 'data-inputmask' => '"alias": "yyyy/mm/dd"', 'data-mask']) }}
+                        </div>
+                    </div>
+                </div><!--form control-->
+                <div class="form-group">
+                    <div class="col-lg-5 col-lg-offset-2">
+                        <p>
+                            <button type="button" id="add_type" name="btnAdd" class="btn btn-primary">{{ trans('validation.attributes.backend.heritage.resources.add_name_button') }}</button>
+                            <button type="button" id="del_type" name="btnDel" class="btn btn-danger"><span class="ui-button-text">{{ trans('validation.attributes.backend.heritage.resources.delete_name_button') }}</span></button>
+                        </p>
+                    </div>
+                </div>
 
             </div><!-- /.box-body -->
         </div><!--box-->
