@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Heritage\Resource;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\Heritage\HeritageResourceRequest;
 use App\Models\Heritage\ArchitecturalStyle;
+use App\Models\Heritage\ProtectionType;
 use App\Models\Heritage\Resource;
 use App\Models\Heritage\StreetName;
 use App\Repositories\Backend\Heritage\AdministrativeSubdivisionRepository;
@@ -107,9 +108,12 @@ class ResourceController extends Controller
                 return [$item->getId() => $item->getCurrentName()];
             });
 
+        $protectionTypes = ProtectionType::getTypeOptions();
+
         return view('backend.heritage.resource.create')
             ->withAdministrativeSubdivision($administrativeSubdivision)
             ->withStreetNames($streetNames)
+            ->withProtectionTypes($protectionTypes)
             ->withResourceTypeClassifications($resourceTypeClassifications);
     }
 
@@ -166,33 +170,42 @@ class ResourceController extends Controller
                 return [$item->getId() => $item->getCurrentName()];
             });
 
+        $protectionTypes = ProtectionType::getTypeOptions();
+
+        $resourceNames = $resource->getNames();
+        $names = [];
+        foreach ($resourceNames as $k => $resourceName) {
+            $names[] = $resourceName->getId();
+        }
+
         // SCOUT
-        $heritageResourceTypes = collect($this->heritageResourceTypeRepository->findPublished())
-            ->mapWithKeys(function ($item) {
-                return [$item->getId() => [
-                    'id' => $item->getId(),
-                    'set_ro' => $item->getSetRo(),
-                    'name_ro' => $item->getNameRo(),
-                ]];
-            });
-
-        $architecturalStyles = collect($this->architecturalStyleRepository->findPublished())
-            ->mapWithKeys(function ($item) {
-                return [$item->getId() =>  $item->getNameRo()];
-            });
-
-        $plotPlan = collect($this->plotPlanRepository->findPublished())
-            ->mapWithKeys(function ($item) {
-                return [$item->getId() =>  $item->getNameRo()];
-            });
+//        $heritageResourceTypes = collect($this->heritageResourceTypeRepository->findPublished())
+//            ->mapWithKeys(function ($item) {
+//                return [$item->getId() => [
+//                    'id' => $item->getId(),
+//                    'set_ro' => $item->getSetRo(),
+//                    'name_ro' => $item->getNameRo(),
+//                ]];
+//            });
+//
+//        $architecturalStyles = collect($this->architecturalStyleRepository->findPublished())
+//            ->mapWithKeys(function ($item) {
+//                return [$item->getId() =>  $item->getNameRo()];
+//            });
+//
+//        $plotPlan = collect($this->plotPlanRepository->findPublished())
+//            ->mapWithKeys(function ($item) {
+//                return [$item->getId() =>  $item->getNameRo()];
+//            });
 
         return view('backend.heritage.resource.edit')
             ->withResourceTypeClassifications($resourceTypeClassifications)
             ->withAdministrativeSubdivision($administrativeSubdivision)
             ->withStreetNames($streetNames)
-            ->withHeritageResourceTypes($heritageResourceTypes)
-            ->withArchitecturalStyles($architecturalStyles)
-            ->withPlotPlan($plotPlan)
+            ->withProtectionTypes($protectionTypes)
+//            ->withHeritageResourceTypes($heritageResourceTypes)
+//            ->withArchitecturalStyles($architecturalStyles)
+//            ->withPlotPlan($plotPlan)
             ->withResource($resource);
     }
 

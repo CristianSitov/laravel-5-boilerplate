@@ -7,11 +7,19 @@ use GraphAware\Neo4j\OGM\Annotations as OGM;
 
 /**
  *
- * @OGM\Node(label="PropertyType")
+ * @OGM\Node(label="ProtectionType")
  */
-class PropertyType
+class ProtectionType
 {
     use Uuids;
+
+    const TYPES = [
+        'historical_monument',
+        'architectural_ensemble',
+        'historical_site',
+        'protection_area',
+        'protected_area',
+    ];
 
     /**
      * @var int
@@ -76,7 +84,7 @@ class PropertyType
     /**
      * @var Resource
      *
-     * @OGM\Relationship(type="IsIdentifiedBy", direction="INCOMING", targetEntity="Resource", mappedBy="propertyType")
+     * @OGM\Relationship(type="HasProtectionType", direction="INCOMING", targetEntity="Resource", mappedBy="protectionType")
      */
     protected $resource;
 
@@ -145,6 +153,20 @@ class PropertyType
     public function setUpdatedAt($updated_at)
     {
         $this->updated_at = $updated_at;
+    }
+
+    /**
+     * @return array
+     */
+    public static function getTypeOptions()
+    {
+        $types = [];
+
+        foreach (self::TYPES as $type) {
+            $types[] = trans('validation.attributes.backend.heritage.resources.' . $type);
+        }
+
+        return $types;
     }
 
     /**

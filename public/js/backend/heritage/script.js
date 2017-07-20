@@ -77,11 +77,11 @@ $(function () {
         // Label for email field
         newElem.find('.label_type').attr('id', 'ID' + newNum + '_type_reference').attr('name', 'ID' + newNum + '_type_reference').html($('#entryType1').find('.label_type').html() + ' #' + newNum);
         // Email input - text
-        newElem.find('.input_type').attr('id', 'ID' + newNum + '_type').attr('name', 'property_type[]').val('');
+        newElem.find('.input_type').attr('id', 'ID' + newNum + '_type').attr('name', 'protection_type[]').val('');
         // From input - datetime
-        newElem.find('.input_type_date_from').attr('id', 'ID' + newNum + '_date_from').attr('name', 'property_type_date_from[]').val('').removeAttr('required');
+        newElem.find('.input_type_date_from').attr('id', 'ID' + newNum + '_date_from').attr('name', 'protection_type_date_from[]').val('').removeAttr('required');
         // To input - datetime
-        newElem.find('.input_type_date_to').attr('id', 'ID' + newNum + '_date_to').attr('name', 'property_type_date_to[]').val($('#entryType'+num).find('.input_date_from').val()).removeAttr('required');
+        newElem.find('.input_type_date_to').attr('id', 'ID' + newNum + '_date_to').attr('name', 'protection_type_date_to[]').val($('#entryType'+num).find('.input_date_from').val()).removeAttr('required');
         // Radio
         newElem.find('.current_type').attr('id', 'ID' + newNum + '_current').attr('name', 'current_type').val(num);
 
@@ -108,7 +108,7 @@ $(function () {
 
     $('#del_type').click(function () {
         // Confirmation dialog box. Works on all desktop browsers and iPhone.
-        if (confirm("Are you sure you wish to remove this property type? This cannot be undone.")) {
+        if (confirm("Are you sure you wish to remove this protection type? This cannot be undone.")) {
             var num = $('.clonedType_1').length;
             // how many "duplicatable" input fields we currently have
             $('#entryType' + num).slideUp('slow', function () {

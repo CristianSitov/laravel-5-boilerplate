@@ -14,7 +14,7 @@ use App\Models\Heritage\Place;
 use App\Models\Heritage\PlaceAddress;
 use App\Models\Heritage\Production;
 use App\Models\Heritage\ProductionEvent;
-use App\Models\Heritage\PropertyType;
+use App\Models\Heritage\ProtectionType;
 use App\Models\Heritage\Resource;
 use App\Models\Heritage\ResourceTypeClassification;
 use App\Models\Heritage\StreetName;
@@ -127,10 +127,14 @@ class ResourceRepository extends BaseRepository
                 \DateTime::createFromFormat('Y/m/d', $data['date_from'][$k]) ?: null,
                 \DateTime::createFromFormat('Y/m/d', $data['date_to'][$k]) ?: null);
 
-            if ($data['current_name'] == $k) {
+            if (isset($data['current_name'])) {
+                if ($data['current_name'] == $k) {
+                    $name->setCurrent(true);
+                } else {
+                    $name->setCurrent(false);
+                }
+            } elseif (0 == $k) {
                 $name->setCurrent(true);
-            } else {
-                $name->setCurrent(false);
             }
 
             $name->setUuid((string)Uuid::generate(4));
@@ -163,21 +167,25 @@ class ResourceRepository extends BaseRepository
         $resource->setPlace($place);
 
         // LEGALS (judicial, proprietary)
-        foreach ($data['property_type'] as $k => $input_property_type) {
-            $name = new PropertyType($input_property_type,
-                \DateTime::createFromFormat('Y/m/d', $data['property_type_date_from'][$k]) ?: null,
-                \DateTime::createFromFormat('Y/m/d', $data['property_type_date_to'][$k]) ?: null);
+        foreach ($data['protection_type'] as $k => $input_property_type) {
+            $protectionType = new ProtectionType($input_property_type,
+                \DateTime::createFromFormat('Y/m/d', $data['protection_type_date_from'][$k]) ?: null,
+                \DateTime::createFromFormat('Y/m/d', $data['protection_type_date_to'][$k]) ?: null);
 
-            if ($data['current_type'] == $k) {
-                $name->setCurrent(true);
-            } else {
-                $name->setCurrent(false);
+            if (isset($data['current_type'])) {
+                if ($data['current_type'] == $k) {
+                    $protectionType->setCurrent(true);
+                } else {
+                    $protectionType->setCurrent(false);
+                }
+            } elseif (0 == $k) {
+                $protectionType->setCurrent(true);
             }
 
-            $name->setUuid((string)Uuid::generate(4));
-            $name->setCreatedAt(new \DateTime());
-            $name->setUpdatedAt(new \DateTime());
-            $resource->getNames()->add($name);
+            $protectionType->setUuid((string)Uuid::generate(4));
+            $protectionType->setCreatedAt(new \DateTime());
+            $protectionType->setUpdatedAt(new \DateTime());
+            $resource->getProtectionTypes()->add($protectionType);
         }
 
         $this->em->persist($resource);

@@ -85,11 +85,11 @@ class Resource extends Model
     protected $names;
 
     /**
-     * @var PropertyType[]|Collection
+     * @var ProtectionType[]|Collection
      *
-     * @OGM\Relationship(type="IsIdentifiedBy", direction="OUTGOING", targetEntity="PropertyType", collection=true, mappedBy="resource")
+     * @OGM\Relationship(type="HasProtectionType", direction="OUTGOING", targetEntity="ProtectionType", collection=true, mappedBy="resource")
      */
-    protected $propertyTypes;
+    protected $protectionTypes;
 
     /**
      * @var Description
@@ -131,7 +131,7 @@ class Resource extends Model
         $this->status = 'field_ready';
         $this->published_at = null;
         $this->names = new Collection();
-        $this->propertyType = new Collection();
+        $this->protectionTypes = new Collection();
         $this->productions = new Collection();
         $this->modifications = new Collection();
     }
@@ -273,22 +273,22 @@ class Resource extends Model
     }
 
     /**
-     * @return PropertyType[]|Collection
+     * @return ProtectionType[]|Collection
      */
-    public function getPropertyTypes()
+    public function getProtectionTypes()
     {
-        return $this->propertyTypes;
+        return $this->protectionTypes;
     }
 
     /**
-     * @return PropertyType|false
+     * @return ProtectionType|false
      */
-    public function getCurrentPropertyType()
+    public function getCurrentProtectionType()
     {
-        $propertyTypes = $this->getPropertyTypes();
-        foreach ($propertyTypes as $propertyType) {
-            if ($propertyType->getCurrent()) {
-                return $propertyType;
+        $protectionTypes = $this->getProtectionTypes();
+        foreach ($protectionTypes as $protectionType) {
+            if ($protectionType->getCurrent()) {
+                return $protectionType;
             }
         }
 

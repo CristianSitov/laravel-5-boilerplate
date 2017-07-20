@@ -26,27 +26,46 @@
 
             <div class="box-body">
 
-                <div class="form-group">
-                    {{ Form::label('building_name', trans('validation.attributes.backend.heritage.resources.name'), ['class' => 'col-lg-2 control-label']) }}
+                @foreach($resource->getNames() as $k => $name)
+                <div id="entry{{ $k }}" class="form-group clonedInput_{{ $k }}">
+                    {{ Form::label('name[]', trans('validation.attributes.backend.heritage.resources.name'), ['class' => 'col-lg-2 control-label label_name']) }}
 
                     <div class="col-lg-5">
-                        {{ Form::text('building_name', $resource->getCurrentName() != null ? $resource->getCurrentName()->getName() : '', ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.heritage.resources.name')]) }}
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <input type="radio" name="current_name" class="current_name" value="0" {{ ($name->getCurrent()) ? "checked" : "" }}>
+                            </span>
+                            {{ Form::text('name[]', $name->getName(), ['class' => 'form-control input_name', 'required', 'placeholder' => trans('validation.attributes.backend.heritage.resources.name')]) }}
+                        </div>
                     </div><!--col-lg-10-->
                     <div class="col-lg-2">
-                        {{ Form::text('date_from', '', ['class' => 'form-control', 'data-inputmask' => '"alias": "date"', 'data-mask', 'placeholder' => 'dd/mm/yyyy']) }}
+                        <div class="input-group">
+                            <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
+                            {{ Form::text('date_from[]', $name->getDateFrom() ? $name->getDateFrom()->toString() : '', ['class' => 'form-control input_date_from datepicker', 'data-inputmask' => '"alias": "yyyy/mm/dd"', 'data-mask']) }}
+                        </div>
                     </div>
                     <div class="col-lg-2">
-                        {{ Form::text('date_to', date("d/m/Y"), ['class' => 'form-control', 'data-inputmask' => '"alias": "date"', 'data-mask', 'placeholder' => 'dd/mm/yyyy']) }}
-                    </div>
-                    <div class="col-lg-1">+
+                        <div class="input-group">
+                            <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
+                            {{ Form::text('date_to[]',  $name->getDateFrom() ? $name->getDateTo()->toString() : '', ['class' => 'form-control input_date_to datepicker', 'data-inputmask' => '"alias": "yyyy/mm/dd"', 'data-mask']) }}
+                        </div>
                     </div>
                 </div><!--form control-->
+                @endforeach
+                <div class="form-group">
+                    <div class="col-lg-5 col-lg-offset-2">
+                        <p>
+                            <button type="button" id="add_name" name="btnAdd" class="btn btn-primary">{{ trans('validation.attributes.backend.heritage.resources.add_name_button') }}</button>
+                            <button type="button" id="del_name" name="btnDel" class="btn btn-danger"><span class="ui-button-text">{{ trans('validation.attributes.backend.heritage.resources.delete_name_button') }}</span></button>
+                        </p>
+                    </div>
+                </div>
 
                 <div class="form-group">
                     {{ Form::label('type', trans('validation.attributes.backend.heritage.resources.type'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-2">
-                        {{ Form::select('type', $resource_type_classifications, $resource->getResourceTypeClassification()->getId(), ['required' => 'required', 'class' => 'col-lg-2 control-label js-example-basic-single']) }}
+                        {{ Form::select('type', $resource_type_classifications, $resource->getResourceTypeClassification()->getId(), ['required' => 'required', 'class' => 'col-lg-10 basic-select2 control-label']) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
 
@@ -54,36 +73,58 @@
                     {{ Form::label('description', trans('validation.attributes.backend.heritage.resources.description'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-10">
-                        {{ Form::textarea('description', $resource->getDescription()->getNote(), ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.heritage.resources.description'), 'required' => 'required']) }}
+                        {{ Form::textarea('description', null, ['class' => 'form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.description'), 'required' => 'required']) }}
                     </div><!--col-lg-10-->
-                </div>
-
-            </div><!-- /.box-body -->
-        </div><!--box-->
-
-        <div class="box box-success">
-            <div class="box-header with-border">
-                <h4 class="panel-title">{{ trans('labels.backend.heritage.resources.location') }}</h4>
-
-                <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
-                </div><!--box-tools pull-right-->
-            </div><!-- /.box-header -->
-            <div class="box-body">
+                </div><!--form control-->
 
                 <div class="form-group">
                     {{ Form::label('district', trans('validation.attributes.backend.heritage.resources.address'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-3">
-                        {{ Form::select('district', $administrative_subdivision, $resource->getPlace()->getAdministrativeSubdivision() ? $resource->getPlace()->getAdministrativeSubdivision()->getId() : '', ['required' => 'required', 'class' => 'col-lg-2 control-label js-example-basic-single']) }}
+                        {{ Form::select('district', $administrative_subdivision, $resource->getPlace()->getAdministrativeSubdivision() ? $resource->getPlace()->getAdministrativeSubdivision()->getId() : '', ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2']) }}
                     </div><!--col-lg-10-->
                     <div class="col-lg-5">
-                        {{ Form::select('street', $street_names, $resource->getPlace()->getPlaceAddress() ? $resource->getPlace()->getPlaceAddress()->getStreetName()->getId() : '', ['required' => 'required', 'class' => 'col-lg-2 control-label street-name']) }}
+                        {{ Form::select('street', $street_names, $resource->getPlace()->getPlaceAddress() ? $resource->getPlace()->getPlaceAddress()->getStreetName()->getId() : '', ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2']) }}
                     </div>
                     <div class="col-lg-2">
-                        {{ Form::text('number', $resource->getPlace()->getPlaceAddress()->getNumber(), ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.heritage.resources.number')]) }}
+                        {{ Form::text('number', $resource->getPlace()->getPlaceAddress() ? $resource->getPlace()->getPlaceAddress()->getNumber() : '', ['required' => 'required', 'class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.heritage.resources.number')]) }}
                     </div>
                 </div><!--form control-->
+
+                @foreach($resource->getProtectionTypes() as $i => $protection)
+                <div id="entryType1" class="form-group clonedType_1">
+                    {{ Form::label('protection_type[]', trans('validation.attributes.backend.heritage.resources.protection_type'), ['class' => 'col-lg-2 control-label label_name']) }}
+
+                    <div class="col-lg-5">
+                        <div class="input-group">
+                        <span class="input-group-addon">
+                            <input type="radio" name="current_type" class="current_type" value="0" {{ ($protection->getCurrent()) ? "checked" : "" }}>
+                        </span>
+                            {{ Form::select('protection_type[]', $protection_types, $protection->getType(), ['class' => 'col-lg-4 form-control input_protection_type', 'placeholder' => trans('validation.attributes.backend.heritage.resources.protection_type')]) }}
+                        </div>
+                    </div><!--col-lg-10-->
+                    <div class="col-lg-2">
+                        <div class="input-group">
+                            <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
+                            {{ Form::text('protection_type_date_from[]', $protection->getDateFrom() ? $protection->getDateFrom()->format('Y/m/d') : '', ['class' => 'form-control input_type_date_from datepicker', 'data-inputmask' => '"alias": "yyyy/mm/dd"', 'data-mask']) }}
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="input-group">
+                            <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
+                            {{ Form::text('protection_type_date_to[]', $protection->getDateTo() ? $protection->getDateTo()->format('Y/m/d') : '', ['class' => 'form-control input_type_date_to datepicker', 'data-inputmask' => '"alias": "yyyy/mm/dd"', 'data-mask']) }}
+                        </div>
+                    </div>
+                </div><!--form control-->
+                @endforeach
+                <div class="form-group">
+                    <div class="col-lg-5 col-lg-offset-2">
+                        <p>
+                            <button type="button" id="add_type" name="btnAdd" class="btn btn-primary">{{ trans('validation.attributes.backend.heritage.resources.add_type_button') }}</button>
+                            <button type="button" id="del_type" name="btnDel" class="btn btn-danger"><span class="ui-button-text">{{ trans('validation.attributes.backend.heritage.resources.delete_type_button') }}</span></button>
+                        </p>
+                    </div>
+                </div>
 
             </div><!-- /.box-body -->
         </div><!--box-->
@@ -112,15 +153,10 @@
 
     <script type="text/javascript">
     $(document).ready(function() {
-        $(".js-example-basic-single").select2({
+        $(".basic-select2").select2({
             width: '100%'
         });
-        $(".heritage-resource-type").select2({
-            width: '100%'
-        });
-        $(".street-name").select2({
-            width: '100%'
-        });
+        $('.description').wysihtml5();
         $(":input").inputmask();
         $('#additional-field-model').duplicateElement({
             "class_remove": ".remove-this-field",
