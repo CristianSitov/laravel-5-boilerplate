@@ -125,8 +125,8 @@ class ResourceRepository extends BaseRepository
 
         foreach ($data['name'] as $k => $input_name) {
             $name = new Name($input_name,
-                \DateTime::createFromFormat('Y/m/d', $data['date_from'][$k]) ?: null,
-                \DateTime::createFromFormat('Y/m/d', $data['date_to'][$k]) ?: null);
+                \DateTime::createFromFormat('m/d/Y', $data['date_from'][$k]) ?: null,
+                \DateTime::createFromFormat('m/d/Y', $data['date_to'][$k]) ?: null);
 
             if (isset($data['current_name'])) {
                 if ($data['current_name'] == $k) {
@@ -212,7 +212,7 @@ class ResourceRepository extends BaseRepository
                 $updateName = $this->em->find(Name::class, $name->getId());
                 $updateName->setName($data['name'][$namesArray[$f]]);
                 $updateName->setDateFrom($data['date_from'][$namesArray[$f]]);
-                $updateName->setDateFrom($data['date_to'][$namesArray[$f]]);
+                $updateName->setDateTo($data['date_to'][$namesArray[$f]]);
                 unset($namesArray[$f]);
             }
         }
@@ -242,14 +242,27 @@ class ResourceRepository extends BaseRepository
 
         $resource->getDescription()->setNote($data['description']);
 
+        $street = $resource->getPlace()->getPlaceAddress()->getStreetName();
+//        dd($street, $data);
+        if ($street->getId() != $data['street']) {
+            // delete & add new one
+            $newStreet = $this->em->find(StreetName::class, $data['street']);
+            $resource->getPlace()->getPlaceAddress()->setStreetName($newStreet);
+        }
+
+        $number = $resource->getPlace()->getPlaceAddress();
+        if ($data['number'] != $number->getNumber()) {
+            $number->setNumber($data['number']);
+        }
+
         $typesArray = array_keys($data['protection_type']);
         foreach ($resource->getProtectionTypes() as $protectionType) {
             if ($p = array_search($protectionType->getId(), $typesArray)) {
 
                 $updateProtection = $this->em->find(ProtectionType::class, $protectionType->getId());
-                $updateProtection->setProtectionType($data['protection_type'][$typesArray[$p]]);
-                $updateProtection->setDateFrom($data['protection_type_date_from'][$typesArray[$p]]);
-                $updateProtection->setDateFrom($data['protection_type_date_to'][$typesArray[$p]]);
+                $updateProtection->setType($data['protection_type'][$typesArray[$p]]);
+                $updateProtection->setDateFrom(\DateTime::createFromFormat('Y/m/d', $data['protection_type_date_from'][$typesArray[$p]]) ?: null);
+                $updateProtection->setDateTo(\DateTime::createFromFormat('Y/m/d', $data['protection_type_date_to'][$typesArray[$p]]) ?: null);
                 unset($typesArray[$p]);
             }
         }

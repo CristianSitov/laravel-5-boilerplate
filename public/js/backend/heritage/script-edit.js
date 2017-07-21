@@ -2,21 +2,25 @@
  * https://tristandenyer.com/demos/dynamic-form.html
  */
 $(function () {
+    selectedName = $('input[name=current_name]:checked').val();
+    selectedType = $('input[name=current_type]:checked').val();
+
     $('#add_name').click(function () {
         var num = $('.clonedInput_1').length, // Checks to see how many "duplicatable" input fields we currently have
             newNum = new Number(num + 1),      // The numeric ID of the new input field being added, increasing by 1 each time
             newElem = $('#entry' + num).clone().attr('id', 'entry' + newNum).fadeIn('slow'); // create the new element via clone(), and manipulate it's ID using newNum value
 
+        $('input[name=current_name]').val(selectedName);
         // Label for name field
         newElem.find('.label_name').attr('id', 'ID' + newNum + '_reference').attr('name', 'ID' + newNum + '_reference').html($('#entry1').find('.label_name').html() + ' #' + newNum);
         // Name input - text
         newElem.find('.input_name').attr('id', 'ID' + newNum + '_name').attr('name', 'new_name[]').val('');
         // From input - datetime
-        newElem.find('.input_date_from').attr('id', 'ID' + newNum + '_date_from').attr('name', 'new_date_from[]').val('').removeAttr('required');
+        newElem.find('.input_date_from').attr('id', 'ID' + newNum + '_date_from').attr('name', 'new_date_from[]').val($('#entry'+num).find('.input_date_from').val());
         // To input - datetime
-        newElem.find('.input_date_to').attr('id', 'ID' + newNum + '_date_to').attr('name', 'new_date_to[]').val($('#entry'+num).find('.input_date_from').val()).removeAttr('required');
+        newElem.find('.input_date_to').attr('id', 'ID' + newNum + '_date_to').attr('name', 'new_date_to[]').val($('#entry'+num).find('.input_date_from').val());
         // Radio
-        newElem.find('.current_name').attr('id', 'ID' + newNum + '_current').attr('name', 'current_name').val(num);
+        newElem.find('.current_name').attr('id', 'ID' + newNum + '_current').attr('name', 'current_name').prop('checked', false);
 
         // Insert the new element after the last "duplicatable" input field
         $('#entry' + num).after(newElem);
@@ -34,9 +38,12 @@ $(function () {
             $('#add_name').attr('disabled', true).text("You've reached the limit"); // value here updates the text in the 'add' button when the limit is reached
 
         $(":input").inputmask();
-        $('.datepicker').datepicker({
-            autoclose: true
-        })
+        $('.input-daterange').datepicker({
+            autoclose: true,
+            clearBtn: true,
+            format: 'mm/dd/yyyy',
+            weekStart: 1
+        });
     });
 
     $('#del_name').click(function () {
@@ -68,22 +75,17 @@ $(function () {
             newNum = new Number(num + 1),      // The numeric ID of the new input field being added, increasing by 1 each time
             newElem = $('#entryType' + num).clone().attr('id', 'entryType' + newNum).fadeIn('slow'); // create the new element via clone(), and manipulate it's ID using newNum value
 
-        /*  This is where we manipulate the name/id values of the input inside the new, cloned element
-         Below are examples of what forms elements you can clone, but not the only ones.
-         There are 2 basic structures below: one for an H2, and one for form elements.
-         To make more, you can copy the one for form elements and simply update the classes for its label and input.
-         Keep in mind that the .val() method is what clears the element when it gets cloned. Radio and checkboxes need .val([]) instead of .val('').
-         */
+        $('input[name=current_type]').val(selectedType);
         // Label for email field
         newElem.find('.label_type').attr('id', 'ID' + newNum + '_type_reference').attr('name', 'ID' + newNum + '_type_reference').html($('#entryType1').find('.label_type').html() + ' #' + newNum);
         // Email input - text
         newElem.find('.input_type').attr('id', 'ID' + newNum + '_type').attr('name', 'new_protection_type[]').val('');
         // From input - datetime
-        newElem.find('.input_type_date_from').attr('id', 'ID' + newNum + '_date_from').attr('name', 'new_protection_type_date_from[]').val('').removeAttr('required');
+        newElem.find('.input_type_date_from').attr('id', 'ID' + newNum + '_date_from').attr('name', 'new_protection_type_date_from[]').val($('#entryType'+num).find('.input_date_from').val());
         // To input - datetime
-        newElem.find('.input_type_date_to').attr('id', 'ID' + newNum + '_date_to').attr('name', 'new_protection_type_date_to[]').val($('#entryType'+num).find('.input_date_from').val()).removeAttr('required');
+        newElem.find('.input_type_date_to').attr('id', 'ID' + newNum + '_date_to').attr('name', 'new_protection_type_date_to[]').val($('#entryType'+num).find('.input_date_from').val());
         // Radio
-        newElem.find('.current_type').attr('id', 'ID' + newNum + '_current').attr('name', 'current_type').val(num);
+        newElem.find('.current_type').attr('id', 'ID' + newNum + '_current').attr('name', 'current_type').prop('checked', false);
 
         // Insert the new element after the last "duplicatable" input field
         $('#entryType' + num).after(newElem);
@@ -101,8 +103,11 @@ $(function () {
             $('#add_type').attr('disabled', true).text("You've reached the limit"); // value here updates the text in the 'add' button when the limit is reached
 
         $(":input").inputmask();
-        $('.datepicker').datepicker({
-            autoclose: true
+        $('.input-daterange').datepicker({
+            autoclose: true,
+            clearBtn: true,
+            format: 'mm/dd/yyyy',
+            weekStart: 1
         });
     });
 

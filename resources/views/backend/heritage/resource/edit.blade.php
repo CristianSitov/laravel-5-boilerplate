@@ -32,27 +32,23 @@
             <div class="box-body">
 
                 @foreach($resource->getNames() as $k => $name)
-                <div id="entry{{ $k }}" class="form-group clonedInput_{{ $k }}">
+                <div id="entry{{ $k+1 }}" class="form-group clonedInput_1">
                     {{ Form::label('name[]', trans('validation.attributes.backend.heritage.resources.name'), ['class' => 'col-lg-2 control-label label_name']) }}
 
                     <div class="col-lg-5">
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <input type="radio" name="current_name" class="current_name" value="0" {{ ($name->getCurrent()) ? "checked" : "" }}>
+                                <label>Current? &nbsp;&nbsp;</label><input type="radio" name="current_name" class="current_name" value="0" {{ ($name->getCurrent()) ? "checked" : "" }}>
                             </span>
-                            {{ Form::text('name['.$name->getId().']', $name->getName(), ['class' => 'form-control input_name', 'required', 'placeholder' => trans('validation.attributes.backend.heritage.resources.name')]) }}
-                        </div>
-                    </div><!--col-lg-10-->
-                    <div class="col-lg-2">
-                        <div class="input-group">
-                            <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
-                            {{ Form::text('date_from['.$name->getId().']', $name->getDateFrom() ? $name->getDateFrom()->toString() : '', ['class' => 'form-control input_date_from datepicker', 'data-inputmask' => '"alias": "yyyy/mm/dd"', 'data-mask']) }}
+                            {{ Form::text('name['.$name->getId().']', $name->getName(), ['class' => 'form-control input_name', 'placeholder' => trans('validation.attributes.backend.heritage.resources.name')]) }}
                         </div>
                     </div>
-                    <div class="col-lg-2">
-                        <div class="input-group">
+                    <div class="col-lg-4">
+                        <div class="input-group input-daterange">
+                            <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
+                            {{ Form::text('date_from['.$name->getId().']', $name->getDateFrom() ? $name->getDateFrom()->format('m/d/Y') : '', ['class' => 'form-control input_date_from']) }}
                             <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
-                            {{ Form::text('date_to['.$name->getId().']',  $name->getDateFrom() ? $name->getDateTo()->toString() : '', ['class' => 'form-control input_date_to datepicker', 'data-inputmask' => '"alias": "yyyy/mm/dd"', 'data-mask']) }}
+                            {{ Form::text('date_to['.$name->getId().']',  $name->getDateFrom() ? $name->getDateTo()->format('m/d/Y') : '', ['class' => 'form-control input_date_to']) }}
                         </div>
                     </div>
                 </div><!--form control-->
@@ -97,27 +93,23 @@
                 </div><!--form control-->
 
                 @foreach($resource->getProtectionTypes() as $i => $protection)
-                <div id="entryType1" class="form-group clonedType_1">
+                <div id="entryType{{ $k+1 }}" class="form-group clonedType_1">
                     {{ Form::label('protection_type[]', trans('validation.attributes.backend.heritage.resources.protection_type'), ['class' => 'col-lg-2 control-label label_name']) }}
 
                     <div class="col-lg-5">
                         <div class="input-group">
                         <span class="input-group-addon">
-                            <input type="radio" name="current_type" class="current_type" value="0" {{ ($protection->getCurrent()) ? "checked" : "" }}>
+                            <label>Current? &nbsp;&nbsp;</label><input type="radio" name="current_type" class="current_type" value="0" {{ ($protection->getCurrent()) ? "checked" : "" }}>
                         </span>
                             {{ Form::select('protection_type['.$protection->getId().']', $protection_types, $protection->getType(), ['class' => 'col-lg-4 form-control input_type', 'placeholder' => trans('validation.attributes.backend.heritage.resources.protection_type')]) }}
                         </div>
                     </div><!--col-lg-10-->
-                    <div class="col-lg-2">
-                        <div class="input-group">
+                    <div class="col-lg-4">
+                        <div class="input-group input-daterange">
                             <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
-                            {{ Form::text('protection_type_date_from['.$protection->getId().']', $protection->getDateFrom() ? $protection->getDateFrom()->format('Y/m/d') : '', ['class' => 'form-control input_type_date_from datepicker', 'data-inputmask' => '"alias": "yyyy/mm/dd"', 'data-mask']) }}
-                        </div>
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="input-group">
+                            {{ Form::text('protection_type_date_from['.$protection->getId().']', $protection->getDateFrom() ? $protection->getDateFrom()->format('m/d/Y') : '', ['class' => 'form-control input_type_date_from']) }}
                             <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
-                            {{ Form::text('protection_type_date_to['.$protection->getId().']', $protection->getDateTo() ? $protection->getDateTo()->format('Y/m/d') : '', ['class' => 'form-control input_type_date_to datepicker', 'data-inputmask' => '"alias": "yyyy/mm/dd"', 'data-mask']) }}
+                            {{ Form::text('protection_type_date_to['.$protection->getId().']', $protection->getDateTo() ? $protection->getDateTo()->format('m/d/Y') : '', ['class' => 'form-control input_type_date_to']) }}
                         </div>
                     </div>
                 </div><!--form control-->
@@ -153,8 +145,6 @@
 @endsection
 
 @section('after-scripts')
-    <!-- Bootstrap WYSIHTML5 -->
-    {{--{{ Html::script('js/backend/plugin/duplicate/duplicate-fields.min.js') }}--}}
     <!-- iCheck -->
     {{ Html::script('js/backend/heritage/script-edit.js') }}
     <!-- Bootstrap Datepicker -->
@@ -167,17 +157,16 @@
         $(".basic-select2").select2({
             width: '100%'
         });
-        $('.description').wysihtml5();
-        $(":input").inputmask();
-//        $('#additional-field-model').duplicateElement({
-//            "class_remove": ".remove-this-field",
-//            "class_create": ".create-new-field"
-//        });
-        $('.datepicker').datepicker({
+//        $('.description').wysihtml5();
+        $('.input-daterange').datepicker({
             autoclose: true,
-            format: 'yyyy/mm/dd',
+            clearBtn: true,
+            format: 'mm/dd/yyyy',
             weekStart: 1
         });
+//        $('.input-daterange input').each(function() {
+//            $(this).datepicker('clearDates');
+//        });
     });
 </script>
 @endsection

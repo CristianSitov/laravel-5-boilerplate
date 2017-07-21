@@ -55,6 +55,13 @@ return [
                 'main'            => 'Buildings',
             ],
 
+            'components' => [
+                'all'             => 'All Components',
+                'management'      => 'Components Management',
+                'edit'            => 'Edit Component',
+                'main'            => 'Components',
+            ],
+
             'resource_type_classification' => [
                 'management'      => 'Type Management',
             ]

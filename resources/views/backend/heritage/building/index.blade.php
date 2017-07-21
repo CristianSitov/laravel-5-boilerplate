@@ -24,7 +24,9 @@
                 @foreach($resource->getProductions() as $k => $production)
                 <div class="row">
                     <div class="col-lg-2 col-lg-offset-2"><h4>Building #{{ $k }}
-                            <small><a title="{{ trans('menus.backend.heritage.buildings.edit') }}" class="btn btn-xs btn-warning" href="{{ route('admin.heritage.buildings.edit', [$resource->getId(), $production->getId()]) }}"><i class="fa fa-edit"></i></a></small></h4></div>
+                        <small><a title="{{ trans('menus.backend.heritage.buildings.edit') }}" class="btn btn-xs btn-warning" href="{{ route('admin.heritage.buildings.edit', [$resource->getId(), $production->getId()]) }}"><i class="fa fa-edit"></i></a></small>
+                        {{--<small><a title="{{ trans('menus.backend.heritage.components.all') }}" class="btn btn-xs btn-warning" href="{{ route('admin.heritage.components.index', [$resource->getId(), $production->getId()]) }}"><i class="fa fa-edit"></i></a></small></h4>--}}
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-2">Building Type</div>
