@@ -14,11 +14,11 @@ class ProtectionType
     use Uuids;
 
     const TYPES = [
-        'historical_monument',
-        'architectural_ensemble',
-        'historical_site',
-        'protection_area',
-        'protected_area',
+        1 => 'historical_monument',
+        2 => 'architectural_ensemble',
+        3 => 'historical_site',
+        4 => 'protection_area',
+        5 => 'protected_area',
     ];
 
     /**
@@ -160,7 +160,7 @@ class ProtectionType
      */
     public static function getTypeOptions()
     {
-        $types = [];
+        $types = [''];
 
         foreach (self::TYPES as $type) {
             $types[] = trans('validation.attributes.backend.heritage.resources.' . $type);

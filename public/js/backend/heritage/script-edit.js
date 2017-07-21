@@ -10,11 +10,11 @@ $(function () {
         // Label for name field
         newElem.find('.label_name').attr('id', 'ID' + newNum + '_reference').attr('name', 'ID' + newNum + '_reference').html($('#entry1').find('.label_name').html() + ' #' + newNum);
         // Name input - text
-        newElem.find('.input_name').attr('id', 'ID' + newNum + '_name').attr('name', 'name[]').val('');
+        newElem.find('.input_name').attr('id', 'ID' + newNum + '_name').attr('name', 'new_name[]').val('');
         // From input - datetime
-        newElem.find('.input_date_from').attr('id', 'ID' + newNum + '_date_from').attr('name', 'date_from[]').val('').removeAttr('required');
+        newElem.find('.input_date_from').attr('id', 'ID' + newNum + '_date_from').attr('name', 'new_date_from[]').val('').removeAttr('required');
         // To input - datetime
-        newElem.find('.input_date_to').attr('id', 'ID' + newNum + '_date_to').attr('name', 'date_to[]').val($('#entry'+num).find('.input_date_from').val()).removeAttr('required');
+        newElem.find('.input_date_to').attr('id', 'ID' + newNum + '_date_to').attr('name', 'new_date_to[]').val($('#entry'+num).find('.input_date_from').val()).removeAttr('required');
         // Radio
         newElem.find('.current_name').attr('id', 'ID' + newNum + '_current').attr('name', 'current_name').val(num);
 
@@ -77,11 +77,11 @@ $(function () {
         // Label for email field
         newElem.find('.label_type').attr('id', 'ID' + newNum + '_type_reference').attr('name', 'ID' + newNum + '_type_reference').html($('#entryType1').find('.label_type').html() + ' #' + newNum);
         // Email input - text
-        newElem.find('.input_type').attr('id', 'ID' + newNum + '_type').attr('name', 'protection_type[]').val('');
+        newElem.find('.input_type').attr('id', 'ID' + newNum + '_type').attr('name', 'new_protection_type[]').val('');
         // From input - datetime
-        newElem.find('.input_type_date_from').attr('id', 'ID' + newNum + '_date_from').attr('name', 'protection_type_date_from[]').val('').removeAttr('required');
+        newElem.find('.input_type_date_from').attr('id', 'ID' + newNum + '_date_from').attr('name', 'new_protection_type_date_from[]').val('').removeAttr('required');
         // To input - datetime
-        newElem.find('.input_type_date_to').attr('id', 'ID' + newNum + '_date_to').attr('name', 'protection_type_date_to[]').val($('#entryType'+num).find('.input_date_from').val()).removeAttr('required');
+        newElem.find('.input_type_date_to').attr('id', 'ID' + newNum + '_date_to').attr('name', 'new_protection_type_date_to[]').val($('#entryType'+num).find('.input_date_from').val()).removeAttr('required');
         // Radio
         newElem.find('.current_type').attr('id', 'ID' + newNum + '_current').attr('name', 'current_type').val(num);
 

@@ -41,13 +41,13 @@
                     <div class="col-lg-2">
                         <div class="input-group">
                             <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
-                            {{ Form::text('date_from[]', '', ['class' => 'form-control input_date_from datepicker', 'data-inputmask' => '"alias": "yyyy/mm/dd"', 'data-mask']) }}
+                            {{ Form::text('date_from[]', '', ['class' => 'form-control input_date_from datepicker']) }}
                         </div>
                     </div>
                     <div class="col-lg-2">
                         <div class="input-group">
                             <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
-                            {{ Form::text('date_to[]', date("d-m-Y"), ['class' => 'form-control input_date_to datepicker', 'data-inputmask' => '"alias": "yyyy/mm/dd"', 'data-mask']) }}
+                            {{ Form::text('date_to[]', date("m/d/Y"), ['class' => 'form-control input_date_to datepicker']) }}
                         </div>
                     </div>
                 </div><!--form control-->
@@ -64,7 +64,9 @@
                     {{ Form::label('type', trans('validation.attributes.backend.heritage.resources.type'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-10">
-                        {{ Form::select('type', $resource_type_classifications, null, ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2']) }}
+                        <div class="col-lg-2">
+                            {{ Form::select('type', $resource_type_classifications, null, ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2']) }}
+                        </div>
                     </div><!--col-lg-10-->
                 </div><!--form control-->
 
@@ -98,19 +100,19 @@
                             <span class="input-group-addon">
                                 <input type="radio" name="current_type" class="current_type" value="0">
                             </span>
-                            {{ Form::select('protection_type[]', $protection_types, '', ['class' => 'col-lg-4 form-control input_protection_type', 'placeholder' => trans('validation.attributes.backend.heritage.resources.protection_type')]) }}
+                            {{ Form::select('protection_type[]', $protection_types, '', ['class' => 'col-lg-4 form-control input_protection_type']) }}
                         </div>
                     </div><!--col-lg-10-->
                     <div class="col-lg-2">
                         <div class="input-group">
                             <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
-                            {{ Form::text('protection_type_date_from[]', '', ['class' => 'form-control input_type_date_from datepicker', 'data-inputmask' => '"alias": "yyyy/mm/dd"', 'data-mask']) }}
+                            {{ Form::text('protection_type_date_from[]', '', ['class' => 'form-control input_type_date_from datepicker']) }}
                         </div>
                     </div>
                     <div class="col-lg-2">
                         <div class="input-group">
                             <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
-                            {{ Form::text('protection_type_date_to[]', date("d-m-Y"), ['class' => 'form-control input_type_date_to datepicker', 'data-inputmask' => '"alias": "yyyy/mm/dd"', 'data-mask']) }}
+                            {{ Form::text('protection_type_date_to[]', date("m/d/Y"), ['class' => 'form-control input_type_date_to datepicker']) }}
                         </div>
                     </div>
                 </div><!--form control-->
@@ -157,12 +159,11 @@
             $(".basic-select2").select2({
                 width: '100%'
             });
-            $(":input").inputmask();
+            // $(":input").inputmask();
             // bootstrap WYSIHTML5 - text editor
             $('.description').wysihtml5();
             $('.datepicker').datepicker({
                 autoclose: true,
-                format: 'yyyy/mm/dd',
                 weekStart: 1
             });
         });

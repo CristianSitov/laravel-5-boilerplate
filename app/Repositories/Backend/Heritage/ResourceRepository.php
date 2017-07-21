@@ -98,6 +98,7 @@ class ResourceRepository extends BaseRepository
             $results[$k]['uuid'] = explode("-", $resource->getUuid())[0];
             $results[$k]['address'] = $resource->getPlace()->getPlaceAddress()->getStreetName()->getCurrentName() . ', ' .
                                       $resource->getPlace()->getPlaceAddress()->getNumber();
+
             $results[$k]['name'] = $resource->getCurrentName()->getName();
             $results[$k]['status'] = $resource->getStatus();
             $results[$k]['progress'] = $resource->getProgress();
@@ -133,7 +134,7 @@ class ResourceRepository extends BaseRepository
                 } else {
                     $name->setCurrent(false);
                 }
-            } elseif (0 == $k) {
+            } else {
                 $name->setCurrent(true);
             }
 
@@ -169,8 +170,8 @@ class ResourceRepository extends BaseRepository
         // LEGALS (judicial, proprietary)
         foreach ($data['protection_type'] as $k => $input_property_type) {
             $protectionType = new ProtectionType($input_property_type,
-                \DateTime::createFromFormat('Y/m/d', $data['protection_type_date_from'][$k]) ?: null,
-                \DateTime::createFromFormat('Y/m/d', $data['protection_type_date_to'][$k]) ?: null);
+                \DateTime::createFromFormat('m/d/Y', $data['protection_type_date_from'][$k]) ?: null,
+                \DateTime::createFromFormat('m/d/Y', $data['protection_type_date_to'][$k]) ?: null);
 
             if (isset($data['current_type'])) {
                 if ($data['current_type'] == $k) {
@@ -178,7 +179,7 @@ class ResourceRepository extends BaseRepository
                 } else {
                     $protectionType->setCurrent(false);
                 }
-            } elseif (0 == $k) {
+            } else {
                 $protectionType->setCurrent(true);
             }
 
@@ -204,16 +205,81 @@ class ResourceRepository extends BaseRepository
 
         $resource = $this->em->find(Resource::class, $id);
 
-        // STRUCTURE
-        $heritageResourceType = $this->em->find(HeritageResourceType::class, $data['type_ro']);
-        dd($heritageResourceType);
-        $productions = $resource->getProductions();
-        foreach ($productions as $production) {
+        $namesArray = array_keys($data['name']);
+        foreach ($resource->getNames() as $name) {
+            if ($f = array_search($name->getId(), $namesArray)) {
+                // update this if matches ID
+                $updateName = $this->em->find(Name::class, $name->getId());
+                $updateName->setName($data['name'][$namesArray[$f]]);
+                $updateName->setDateFrom($data['date_from'][$namesArray[$f]]);
+                $updateName->setDateFrom($data['date_to'][$namesArray[$f]]);
+                unset($namesArray[$f]);
+            }
+        }
 
+        if (isset($data['new_name'])) {
+            foreach ($data['new_name'] as $k => $newName) {
+                $name = new Name($newName,
+                    \DateTime::createFromFormat('Y/m/d', $data['new_date_from'][$k]) ?: null,
+                    \DateTime::createFromFormat('Y/m/d', $data['new_date_to'][$k]) ?: null);
+
+                if (isset($data['current_name'])) {
+                    if ($data['current_name'] == ($k + count($data['name']))) {
+                        $name->setCurrent(true);
+                    } else {
+                        $name->setCurrent(false);
+                    }
+                } else {
+                    $name->setCurrent(true);
+                }
+
+                $name->setUuid((string)Uuid::generate(4));
+                $name->setCreatedAt(new \DateTime());
+                $name->setUpdatedAt(new \DateTime());
+                $resource->getNames()->add($name);
+            }
+        }
+
+        $resource->getDescription()->setNote($data['description']);
+
+        $typesArray = array_keys($data['protection_type']);
+        foreach ($resource->getProtectionTypes() as $protectionType) {
+            if ($p = array_search($protectionType->getId(), $typesArray)) {
+
+                $updateProtection = $this->em->find(ProtectionType::class, $protectionType->getId());
+                $updateProtection->setProtectionType($data['protection_type'][$typesArray[$p]]);
+                $updateProtection->setDateFrom($data['protection_type_date_from'][$typesArray[$p]]);
+                $updateProtection->setDateFrom($data['protection_type_date_to'][$typesArray[$p]]);
+                unset($typesArray[$p]);
+            }
+        }
+
+        if (isset($data['new_protection_type'])) {
+            foreach ($data['new_protection_type'] as $k => $newProtectionType) {
+                $protectionType = new ProtectionType($newProtectionType,
+                    \DateTime::createFromFormat('Y/m/d', $data['new_protection_type_date_from'][$k]) ?: null,
+                    \DateTime::createFromFormat('Y/m/d', $data['new_protection_type_date_to'][$k]) ?: null);
+
+                if (isset($data['current_type'])) {
+                    if ($data['current_type'] == ($k + count($data['protection_type']))) {
+                        $protectionType->setCurrent(true);
+                    } else {
+                        $protectionType->setCurrent(false);
+                    }
+                } else {
+                    $protectionType->setCurrent(true);
+                }
+
+                $protectionType->setUuid((string)Uuid::generate(4));
+                $protectionType->setCreatedAt(new \DateTime());
+                $protectionType->setUpdatedAt(new \DateTime());
+                $resource->getProtectionTypes()->add($protectionType);
+            }
         }
 
         $this->em->persist($resource);
         $this->em->flush();
+//        dd($data, $resource);
 
         event(new ResourceUpdated($resource));
     }
