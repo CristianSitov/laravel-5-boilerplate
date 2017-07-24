@@ -23,29 +23,34 @@
             @if(count($resource->getProductions()) > 0)
                 @foreach($resource->getProductions() as $k => $production)
                 <div class="row">
-                    <div class="col-lg-2 col-lg-offset-2"><h4>Building #{{ $k }}
-                        <small><a title="{{ trans('menus.backend.heritage.buildings.edit') }}" class="btn btn-xs btn-warning" href="{{ route('admin.heritage.buildings.edit', [$resource->getId(), $production->getId()]) }}"><i class="fa fa-edit"></i></a></small>
-                        {{--<small><a title="{{ trans('menus.backend.heritage.components.all') }}" class="btn btn-xs btn-warning" href="{{ route('admin.heritage.components.index', [$resource->getId(), $production->getId()]) }}"><i class="fa fa-edit"></i></a></small></h4>--}}
+                    <div class="col-lg-2"><h4>Building #{{ $k }}
+                        <small><a title="{{ trans('menus.backend.heritage.buildings.edit') }}" class="btn btn-xs btn-warning" href="{{ route('admin.heritage.buildings.edit', [$resource->getId(), $production->getId()]) }}"><i class="fa fa-edit"></i></a></small></h4>
+                        {{--<small><a title="{{ trans('menus.backend.heritage.components.all') }}" class="btn btn-xs btn-warning" href="{{ route('admin.heritage.components.index', [$resource->getId(), $production->getId()]) }}"><i class="fa fa-edit"></i></a></small>--}}
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-2">Building Type</div>
-                    <div class="col-lg-10">{{ $production->getBuilding()->getType() }}</div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-2">Heritage Resource Types</div>
                     <div class="col-lg-10">
-                        @foreach ($production->getBuilding()->getHeritageResourceTypes() as $type)
-                            {{ $type->getNameRo() }},
-                        @endforeach
+                        <div class="row">
+                            <div class="col-lg-2">Building Type</div>
+                            <div class="col-lg-10">{{ $production->getBuilding()->getType() }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2">Heritage Resource Types</div>
+                            <div class="col-lg-10">
+                                @foreach ($production->getBuilding()->getHeritageResourceTypes() as $type)
+                                    {{ $type->getNameRo() }},
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2">Architectural Styles</div>
+                            <div class="col-lg-10">
+                                @foreach ($production->getBuilding()->getArchitecturalStyles() as $style)
+                                    {{ $style->getNameRo() }},
+                                @endforeach
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-2">Architectural Styles</div>
-                    <div class="col-lg-10">
-                        @foreach ($production->getBuilding()->getArchitecturalStyles() as $style)
-                            {{ $style->getNameRo() }},
-                        @endforeach
+                    <div class="row">
+                        <div class="col-lg-12">&nbsp;</div>
                     </div>
                 </div>
                 @endforeach

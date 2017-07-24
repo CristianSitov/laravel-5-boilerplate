@@ -81,11 +81,11 @@ class Building
     protected $plot_plan;
 
     /**
-     * @var Component
+     * @var Component[]|Collection
      *
-     * @OGM\Relationship(type="HasProduced", direction="OUTGOING", targetEntity="Component", mappedBy="building")
+     * @OGM\Relationship(type="HasProduced", direction="OUTGOING", targetEntity="Component", collection=true, mappedBy="building")
      */
-    protected $component;
+    protected $components;
 
     /**
      * @var Production
@@ -96,6 +96,7 @@ class Building
 
     public function __construct()
     {
+        $this->components = new Collection();
         $this->architecturalStyles = new Collection();
         $this->heritageResourceTypes = new Collection();
     }
@@ -186,7 +187,7 @@ class Building
     }
 
     /**
-     * @return HeritageResourceType
+     * @return HeritageResourceType[]|Collection
      */
     public function getHeritageResourceTypes()
     {
@@ -230,19 +231,11 @@ class Building
     }
 
     /**
-     * @return Component
+     * @return Component[]|Collection
      */
-    public function getComponent()
+    public function getComponents()
     {
-        return $this->component;
-    }
-
-    /**
-     * @param Component $component
-     */
-    public function setComponent($component)
-    {
-        $this->component = $component;
+        return $this->components;
     }
 
     /**

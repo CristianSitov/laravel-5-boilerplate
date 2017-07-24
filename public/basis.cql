@@ -58,3 +58,17 @@ USING PERIODIC COMMIT LOAD CSV WITH HEADERS FROM 'http://heritageoftimisoara.dev
     ON MATCH
     SET n = row, n.uuid = row.uuid, n.name = row.name, n.name_ro = row.name_ro, n.created_at = timestamp(), n.
       updated_at = timestamp();
+
+//USING PERIODIC COMMIT LOAD CSV WITH HEADERS FROM 'http://heritageoftimisoara.dev/E55.ComponentType_01.csv' AS row
+//  MERGE (n:ComponentType {uuid: row.uuid})
+//    ON CREATE
+//    SET n = row, n.uuid = row.uuid, n.name = row.name, n.name_ro = row.name_ro, n.created_at = timestamp(), n.
+//      updated_at = timestamp()
+//    ON MATCH
+//    SET n = row, n.uuid = row.uuid, n.name = row.name, n.name_ro = row.name_ro, n.created_at = timestamp(), n.
+//      updated_at = timestamp();
+//
+//LOAD CSV WITH HEADERS FROM 'https://neo4j.com/docs/developer-manual/3.2/csv/import/movies.csv' AS csvLine
+//MERGE (country:Country {name: csvLine.country})
+//CREATE (movie:Movie {id: toInt(csvLine.id), title: csvLine.title, year: toInt(csvLine.year)})
+//CREATE (movie)-[:MADE_IN]->(country);

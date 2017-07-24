@@ -7,6 +7,8 @@ use App\Events\Backend\Heritage\ResourceUpdated;
 use App\Models\Heritage\AdministrativeSubdivision;
 use App\Models\Heritage\ArchitecturalStyle;
 use App\Models\Heritage\Building;
+use App\Models\Heritage\Component;
+use App\Models\Heritage\ComponentType;
 use App\Models\Heritage\Description;
 use App\Models\Heritage\HeritageResourceType;
 use App\Models\Heritage\Name;
@@ -321,6 +323,12 @@ class ResourceRepository extends BaseRepository
             $architecturalStyle = $this->em->find(ArchitecturalStyle::class, $style);
             $building->getArchitecturalStyles()->add($architecturalStyle);
         }
+
+        // create all building components
+//        $component = new Component();
+//        foreach () {
+//
+//        }
 
         $production->setBuilding($building);
 

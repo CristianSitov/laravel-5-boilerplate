@@ -13,6 +13,12 @@ class ComponentType
 {
     use Uuids;
 
+    const TYPES = [
+        'roof' => ['en' => 'Roof', 'ro' => 'Acoperiș'],
+        'facade' => ['en' => 'Facade', 'ro' => 'Fațadă'],
+        'access' => ['en' => 'Access', 'ro' => 'Aparat de access']
+    ];
+
     /**
      * @var int
      *
