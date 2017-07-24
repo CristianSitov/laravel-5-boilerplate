@@ -22,7 +22,7 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "5.4.*",
         "league/fractal": "^0.16.0",
-        "sgpatil/oriquent": "dev-master",
+        "league/glide-laravel": "^1.0",
         "webpatser/laravel-uuid": "^2.0",
         "yajra/laravel-datatables-oracle": "^7.0"
     },
@@ -34,11 +34,6 @@
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~5.7"
     },
-    "repositories": [{
-        "url": "git@github.com:CristianSitov/oriquent.git",
-        "type": "git",
-        "reference": ""
-    }],
     "autoload": {
         "classmap": [
             "database"
