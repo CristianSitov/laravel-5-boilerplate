@@ -149,7 +149,7 @@
     {{ Html::script('js/backend/plugin/icheck/icheck.min.js') }}
     <!-- Bootstrap Datepicker -->
     {{ Html::script('js/backend/plugin/datepicker/bootstrap-datepicker.min.js') }}
-    <!-- Bootstrap Datepicker -->
+    <!-- WYSIWYG Editor -->
     {{ Html::script('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}
     {{ Html::script('vendor/unisharp/laravel-ckeditor/adapters/jquery.js') }}
 
