@@ -14,6 +14,7 @@ class ProtectionType
     use Uuids;
 
     const TYPES = [
+        0 => 'none',
         1 => 'historical_monument',
         2 => 'architectural_ensemble',
         3 => 'historical_site',
@@ -41,6 +42,13 @@ class ProtectionType
      * @OGM\Property(type="string")
      */
     protected $type;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $legal;
 
     /**
      * @var boolean
@@ -95,11 +103,12 @@ class ProtectionType
      * @param string $from
      * @param string $to
      */
-    public function __construct($type, $from, $to)
+    public function __construct($type, $from, $to, $legal = null)
     {
         $this->type = $type;
         $this->date_from = $from;
         $this->date_to = $to;
+        $this->legal = $legal;
     }
 
     /**
@@ -160,7 +169,7 @@ class ProtectionType
      */
     public static function getTypeOptions()
     {
-        $types = [''];
+        $types = [];
 
         foreach (self::TYPES as $type) {
             $types[] = trans('validation.attributes.backend.heritage.resources.' . $type);
@@ -170,7 +179,7 @@ class ProtectionType
     }
 
     /**
-     * @return string
+     * @return integer
      */
     public function getType()
     {
@@ -178,11 +187,27 @@ class ProtectionType
     }
 
     /**
-     * @param string $name
+     * @param integer $name
      */
     public function setType($type)
     {
         $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLegal()
+    {
+        return $this->legal;
+    }
+
+    /**
+     * @param string $legal
+     */
+    public function setLegal($legal)
+    {
+        $this->legal = $legal;
     }
 
     /**

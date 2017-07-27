@@ -186,8 +186,8 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
-//        Sgpatil\Orientdb\OrientdbServiceProvider::class,
         App\Providers\Neo4jOGMServiceProvider::class,
+        Spatie\Glide\GlideServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -259,6 +259,7 @@ return [
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
         'Captcha'     => Arcanedev\NoCaptcha\Facades\NoCaptcha::class,
         'Form'        => Collective\Html\FormFacade::class,
+        'GlideImage'  => Spatie\Glide\GlideImageFacade::class,
         'Gravatar'    => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Html'        => Collective\Html\HtmlFacade::class,
         'Socialite'   => Laravel\Socialite\Facades\Socialite::class,

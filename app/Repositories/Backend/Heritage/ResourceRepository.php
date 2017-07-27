@@ -127,8 +127,8 @@ class ResourceRepository extends BaseRepository
 
         foreach ($data['name'] as $k => $input_name) {
             $name = new Name($input_name,
-                \DateTime::createFromFormat('m/d/Y', $data['date_from'][$k]) ?: null,
-                \DateTime::createFromFormat('m/d/Y', $data['date_to'][$k]) ?: null);
+                \DateTime::createFromFormat('Y', $data['name_date_from'][$k]) ?: null,
+                \DateTime::createFromFormat('Y', $data['name_date_to'][$k]) ?: null);
 
             if (isset($data['current_name'])) {
                 if ($data['current_name'] == $k) {
@@ -170,13 +170,14 @@ class ResourceRepository extends BaseRepository
         $resource->setPlace($place);
 
         // LEGALS (judicial, proprietary)
-        foreach ($data['protection_type'] as $k => $input_property_type) {
-            $protectionType = new ProtectionType($input_property_type,
-                \DateTime::createFromFormat('m/d/Y', $data['protection_type_date_from'][$k]) ?: null,
-                \DateTime::createFromFormat('m/d/Y', $data['protection_type_date_to'][$k]) ?: null);
+        foreach ($data['protection_type'] as $l => $input_property_type) {
+            $protectionType = new ProtectionType($data['protection_type'][$l],
+                \DateTime::createFromFormat('Y', $data['protection_type_date_from'][$l]) ?: null,
+                \DateTime::createFromFormat('Y', $data['protection_type_date_to'][$l]) ?: null,
+                $data['protection_type_legal'][$l] ?: null);
 
             if (isset($data['current_type'])) {
-                if ($data['current_type'] == $k) {
+                if ($data['current_type'] == $l) {
                     $protectionType->setCurrent(true);
                 } else {
                     $protectionType->setCurrent(false);
@@ -213,17 +214,23 @@ class ResourceRepository extends BaseRepository
                 // update this if matches ID
                 $updateName = $this->em->find(Name::class, $name->getId());
                 $updateName->setName($data['name'][$namesArray[$f]]);
-                $updateName->setDateFrom($data['date_from'][$namesArray[$f]]);
-                $updateName->setDateTo($data['date_to'][$namesArray[$f]]);
+                $updateName->setDateFrom(\DateTime::createFromFormat('Y', $data['name_date_from'][$namesArray[$f]]) ?: null);
+                $updateName->setDateTo(\DateTime::createFromFormat('Y', $data['name_date_to'][$namesArray[$f]]) ?: null);
                 unset($namesArray[$f]);
+                $this->em->persist($updateName);
+                $this->em->flush();
+            } else {
+                // delete
+                // @TODO: see how can this be deleted
             }
         }
+//        dd($updateName);
 
         if (isset($data['new_name'])) {
             foreach ($data['new_name'] as $k => $newName) {
                 $name = new Name($newName,
-                    \DateTime::createFromFormat('Y/m/d', $data['new_date_from'][$k]) ?: null,
-                    \DateTime::createFromFormat('Y/m/d', $data['new_date_to'][$k]) ?: null);
+                    \DateTime::createFromFormat('Y', $data['new_name_date_from'][$k]) ?: null,
+                    \DateTime::createFromFormat('Y', $data['new_name_date_to'][$k]) ?: null);
 
                 if (isset($data['current_name'])) {
                     if ($data['current_name'] == ($k + count($data['name']))) {
@@ -245,7 +252,6 @@ class ResourceRepository extends BaseRepository
         $resource->getDescription()->setNote($data['description']);
 
         $street = $resource->getPlace()->getPlaceAddress()->getStreetName();
-//        dd($street, $data);
         if ($street->getId() != $data['street']) {
             // delete & add new one
             $newStreet = $this->em->find(StreetName::class, $data['street']);
@@ -260,20 +266,24 @@ class ResourceRepository extends BaseRepository
         $typesArray = array_keys($data['protection_type']);
         foreach ($resource->getProtectionTypes() as $protectionType) {
             if ($p = array_search($protectionType->getId(), $typesArray)) {
-
+//                dd($data['protection_type'][$typesArray[$p]]);
                 $updateProtection = $this->em->find(ProtectionType::class, $protectionType->getId());
                 $updateProtection->setType($data['protection_type'][$typesArray[$p]]);
-                $updateProtection->setDateFrom(\DateTime::createFromFormat('Y/m/d', $data['protection_type_date_from'][$typesArray[$p]]) ?: null);
-                $updateProtection->setDateTo(\DateTime::createFromFormat('Y/m/d', $data['protection_type_date_to'][$typesArray[$p]]) ?: null);
+                $updateProtection->setDateFrom(\DateTime::createFromFormat('Y', $data['protection_type_date_from'][$typesArray[$p]]) ?: null);
+                $updateProtection->setDateTo(\DateTime::createFromFormat('Y', $data['protection_type_date_to'][$typesArray[$p]]) ?: null);
+                $updateProtection->setLegal($data['protection_type_legal'][$typesArray[$p]]);
                 unset($typesArray[$p]);
+                $this->em->persist($updateProtection);
+                $this->em->flush();
             }
         }
 
         if (isset($data['new_protection_type'])) {
             foreach ($data['new_protection_type'] as $k => $newProtectionType) {
-                $protectionType = new ProtectionType($newProtectionType,
-                    \DateTime::createFromFormat('Y/m/d', $data['new_protection_type_date_from'][$k]) ?: null,
-                    \DateTime::createFromFormat('Y/m/d', $data['new_protection_type_date_to'][$k]) ?: null);
+                $protectionType = new ProtectionType($data['new_protection_type'][$k],
+                    \DateTime::createFromFormat('Y', $data['new_protection_type_date_from'][$k]) ?: null,
+                    \DateTime::createFromFormat('Y', $data['new_protection_type_date_to'][$k]) ?: null,
+                    $data['new_protection_type_legal'][$k] ?: null);
 
                 if (isset($data['current_type'])) {
                     if ($data['current_type'] == ($k + count($data['protection_type']))) {
@@ -294,7 +304,6 @@ class ResourceRepository extends BaseRepository
 
         $this->em->persist($resource);
         $this->em->flush();
-//        dd($data, $resource);
 
         event(new ResourceUpdated($resource));
     }

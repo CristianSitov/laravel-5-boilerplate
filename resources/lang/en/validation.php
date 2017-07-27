@@ -176,6 +176,7 @@ return [
                     'delete_type_button'       => '× Delete Type',
                     'add_protection_button'    => '+ Add Type',
                     'delete_protection_button' => '× Delete Type',
+                    'none'                     => 'None',
                     'historical_monument'      => 'Historical Monument',
                     'architectural_ensemble'   => 'Architectural Ensemble',
                     'historical_site'          => 'Historical Site',

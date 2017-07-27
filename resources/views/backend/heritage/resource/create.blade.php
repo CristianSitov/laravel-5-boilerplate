@@ -3,7 +3,6 @@
 @section ('title', trans('labels.backend.heritage.resources.management') . ' | ' . trans('labels.backend.heritage.resources.create'))
 
 @section('after-styles')
-    {{ Html::style("css/backend/plugin/wysihtml5/bootstrap3-wysihtml5.min.css") }}
     {{ Html::style("css/backend/plugin/datepicker/bootstrap-datepicker.min.css") }}
 @endsection
 
@@ -22,52 +21,46 @@
                 <h3 class="box-title">{{ trans('labels.backend.heritage.resources.create') }}</h3>
 
                 <div class="box-tools pull-right">
-                    {{--@include('backend.heritage.includes.header-buttons')--}}
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
                 </div><!--box-tools pull-right-->
             </div><!-- /.box-header -->
 
             <div class="box-body">
-                <div id="entry1" class="form-group clonedInput_1">
-                    {{ Form::label('name[]', trans('validation.attributes.backend.heritage.resources.name'), ['class' => 'col-lg-2 control-label label_name']) }}
+                <div class="names">
 
-                    <div class="col-lg-5">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <input type="radio" name="current_name" class="current_name" value="0">
-                            </span>
-                            {{ Form::text('name[]', '', ['class' => 'form-control input_name', 'required', 'placeholder' => trans('validation.attributes.backend.heritage.resources.name')]) }}
+                    <div id="names1" class="form-group clonedInput">
+                        {{ Form::label('name[]', trans('validation.attributes.backend.heritage.resources.name'), ['class' => 'col-lg-2 control-label label_name']) }}
+
+                        <div class="col-lg-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <label>Current?&nbsp;</label><input type="radio" name="current_name" class="current_name" value="0">
+                                </span>
+                                {{ Form::text('name[]', '', ['class' => 'form-control input_name', 'required', 'placeholder' => trans('validation.attributes.backend.heritage.resources.name')]) }}
+                            </div>
                         </div>
-                    </div><!--col-lg-10-->
-                    <div class="col-lg-2">
-                        <div class="input-group">
-                            <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
-                            {{ Form::text('date_from[]', '', ['class' => 'form-control input_date_from datepicker']) }}
+                        <div class="col-lg-4">
+                            <div class="input-group input-daterange">
+                                <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
+                                {{ Form::text('name_date_from[]', '', ['class' => 'form-control input_date_from datepicker']) }}
+                                <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
+                                {{ Form::text('name_date_to[]', date("Y"), ['class' => 'form-control input_date_to datepicker']) }}
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <button type="button" class="btn btn-primary btn-sm clone">{{ trans('validation.attributes.backend.heritage.resources.add_name_button') }}</button>
+                            <button type="button" class="btn btn-danger btn-sm remove">{{ trans('validation.attributes.backend.heritage.resources.delete_name_button') }}</button>
                         </div>
                     </div>
-                    <div class="col-lg-2">
-                        <div class="input-group">
-                            <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
-                            {{ Form::text('date_to[]', date("m/d/Y"), ['class' => 'form-control input_date_to datepicker']) }}
-                        </div>
-                    </div>
-                </div><!--form control-->
-                <div class="form-group">
-                    <div class="col-lg-5 col-lg-offset-2">
-                        <p>
-                            <button type="button" id="add_name" name="btnAdd" class="btn btn-primary">{{ trans('validation.attributes.backend.heritage.resources.add_name_button') }}</button>
-                            <button type="button" id="del_name" name="btnDel" class="btn btn-danger"><span class="ui-button-text">{{ trans('validation.attributes.backend.heritage.resources.delete_name_button') }}</span></button>
-                        </p>
-                    </div>
+
                 </div>
 
                 <div class="form-group">
                     {{ Form::label('type', trans('validation.attributes.backend.heritage.resources.type'), ['class' => 'col-lg-2 control-label']) }}
 
-                    <div class="col-lg-10">
-                        <div class="col-lg-2">
-                            {{ Form::select('type', $resource_type_classifications, null, ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2']) }}
-                        </div>
-                    </div><!--col-lg-10-->
+                    <div class="col-lg-2">
+                        {{ Form::select('type', $resource_type_classifications, null, ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2']) }}
+                    </div>
                 </div><!--form control-->
 
                 <div class="form-group">
@@ -92,37 +85,43 @@
                     </div>
                 </div><!--form control-->
 
-                <div id="entryType1" class="form-group clonedType_1">
-                    {{ Form::label('protection_type[]', trans('validation.attributes.backend.heritage.resources.protection_type'), ['class' => 'col-lg-2 control-label label_name']) }}
+                <div id="types">
 
-                    <div class="col-lg-5">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <input type="radio" name="current_type" class="current_type" value="0">
-                            </span>
-                            {{ Form::select('protection_type[]', $protection_types, '', ['class' => 'col-lg-4 form-control input_protection_type']) }}
+                    <div id="types1" class="clonedInput">
+                        <div class="form-group">
+                            {{ Form::label('protection_type[]', trans('validation.attributes.backend.heritage.resources.protection_type'), ['class' => 'col-lg-2 control-label label_name']) }}
+
+                            <div class="col-lg-4">
+                                <div class="input-group">
+                                <span class="input-group-addon">
+                                    <label>Current?&nbsp;</label><input type="radio" name="current_type" class="current_type" value="0">
+                                </span>
+                                    {{ Form::select('protection_type[]', $protection_types, '', ['class' => 'col-lg-4 form-control input_protection_type']) }}
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="input-group input-daterange">
+                                    <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
+                                    {{ Form::text('protection_type_date_from[]', '', ['class' => 'form-control input_type_date_from datepicker']) }}
+                                    <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
+                                    {{ Form::text('protection_type_date_to[]', date("Y"), ['class' => 'form-control input_type_date_to datepicker']) }}
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <button type="button" class="btn btn-primary btn-sm clone">{{ trans('validation.attributes.backend.heritage.resources.add_type_button') }}</button>
+                                <button type="button" class="btn btn-danger btn-sm remove">{{ trans('validation.attributes.backend.heritage.resources.delete_type_button') }}</button>
+                            </div>
                         </div>
-                    </div><!--col-lg-10-->
-                    <div class="col-lg-2">
-                        <div class="input-group">
-                            <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
-                            {{ Form::text('protection_type_date_from[]', '', ['class' => 'form-control input_type_date_from datepicker']) }}
+                        <div class="form-group">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><label>Legal: </label></span>
+                                    {{ Form::text('protection_type_legal[]', '', ['class' => 'col-lg-10 form-control']) }}
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-2">
-                        <div class="input-group">
-                            <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
-                            {{ Form::text('protection_type_date_to[]', date("m/d/Y"), ['class' => 'form-control input_type_date_to datepicker']) }}
-                        </div>
-                    </div>
-                </div><!--form control-->
-                <div class="form-group">
-                    <div class="col-lg-5 col-lg-offset-2">
-                        <p>
-                            <button type="button" id="add_type" name="btnAdd" class="btn btn-primary">{{ trans('validation.attributes.backend.heritage.resources.add_type_button') }}</button>
-                            <button type="button" id="del_type" name="btnDel" class="btn btn-danger"><span class="ui-button-text">{{ trans('validation.attributes.backend.heritage.resources.delete_type_button') }}</span></button>
-                        </p>
-                    </div>
+
                 </div>
 
             </div><!-- /.box-body -->
@@ -146,26 +145,48 @@
 @endsection
 
 @section('after-scripts')
-    {{ Html::script('js/backend/heritage/script.js') }}
     <!-- iCheck -->
     {{ Html::script('js/backend/plugin/icheck/icheck.min.js') }}
     <!-- Bootstrap Datepicker -->
     {{ Html::script('js/backend/plugin/datepicker/bootstrap-datepicker.min.js') }}
-    <!-- Bootstrap WYSIHTML5 -->
-    {{ Html::script('js/backend/plugin/wysihtml5/bootstrap3-wysihtml5.all.min.js') }}
 
     <script type="text/javascript">
         $(document).ready(function() {
             $(".basic-select2").select2({
                 width: '100%'
             });
-            // $(":input").inputmask();
-            // bootstrap WYSIHTML5 - text editor
-            $('.description').wysihtml5();
-            $('.datepicker').datepicker({
+            var dateOptions = {
                 autoclose: true,
-                weekStart: 1
-            });
+                clearBtn: true,
+                format: 'yyyy',
+                weekStart: 1,
+                startView: 2,
+                minViewMode: 2,
+                maxViewMode: 3,
+                todayBtn: true
+            };
+            $('.input-daterange').datepicker(dateOptions);
+
+            // http://jsfiddle.net/mjaric/tfFLt/
+            var cloneIndex = $(".clonedInput").length;
+
+            var clone = function () {
+                var source = $(this).parents(".clonedInput").parent().attr('class');
+
+                $(this).parents(".clonedInput").clone()
+                    .appendTo($(this).parents(".clonedInput").parent())
+                    .attr("id", source + cloneIndex)
+                    .find("*")
+                    .on("click", 'button.clone', clone)
+                    .on("click", 'button.remove', remove);
+
+                $('.input-daterange').datepicker(dateOptions);
+            };
+            var remove = function () {
+                $(this).parents(".clonedInput").remove();
+            }
+            $("button.clone").on("click", clone);
+            $("button.remove").on("click", remove);
         });
     </script>
 @endsection

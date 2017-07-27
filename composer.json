@@ -22,7 +22,7 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "5.4.*",
         "league/fractal": "^0.16.0",
-        "league/glide-laravel": "^1.0",
+        "spatie/laravel-glide": "^3.1",
         "webpatser/laravel-uuid": "^2.0",
         "yajra/laravel-datatables-oracle": "^7.0"
     },
