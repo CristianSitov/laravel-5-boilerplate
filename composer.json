@@ -23,6 +23,8 @@
         "laravelcollective/html": "5.4.*",
         "league/fractal": "^0.16.0",
         "spatie/laravel-glide": "^3.1",
+        "unisharp/laravel-ckeditor": "^4.6",
+        "unisharp/laravel-filemanager": "^1.8",
         "webpatser/laravel-uuid": "^2.0",
         "yajra/laravel-datatables-oracle": "^7.0"
     },

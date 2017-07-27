@@ -9,6 +9,14 @@ Route::group([
     'namespace'  => 'Heritage',
 ], function () {
 
+    Route::group([
+        'middleware' => 'access.routeNeedsPermission:view-backend;scout',
+    ], function () { // 'before' => 'auth'
+        Route::get('/laravel-filemanager/upload', '\Unisharp\Laravelfilemanager\controllers\LfmController@show');
+        Route::post('/laravel-filemanager/upload', '\Unisharp\Laravelfilemanager\controllers\LfmController@upload');
+        // list all lfm routes here...
+    });
+
     /*
      * Heritage Management
      */

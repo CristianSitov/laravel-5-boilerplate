@@ -188,6 +188,9 @@ return [
         Yajra\Datatables\DatatablesServiceProvider::class,
         App\Providers\Neo4jOGMServiceProvider::class,
         Spatie\Glide\GlideServiceProvider::class,
+        Unisharp\Ckeditor\ServiceProvider::class,
+        Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -264,6 +267,7 @@ return [
         'Html'        => Collective\Html\HtmlFacade::class,
         'Socialite'   => Laravel\Socialite\Facades\Socialite::class,
         'Uuid'        => Webpatser\Uuid\Uuid::class,
+        'Image'       => Intervention\Image\Facades\Image::class,
     ],
 
 ];

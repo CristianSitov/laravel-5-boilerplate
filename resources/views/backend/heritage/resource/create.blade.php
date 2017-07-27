@@ -149,6 +149,9 @@
     {{ Html::script('js/backend/plugin/icheck/icheck.min.js') }}
     <!-- Bootstrap Datepicker -->
     {{ Html::script('js/backend/plugin/datepicker/bootstrap-datepicker.min.js') }}
+    <!-- Bootstrap Datepicker -->
+    {{ Html::script('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}
+    {{ Html::script('vendor/unisharp/laravel-ckeditor/adapters/jquery.js') }}
 
     <script type="text/javascript">
         $(document).ready(function() {
@@ -166,6 +169,13 @@
                 todayBtn: true
             };
             $('.input-daterange').datepicker(dateOptions);
+            var editorOptions = {
+                filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+                filebrowserImageUploadUrl: '/admin/heritage/laravel-filemanager/upload?type=Images&_token=',
+                filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+                filebrowserUploadUrl: '/admin/heritage/laravel-filemanager/upload?type=Files&_token='
+            };
+            $('textarea').ckeditor(editorOptions);
 
             // http://jsfiddle.net/mjaric/tfFLt/
             var cloneIndex = $(".clonedInput").length;
