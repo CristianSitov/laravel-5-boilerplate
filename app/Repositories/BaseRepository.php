@@ -7,6 +7,9 @@ namespace App\Repositories;
  */
 class BaseRepository
 {
+    protected $entityManager;
+    public $model;
+
     /**
      * @return mixed
      */
@@ -39,5 +42,12 @@ class BaseRepository
     public function query()
     {
         return call_user_func(static::MODEL.'::query');
+    }
+
+    public function findPublished()
+    {
+        $criteria = new Criteria();
+        $criteria->where(new Comparison('published', Comparison::EQ, "true"));
+        return $this->{static::MODEL}->matching($criteria);
     }
 }

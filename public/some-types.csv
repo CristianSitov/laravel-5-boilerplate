@@ -1,0 +1,330 @@
+type_set,type,published
+Historic Preservation Property Attributes,Unknown,TRUE
+Historic Preservation Property Attributes,Single family property,TRUE
+Historic Preservation Property Attributes,Multiple family property,TRUE
+Historic Preservation Property Attributes,Ancillary building,TRUE
+Historic Preservation Property Attributes,Hotel/motel,TRUE
+Historic Preservation Property Attributes,1-3 story commercial building,TRUE
+Historic Preservation Property Attributes,3+ story commercial building,TRUE
+Historic Preservation Property Attributes,Industrial building,TRUE
+Historic Preservation Property Attributes,Public utility building,TRUE
+Historic Preservation Property Attributes,Theater,TRUE
+Historic Preservation Property Attributes,Engineering structure,FALSE
+Historic Preservation Property Attributes,Civic auditorium,FALSE
+Historic Preservation Property Attributes,Community center/social hall,TRUE
+Historic Preservation Property Attributes,Government building,TRUE
+Historic Preservation Property Attributes,Educational building,TRUE
+Historic Preservation Property Attributes,Religious building,TRUE
+Historic Preservation Property Attributes,Railroad depot,TRUE
+Historic Preservation Property Attributes,Train,FALSE
+Historic Preservation Property Attributes,Bridge,TRUE
+Historic Preservation Property Attributes,Canal/aqueduct,FALSE
+Historic Preservation Property Attributes,Dam,TRUE
+Historic Preservation Property Attributes,Lake/river/reservoir,FALSE
+Historic Preservation Property Attributes,Ship,FALSE
+Historic Preservation Property Attributes,Lighthouse,FALSE
+Historic Preservation Property Attributes,Amusement park,FALSE
+Historic Preservation Property Attributes,Monument/mural/gravestone,FALSE
+Historic Preservation Property Attributes,Folk Art,FALSE
+Historic Preservation Property Attributes,Street furniture,FALSE
+Historic Preservation Property Attributes,Landscape architecture,FALSE
+Historic Preservation Property Attributes,Trees/vegetation,FALSE
+Historic Preservation Property Attributes,Urban open space,FALSE
+Historic Preservation Property Attributes,Rural open space,FALSE
+Historic Preservation Property Attributes,Farm/ranch,FALSE
+Historic Preservation Property Attributes,Military property,FALSE
+Historic Preservation Property Attributes,CCC/WPA property,FALSE
+Historic Preservation Property Attributes,Ethnic minority property (list group),FALSE
+Historic Preservation Property Attributes,Highway/trail,FALSE
+Historic Preservation Property Attributes,Women's property,FALSE
+Historic Preservation Property Attributes,Other,FALSE
+Historic Preservation Property Attributes,Cemetery,FALSE
+Historic Preservation Property Attributes,Hospital,TRUE
+Historic Preservation Property Attributes,Stadium/sports arena,FALSE
+Historic Preservation Property Attributes,Mine structure/building,FALSE
+Historic Preservation Property Attributes,Adobe building/structure,FALSE
+Historic Preservation Property Attributes,Unreinforced masonry building,FALSE
+Historic Preservation Property Attributes,Walls/gates/fences,FALSE
+Commercial,Mortuary/Funeral Home,TRUE
+Commercial District,Corridor,FALSE
+Commercial District,Neighborhood/Village Commercial Center,FALSE
+Commercial District,Node,FALSE
+Commercial District,Other,TRUE
+Commercial District,Shopping Center,TRUE
+Commercial District,Shopping Mall,FALSE
+Commercial-Auto Related,Auto Body/Repair,TRUE
+Commercial-Auto Related,Car Sales/Auto Showroom,FALSE
+Commercial-Auto Related,Carwash,TRUE
+Commercial-Auto Related,Custom Car Builder,FALSE
+Commercial-Auto Related,Gas/Service Station,TRUE
+Commercial-Auto Related,Other,TRUE
+Commercial-Auto Related,Parking Structure,FALSE
+Commercial-Auto Related,Service Station with Carwash,FALSE
+Commercial-Entertainment,Music club/night club,TRUE
+Commercial-Entertainment,Other,TRUE
+Commercial-Entertainment,Theater, Motion Picture,TRUE
+Commercial-Entertainment,Theater, Performance,TRUE
+Commercial-Entertainment,Bowling Alley,FALSE
+Commercial-Entertainment,Miniature Golf,FALSE
+Commercial-Entertainment,Skating Rink,FALSE
+Commercial-Finance,Bank/Savings andTRUE,
+Commercial-Finance,Insurance, Stocks, etc.,FALSE
+Commercial-Finance,Other,TRUE
+Commercial-Food Service,Drive-in,FALSE
+Commercial-Food Service,Walk-up Stand,FALSE
+Commercial-Food Service,Bar/Lounge,TRUE
+Commercial-Food Service,Cafeteria,FALSE
+Commercial-Food Service,Fast Food (drive-thru and/or walk-in),TRUE
+Commercial-Food Service,Other,TRUE
+Commercial-Food Service,Restaurant/Tavern,TRUE
+Commercial-Lodging,Apartment Hotel,TRUE
+Commercial-Lodging,Boarding House,TRUE
+Commercial-Lodging,Hotel,TRUE
+Commercial-Lodging,Motel,FALSE
+Commercial-Lodging,Other,TRUE
+Commercial-Mixed,Mixed Use - Commercial/Office/Residential,TRUE
+Commercial-Office,High Rise,FALSE
+Commercial-Office,Low Rise,TRUE
+Commercial-Office,Other,TRUE
+Commercial-Retail,Chain Store,FALSE
+Commercial-Retail,Department Store,TRUE
+Commercial-Retail,Drive-in Commercial,FALSE
+Commercial-Retail,Drive-thru Commercial,FALSE
+Commercial-Retail,Neighborhood Market,TRUE
+Commercial-Retail,Other,TRUE
+Commercial-Retail,Produce Market,TRUE
+Commercial-Retail,Retail Store,TRUE
+Commercial-Retail,Strip Mall,FALSE
+Commercial-Retail,Supermarket,TRUE
+Commercial-Sign,Marquee,FALSE
+Commercial-Sign,Other,TRUE
+Commercial-Sign,Painted Wall,FALSE
+Commercial-Sign,Projecting Blade,FALSE
+Commercial-Sign,Pylon, Pole, Stantion,FALSE
+Commercial-Sign,Rooftop,FALSE
+Commercial-Sign,Sidewalk,FALSE
+Industrial,Other,FALSE
+Industrial,Quonset Hut,FALSE
+Industrial District,Industrial Park/Campus,TRUE
+Industrial District,Industrial Tract,FALSE
+Industrial District,Plant,TRUE
+Industrial District,Other,TRUE
+Industrial-Agricultural,Agricultural Landscape,FALSE
+Industrial-Agricultural,Barn/Stable,FALSE
+Industrial-Agricultural,Cold Storage Warehouse,FALSE
+Industrial-Agricultural,Dairy,FALSE
+Industrial-Agricultural,Fish Processing Plant,FALSE
+Industrial-Agricultural,Grove/Orchard,FALSE
+Industrial-Agricultural,Other,FALSE
+Industrial-Agricultural,Packing House,FALSE
+Industrial-Agricultural,Vat/Brining Tank,FALSE
+Industrial-Agricultural,Agricultural Property,FALSE
+Industrial-Agricultural,Farm/Ranch House,FALSE
+Industrial-Agricultural,Produce Market,FALSE
+Industrial-Automotive,Auto Parts Manufacturer,FALSE
+Industrial-Automotive,Custom Auto Shop,FALSE
+Industrial-Automotive,Other,FALSE
+Industrial-Automotive,Rubber Factory,FALSE
+Industrial-Aviation/Aerospace,Aircraft Plant,FALSE
+Industrial-Aviation/Aerospace,Hangar(s),FALSE
+Industrial-Aviation/Aerospace,Aerospace Plant,FALSE
+Industrial-Aviation/Aerospace,Other,FALSE
+Industrial-Building and Construction,Carpentry Shop,TRUE
+Industrial-Building and Construction,Concrete Plant,FALSE
+Industrial-Building and Construction,Lumber Yard/Planing Mill,FALSE
+Industrial-Building and Construction,Metal Shop,TRUE
+Industrial-Building and Construction,Other,TRUE
+Industrial-Building and Construction,Steel Mill,FALSE
+Industrial-Building and Construction,Stone/Masonry Fabricator,FALSE
+Industrial-Entertainment Industry,Motion Picture Related,FALSE
+Industrial-Entertainment Industry,Motion Picture Studio,FALSE
+Industrial-Entertainment Industry,Other,FALSE
+Industrial-Entertainment Industry,Radio Broadcasting Studio or Related,FALSE
+Industrial-Entertainment Industry,Radio/TV Transmission Facilities/Microwave Tower,FALSE
+Industrial-Entertainment Industry,Recording Studio or Related,FALSE
+Industrial-Entertainment Industry,Television Broadcasting Studio or Related,FALSE
+Industrial-Entertainment Industry,Union Hall,FALSE
+Industrial-Food Processing,Creamery,FALSE
+Industrial-Food Processing,Fish Processing,FALSE
+Industrial-Food Processing,Flour Mill,FALSE
+Industrial-Food Processing,Other,TRUE
+Industrial-Food Processing,Bakery,TRUE
+Industrial-Food Processing,Bottling Plant,TRUE
+Industrial-Garments and Textiles,Garment Factory,TRUE
+Industrial-Garments and Textiles,Other,TRUE
+Industrial-Garments and Textiles,Textile Mill,FALSE
+Industrial-Manufacturing,Factory,FALSE
+Industrial-Manufacturing,Other,FALSE
+Industrial-Oil Production,Oil Company Facilities/Offices,FALSE
+Industrial-Oil Production,Other,FALSE
+Industrial-Oil Production,Natural Gas Plant,FALSE
+Industrial-Oil Production,Oil Derrick,FALSE
+Industrial-Oil Production,Refinery,FALSE
+Industrial-Storage,Other,FALSE
+Industrial-Storage,Public Storage,FALSE
+Industrial-Storage,Warehouse,TRUE
+Infrastructure-Telecommunications,Other,TRUE
+Infrastructure-Telecommunications,Telephone Building,FALSE
+Infrastructure-Transportation,Airport,FALSE
+Infrastructure-Transportation,Bridge,FALSE
+Infrastructure-Transportation,Other,FALSE
+Infrastructure-Transportation,Pier/Wharf,FALSE
+Infrastructure-Transportation,Port, Harbor and Related,FALSE
+Infrastructure-Transportation,Public Stairs,FALSE
+Infrastructure-Transportation,Railroad/Streetcar Building-Depot,FALSE
+Infrastructure-Transportation,Railroad/Streetcar Building-Interlocking Tower,FALSE
+Infrastructure-Transportation,Railroad/Streetcar Building-Maintenance/Shops,FALSE
+Infrastructure-Transportation,Railroad/Streetcar Right-of-way,FALSE
+Infrastructure-Transportation,Railroad/Streetcar Rolling Stock,FALSE
+Infrastructure-Transportation,Street Furniture,FALSE
+Infrastructure-Transportation,Street/Road/Highway/Freeway/Alley,FALSE
+Infrastructure-Transportation,Subway/Rapid Transit/Bus,FALSE
+Infrastructure-Transportation,Tunnel,FALSE
+Infrastructure-Transportation-Pedestrian,Tunnel,FALSE
+Infrastructure-Water and Power,Canal/Aqueduct,FALSE
+Infrastructure-Water and Power,Dam and Flood Control,FALSE
+Infrastructure-Water and Power,Other,FALSE
+Infrastructure-Water and Power,Reservoir,FALSE
+Infrastructure-Water and Power,Sewers and Sewer Utilities,FALSE
+Infrastructure-Water and Power,Street Lights,FALSE
+Infrastructure-Water and Power,Utility Building (Water, Electrical Power, Natural Gas),TRUE
+Institutional-Education,Boarding School,FALSE
+Institutional-Education,College/University,TRUE
+Institutional-Education,Dormitory,FALSE
+Institutional-Education,Elementary School,TRUE
+Institutional-Education,Fraternities and Sororities,FALSE
+Institutional-Education,High School,TRUE
+Institutional-Education,Language School,FALSE
+Institutional-Education,Middle School,TRUE
+Institutional-Education,Other,TRUE
+Institutional-Education,Pre-School,TRUE
+Institutional-Education,Reform School,FALSE
+Institutional-Education,School Administration Center/Service Center,FALSE
+Institutional-Government,Central Government Services,FALSE
+Institutional-Government,City Hall/Administration,FALSE
+Institutional-Government,Civic Center,TRUE
+Institutional-Government,Court Building/Jail,FALSE
+Institutional-Government,Fire Station,FALSE
+Institutional-Government,Library,TRUE
+Institutional-Government,Other,TRUE
+Institutional-Government,Police Station,TRUE
+Institutional-Government,Postal Facility,TRUE
+Institutional-Government,Social Services/Welfare,TRUE
+Institutional-Health,Hospital,TRUE
+Institutional-Health,Medical/Dental Building or Clinic,TRUE
+Institutional-Health,Mental Health Institution,TRUE
+Institutional-Health,Nursing Home/Rest Home,TRUE
+Institutional-Health,Other,TRUE
+Institutional-Health,Sanitarium,FALSE
+Institutional-Health,Veterinary Hospital/Clinic,TRUE
+Institutional-Military,Air Raid Sirens and Shelters,FALSE
+Institutional-Military,Coastal Defense Facilities,FALSE
+Institutional-Military,Military Cemeteries,FALSE
+Institutional-Military,Military Post/Base/Armory,FALSE
+Institutional-Military,Organization Headquarters,FALSE
+Institutional-Military,Other,FALSE
+Institutional-Military,Other,FALSE
+Institutional-Military,Protest Site,FALSE
+Institutional-Military,USO Building,FALSE
+Institutional-Recreation,Amusement Facility,FALSE
+Institutional-Recreation,Beach, Boating, Water Related,FALSE
+Institutional-Recreation,Camp or Trailer Camp Park,FALSE
+Institutional-Recreation,Golf Course,FALSE
+Institutional-Recreation,Other,FALSE
+Institutional-Recreation,Public Park,FALSE
+Institutional-Recreation,Public Swimming Pool,FALSE
+Institutional-Recreation,Sports Facility,FALSE
+Institutional-Recreation,Stadium,FALSE
+Institutional-Religious/Spiritual,Cemetery/Mausoleum,TRUE
+Institutional-Religious/Spiritual,Chapel,TRUE
+Institutional-Religious/Spiritual,Church,TRUE
+Institutional-Religious/Spiritual,Convent,TRUE
+Institutional-Religious/Spiritual,Mission,TRUE
+Institutional-Religious/Spiritual,Monastery,TRUE
+Institutional-Religious/Spiritual,Mosque,TRUE
+Institutional-Religious/Spiritual,Other,TRUE
+Institutional-Religious/Spiritual,Parsonage,TRUE
+Institutional-Religious/Spiritual,Religious Headquarters,TRUE
+Institutional-Religious/Spiritual,Religious School,TRUE
+Institutional-Religious/Spiritual,Sanctuary,TRUE
+Institutional-Religious/Spiritual,Signage,FALSE
+Institutional-Religious/Spiritual,Temple,TRUE
+Institutional-Social Clubs/Meeting Halls,Clubhouse,TRUE
+Institutional-Social Clubs/Meeting Halls,Lodge,FALSE
+Institutional-Social Clubs/Meeting Halls,Meeting Hall,FALSE
+Institutional-Social Clubs/Meeting Halls,Other,TRUE
+Institutional-Visual and Performing Arts,Amphitheater,FALSE
+Institutional-Visual and Performing Arts,Art Center/Museum,TRUE
+Institutional-Visual and Performing Arts,Art School,FALSE
+Institutional-Visual and Performing Arts,Art Studio,TRUE
+Institutional-Visual and Performing Arts,Auditorium,TRUE
+Institutional-Visual and Performing Arts,Concert Hall,FALSE
+Institutional-Visual and Performing Arts,Folk Art,FALSE
+Institutional-Visual and Performing Arts,Foundation Headquarters,TRUE
+Institutional-Visual and Performing Arts,Fountain,FALSE
+Institutional-Visual and Performing Arts,Monument,FALSE
+Institutional-Visual and Performing Arts,Mural,FALSE
+Institutional-Visual and Performing Arts,Other,FALSE
+Institutional-Visual and Performing Arts,Public Art,FALSE
+Institutional-Visual and Performing Arts,Sculpture,FALSE
+Institutional-Visual and Performing Arts,Studio,TRUE
+Landscape,Designed Landscape,FALSE
+Landscape,Historic Vernacular Landscape,FALSE
+Landscape,Landscaped Median,FALSE
+Landscape,Tree, Vegetation, or Natural Feature,FALSE
+Landscape,Other,FALSE
+Public Places,Interior Lobbies and Spaces,FALSE
+Public Places,Other,FALSE
+Public Places,Sites of Historical Events,FALSE
+Public Places,Squares, intersections, promenades, vistas, etc.,FALSE
+Residential-Ancillary Feature,Carriage house,TRUE
+Residential-Ancillary Feature,Other,TRUE
+Residential-District,Employer Built Worker Housing,TRUE
+Residential-District,Garden Apartment Complex,FALSE
+Residential-District,Mobile Home Park,FALSE
+Residential-District,Multi-family District,FALSE
+Residential-District,Other,TRUE
+Residential-District,Public Housing Complex,TRUE
+Residential-District,Residential Grouping,TRUE
+Residential-Multi Family,Apartment House,TRUE
+Residential-Multi Family,Apartment Tower,TRUE
+Residential-Multi Family,Bungalow Court,FALSE
+Residential-Multi Family,Condominium,FALSE
+Residential-Multi Family,Courtyard Apartment,FALSE
+Residential-Multi Family,Duplex,FALSE
+Residential-Multi Family,Fourplex,FALSE
+Residential-Multi Family,Garden Apartment,FALSE
+Residential-Multi Family,Other,TRUE
+Residential-Multi Family,Stucco Box/Dingbat,FALSE
+Residential-Multi Family,Triplex,FALSE
+Residential-Single Family,Adobe,FALSE
+Residential-Single Family,Bungalow,FALSE
+Residential-Single Family,Estate,TRUE
+Residential-Single Family,Farm/Ranch House,FALSE
+Residential-Single Family,House,TRUE
+Residential-Single Family,Other,TRUE
+Residential-Suburb,Country Club Suburb,FALSE
+Residential-Suburb,Custom Home Subdivision,FALSE
+Residential-Suburb,Early Automobile Suburb,FALSE
+Residential-Suburb,Hillside Suburb,FALSE
+Residential-Suburb,Mixed Residential Development,FALSE
+Residential-Suburb,Multi-family,FALSE
+Residential-Suburb,Other,FALSE
+Residential-Suburb,Planned Development,FALSE
+Residential-Suburb,Post World War II and Early Freeway Suburb,FALSE
+Residential-Suburb,Streetcar Suburb,FALSE
+Residential-Suburb,Subdivision,FALSE
+Tomb,Altar Tomb,FALSE
+Tomb,Chamber Tomb,FALSE
+Tomb,Chullpa,FALSE
+Tomb,Cist Grave,FALSE
+Tomb,Mastaba (Tomb),FALSE
+Tomb,Naveta,FALSE
+Tomb,Pillar Tomb,FALSE
+Tomb,Pyramid (Tomb or Platform),FALSE
+Tomb,Rock-cut Tomb,FALSE
+Tomb,Shaft Graves (Tomb),FALSE
+Tomb,Tholos Tomb,FALSE
+Tomb,Tile Grave,FALSE
+Tomb,Tower-Tomb,FALSE
+Tomb,Unfinished Tomb,FALSE

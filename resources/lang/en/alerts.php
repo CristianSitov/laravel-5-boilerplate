@@ -30,5 +30,10 @@ return [
             'updated'             => 'The user was successfully updated.',
             'updated_password'    => "The user's password was successfully updated.",
         ],
+
+        'resources' => [
+            'created' => 'The Heritage Resource was successfully created.',
+            'deleted' => 'The Heritage Resource was successfully deleted.'
+        ]
     ],
 ];

@@ -14,19 +14,27 @@
         "arcanedev/no-captcha": "~3.0",
         "creativeorange/gravatar": "~1.0",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
+        "graham-campbell/exceptions": "^9.3",
+        "graphaware/neo4j-php-ogm": "@rc",
         "hieu-le/active": "~3.0",
         "laravel/framework": "5.4.*",
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "5.4.*",
+        "league/fractal": "^0.16.0",
+        "spatie/laravel-glide": "^3.1",
+        "unisharp/laravel-ckeditor": "^4.6",
+        "unisharp/laravel-filemanager": "^1.8",
+        "webpatser/laravel-uuid": "^2.0",
         "yajra/laravel-datatables-oracle": "^7.0"
     },
     "require-dev": {
-        "fzaninotto/faker": "~1.4",
-        "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~5.7",
         "barryvdh/laravel-debugbar": "^2.1",
-        "laravel/browser-kit-testing": "^1.0"
+        "filp/whoops": "^2.1",
+        "fzaninotto/faker": "~1.4",
+        "laravel/browser-kit-testing": "^1.0",
+        "mockery/mockery": "0.9.*",
+        "phpunit/phpunit": "~5.7"
     },
     "autoload": {
         "classmap": [

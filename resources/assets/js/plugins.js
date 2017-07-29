@@ -59,6 +59,7 @@ $(function(){
         var link = $('a[data-method="delete"]');
         var cancel = (link.attr('data-trans-button-cancel')) ? link.attr('data-trans-button-cancel') : "Cancel";
         var confirm = (link.attr('data-trans-button-confirm')) ? link.attr('data-trans-button-confirm') : "Yes, delete";
+        var restore = (link.attr('data-trans-button-restore')) ? link.attr('data-trans-button-restore') : "Yes, restore";
         var title = (link.attr('data-trans-title')) ? link.attr('data-trans-title') : "Warning";
         var text = (link.attr('data-trans-text')) ? link.attr('data-trans-text') : "Are you sure you want to delete this item?";
 

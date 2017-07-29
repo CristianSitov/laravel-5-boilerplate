@@ -97,6 +97,51 @@ return [
                 'view' => 'View User',
             ],
         ],
+        'heritage' => [
+            'resources' => [
+                'list'           => 'Resources list',
+                'create'         => 'Create Resource',
+                'edit'           => 'Edit Resource',
+                'management'     => 'Resource Management',
+                'general'        => 'General',
+                'location'       => 'Location',
+                'structure'      => 'Structure &amp; Classification',
+                'components'     => 'Components',
+                'building'       => 'Building',
+                'dimensions'     => 'Dimensions',
+                'changes'        => 'Changes',
+                'relations'      => 'Relations',
+                'evaluations'    => 'Evaluations',
+                'legal'          => 'Legal',
+                'buildings_list' => 'Buildings List',
+                'no_buildings'   => 'No buildings for current heritage resource',
+
+                'table' => [
+                    'id'                           => 'ID',
+                    'name'                         => 'Name',
+                    'address'                      => 'Address',
+                    'status'                       => 'Status',
+                    'progress'                     => 'Progress',
+                    'created'                      => 'Created',
+                    'last_updated'                 => 'Last Updated',
+                    'confirmed'                    => 'Confirmed',
+                ],
+            ],
+            'resource_type_classification' => [
+                'list'      => 'Types list',
+                'create'     => 'Create type',
+                'management' => 'Type Management',
+
+                'table' => [
+                    'id'             => 'ID',
+                    'type_set'       => 'Set',
+                    'type'           => 'Type',
+                    'published'      => 'Published',
+                    'created'        => 'Created',
+                    'updated'        => 'Updated',
+                ],
+            ]
+        ]
     ],
 
     'frontend' => [

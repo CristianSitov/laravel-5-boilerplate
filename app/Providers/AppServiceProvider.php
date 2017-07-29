@@ -70,12 +70,12 @@ class AppServiceProvider extends ServiceProvider
             /*
              * Load third party local providers
              */
-            $this->app->register(\Barryvdh\Debugbar\ServiceProvider::class);
+//            $this->app->register(\Barryvdh\Debugbar\ServiceProvider::class);
 
             /*
              * Load third party local aliases
              */
-            $loader->alias('Debugbar', \Barryvdh\Debugbar\Facade::class);
+//            $loader->alias('Debugbar', \Barryvdh\Debugbar\Facade::class);
         }
     }
 }

@@ -14,6 +14,7 @@ return [
     */
 
     'default' => env('DB_CONNECTION', 'mysql'),
+    'default_nosql' => 'orientdb',
 
     /*
     |--------------------------------------------------------------------------
@@ -73,6 +74,20 @@ return [
             'sslmode' => 'prefer',
         ],
 
+        'orientdb' => [
+            'driver' => 'orientdb',
+            'host'   => 'localhost',
+            'port'   => '2480',
+            'database' => 'hot',
+            'username' => 'root',
+            'password' => 'root'
+        ],
+
+        'neo4j' => env('NEO4J_PROTOCOL').'://'.
+            env('NEO4J_USER').':'.
+            env('NEO4J_PASS').'@'.
+            env('NEO4J_URL').':'.
+            env('NEO4J_PORT'),
     ],
 
     /*

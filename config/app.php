@@ -186,6 +186,11 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
+        App\Providers\Neo4jOGMServiceProvider::class,
+        Spatie\Glide\GlideServiceProvider::class,
+        Unisharp\Ckeditor\ServiceProvider::class,
+        Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -257,10 +262,12 @@ return [
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
         'Captcha'     => Arcanedev\NoCaptcha\Facades\NoCaptcha::class,
         'Form'        => Collective\Html\FormFacade::class,
+        'GlideImage'  => Spatie\Glide\GlideImageFacade::class,
         'Gravatar'    => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Html'        => Collective\Html\HtmlFacade::class,
         'Socialite'   => Laravel\Socialite\Facades\Socialite::class,
-
+        'Uuid'        => Webpatser\Uuid\Uuid::class,
+        'Image'       => Intervention\Image\Facades\Image::class,
     ],
 
 ];

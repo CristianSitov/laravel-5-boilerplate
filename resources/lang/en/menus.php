@@ -37,6 +37,36 @@ return [
             ],
         ],
 
+        'heritage' => [
+            'title'     => 'Heritage',
+
+            'resources' => [
+                'all'             => 'All Resources',
+                'management'      => 'Resources Management',
+                'create'          => 'Create Resource',
+                'main'            => 'Heritage Resources',
+            ],
+
+            'buildings' => [
+                'all'             => 'All Buildings',
+                'management'      => 'Buildings Management',
+                'create'          => 'Create Building',
+                'edit'            => 'Edit Building',
+                'main'            => 'Buildings',
+            ],
+
+            'components' => [
+                'all'             => 'All Components',
+                'management'      => 'Components Management',
+                'edit'            => 'Edit Component',
+                'main'            => 'Components',
+            ],
+
+            'resource_type_classification' => [
+                'management'      => 'Type Management',
+            ]
+        ],
+
         'log-viewer' => [
             'main'      => 'Log Viewer',
             'dashboard' => 'Dashboard',
@@ -45,6 +75,7 @@ return [
 
         'sidebar' => [
             'dashboard' => 'Dashboard',
+            'heritage'  => 'Heritage',
             'general'   => 'General',
             'system'    => 'System',
         ],

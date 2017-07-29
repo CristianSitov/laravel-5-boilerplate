@@ -33,5 +33,9 @@ return [
             'reactivated'         => 'reactivated user',
             'restored'            => 'restored user',
         ],
+        'resource' => [
+            'created'               => 'created resource',
+            'updated'               => 'updated resource',
+        ]
     ],
 ];
