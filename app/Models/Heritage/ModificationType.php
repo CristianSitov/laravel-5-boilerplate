@@ -4,6 +4,7 @@ namespace App\Models\Heritage;
 
 use App\Models\Heritage\Traits\Columns\Uuids;
 use GraphAware\Neo4j\OGM\Annotations as OGM;
+use GraphAware\Neo4j\OGM\Common\Collection;
 
 /**
  *
@@ -32,14 +33,14 @@ class ModificationType
      *
      * @OGM\Property(type="string")
      */
-    protected $type;
+    protected $name;
 
     /**
      * @var string
      *
      * @OGM\Property(type="string")
      */
-    protected $type_ro;
+    protected $name_ro;
 
     /**
      * @var \DateTime
@@ -66,30 +67,15 @@ class ModificationType
     protected $published_at;
 
     /**
-     * @return \DateTime
-     */
-    public function getPublishedAt()
-    {
-        return $this->published_at;
-    }
-    /**
-     * @param \DateTime $published_at
-     */
-    public function setPublishedAt($published_at)
-    {
-        $this->published_at = $published_at;
-    }
-
-    /**
-     * @var ModificationEvent
+     * @var ModificationEvent[]|Collection
      *
-     * @OGM\Relationship(type="HasType", direction="INCOMING", targetEntity="ModificationEvent", mappedBy="modificationEvent")
+     * @OGM\Relationship(type="HasType", direction="INCOMING", targetEntity="ModificationEvent", collection=true, mappedBy="modificationType")
      */
-    protected $modification_event;
+    protected $modificationEvent;
 
-    public function __construct(Resource $resource = null)
+    public function __construct()
     {
-        $this->resource = $resource;
+        $this->modificationEvent = new Collection();
     }
 
     /**
@@ -118,49 +104,33 @@ class ModificationType
     /**
      * @return string
      */
-    public function getMain()
+    public function getName()
     {
-        return $this->main;
+        return $this->name;
     }
 
     /**
-     * @param string $main
+     * @param string $name
      */
-    public function setMain($main)
+    public function setName($name)
     {
-        $this->main = $main;
-    }
-
-    /**
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param string $type
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
+        $this->name = $name;
     }
 
     /**
      * @return string
      */
-    public function getTypeRo()
+    public function getNameRo()
     {
-        return $this->type_ro;
+        return $this->name_ro;
     }
 
     /**
-     * @param string $type_ro
+     * @param string $name_ro
      */
-    public function setTypeRo($type_ro)
+    public function setNameRo($name_ro)
     {
-        $this->type_ro = $type_ro;
+        $this->name_ro = $name_ro;
     }
 
     /**
@@ -194,18 +164,25 @@ class ModificationType
     }
 
     /**
-     * @return ModificationEvent
+     * @return \DateTime
      */
-    public function getModificationEvent()
+    public function getPublishedAt()
     {
-        return $this->modification_event;
+        return $this->published_at;
+    }
+    /**
+     * @param \DateTime $published_at
+     */
+    public function setPublishedAt($published_at)
+    {
+        $this->published_at = $published_at;
     }
 
     /**
-     * @param ModificationEvent $modification_event
+     * @return ModificationEvent[]|Collection
      */
-    public function setModificationEvent($modification_event)
+    public function getModificationEvents()
     {
-        $this->modification_event = $modification_event;
+        return $this->modificationEvent;
     }
 }

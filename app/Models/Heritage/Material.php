@@ -56,6 +56,20 @@ class Material
      *
      * @OGM\Property(type="string")
      */
+    protected $name;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $name_ro;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
     protected $type;
 
     /**
@@ -66,16 +80,11 @@ class Material
     protected $type_ro;
 
     /**
-     * @var Component
+     * @var BuildingConsistsOfMaterial
      *
-     * @OGM\Relationship(type="ConsistsOf", direction="INCOMING", targetEntity="Component", mappedBy="material")
+     * @OGM\Relationship(relationshipEntity="BuildingConsistsOfMaterial", type="BuildingConsistsOfMaterial", direction="INCOMING", mappedBy="material")
      */
-    protected $component;
-
-    public function __construct(Resource $resource = null)
-    {
-        $this->resource = $resource;
-    }
+    protected $buildingConsistsOfMaterials;
 
     /**
      * @return int
@@ -148,6 +157,38 @@ class Material
     /**
      * @return string
      */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNameRo()
+    {
+        return $this->name_ro;
+    }
+
+    /**
+     * @param string $name_ro
+     */
+    public function setNameRo($name_ro)
+    {
+        $this->name_ro = $name_ro;
+    }
+
+    /**
+     * @return string
+     */
     public function getType()
     {
         return $this->type;
@@ -178,18 +219,18 @@ class Material
     }
 
     /**
-     * @return Component
+     * @return BuildingConsistsOfMaterial
      */
-    public function getComponent()
+    public function getBuildingConsistsOfMaterials()
     {
-        return $this->component;
+        return $this->buildingConsistsOfMaterials;
     }
 
     /**
-     * @param Component $component
+     * @param BuildingConsistsOfMaterial $buildingConsistsOfMaterials
      */
-    public function setComponent($component)
+    public function setBuildingConsistsOfMaterials($buildingConsistsOfMaterials)
     {
-        $this->component = $component;
+        $this->buildingConsistsOfMaterials = $buildingConsistsOfMaterials;
     }
 }

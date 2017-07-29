@@ -68,7 +68,7 @@ class ArchitecturalStyle
     /**
      * @var Building
      *
-     * @OGM\Relationship(type="Assigned", direction="INCOMING", targetEntity="Building", mappedBy="architecturalStyles")
+     * @OGM\Relationship(type="HasArchitecturalStyleType", direction="INCOMING", targetEntity="Building", mappedBy="architecturalStyles")
      */
     protected $building;
 

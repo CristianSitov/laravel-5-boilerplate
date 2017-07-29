@@ -30,13 +30,13 @@
                     <div class="col-lg-10">
                         <div class="row">
                             <div class="col-lg-2">Building Type</div>
-                            <div class="col-lg-10">{{ $production->getBuilding()->getType() }}</div>
+                            <div class="col-lg-10">{{ ucfirst($production->getBuilding()->getType()) }}</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-2">Heritage Resource Types</div>
                             <div class="col-lg-10">
                                 @foreach ($production->getBuilding()->getHeritageResourceTypes() as $type)
-                                    {{ $type->getNameRo() }},
+                                    {{ $type->getNameRo() }}@if (!$loop->last),<br />@endif
                                 @endforeach
                             </div>
                         </div>
@@ -44,7 +44,23 @@
                             <div class="col-lg-2">Architectural Styles</div>
                             <div class="col-lg-10">
                                 @foreach ($production->getBuilding()->getArchitecturalStyles() as $style)
-                                    {{ $style->getNameRo() }},
+                                    {{ $style->getNameRo() }}@if (!$loop->last),<br />@endif
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2">Materials</div>
+                            <div class="col-lg-10">
+                                @foreach ($production->getBuilding()->getBuildingConsistsOfMaterials() as $materiality)
+                                    {{ ucfirst($materiality->getMaterial()->getNameRo()) }}@if (!$loop->last),<br />@endif
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2">Modification Types</div>
+                            <div class="col-lg-10">
+                                @foreach ($production->getBuilding()->getModifications() as $modification)
+                                    {{ ucfirst($modification->getModificationEvent()->getModificationType()->getNameRo()) }}@if (!$loop->last),<br />@endif
                                 @endforeach
                             </div>
                         </div>

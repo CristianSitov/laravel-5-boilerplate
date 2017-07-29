@@ -48,18 +48,18 @@ class Modification
      *
      * @OGM\Relationship(type="HasModified", direction="OUTGOING", targetEntity="ModificationEvent", mappedBy="modification")
      */
-    protected $modification_event;
+    protected $modificationEvent;
 
     /**
-     * @var Resource
+     * @var Building
      *
-     * @OGM\Relationship(type="HasModified", direction="INCOMING", targetEntity="Resource", mappedBy="modification")
+     * @OGM\Relationship(type="HasModified", direction="INCOMING", targetEntity="Building", mappedBy="modification")
      */
-    protected $resource;
+    protected $building;
 
-    public function __construct(Resource $resource = null)
+    public function __construct(ModificationEvent $modificationEvent = null)
     {
-        $this->resource = $resource;
+        $this->modificationEvent = $modificationEvent;
     }
 
     /**
@@ -120,30 +120,30 @@ class Modification
      */
     public function getModificationEvent()
     {
-        return $this->modification_event;
+        return $this->modificationEvent;
     }
 
     /**
-     * @param ModificationEvent $modification_event
+     * @param ModificationEvent $modificationEvent
      */
-    public function setModificationEvent($modification_event)
+    public function setModificationEvent($modificationEvent)
     {
-        $this->modification_event = $modification_event;
+        $this->modificationEvent = $modificationEvent;
     }
 
     /**
-     * @return Resource
+     * @return Building
      */
-    public function getResource()
+    public function getBuilding()
     {
-        return $this->resource;
+        return $this->building;
     }
 
     /**
-     * @param Resource $resource
+     * @param Building $building
      */
-    public function setResource($resource)
+    public function setBuilding($building)
     {
-        $this->resource = $resource;
+        $this->building = $building;
     }
 }

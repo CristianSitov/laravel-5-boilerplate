@@ -87,9 +87,9 @@
                     </div>
                 </div><!--form control-->
 
-                <div id="types">
+                <div class="types">
 @foreach($resource->getProtectionTypes() as $i => $protection)
-                    <div id="types{{ $k+1 }}" class="clonedInput">
+                    <div id="types{{ $i+1 }}" class="clonedInput">
                         <div class="form-group">
                             {{ Form::label('protection_type[]', trans('validation.attributes.backend.heritage.resources.protection_type'), ['class' => 'col-lg-2 control-label label_name']) }}
 

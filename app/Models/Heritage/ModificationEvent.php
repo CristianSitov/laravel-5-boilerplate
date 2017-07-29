@@ -49,7 +49,7 @@ class ModificationEvent
      * @OGM\Property()
      * @OGM\Convert(type="datetime", options={"format":"timestamp"})
      */
-    protected $to_date;
+    protected $date_to;
 
     /**
      * @var \DateTime
@@ -57,21 +57,21 @@ class ModificationEvent
      * @OGM\Property()
      * @OGM\Convert(type="datetime", options={"format":"timestamp"})
      */
-    protected $from_date;
+    protected $date_from;
 
     /**
      * @var ModificationDescription
      *
      * @OGM\Relationship(type="HasNote", direction="OUTGOING", targetEntity="ModificationDescription", mappedBy="modificationEvent")
      */
-    protected $modification_description;
+    protected $modificationDescription;
 
     /**
      * @var ModificationType
      *
      * @OGM\Relationship(type="HasType", direction="OUTGOING", targetEntity="ModificationType", mappedBy="modificationEvent")
      */
-    protected $modification_type;
+    protected $modificationType;
 
     /**
      * @var Modification
@@ -80,9 +80,12 @@ class ModificationEvent
      */
     protected $modification;
 
-    public function __construct(Resource $resource = null)
+    public function __construct(ModificationType $modificationType, ModificationDescription $modificationDescription, $from = null, $to = null)
     {
-        $this->resource = $resource;
+        $this->modificationType = $modificationType;
+        $this->modificationDescription = $modificationDescription;
+        $this->date_from = $from;
+        $this->date_to = $to;
     }
 
     /**
@@ -139,35 +142,33 @@ class ModificationEvent
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
-    public function getToDate()
+    public function getDateFrom()
     {
-        return $this->to_date;
+        return $this->date_from;
+    }
+    /**
+     * @param \DateTime $date_from
+     */
+    public function setDateFrom($date_from)
+    {
+        $this->date_from = $date_from;
     }
 
     /**
-     * @param \DateTime $to_date
+     * @return string
      */
-    public function setToDate($to_date)
+    public function getDateTo()
     {
-        $this->to_date = $to_date;
+        return $this->date_to;
     }
-
     /**
-     * @return \DateTime
+     * @param \DateTime $date_to
      */
-    public function getFromDate()
+    public function setDateTo($date_to)
     {
-        return $this->from_date;
-    }
-
-    /**
-     * @param \DateTime $from_date
-     */
-    public function setFromDate($from_date)
-    {
-        $this->from_date = $from_date;
+        $this->date_to = $date_to;
     }
 
     /**
@@ -175,15 +176,15 @@ class ModificationEvent
      */
     public function getModificationDescription()
     {
-        return $this->modification_description;
+        return $this->modificationDescription;
     }
 
     /**
-     * @param ModificationDescription $modification_description
+     * @param ModificationDescription $modificationDescription
      */
-    public function setModificationDescription($modification_description)
+    public function setModificationDescription($modificationDescription)
     {
-        $this->modification_description = $modification_description;
+        $this->modificationDescription = $modificationDescription;
     }
 
     /**
@@ -191,15 +192,15 @@ class ModificationEvent
      */
     public function getModificationType()
     {
-        return $this->modification_type;
+        return $this->modificationType;
     }
 
     /**
-     * @param ModificationType $modification_type
+     * @param ModificationType $modificationType
      */
-    public function setModificationType($modification_type)
+    public function setModificationType($modificationType)
     {
-        $this->modification_type = $modification_type;
+        $this->modificationType = $modificationType;
     }
 
     /**

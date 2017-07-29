@@ -7,13 +7,19 @@ use App\Events\Backend\Heritage\ResourceUpdated;
 use App\Models\Heritage\AdministrativeSubdivision;
 use App\Models\Heritage\ArchitecturalStyle;
 use App\Models\Heritage\Building;
-use App\Models\Heritage\Component;
-use App\Models\Heritage\ComponentType;
+use App\Models\Heritage\BuildingConsistsOfMaterial;
 use App\Models\Heritage\Description;
 use App\Models\Heritage\HeritageResourceType;
+use App\Models\Heritage\Material;
+use App\Models\Heritage\Modification;
+use App\Models\Heritage\ModificationDescription;
+use App\Models\Heritage\ModificationEvent;
+use App\Models\Heritage\ModificationType;
+use App\Models\Heritage\ModificationTypeOnBuilding;
 use App\Models\Heritage\Name;
 use App\Models\Heritage\Place;
 use App\Models\Heritage\PlaceAddress;
+use App\Models\Heritage\PlotPlan;
 use App\Models\Heritage\Production;
 use App\Models\Heritage\ProductionEvent;
 use App\Models\Heritage\ProtectionType;
@@ -224,7 +230,6 @@ class ResourceRepository extends BaseRepository
                 // @TODO: see how can this be deleted
             }
         }
-//        dd($updateName);
 
         if (isset($data['new_name'])) {
             foreach ($data['new_name'] as $k => $newName) {
@@ -316,8 +321,8 @@ class ResourceRepository extends BaseRepository
         $production = new Production();
         if ($data['date_from'] || $data['date_to']) {
             $productionEvent = new ProductionEvent(
-                $data['date_from'] ? \DateTime::createFromFormat('Y/m/d', $data['date_from']) : null,
-                $data['date_to'] ?   \DateTime::createFromFormat('Y/m/d', $data['date_to']) : null);
+                $data['date_from'] ? \DateTime::createFromFormat('Y', $data['date_from']) : null,
+                $data['date_to'] ?   \DateTime::createFromFormat('Y', $data['date_to']) : null);
             $production->setProductionEvent($productionEvent);
         }
 
@@ -331,6 +336,29 @@ class ResourceRepository extends BaseRepository
         foreach ($data['architectural_style'] as $style) {
             $architecturalStyle = $this->em->find(ArchitecturalStyle::class, $style);
             $building->getArchitecturalStyles()->add($architecturalStyle);
+        }
+        foreach ($data['material'] as $material) {
+            $material = $this->em->find(Material::class, $material);
+            $materiality = new BuildingConsistsOfMaterial($building, $material, isset($data['description']) ? $data['description'] : '');
+            $building->getBuildingConsistsOfMaterials()->add($materiality);
+        }
+
+        $plot_plan = $this->em->find(PlotPlan::class, $data['plot_plan']);
+        $building->setPlotPlan($plot_plan);
+
+        if (count($data['modification_type']) > 0) {
+            foreach ($data['modification_type'] as $m => $modification_type) {
+                $modificationDescription = new ModificationDescription($data['modification_type_description'][$m]);
+                $modificationType = $this->em->find(ModificationType::class, $modification_type);
+                $modificationEvent = new ModificationEvent(
+                    $modificationType,
+                    $modificationDescription,
+                    $data['modification_type_date_from'][$m] ? \DateTime::createFromFormat('Y', $data['modification_type_date_from'][$m]) : null,
+                    $data['modification_type_date_from'][$m] ? \DateTime::createFromFormat('Y', $data['modification_type_date_to'][$m]) : null
+                );
+                $modification = new Modification($modificationEvent);
+                $building->getModifications()->add($modification);
+            }
         }
 
         // create all building components
@@ -360,6 +388,125 @@ class ResourceRepository extends BaseRepository
             $productionEvent->setFromDate($data['date_from'] ? \DateTime::createFromFormat('Y/m/d', $data['date_from']) : null);
             $productionEvent->setToDate($data['date_to'] ?   \DateTime::createFromFormat('Y/m/d', $data['date_to']) : null);
             $production->setProductionEvent($productionEvent);
+        }
+
+        $production->getBuilding()->setType($data['type']);
+
+        // change Heritage Resource Types
+        foreach ($production->getBuilding()->getHeritageResourceTypeIds() as $existingType) {
+            $t = array_search($existingType, $data['heritage_resource_type']);
+            // this db has to remain
+            if ($t !== false) {
+                unset($data['heritage_resource_type'][$t]);
+            } else {
+                // this db has to be deleted
+                $resourceTypes = $production->getBuilding()->getHeritageResourceTypes();
+                foreach ($resourceTypes as $resourceType) {
+                    if ($resourceType->getId() == $existingType) {
+                        $resourceTypes->removeElement($resourceType);
+                    }
+                }
+            }
+        }
+        foreach ($data['heritage_resource_type'] as $type) {
+            $newType = $this->em->find(HeritageResourceType::class, $type);
+            $production->getBuilding()->getHeritageResourceTypes()->add($newType);
+        }
+
+        // change Architectural Styles
+        foreach ($production->getBuilding()->getArchitecturalStyleIds() as $existingStyle) {
+            $s = array_search($existingStyle, $data['architectural_style']);
+            // this db has to remain
+            if ($s !== false) {
+                unset($data['architectural_style'][$s]);
+            } else {
+                // this db has to be deleted
+                $architecturalStyles = $production->getBuilding()->getArchitecturalStyles();
+                foreach ($architecturalStyles as $architecturalStyle) {
+                    if ($architecturalStyle->getId() == $existingStyle) {
+                        $architecturalStyles->removeElement($architecturalStyle);
+                    }
+                }
+            }
+        }
+        foreach ($data['architectural_style'] as $style) {
+            $newStyle = $this->em->find(ArchitecturalStyle::class, $style);
+            $production->getBuilding()->getArchitecturalStyles()->add($newStyle);
+        }
+
+        // change Materials
+        foreach ($production->getBuilding()->getBuildingConsistsOfMaterialIds() as $existingMaterial) {
+            $m = array_search($existingMaterial, $data['material']);
+            // this db has to remain
+            if ($m !== false) {
+                unset($data['material'][$m]);
+            } else {
+                // this db has to be deleted
+                $materials = $production->getBuilding()->getBuildingConsistsOfMaterials();
+                foreach ($materials as $material) {
+                    if ($material->getMaterial()->getId() == $existingMaterial) {
+                        $materials->removeElement($material);
+                        $this->em->remove($material);
+                    }
+                }
+            }
+        }
+        foreach ($data['material'] as $material) {
+            $newMaterial = $this->em->find(Material::class, $material);
+            $materiality = new BuildingConsistsOfMaterial($production->getBuilding(), $newMaterial, isset($data['description']) ? $data['description'] : '');
+            $production->getBuilding()->getBuildingConsistsOfMaterials()->add($materiality);
+        }
+
+        // change Modification Types
+        foreach ($production->getBuilding()->getModifications() as $existingModification) {
+            $d = array_search($existingModification->getId(), array_keys($data['modification_type']));
+
+            if ($d !== false) {
+                // modification not to be removed, lets put that aside and check if updates are needed
+                $currentModificationType = $existingModification->getModificationEvent()->getModificationType();
+
+                // type has changed, we have to update this modification instance
+                if ($data['modification_type'][$existingModification->getId()] != $currentModificationType->getId()) {
+                    $newModType = $this->em->find(ModificationType::class, $data['modification_type'][$existingModification->getId()]);
+                    $existingModification->getModificationEvent()->setModificationType($newModType);
+                }
+                // update description
+                $existingModification->getModificationEvent()->getModificationDescription()->setNote($data['modification_type_description'][$existingModification->getId()]);
+                // update dates
+                $existingModification->getModificationEvent()->setDateFrom($data['modification_type_date_from'][$existingModification->getId()] ? \DateTime::createFromFormat('Y', $data['modification_type_date_from'][$existingModification->getId()]) : null);
+                $existingModification->getModificationEvent()->setDateTo($data['modification_type_date_to'][$existingModification->getId()] ? \DateTime::createFromFormat('Y', $data['modification_type_date_to'][$existingModification->getId()]) : null);
+
+                // remove this for future reference
+                unset($data['modification_type'][$existingModification->getId()]);
+            } else {
+                // this db has to be deleted
+                // lets start with the description
+                $deleteDescription = $existingModification->getModificationEvent()->getModificationDescription();
+                $this->em->remove($deleteDescription, true);
+                // break modification type
+                $deleteType = $existingModification->getModificationEvent()->getModificationType();
+                $deleteEvent = $existingModification->getModificationEvent();
+                $deleteType->getModificationEvents()->removeElement($deleteEvent);
+                $this->em->remove($deleteType);
+                // delete modification event
+                $this->em->remove($deleteEvent, true);
+                // delete modification
+                $this->em->remove($existingModification, true);
+            }
+        }
+        if (isset($data['new_modification_type'])) {
+            foreach ($data['new_modification_type'] as $n => $new_modification_type) {
+                $newModificationDescription = new ModificationDescription($data['new_modification_type_description'][$n]);
+                $newModificationType = $this->em->find(ModificationType::class, $data['new_modification_type'][$n]);
+                $newModificationEvent = new ModificationEvent(
+                    $newModificationType,
+                    $newModificationDescription,
+                    $data['new_modification_type_date_from'][$n] ? \DateTime::createFromFormat('Y', $data['new_modification_type_date_from'][$n]) : null,
+                    $data['new_modification_type_date_to'][$n] ? \DateTime::createFromFormat('Y', $data['new_modification_type_date_to'][$n]) : null
+                );
+                $newModification = new Modification($newModificationEvent);
+                $production->getBuilding()->getModifications()->add($newModification);
+            }
         }
 
         $this->em->persist($production);

@@ -55,11 +55,11 @@ class ModificationDescription
      *
      * @OGM\Relationship(type="HasNote", direction="INCOMING", targetEntity="ModificationEvent", mappedBy="modificationDescription")
      */
-    protected $modification_event;
+    protected $modificationEvent;
 
-    public function __construct(Resource $resource = null)
+    public function __construct($description)
     {
-        $this->resource = $resource;
+        $this->note = $description;
     }
 
     /**
@@ -136,7 +136,7 @@ class ModificationDescription
      */
     public function getModificationEvent()
     {
-        return $this->modification_event;
+        return $this->modificationEvent;
     }
 
     /**
@@ -144,6 +144,6 @@ class ModificationDescription
      */
     public function setModificationEvent($modification_event)
     {
-        $this->modification_event = $modification_event;
+        $this->modificationEvent = $modification_event;
     }
 }

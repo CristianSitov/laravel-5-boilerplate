@@ -59,6 +59,24 @@ USING PERIODIC COMMIT LOAD CSV WITH HEADERS FROM 'http://heritageoftimisoara.dev
     SET n = row, n.uuid = row.uuid, n.name = row.name, n.name_ro = row.name_ro, n.created_at = timestamp(), n.
       updated_at = timestamp();
 
+USING PERIODIC COMMIT LOAD CSV WITH HEADERS FROM 'http://heritageoftimisoara.dev/E57.Material_01.csv' AS row
+  MERGE (n:Material {uuid: row.uuid})
+    ON CREATE
+    SET n = row, n.uuid = row.uuid, n.name = row.name, n.name_ro = row.name_ro, n.created_at = timestamp(), n.
+      updated_at = timestamp()
+    ON MATCH
+    SET n = row, n.uuid = row.uuid, n.name = row.name, n.name_ro = row.name_ro, n.created_at = timestamp(), n.
+      updated_at = timestamp();
+
+USING PERIODIC COMMIT LOAD CSV WITH HEADERS FROM 'http://heritageoftimisoara.dev/E55.ModificationType_01.csv' AS row
+  MERGE (n:ModificationType {uuid: row.uuid})
+    ON CREATE
+    SET n = row, n.uuid = row.uuid, n.name = row.name, n.name_ro = row.name_ro, n.created_at = timestamp(), n.
+      updated_at = timestamp()
+    ON MATCH
+    SET n = row, n.uuid = row.uuid, n.name = row.name, n.name_ro = row.name_ro, n.created_at = timestamp(), n.
+      updated_at = timestamp();
+
 //USING PERIODIC COMMIT LOAD CSV WITH HEADERS FROM 'http://heritageoftimisoara.dev/E55.ComponentType_01.csv' AS row
 //  MERGE (n:ComponentType {uuid: row.uuid})
 //    ON CREATE

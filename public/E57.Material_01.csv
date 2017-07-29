@@ -1,0 +1,48 @@
+uuid,name,name_ro,published
+f07f63bd-043b-44eb-8d3d-7b9445e2a849,Aluminum,,false
+1994105d-eae0-4596-824a-0af63c44d8f1,Asbestos,Azbociment (eternit),true
+5846a2aa-28c5-412a-8e30-ca448f00bda0,Brick,Cărămidă,true
+e0200bdf-ba43-4805-9c33-f8cf76de6442,Clay tile,Plăci ceramice,true
+461675f2-b731-4437-97e8-8e5857ec5ade,Composition shingle,,false
+d0efb663-862d-4650-b312-14622d7b7536,Concrete,Beton,true
+070c9956-95c4-47f2-b0c8-daf576e778e2,Concrete block,,false
+5d6c8335-8762-405a-a2e6-f3f47c3559c0,"Concrete, poured/precast",,false
+36156f3c-c515-463a-badb-46a20d7a2400,Corrugated metal,Tablă ondulată,true
+4bba3474-8421-4450-a7ba-8c034717e029,Glass block,Caramidă de sticlă,true
+7dc092ae-dd5f-4171-a1a1-2715dcc4e23a,Glass skin,Fațadă de sticlă ,true
+bd878404-f774-4034-a475-1092d46a755f,Half timbering,,false
+e70dc531-61d0-4304-a9e0-543e42cec4dc,Iron,,false
+a7da96e9-c881-4f25-b2ae-df37df086e76,Marble,Marmură,true
+e33e2bea-e3d8-4222-bd70-85ce68d52ffa,Metal,Metal,true
+78e34225-64d9-432e-b476-8fc908a98aa3,Other,,false
+56a6e1cd-587d-4636-8f12-3fce689f59b8,Rolled Asphalt,Carton bituminat,true
+26cb2f7c-75c7-49da-822f-03d01e33ae16,Slate,Ardezie,true
+1778e2e1-92a5-44e9-943a-5a1086c9786b,Standing seam,,false
+8984c5ba-74a3-4ce2-8156-9a39390dc870,Steel,,false
+ec9840be-a66c-40a4-80e2-198d2518a9e1,Stone,Piatră,true
+529bf157-9c1f-40a0-9054-72f2876df2c8,"Stone, arroyo",,false
+456fb6d6-6070-4df0-b15a-d7f203c6836f,"Stone, art",Piatră decorativă,false
+7604c092-349a-4d2a-8153-bc5028a9c475,"Stone, cast",Piatră turnată,false
+1cb38844-6622-4717-9515-42f9eed66b93,"Stone, cut",Piatră taiată,false
+afedc767-876b-453d-bd06-27820984d90f,"Stone, natural",Piatră naturală,false
+e63cbd0e-7b17-4ceb-8e7e-334430648e44,"Stone, simulated",Piatră artificială,false
+098f6cfb-9d38-4459-8880-5c6752828962,Stucco,Tencuială de var,true
+0ed7a52d-3f57-4da7-85c2-16e3faee9642,"Stucco, smooth",Tencuială netedă,false
+44f9f155-8140-4cb5-ba01-948aab36d93f,"Stucco, textured",Tencuială texturată,false
+940cbfc6-afac-4130-96a8-e4b9aeaf17fb,Terra cotta,Ceramică glazurată,true
+60e6658e-69ae-42f1-81c6-371ebf929b6c,Terrazzo,,false
+5efae25d-9cf6-4c3e-9b57-b36032e6a5d9,Tile,Faianță,true
+79895cc1-83e7-40ad-94d8-9e304038c819,Travertine,Travertin,true
+7f1ed0f8-4576-4b34-9f2f-da468829aa17,Unknown,Necunoscut,true
+ae5e8170-d6dd-495b-9bdf-da81dbc705a0,Vinyl,Mase plastice,true
+59270472-2521-41a7-af93-a926f9b7e460,Wood,Lemn,true
+08fcfb27-d55d-4311-88f0-99a83e316872,Wood clapboards,,false
+fbc5ea77-d3ee-4cdd-a7bd-b616b2c6a5e1,Wood rustic,,false
+d4e0a886-f85e-4315-8f5c-1c731003637d,Wood shake,,false
+957b60f5-c32a-40c7-838c-bbc572d2b993,Wood shingle,,false
+00452606-5754-4173-8782-3eb151bcef66,Wood shingles,,false
+6a6b89e0-06c4-4939-9252-0aae59ef09df,"Wood shingles, fish scale",,false
+2eeab41f-797c-4be1-9e9f-96d4a21ae864,Wood tongue-and-groove,,false
+0829fcac-279c-456d-97a8-954d9818f0e2,Wood vertical boards,,false
+dfeaecaa-bf30-40a8-b49c-a613136a949e,"Wood, Board and Batten",,false
+868a40de-66d8-4f0b-a73e-8caf97803ffd,Wrought iron,Fier forjat,true

@@ -88,17 +88,33 @@ class Building
     protected $components;
 
     /**
+     * @var BuildingConsistsOfMaterial[]|Collection
+     *
+     * @OGM\Relationship(relationshipEntity="BuildingConsistsOfMaterial", type="BuildingConsistsOfMaterial", direction="OUTGOING", collection=true, mappedBy="building")
+     */
+    protected $buildingConsistsOfMaterials;
+
+    /**
      * @var Production
      *
      * @OGM\Relationship(type="HasRaised", direction="INCOMING", targetEntity="Production", mappedBy="building")
      */
     protected $production;
 
+    /**
+     * @var Modification[]|Collection
+     *
+     * @OGM\Relationship(type="HasModified", direction="OUTGOING", collection=true, targetEntity="Modification", mappedBy="building")
+     */
+    protected $modifications;
+
     public function __construct()
     {
         $this->components = new Collection();
+        $this->buildingConsistsOfMaterials = new Collection();
         $this->architecturalStyles = new Collection();
         $this->heritageResourceTypes = new Collection();
+        $this->modifications = new Collection();
     }
 
     /**
@@ -215,6 +231,18 @@ class Building
     }
 
     /**
+     * @return array
+     */
+    public function getArchitecturalStyleIds()
+    {
+        $styles = [];
+        foreach($this->architecturalStyles as $architecturalStyle) {
+            $styles[] = $architecturalStyle->getId();
+        }
+        return $styles;
+    }
+
+    /**
      * @return PlotPlan
      */
     public function getPlotPlan()
@@ -239,6 +267,26 @@ class Building
     }
 
     /**
+     * @return BuildingConsistsOfMaterial[]|Collection
+     */
+    public function getBuildingConsistsOfMaterials()
+    {
+        return $this->buildingConsistsOfMaterials;
+    }
+
+    /**
+     * @return array
+     */
+    public function getBuildingConsistsOfMaterialIds()
+    {
+        $buildingConsistsOfMaterials = [];
+        foreach($this->buildingConsistsOfMaterials as $buildingConsistsOfMaterial) {
+            $buildingConsistsOfMaterials[] = $buildingConsistsOfMaterial->getMaterial()->getId();
+        }
+        return $buildingConsistsOfMaterials;
+    }
+
+    /**
      * @return Production
      */
     public function getProduction()
@@ -252,5 +300,39 @@ class Building
     public function setProduction($production)
     {
         $this->production = $production;
+    }
+
+    /**
+     * @return Modification[]|Collection
+     */
+    public function getModifications()
+    {
+        return $this->modifications;
+    }
+
+    /**
+     * @return array
+     */
+    public function getModificationsIds()
+    {
+        $modifications = [];
+        foreach($this->modifications as $modification) {
+            $modification[] = $modification->getId();
+        }
+        return $modifications;
+    }
+
+    /**
+     * @return Modification|null
+     */
+    public function getModificationById($id)
+    {
+        foreach ($this->getModifications() as $modification) {
+            if ($modification->getId() === $id) {
+                return $modification;
+            }
+        }
+
+        return null;
     }
 }
