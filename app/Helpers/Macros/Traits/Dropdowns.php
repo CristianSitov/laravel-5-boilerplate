@@ -2,6 +2,8 @@
 
 namespace App\Helpers\Macros\Traits;
 
+use App\Models\Heritage\Building;
+
 /**
  * Class Dropdowns.
  */
@@ -1295,6 +1297,30 @@ trait Dropdowns
             $abbr = $transition[0]['abbr'];
 
             $list[$tz] = $tz.' ['.$abbr.' '.$this->formatOffset($offset).']';
+        }
+
+        return $this->select($name, $list, $selected, $options);
+    }
+
+    public function selectBuildingType($name, $selected = null, $options = [])
+    {
+        $list = [];
+        $types = Building::TYPES;
+
+        foreach ($types as $type) {
+            $list[$type] = trans('strings.backend.building.' . $type);
+        }
+
+        return $this->select($name, $list, $selected, $options);
+    }
+
+    public function selectNumberOfFloors($name, $selected = null, $options = [])
+    {
+        $list = [];
+        $levels = Building::LEVELS;
+
+        foreach ($levels as $level) {
+            $list[$level] = trans('strings.backend.building.' . $level);
         }
 
         return $this->select($name, $list, $selected, $options);

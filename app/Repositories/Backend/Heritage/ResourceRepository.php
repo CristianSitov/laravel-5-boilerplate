@@ -328,6 +328,8 @@ class ResourceRepository extends BaseRepository
 
         $building = new Building();
         $building->setType($data['type']);
+        $building->setLevels($data['levels']);
+        $building->setNotes($data['notes']);
 
         foreach ($data['heritage_resource_type'] as $type) {
             $heritageResourceType = $this->em->find(HeritageResourceType::class, $type);
@@ -391,6 +393,8 @@ class ResourceRepository extends BaseRepository
         }
 
         $production->getBuilding()->setType($data['type']);
+        $production->getBuilding()->setLevels($data['levels']);
+        $production->getBuilding()->setNotes($data['notes']);
 
         // change Heritage Resource Types
         foreach ($production->getBuilding()->getHeritageResourceTypeIds() as $existingType) {

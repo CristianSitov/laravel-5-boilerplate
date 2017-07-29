@@ -93,9 +93,9 @@
 
                             <div class="col-lg-4">
                                 <div class="input-group">
-                                <span class="input-group-addon">
-                                    <label>Current?&nbsp;</label><input type="radio" name="current_type" class="current_type" value="0">
-                                </span>
+                                    <span class="input-group-addon">
+                                        <label>Current?&nbsp;</label><input type="radio" name="current_type" class="current_type" value="0">
+                                    </span>
                                     {{ Form::select('protection_type[]', $protection_types, '', ['class' => 'col-lg-4 form-control input_protection_type']) }}
                                 </div>
                             </div>

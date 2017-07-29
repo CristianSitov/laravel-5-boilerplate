@@ -59,6 +59,22 @@ return [
             'title' => 'Buildings',
         ],
 
+        'building' => [
+            'main' => 'Main Building',
+            'out' => 'Out Building',
+            'basement' => 'Basement',
+            'semi_basement' => 'Semi-basement',
+            'groud_floor' => 'Ground floor',
+            'first_floor' => '1st floor',
+            'second_floor' => '2nd floor',
+            'third_floor' => '3rd floor',
+            'fourth_floor' => '4th floor',
+            'attic' => 'Attic',
+            'mansard' => 'Mansard',
+            'terrace' => 'Terrace',
+            'other' => 'Other',
+        ],
+
         'search' => [
             'empty'      => 'Please enter a search term.',
             'incomplete' => 'You must write your own search logic for this system.',

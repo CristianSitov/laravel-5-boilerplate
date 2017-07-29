@@ -27,19 +27,26 @@
             </div><!-- /.box-header -->
 
             <div class="box-body">
-                <div class="col-lg-10 col-lg-offset-2"><h3>{{ trans('labels.backend.heritage.resources.building') }}</h3></div>
+                <div class="col-lg-10 col-lg-offset-2"><h2>{{ trans('labels.backend.heritage.resources.building') }}</h2><br /><br /></div>
                 <div class="form-group">
-                    {{ Form::label('type', trans('validation.attributes.backend.heritage.buildings.type'), ['class' => 'col-lg-2 control-label label_name']) }}
+                    {{ Form::label('type', trans('validation.attributes.backend.heritage.buildings.type'), ['class' => 'col-lg-2 control-label']) }}
+
                     <div class="col-lg-8">
                         <div class="input-group">
-                            {{ Form::select('type', ['main' => 'Main Building', 'out' => 'Outbuilding'], '', ['class' => 'col-lg-4 form-control']) }}
+                            {{ Form::selectBuildingType('type', '', ['class' => 'col-lg-4 form-control']) }}
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    {{ Form::label('dates[]', trans('validation.attributes.backend.heritage.resources.building_interval'), ['class' => 'col-lg-2 control-label label_name']) }}
-                    <div class="col-lg-4">
+                    <div class="col-lg-3 col-lg-offset-2">
+                        <div class="input-group">
+                            <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.levels') }}</span>
+                            {{ Form::selectNumberOfFloors('levels', '', ['class' => 'col-lg-4 form-control']) }}
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
                         <div class="input-group input-daterange">
+                            <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.building_interval') }}</span>
                             <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
                             {{ Form::text('date_from', '', ['class' => 'form-control input_date_from datepicker', 'data-inputmask' => '"alias": "yyyy/mm/dd"', 'data-mask']) }}
                             <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
@@ -86,7 +93,7 @@
                             {{ Form::label('modification_type[]', trans('validation.attributes.backend.heritage.resources.modification_type'), ['class' => 'col-lg-2 control-label']) }}
 
                             <div class="col-lg-4">
-                                {{ Form::select('modification_type[]', $modification_types, null, ['required' => 'required', 'class' => 'col-lg-2 control-label']) }}
+                                {{ Form::select('modification_type[]', $modification_types, null, ['required' => 'required', 'class' => 'col-lg-2 form-control']) }}
                             </div>
                             <div class="col-lg-4">
                                 <div class="input-group input-daterange">
@@ -101,11 +108,18 @@
                                 <button type="button" class="btn btn-danger btn-sm remove">{{ trans('validation.attributes.backend.heritage.resources.delete_name_button') }}</button>
                             </div>
                             <div class="col-lg-8 col-lg-offset-2">
-                                {{ Form::textarea('modification_type_description[]', null, ['class' => 'form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.description'), 'required' => 'required']) }}
+                                <br />
+                                {{ Form::textarea('modification_type_description[]', null, ['class' => 'form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.modification_description'), 'required' => 'required']) }}
                             </div>
                         </div>
                     </div>
 
+                </div>
+                <div class="form-group">
+                    {{ Form::label('notes', trans('validation.attributes.backend.heritage.resources.notes'), ['class' => 'col-lg-2 control-label']) }}
+                    <div class="col-lg-8">
+                        {{ Form::textarea('notes', null, ['class' => 'form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.notes')]) }}
+                    </div>
                 </div>
             </div><!-- /.box-body -->
         </div><!--box-->

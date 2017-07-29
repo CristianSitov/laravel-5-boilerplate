@@ -14,6 +14,25 @@ class Building
 {
     use Uuids;
 
+    const TYPES = [
+        'main',
+        'out'
+    ];
+
+    const LEVELS = [
+        'basement',
+        'semi_basement',
+        'groud_floor',
+        'first_floor',
+        'second_floor',
+        'third_floor',
+        'fourth_floor',
+        'attic',
+        'mansard',
+        'terrace',
+        'other',
+    ];
+    
     /**
      * @var int
      *
@@ -58,6 +77,20 @@ class Building
      * @OGM\Property(type="string")
      */
     protected $type;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $levels;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $notes;
 
     /**
      * @var HeritageResourceType
@@ -195,11 +228,43 @@ class Building
     }
 
     /**
-     * @param string $type
+     * @param string $levels
      */
-    public function setType($type)
+    public function setType($levels)
     {
-        $this->type = $type;
+        $this->levels = $levels;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLevels()
+    {
+        return $this->levels;
+    }
+
+    /**
+     * @param string $levels
+     */
+    public function setLevels($levels)
+    {
+        $this->levels = $levels;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNotes()
+    {
+        return $this->notes;
+    }
+
+    /**
+     * @param string $notes
+     */
+    public function setNotes($notes)
+    {
+        $this->notes = $notes;
     }
 
     /**

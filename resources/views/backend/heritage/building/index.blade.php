@@ -30,7 +30,8 @@
                     <div class="col-lg-10">
                         <div class="row">
                             <div class="col-lg-2">Building Type</div>
-                            <div class="col-lg-10">{{ ucfirst($production->getBuilding()->getType()) }}</div>
+                            <div class="col-lg-5">{{ ucfirst($production->getBuilding()->getType()) }}</div>
+                            <div class="col-lg-5">{{ trans('strings.backend.building.' . $production->getBuilding()->getLevels()) }}</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-2">Heritage Resource Types</div>

@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\Backend\Heritage\Building;
 
 use App\Http\Controllers\Controller;
+use App\Models\Heritage\Building;
 use App\Repositories\Backend\Heritage\MaterialRepository;
 use App\Repositories\Backend\Heritage\ModificationTypeRepository;
 use Illuminate\Http\Request;
@@ -30,7 +31,14 @@ class BuildingController extends Controller
     /**
      * Building controller constructor.
      *
-     * @param EntityManager $entityManager
+     * @param ResourceRepository $resourceRepository
+     * @param ProductionRepository $productionRepository
+     * @param BuildingRepository $buildingRepository
+     * @param ArchitecturalStyleRepository $architecturalStyleRepository
+     * @param HeritageResourceTypeRepository $heritageResourceTypeRepository
+     * @param PlotPlanRepository $plotPlanRepository
+     * @param MaterialRepository $materialRepository
+     * @param ModificationTypeRepository $modificationTypeRepository
      */
     public function __construct(ResourceRepository $resourceRepository,
         ProductionRepository $productionRepository,
@@ -63,6 +71,8 @@ class BuildingController extends Controller
     {
         $resource = $this->resourceRepository->model->find($resource_id);
 
+        $levels = Building::LEVELS;
+
         $heritageResourceTypes = collect($this->heritageResourceTypeRepository->findPublished())
             ->mapWithKeys(function ($item) {
                 return [$item->getId() => [
@@ -93,6 +103,7 @@ class BuildingController extends Controller
             });
 
         return view('backend.heritage.building.create')
+            ->withLevels($levels)
             ->withHeritageResourceTypes($heritageResourceTypes)
             ->withArchitecturalStyles($architecturalStyles)
             ->withPlotPlan($plotPlan)
