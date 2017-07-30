@@ -87,7 +87,7 @@ class BuildingController extends Controller
                 return [$item->getId() => $item->getNameRo()];
             });
 
-        $modification_types = collect($this->modificationTypeRepository->findPublished())
+        $modification_types = collect($this->modificationTypeRepository->findPublished('building'))
             ->mapWithKeys(function ($item) {
                 return [$item->getId() => $item->getNameRo()];
             });
@@ -137,7 +137,7 @@ class BuildingController extends Controller
                 return [$item->getId() =>  $item->getNameRo()];
             });
 
-        $modification_types = collect($this->modificationTypeRepository->findPublished())
+        $modification_types = collect($this->modificationTypeRepository->findPublished('building'))
             ->mapWithKeys(function ($item) {
                 return [$item->getId() =>  $item->getNameRo()];
             });

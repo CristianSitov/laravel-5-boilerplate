@@ -14,20 +14,31 @@ use GraphAware\Neo4j\OGM\EntityManager;
 class ModificationTypeRepository extends BaseRepository
 {
     protected $em;
+    protected $client;
+    public $model;
 
     public function __construct(EntityManager $entityManager)
     {
         $this->em = $entityManager;
         $this->model = $this->em->getRepository(ModificationType::class);
+        $this->client = $this->em->getDatabaseDriver();
     }
 
     /**
      * none
      */
-    public function findPublished()
+    public function findPublished($set = null)
     {
-        $criteria = new Criteria();
-        $criteria->where(new Comparison('published', Comparison::EQ, "true"));
-        return $this->model->matching($criteria);
+        if ($set) {
+            $queryResults = $this->em->createQuery('MATCH (n:ModificationType {published:"true", set:"'.$set.'"}) RETURN n');
+            $queryResults->addEntityMapping('n', ModificationType::class);
+            $result = $queryResults->getResult();
+        } else {
+            $criteria = new Criteria();
+            $criteria->where(new Comparison('published', Comparison::EQ, "true"));
+            $result = $this->model->matching($criteria);
+        }
+
+        return $result;
     }
 }

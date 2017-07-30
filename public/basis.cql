@@ -62,10 +62,10 @@ USING PERIODIC COMMIT LOAD CSV WITH HEADERS FROM 'http://heritageoftimisoara.dev
 USING PERIODIC COMMIT LOAD CSV WITH HEADERS FROM 'http://heritageoftimisoara.dev/E55.ModificationType_01.csv' AS row
   MERGE (n:ModificationType {uuid: row.uuid})
     ON CREATE
-    SET n = row, n.uuid = row.uuid, n.name = row.name, n.name_ro = row.name_ro, n.created_at = timestamp(), n.
+    SET n = row, n.uuid = row.uuid, n.set = row.set, n.set_ro = row.set_ro, n.name = row.name, n.name_ro = row.name_ro, n.created_at = timestamp(), n.
       updated_at = timestamp()
     ON MATCH
-    SET n = row, n.uuid = row.uuid, n.name = row.name, n.name_ro = row.name_ro, n.created_at = timestamp(), n.
+    SET n = row, n.uuid = row.uuid, n.set = row.set, n.set_ro = row.set_ro, n.name = row.name, n.name_ro = row.name_ro, n.created_at = timestamp(), n.
       updated_at = timestamp();
 
 //USING PERIODIC COMMIT LOAD CSV WITH HEADERS FROM 'http://heritageoftimisoara.dev/E55.ComponentType_01.csv' AS row
