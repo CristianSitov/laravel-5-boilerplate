@@ -270,7 +270,7 @@ class Building
      */
     public function getPlan()
     {
-        return $this->levels;
+        return $this->plan;
     }
 
     /**

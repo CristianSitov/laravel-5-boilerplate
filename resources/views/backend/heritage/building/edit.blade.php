@@ -74,7 +74,7 @@
                     {{ Form::label('plot_plan', trans('validation.attributes.backend.heritage.resources.plot_plan'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-8">
-                        {{ Form::select('plot_plan[]', $plot_plan, $production->getBuilding()->getPlotPlan(), ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2']) }}
+                        {{ Form::selectPlotPlan('plot_plan', $production->getBuilding()->getPlan(), ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2']) }}
                     </div>
                     <div class="col-lg-2"></div>
                 </div><!--form control-->
@@ -119,7 +119,7 @@
                 <div class="form-group">
                     {{ Form::label('notes', trans('validation.attributes.backend.heritage.resources.notes'), ['class' => 'col-lg-2 control-label']) }}
                     <div class="col-lg-8">
-                        {{ Form::textarea('notes', $production->getBuilding()->getNotes()[0], ['class' => 'form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.notes')]) }}
+                        {{ Form::textarea('notes', $production->getBuilding()->getNotes(), ['class' => 'form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.notes')]) }}
                     </div>
                 </div>
             </div><!-- /.box-body -->

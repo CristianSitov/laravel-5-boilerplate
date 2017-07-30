@@ -82,7 +82,7 @@
                     {{ Form::label('plot_plan', trans('validation.attributes.backend.heritage.resources.plot_plan'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-8">
-                        {{ Form::select('plot_plan', $plot_plan, null, ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2']) }}
+                        {{ Form::selectPlotPlan('plot_plan', null, ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2']) }}
                     </div>
                     <div class="col-lg-2"></div>
                 </div>
