@@ -1302,6 +1302,18 @@ trait Dropdowns
         return $this->select($name, $list, $selected, $options);
     }
 
+    public function selectPlotPlan($name, $selected = null, $options = [])
+    {
+        $list = [];
+        $plans = Building::PLANS;
+
+        foreach ($plans as $plan) {
+            $list[$plan] = trans('strings.backend.building.' . $plan);
+        }
+
+        return $this->select($name, $list, $selected, $options);
+    }
+
     public function selectBuildingType($name, $selected = null, $options = [])
     {
         $list = [];

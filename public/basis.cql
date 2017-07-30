@@ -50,15 +50,6 @@ USING PERIODIC COMMIT LOAD CSV WITH HEADERS FROM 'http://heritageoftimisoara.dev
       year_1936 = row.
       year_1936, n.created_at = timestamp(), n.updated_at = timestamp();
 
-USING PERIODIC COMMIT LOAD CSV WITH HEADERS FROM 'http://heritageoftimisoara.dev/E18.PlotPlan_01.csv' AS row
-  MERGE (n:PlotPlan {uuid: row.uuid})
-    ON CREATE
-    SET n = row, n.uuid = row.uuid, n.name = row.name, n.name_ro = row.name_ro, n.created_at = timestamp(), n.
-      updated_at = timestamp()
-    ON MATCH
-    SET n = row, n.uuid = row.uuid, n.name = row.name, n.name_ro = row.name_ro, n.created_at = timestamp(), n.
-      updated_at = timestamp();
-
 USING PERIODIC COMMIT LOAD CSV WITH HEADERS FROM 'http://heritageoftimisoara.dev/E57.Material_01.csv' AS row
   MERGE (n:Material {uuid: row.uuid})
     ON CREATE

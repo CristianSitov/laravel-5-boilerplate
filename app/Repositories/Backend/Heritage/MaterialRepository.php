@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\Expr\Comparison;
 use GraphAware\Neo4j\OGM\EntityManager;
 
 /**
- * Class PlotPlanRepository.
+ * Class MaterialRepository.
  */
 class MaterialRepository extends BaseRepository
 {

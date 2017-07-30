@@ -52,6 +52,7 @@ return [
                 'management'      => 'Buildings Management',
                 'create'          => 'Create Building',
                 'edit'            => 'Edit Building',
+                'delete'         => 'Delete Building',
                 'main'            => 'Buildings',
             ],
 

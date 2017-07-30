@@ -73,6 +73,17 @@ return [
             'mansard' => 'Mansard',
             'terrace' => 'Terrace',
             'other' => 'Other',
+            'circular' => 'Circular',
+            'h_shaped' => 'H-shaped',
+            'irregular' => 'Irregular',
+            'l_shaped' => 'L-shaped',
+            'octagonal' => 'Octagonal',
+            'rectangular' => 'Rectangular',
+            'square' => 'Square',
+            't_shaped' => 'T-shaped',
+            'triangular' => 'Triangular',
+            'u_shaped' => 'U-shaped',
+            'unknown' => 'Unknown',
         ],
 
         'search' => [

@@ -32,6 +32,20 @@ class Building
         'terrace',
         'other',
     ];
+
+    const PLANS = [
+        'circular',
+        'h_shaped',
+        'irregular',
+        'l_shaped',
+        'octagonal',
+        'rectangular',
+        'square',
+        't_shaped',
+        'triangular',
+        'u_shaped',
+        'unknown',
+    ];
     
     /**
      * @var int
@@ -107,11 +121,11 @@ class Building
     protected $architecturalStyles;
 
     /**
-     * @var PlotPlan
+     * @var string
      *
-     * @OGM\Relationship(type="HasProduced", direction="OUTGOING", targetEntity="PlotPlan", mappedBy="building")
+     * @OGM\Property(type="string")
      */
-    protected $plot_plan;
+    protected $plan;
 
     /**
      * @var Component[]|Collection
@@ -254,6 +268,22 @@ class Building
     /**
      * @return string
      */
+    public function getPlan()
+    {
+        return $this->levels;
+    }
+
+    /**
+     * @param string $plan
+     */
+    public function setPlan($plan)
+    {
+        $this->plan = $plan;
+    }
+
+    /**
+     * @return string
+     */
     public function getNotes()
     {
         return $this->notes;
@@ -305,22 +335,6 @@ class Building
             $styles[] = $architecturalStyle->getId();
         }
         return $styles;
-    }
-
-    /**
-     * @return PlotPlan
-     */
-    public function getPlotPlan()
-    {
-        return $this->plot_plan;
-    }
-
-    /**
-     * @param PlotPlan $plot_plan
-     */
-    public function setPlotPlan($plot_plan)
-    {
-        $this->plot_plan = $plot_plan;
     }
 
     /**

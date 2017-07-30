@@ -12,7 +12,6 @@ use App\Models\Heritage\Resource;
 use App\Repositories\Backend\Heritage\ArchitecturalStyleRepository;
 use App\Repositories\Backend\Heritage\BuildingRepository;
 use App\Repositories\Backend\Heritage\HeritageResourceTypeRepository;
-use App\Repositories\Backend\Heritage\PlotPlanRepository;
 use App\Repositories\Backend\Heritage\ProductionRepository;
 use App\Repositories\Backend\Heritage\ResourceRepository;
 use GraphAware\Neo4j\OGM\EntityManager;
@@ -24,7 +23,6 @@ class BuildingController extends Controller
     protected $buildingRepository;
     protected $heritageResourceTypeRepository;
     protected $architecturalStyleRepository;
-    protected $plotPlanRepository;
     protected $materialRepository;
     protected $modificationTypeRepository;
 
@@ -36,7 +34,6 @@ class BuildingController extends Controller
      * @param BuildingRepository $buildingRepository
      * @param ArchitecturalStyleRepository $architecturalStyleRepository
      * @param HeritageResourceTypeRepository $heritageResourceTypeRepository
-     * @param PlotPlanRepository $plotPlanRepository
      * @param MaterialRepository $materialRepository
      * @param ModificationTypeRepository $modificationTypeRepository
      */
@@ -45,7 +42,6 @@ class BuildingController extends Controller
         BuildingRepository $buildingRepository,
         ArchitecturalStyleRepository $architecturalStyleRepository,
         HeritageResourceTypeRepository $heritageResourceTypeRepository,
-        PlotPlanRepository $plotPlanRepository,
         MaterialRepository $materialRepository,
         ModificationTypeRepository $modificationTypeRepository)
     {
@@ -54,7 +50,6 @@ class BuildingController extends Controller
         $this->buildingRepository = $buildingRepository;
         $this->architecturalStyleRepository = $architecturalStyleRepository;
         $this->heritageResourceTypeRepository = $heritageResourceTypeRepository;
-        $this->plotPlanRepository = $plotPlanRepository;
         $this->materialRepository = $materialRepository;
         $this->modificationTypeRepository = $modificationTypeRepository;
     }
@@ -87,11 +82,6 @@ class BuildingController extends Controller
                 return [$item->getId() =>  $item->getNameRo()];
             });
 
-        $plotPlan = collect($this->plotPlanRepository->findPublished())
-            ->mapWithKeys(function ($item) {
-                return [$item->getId() =>  $item->getNameRo()];
-            });
-
         $materials = collect($this->materialRepository->findPublished())
             ->mapWithKeys(function ($item) {
                 return [$item->getId() => $item->getNameRo()];
@@ -106,7 +96,6 @@ class BuildingController extends Controller
             ->withLevels($levels)
             ->withHeritageResourceTypes($heritageResourceTypes)
             ->withArchitecturalStyles($architecturalStyles)
-            ->withPlotPlan($plotPlan)
             ->withMaterials($materials)
             ->withModificationTypes($modification_types)
             ->withResource($resource);
@@ -143,11 +132,6 @@ class BuildingController extends Controller
                 return [$item->getId() =>  $item->getNameRo()];
             });
 
-        $plotPlan = collect($this->plotPlanRepository->findPublished())
-            ->mapWithKeys(function ($item) {
-                return [$item->getId() =>  $item->getNameRo()];
-            });
-
         $materials = collect($this->materialRepository->findPublished())
             ->mapWithKeys(function ($item) {
                 return [$item->getId() =>  $item->getNameRo()];
@@ -168,7 +152,6 @@ class BuildingController extends Controller
             ->withCurrentTypes($current_types)
             ->withArchitecturalStyles($architecturalStyles)
             ->withCurrentStyles($current_styles)
-            ->withPlotPlan($plotPlan)
             ->withMaterials($materials)
             ->withModificationTypes($modification_types)
             ->withCurrentMaterials($current_materials)
@@ -180,6 +163,15 @@ class BuildingController extends Controller
     public function update($resource_id, $building_id, Request $request)
     {
         $this->resourceRepository->updateBuilding($building_id, ['data' => $request->all()]);
+
+        return redirect()
+            ->route('admin.heritage.buildings.index', $resource_id)
+            ->withFlashSuccess(trans('alerts.backend.resources.created'));
+    }
+
+    public function remove($resource_id, $building_id)
+    {
+        $this->resourceRepository->removeBuilding($building_id);
 
         return redirect()
             ->route('admin.heritage.buildings.index', $resource_id)

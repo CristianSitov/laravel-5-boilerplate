@@ -15,11 +15,9 @@ use App\Models\Heritage\Modification;
 use App\Models\Heritage\ModificationDescription;
 use App\Models\Heritage\ModificationEvent;
 use App\Models\Heritage\ModificationType;
-use App\Models\Heritage\ModificationTypeOnBuilding;
 use App\Models\Heritage\Name;
 use App\Models\Heritage\Place;
 use App\Models\Heritage\PlaceAddress;
-use App\Models\Heritage\PlotPlan;
 use App\Models\Heritage\Production;
 use App\Models\Heritage\ProductionEvent;
 use App\Models\Heritage\ProtectionType;
@@ -330,6 +328,7 @@ class ResourceRepository extends BaseRepository
         $building->setType($data['type']);
         $building->setLevels($data['levels']);
         $building->setNotes($data['notes']);
+        $building->setPlan($data['plot_plan']);
 
         foreach ($data['heritage_resource_type'] as $type) {
             $heritageResourceType = $this->em->find(HeritageResourceType::class, $type);
@@ -344,9 +343,6 @@ class ResourceRepository extends BaseRepository
             $materiality = new BuildingConsistsOfMaterial($building, $material, isset($data['description']) ? $data['description'] : '');
             $building->getBuildingConsistsOfMaterials()->add($materiality);
         }
-
-        $plot_plan = $this->em->find(PlotPlan::class, $data['plot_plan']);
-        $building->setPlotPlan($plot_plan);
 
         if (count($data['modification_type']) > 0) {
             foreach ($data['modification_type'] as $m => $modification_type) {
@@ -395,6 +391,7 @@ class ResourceRepository extends BaseRepository
         $production->getBuilding()->setType($data['type']);
         $production->getBuilding()->setLevels($data['levels']);
         $production->getBuilding()->setNotes($data['notes']);
+        $production->getBuilding()->setPlan($data['plot_plan']);
 
         // change Heritage Resource Types
         foreach ($production->getBuilding()->getHeritageResourceTypeIds() as $existingType) {
@@ -512,6 +509,58 @@ class ResourceRepository extends BaseRepository
                 $production->getBuilding()->getModifications()->add($newModification);
             }
         }
+
+        $this->em->persist($production);
+        $this->em->flush();
+    }
+
+    public function removeBuilding($building_id) {
+        $production = $this->em->find(Production::class, $building_id);
+
+        // begin with modifications
+        $modifications = $production->getBuilding()->getModifications();
+        foreach ($modifications as $modification) {
+            // remove description
+            $deleteDescription = $modification->getModificationEvent()->getModificationDescription();
+            $this->em->remove($deleteDescription, true);
+            // detach type
+            $deleteType = $modification->getModificationEvent()->getModificationType();
+            $deleteEvent = $modification->getModificationEvent();
+            $deleteType->getModificationEvents()->removeElement($deleteEvent);
+            $this->em->remove($deleteType);
+            // remove event
+            $this->em->remove($deleteEvent, true);
+            // remove modification
+            $this->em->remove($modification, true);
+        }
+
+        // detach materials
+        $materials = $production->getBuilding()->getBuildingConsistsOfMaterials();
+        foreach ($materials as $material) {
+            $materials->removeElement($material);
+            $this->em->remove($material);
+        }
+
+        // detach resource types
+        $resourceTypes = $production->getBuilding()->getHeritageResourceTypes();
+        foreach ($resourceTypes as $resourceType) {
+            $resourceTypes->removeElement($resourceType);
+        }
+
+        // detach styles
+        $architecturalStyles = $production->getBuilding()->getArchitecturalStyles();
+        foreach ($architecturalStyles as $architecturalStyle) {
+            $architecturalStyles->removeElement($architecturalStyle);
+        }
+
+        // remove building
+        $this->em->remove($production->getBuilding(), true);
+
+        // remove production event
+        $this->em->remove($production->getProductionEvent(), true);
+
+        // remove production
+        $this->em->remove($production, true);
 
         $this->em->persist($production);
         $this->em->flush();
