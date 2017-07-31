@@ -13,6 +13,32 @@ class ArchitecturalElement
 {
     use Uuids;
 
+    const MAP = [
+        'roof' => [
+            'type' => ['multiple'],
+            'cladding_material' => ['multiple'],
+            'details' => ['multiple', 'mods', 'group'],
+            'chimney_type' => ['single'],
+            'chimney_material' => ['multiple', 'group'],
+        ],
+        'facade' => [
+            'type' => ['single', 'group'],
+            'cladding_cornice_material' => ['multiple'],
+            'cornice_details' => ['multiple', 'mods', 'group'],
+            'cladding_plain_material' => ['multiple'],
+            'plain_details' => ['multiple', 'mods'],
+            'plain_window_type' => ['multiple', 'mods', 'group'],
+            'cladding_base_material' => ['multiple'],
+            'base_details' => ['multiple', 'mods'],
+            'base_window_type' => ['multiple', 'mods'],
+            'plain_storefront_type' => ['multiple', 'mods', 'group'],
+        ],
+        'access' => [
+            'door_type' => ['multiple', 'mods'],
+            'entryway_type' => ['multiple', 'mods'],
+            'portal_type' => ['multiple', 'mods', 'group'],
+        ],
+    ];
     /**
      * @var int
      *
@@ -52,18 +78,67 @@ class ArchitecturalElement
     protected $published_at;
 
     /**
-     * @var ElementType
+     * @var string
      *
-     * @OGM\Relationship(type="HasElementType", direction="OUTGOING", targetEntity="ElementType", mappedBy="architecturalElement")
+     * @OGM\Property(type="string")
      */
-    protected $element_type;
+    public $component;
 
     /**
-     * @var Component
+     * @var string
      *
-     * @OGM\Relationship(type="HasProduced", direction="INCOMING", targetEntity="Component", mappedBy="architecturalElement")
+     * @OGM\Property(type="string")
      */
-    protected $component;
+    public $set;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    public $aspect;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    public $aspect_ro;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    public $area;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    public $area_ro;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    public $value;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    public $value_ro;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    public $modified;
 
     public function __construct(Resource $resource = null)
     {
@@ -139,22 +214,6 @@ class ArchitecturalElement
     }
 
     /**
-     * @return ElementType
-     */
-    public function getElementType()
-    {
-        return $this->element_type;
-    }
-
-    /**
-     * @param ElementType $element_type
-     */
-    public function setElementType($element_type)
-    {
-        $this->element_type = $element_type;
-    }
-
-    /**
      * @return Component
      */
     public function getComponent()
@@ -168,5 +227,133 @@ class ArchitecturalElement
     public function setComponent($component)
     {
         $this->component = $component;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSet()
+    {
+        return $this->set;
+    }
+
+    /**
+     * @param string
+     */
+    public function setSet($set)
+    {
+        $this->set = $set;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAspect()
+    {
+        return $this->aspect;
+    }
+
+    /**
+     * @param string
+     */
+    public function setAspect($aspect)
+    {
+        $this->aspect = $aspect;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAspectRo()
+    {
+        return $this->aspect_ro;
+    }
+
+    /**
+     * @param string
+     */
+    public function setAspectRo($aspect_ro)
+    {
+        $this->aspect_ro = $aspect_ro;
+    }
+
+    /**
+     * @return string
+     */
+    public function getArea()
+    {
+        return $this->area;
+    }
+
+    /**
+     * @param string
+     */
+    public function setArea($area)
+    {
+        $this->area = $area;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAreaRo()
+    {
+        return $this->area_ro;
+    }
+
+    /**
+     * @param string
+     */
+    public function setAreaRo($area_ro)
+    {
+        $this->area_ro = $area_ro;
+    }
+
+    /**
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
+     * @param string
+     */
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
+
+    /**
+     * @return string
+     */
+    public function getValueRo()
+    {
+        return $this->value_ro;
+    }
+
+    /**
+     * @param string
+     */
+    public function setValueRo($value_ro)
+    {
+        $this->value_ro = $value_ro;
+    }
+
+    /**
+     * @return string
+     */
+    public function getModified()
+    {
+        return $this->modified;
+    }
+
+    /**
+     * @param string
+     */
+    public function setModified($modified)
+    {
+        $this->modified = $modified;
     }
 }

@@ -13,6 +13,12 @@ class Component
 {
     use Uuids;
 
+    const TYPES = [
+        'roof',
+        'facade',
+        'access',
+    ];
+
     /**
      * @var int
      *
@@ -52,50 +58,43 @@ class Component
     protected $published_at;
 
     /**
-     * @var ComponentType
+     * @var string
      *
-     * @OGM\Relationship(type="HasComponentType", direction="OUTGOING", targetEntity="ComponentType", mappedBy="component")
+     * @OGM\Property(type="string")
      */
-    protected $component_type;
+    protected $type;
 
     /**
-     * @var ComponentField
+     * @var int
      *
-     * @OGM\Relationship(type="ConsistsOf", direction="OUTGOING", targetEntity="ComponentField", mappedBy="component")
+     * @OGM\Property(type="int")
      */
-    protected $component_field;
-
-    /**
-     * @var Material
-     *
-     * @OGM\Relationship(type="ConsistsOf", direction="OUTGOING", targetEntity="Material", mappedBy="component")
-     */
-    protected $material;
+    protected $order;
 
     /**
      * @var ArchitecturalElement
      *
      * @OGM\Relationship(type="HasProduced", direction="OUTGOING", targetEntity="ArchitecturalElement", mappedBy="component")
      */
-    protected $architectural_element;
+    protected $architecturalElement;
 
     /**
      * @var ConditionAssessment
      *
      * @OGM\Relationship(type="Concerned", direction="OUTGOING", targetEntity="ConditionAssessment", mappedBy="component")
      */
-    protected $condition_assessment;
+    protected $conditionAssessment;
 
     /**
      * @var Building
      *
-     * @OGM\Relationship(type="HasProduced", direction="INCOMING", targetEntity="Building", mappedBy="component")
+     * @OGM\Relationship(type="IsComposedOf", direction="INCOMING", targetEntity="Building", mappedBy="component")
      */
     protected $building;
 
-    public function __construct(Resource $resource = null)
+    public function __construct($type = null)
     {
-        $this->resource = $resource;
+        $this->type = $type;
     }
 
     /**
@@ -167,67 +166,35 @@ class Component
     }
 
     /**
-     * @return ComponentType
-     */
-    public function getComponentType()
-    {
-        return $this->component_type;
-    }
-
-    /**
-     * @param ComponentType $component_type
-     */
-    public function setComponentType($component_type)
-    {
-        $this->component_type = $component_type;
-    }
-
-    /**
      * @return string
      */
-    public function getComponentField()
+    public function getType()
     {
-        return $this->component_field;
+        return $this->type;
     }
 
     /**
-     * @param string $component_field
+     * @param string
      */
-    public function setComponentField($component_field)
+    public function setType($type)
     {
-        $this->component_field = $component_field;
+        $this->type = $type;
     }
 
     /**
-     * @return Material
+     * @return int
      */
-    public function getMaterial()
+    public function getOrder()
     {
-        return $this->material;
+        return $this->order;
     }
 
     /**
-     * @param Material $material
+     * @param int
      */
-    public function setMaterial($material)
+    public function setOrder($order)
     {
-        $this->material = $material;
-    }
-
-    /**
-     * @return ArchitecturalElement
-     */
-    public function getArchitecturalElement()
-    {
-        return $this->architectural_element;
-    }
-
-    /**
-     * @param ArchitecturalElement $architectural_element
-     */
-    public function setArchitecturalElement($architectural_element)
-    {
-        $this->architectural_element = $architectural_element;
+        $this->order = $order;
     }
 
     /**
@@ -235,7 +202,7 @@ class Component
      */
     public function getConditionAssessment()
     {
-        return $this->condition_assessment;
+        return $this->conditionAssessment;
     }
 
     /**
@@ -243,7 +210,7 @@ class Component
      */
     public function setConditionAssessment($condition_assessment)
     {
-        $this->condition_assessment = $condition_assessment;
+        $this->conditionAssessment = $condition_assessment;
     }
 
     /**

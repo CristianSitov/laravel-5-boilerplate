@@ -41,12 +41,12 @@ Route::group([
             Route::resource('buildings', 'BuildingController');
             Route::get('buildings/{building}/remove', 'BuildingController@remove')->name('buildings.remove');
         });
-//        Route::group([
-//            'namespace' => 'Component',
-//            'prefix'    => 'resource/{resource}/building/{building}',
-//        ], function () {
-//            Route::resource('components', 'ComponentController');
-//        });
+        Route::group([
+            'namespace' => 'Component',
+            'prefix'    => 'resource/{resource}/building/{building}',
+        ], function () {
+            Route::resource('components', 'ComponentController');
+        });
         /*
         * Heritage Resource Classification Type Management
         */

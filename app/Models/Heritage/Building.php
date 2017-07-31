@@ -130,7 +130,8 @@ class Building
     /**
      * @var Component[]|Collection
      *
-     * @OGM\Relationship(type="HasProduced", direction="OUTGOING", targetEntity="Component", collection=true, mappedBy="building")
+     * @OGM\Relationship(type="IsComposedOf", direction="OUTGOING", collection=true, targetEntity="Component", mappedBy="building")
+     * @OGM\OrderBy(property="type", order="DESC")
      */
     protected $components;
 

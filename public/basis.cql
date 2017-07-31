@@ -62,22 +62,21 @@ USING PERIODIC COMMIT LOAD CSV WITH HEADERS FROM 'http://heritageoftimisoara.dev
 USING PERIODIC COMMIT LOAD CSV WITH HEADERS FROM 'http://heritageoftimisoara.dev/E55.ModificationType_01.csv' AS row
   MERGE (n:ModificationType {uuid: row.uuid})
     ON CREATE
-    SET n = row, n.uuid = row.uuid, n.set = row.set, n.set_ro = row.set_ro, n.name = row.name, n.name_ro = row.name_ro, n.created_at = timestamp(), n.
+    SET n = row, n.uuid = row.uuid, n.set = row.set, n.set_ro = row.set_ro, n.name = row.name, n.name_ro = row.
+      name_ro, n.created_at = timestamp(), n.
       updated_at = timestamp()
     ON MATCH
-    SET n = row, n.uuid = row.uuid, n.set = row.set, n.set_ro = row.set_ro, n.name = row.name, n.name_ro = row.name_ro, n.created_at = timestamp(), n.
+    SET n = row, n.uuid = row.uuid, n.set = row.set, n.set_ro = row.set_ro, n.name = row.name, n.name_ro = row.
+      name_ro, n.created_at = timestamp(), n.
       updated_at = timestamp();
 
-//USING PERIODIC COMMIT LOAD CSV WITH HEADERS FROM 'http://heritageoftimisoara.dev/E55.ComponentType_01.csv' AS row
-//  MERGE (n:ComponentType {uuid: row.uuid})
-//    ON CREATE
-//    SET n = row, n.uuid = row.uuid, n.name = row.name, n.name_ro = row.name_ro, n.created_at = timestamp(), n.
-//      updated_at = timestamp()
-//    ON MATCH
-//    SET n = row, n.uuid = row.uuid, n.name = row.name, n.name_ro = row.name_ro, n.created_at = timestamp(), n.
-//      updated_at = timestamp();
-//
-//LOAD CSV WITH HEADERS FROM 'https://neo4j.com/docs/developer-manual/3.2/csv/import/movies.csv' AS csvLine
-//MERGE (country:Country {name: csvLine.country})
-//CREATE (movie:Movie {id: toInt(csvLine.id), title: csvLine.title, year: toInt(csvLine.year)})
-//CREATE (movie)-[:MADE_IN]->(country);
+USING PERIODIC COMMIT LOAD CSV WITH HEADERS FROM 'http://heritageoftimisoara.dev/E18.ArchitecturalElement_01.csv' AS row
+  MERGE (n:ArchitecturalElement {uuid: row.uuid})
+    ON CREATE
+    SET n = row, n.uuid = row.uuid, n.component = row.component, n.set = row.set, n.aspect = row.aspect, n.
+      aspect_ro = row.aspect_ro, n.area = row.area, n.area_ro = row.area_ro, n.value = row.value, n.value_ro = row.value_ro,
+      n.created_at = timestamp(), n.updated_at = timestamp()
+    ON MATCH
+    SET n = row, n.uuid = row.uuid, n.component = row.component, n.set = row.set, n.aspect = row.aspect, n.
+      aspect_ro = row.aspect_ro, n.area = row.area, n.area_ro = row.area_ro, n.value = row.value, n.value_ro = row.value_ro,
+      n.created_at = timestamp(), n.updated_at = timestamp();

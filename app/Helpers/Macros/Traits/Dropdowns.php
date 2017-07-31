@@ -3,6 +3,7 @@
 namespace App\Helpers\Macros\Traits;
 
 use App\Models\Heritage\Building;
+use App\Models\Heritage\Component;
 
 /**
  * Class Dropdowns.
@@ -1333,6 +1334,18 @@ trait Dropdowns
 
         foreach ($levels as $level) {
             $list[$level] = trans('strings.backend.building.' . $level);
+        }
+
+        return $this->select($name, $list, $selected, $options);
+    }
+
+    public function selectComponentTypes($name, $selected = null, $options = [])
+    {
+        $list = [];
+        $types = Component::TYPES;
+
+        foreach ($types as $type) {
+            $list[$type] = trans('strings.backend.component.' . $type);
         }
 
         return $this->select($name, $list, $selected, $options);

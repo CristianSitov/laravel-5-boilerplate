@@ -103,7 +103,7 @@ class BuildingController extends Controller
 
     public function store($resource_id, Request $request)
     {
-        $this->resourceRepository->createBuilding($resource_id, ['data' => $request->all()]);
+        $this->buildingRepository->storeBuilding($resource_id, ['data' => $request->all()]);
 
         return redirect()
             ->route('admin.heritage.buildings.index', $resource_id)
@@ -160,9 +160,9 @@ class BuildingController extends Controller
             ->withResource($resource);
     }
 
-    public function update($resource_id, $building_id, Request $request)
+    public function update($resource_id, $production_id, Request $request)
     {
-        $this->resourceRepository->updateBuilding($building_id, ['data' => $request->all()]);
+        $this->buildingRepository->updateBuilding($production_id, ['data' => $request->all()]);
 
         return redirect()
             ->route('admin.heritage.buildings.index', $resource_id)
@@ -171,7 +171,7 @@ class BuildingController extends Controller
 
     public function remove($resource_id, $building_id)
     {
-        $this->resourceRepository->removeBuilding($building_id);
+        $this->buildingRepository->removeBuilding($building_id);
 
         return redirect()
             ->route('admin.heritage.buildings.index', $resource_id)

@@ -86,6 +86,14 @@ return [
             'unknown' => 'Unknown',
         ],
 
+        'component' => [
+            'roof' => 'Roof',
+            'facade' => 'Facade',
+            'access' => 'Access',
+            'unmodified' => 'Apparently unmodified',
+            'modified' => 'Modified afterwards',
+        ],
+
         'search' => [
             'empty'      => 'Please enter a search term.',
             'incomplete' => 'You must write your own search logic for this system.',

@@ -59,6 +59,7 @@ return [
             'components' => [
                 'all'             => 'All Components',
                 'management'      => 'Components Management',
+                'create'          => 'Create Component',
                 'edit'            => 'Edit Component',
                 'main'            => 'Components',
             ],

@@ -75,7 +75,14 @@
                                 <small><a title="{{ trans('menus.backend.heritage.buildings.delete') }}" class="btn btn-xs btn-danger" href="{{ route('admin.heritage.buildings.remove', [$resource->getId(), $production->getId()]) }}"><i class="fa fa-trash"></i></a></small>
                             </div>
                         </div>
-                        {{--<small><a title="{{ trans('menus.backend.heritage.components.all') }}" class="btn btn-xs btn-warning" href="{{ route('admin.heritage.components.index', [$resource->getId(), $production->getId()]) }}"><i class="fa fa-edit"></i></a></small>--}}
+                        <div class="row">
+                            <div class="col-lg-12">&nbsp;</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <small><a title="{{ trans('menus.backend.heritage.components.all') }}" class="btn btn-xs btn-warning" href="{{ route('admin.heritage.components.index', [$resource->getId(), $production->getId()]) }}"><i class="fa fa-list-ul"></i></a></small>
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">&nbsp;</div>
