@@ -22,10 +22,18 @@ class ArchitecturalElementRepository extends BaseRepository
         $this->model = $this->em->getRepository(ArchitecturalElement::class);
     }
 
-    public function findPublished()
+    public function findPublished($type = null)
     {
-        $criteria = new Criteria();
-        $criteria->where(new Comparison('published', Comparison::EQ, "true"));
-        return $this->model->matching($criteria);
+        if ($type) {
+            $queryResults = $this->em->createQuery('MATCH (n:ArchitecturalElement {published:"true", component:"'.$type.'"}) RETURN n');
+            $queryResults->addEntityMapping('n', ArchitecturalElement::class);
+            $result = $queryResults->getResult();
+        } else {
+            $criteria = new Criteria();
+            $criteria->where(new Comparison('published', Comparison::EQ, "true"));
+            $result = $this->model->matching($criteria);
+        }
+
+        return $result;
     }
 }

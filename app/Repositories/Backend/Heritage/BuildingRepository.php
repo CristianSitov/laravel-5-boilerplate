@@ -188,7 +188,11 @@ class BuildingRepository extends BaseRepository
 
         // change Modification Types
         foreach ($production->getBuilding()->getModifications() as $existingModification) {
-            $d = array_search($existingModification->getId(), array_keys($data['modification_type']));
+            if (isset($data['modification_type'])) {
+                $d = array_search($existingModification->getId(), array_keys($data['modification_type']));
+            } else {
+                $d = false;
+            }
 
             if ($d !== false) {
                 // modification not to be removed, lets put that aside and check if updates are needed
@@ -291,7 +295,7 @@ class BuildingRepository extends BaseRepository
         $this->em->remove($production->getBuilding(), true);
 
         // remove production event
-        $this->em->remove($production->getProductionEvent(), true);
+//        $this->em->remove($production->getProductionEvent(), true);
 
         // remove production
         $this->em->remove($production, true);

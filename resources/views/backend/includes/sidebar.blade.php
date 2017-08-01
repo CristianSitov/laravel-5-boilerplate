@@ -20,8 +20,8 @@
             {{ Form::text('q', Request::get('q'), ['class' => 'form-control', 'required' => 'required', 'placeholder' => trans('strings.backend.general.search_placeholder')]) }}
 
             <span class="input-group-btn">
-                    <button type='submit' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
-                  </span><!--input-group-btn-->
+                <button type='submit' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+            </span><!--input-group-btn-->
         </div><!--input-group-->
     {{ Form::close() }}
     <!-- /.search form -->

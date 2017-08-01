@@ -45,11 +45,11 @@ class ComponentController extends Controller
     public function index($resource_id, $building_id)
     {
         $resource = $this->resourceRepository->model->find($resource_id);
-        $building = $this->buildingRepository->getByProductionId($building_id);
+        $production = $this->productionRepository->model->find($building_id);
 
         return view('backend.heritage.component.index')
             ->withResource($resource)
-            ->withBuilding($building);
+            ->withProduction($production);
     }
 
     public function create()
@@ -70,11 +70,13 @@ class ComponentController extends Controller
         $production = $this->productionRepository->model->find($building_id);
         $building = $production->getBuilding();
         $component = $this->componentRepository->model->find($component_id);
-        $component_types = Component::TYPES;
-        $architecturalElements = collect($this->architecturalElementRepository->findPublished());
+        $component_type = $component->getType();
+        $architecturalElements = collect($this->architecturalElementRepository->findPublished($component_type));
         $architectural_elements = [];
         foreach ($architecturalElements as $architecturalElement) {
-            $architectural_elements[$architecturalElement->component][$architecturalElement->set][$architecturalElement->getId()] = $architecturalElement->value_ro;
+            if ($architecturalElement->component == $component_type) {
+                $architectural_elements[$architecturalElement->component][$architecturalElement->set][$architecturalElement->getId()] = $architecturalElement->value_ro;
+            }
         }
         $architectural_element_map = ArchitecturalElement::MAP;
 
@@ -83,14 +85,19 @@ class ComponentController extends Controller
             ->withProduction($production)
             ->withBuilding($building)
             ->withComponent($component)
-            ->withComponentTypes($component_types)
+            ->withComponentType($component_type)
             ->withArchitecturalElements($architectural_elements)
             ->withArchitecturalElementMap($architectural_element_map);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $resource_id, $building_id, $component_id)
     {
-        dd($request->all());
+        $data = $request->all();
+
+        $component = $this->componentRepository->model->find($component_id);
+        $component_type = $component->getType();
+        $architectural_element_map = ArchitecturalElement::MAP[$component_type];
+        dd($architectural_element_map, $data);
     }
 
     public function destroy($id)

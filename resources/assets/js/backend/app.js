@@ -194,6 +194,10 @@ $(function () {
     //Activate sidebar push menu
     if (o.sidebarPushMenu) {
         $.AdminLTE.pushMenu.activate(o.sidebarToggleSelector);
+        if ($(window).width() > (o.screenSizes.xs - 1)) {
+            $('body').toggleClass('sidebar-collapse');
+        }
+
     }
 
     //Activate Bootstrap tooltip
@@ -334,7 +338,7 @@ function _init() {
                 e.preventDefault();
 
                 //Enable sidebar push menu
-                if ($(window).width() > (screenSizes.sm - 1)) {
+                if ($(window).width() > (screenSizes.xs - 1)) {
                     $('body').toggleClass('sidebar-collapse');
                 }
                 //Handle sidebar push menu for small screens

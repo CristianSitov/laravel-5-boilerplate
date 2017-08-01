@@ -243,11 +243,11 @@ class Building
     }
 
     /**
-     * @param string $levels
+     * @param string $type
      */
-    public function setType($levels)
+    public function setType($type)
     {
-        $this->levels = $levels;
+        $this->type = $type;
     }
 
     /**

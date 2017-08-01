@@ -31,10 +31,8 @@
                 <div class="form-group">
                     {{ Form::label('type', trans('validation.attributes.backend.heritage.buildings.type'), ['class' => 'col-lg-2 control-label']) }}
 
-                    <div class="col-lg-8">
-                        <div class="input-group">
-                            {{ Form::selectBuildingType('type', '', ['class' => 'col-lg-4 form-control']) }}
-                        </div>
+                    <div class="col-lg-8 col-xs-8">
+                        {{ Form::selectBuildingType('type', '', ['class' => 'col-lg-4 form-control']) }}
                     </div>
                 </div>
                 <div class="form-group">

@@ -27,37 +27,38 @@
             </div><!-- /.box-header -->
 
             <div class="box-body">
-                <div class="col-lg-10 col-lg-offset-2">
+                <div class="col-lg-12">
                     <h3>{{ trans('labels.backend.heritage.resources.components') }}</h3>
                 </div>
 @php $currGroup = false; @endphp
-@foreach($component_types as $component_type)
                 <div class="set-title row">
-                    <div class="col-lg-2 text-right">
+                    <div class="col-lg-2">
                         <h4 class="text-primary"><u>{{ trans('strings.backend.component.' . $component_type) }}</u></h4>
                     </div><div class="col-lg-10"></div>
                 </div>
     @foreach($architectural_element_map[$component_type] as $set => $options)
                 <div class="set-body row">
-                    <div class="form-group">
-                        {{ Form::label($component_type . '_' . $set, trans('labels.backend.heritage.component.' . $component_type . '.' . $set), ['class' => 'col-lg-2 control-label']) }}
+                    <div class="col-lg-12 col-xs-12">
+                        <div class="form-group">
+                            {{ Form::label($component_type . '_' . $set, trans('labels.backend.heritage.component.' . $component_type . '.' . $set), ['class' => 'col-lg-2 control-label']) }}
 
-                        <div class="col-lg-6">
+                            <div class="col-lg-6">
         @if(in_array('single', $options))
             @foreach($architectural_elements[$component_type][$set] as $key => $value)
-                            {{ Form::radio($set, $key, null, []) }} {{ $value }}<br />
+                                {{ Form::radio($set, $key, null, []) }} {{ $value }}<br />
             @endforeach
         @elseif(in_array('multiple', $options))
-                            {{ Form::select($set.'[]', $architectural_elements[$component_type][$set] , '', ['multiple', 'class' => 'col-lg-2 form-control basic-select2']) }}
+                                {{ Form::select($set.'[]', $architectural_elements[$component_type][$set] , '', ['multiple', 'class' => 'col-lg-2 form-control basic-select2']) }}
         @else
-                            {{ Form::select($set, $architectural_elements[$component_type][$set] , '', ['class' => 'col-lg-2 form-control basic-select2']) }}
+                                {{ Form::select($set, $architectural_elements[$component_type][$set] , '', ['class' => 'col-lg-2 form-control basic-select2']) }}
         @endif
-                        </div>
-                        <div class="col-lg-4">
+                            </div>
+                            <div class="col-lg-4">
         @if(in_array('mods', $options))
-                            {{ Form::radio($set.'_mods', 'unmodified', null, []) }} {{ trans('strings.backend.component.unmodified') }}<br />
-                            {{ Form::radio($set.'_mods', 'modified', null, []) }} {{ trans('strings.backend.component.modified') }}<br />
+                                {{ Form::radio($set.'_mods', 'unmodified', null, []) }} {{ trans('strings.backend.component.unmodified') }}<br />
+                                {{ Form::radio($set.'_mods', 'modified', null, []) }} {{ trans('strings.backend.component.modified') }}<br />
         @endif
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -68,7 +69,6 @@
                 </div>
         @endif
     @endforeach
-@endforeach
             </div><!-- /.box-body -->
         </div><!--box-->
 

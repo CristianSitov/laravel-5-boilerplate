@@ -7,7 +7,6 @@ use App\Models\Heritage\Component;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\Common\Collections\Expr\Comparison;
 use GraphAware\Neo4j\OGM\EntityManager;
-use Webpatser\Uuid\Uuid;
 
 /**
  * Class ComponentRepository.
