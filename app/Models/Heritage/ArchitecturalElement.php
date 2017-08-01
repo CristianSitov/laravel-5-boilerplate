@@ -82,67 +82,80 @@ class ArchitecturalElement
      *
      * @OGM\Property(type="string")
      */
-    public $component;
+    protected $set;
 
     /**
      * @var string
      *
      * @OGM\Property(type="string")
      */
-    public $set;
+    protected $aspect;
 
     /**
      * @var string
      *
      * @OGM\Property(type="string")
      */
-    public $aspect;
+    protected $aspect_ro;
 
     /**
      * @var string
      *
      * @OGM\Property(type="string")
      */
-    public $aspect_ro;
+    protected $area;
 
     /**
      * @var string
      *
      * @OGM\Property(type="string")
      */
-    public $area;
+    protected $area_ro;
 
     /**
      * @var string
      *
      * @OGM\Property(type="string")
      */
-    public $area_ro;
+    protected $value;
 
     /**
      * @var string
      *
      * @OGM\Property(type="string")
      */
-    public $value;
+    protected $value_ro;
 
     /**
      * @var string
      *
      * @OGM\Property(type="string")
      */
-    public $value_ro;
+    protected $type;
 
     /**
      * @var string
      *
      * @OGM\Property(type="string")
      */
-    public $modified;
+    protected $modified;
 
-    public function __construct(Resource $resource = null)
+    /**
+     * @var Component
+     *
+     * @OGM\Relationship(type="HasProduced", direction="INCOMING", targetEntity="Component", mappedBy="architecturalElement")
+     */
+    protected $component;
+
+    public function __construct($params = null)
     {
-        $this->resource = $resource;
+        if ($params) {
+            foreach ($params as $k => $param) {
+                $this->{$k} = $param;
+            }
+            $this->created_at = new \DateTime();
+            $this->updated_at = new \DateTime();
+        }
     }
 
     /**
@@ -227,6 +240,22 @@ class ArchitecturalElement
     public function setComponent($component)
     {
         $this->component = $component;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
     }
 
     /**
@@ -355,5 +384,19 @@ class ArchitecturalElement
     public function setModified($modified)
     {
         $this->modified = $modified;
+    }
+
+    public function toArray() {
+        return [
+            'uuid' => $this->uuid,
+            'type' => $this->type,
+            'set' => $this->set,
+            'aspect' => $this->aspect,
+            'aspect_ro' => $this->aspect_ro,
+            'area' => $this->area,
+            'area_ro' => $this->area_ro,
+            'value' => $this->value,
+            'value_ro' => $this->value_ro,
+        ];
     }
 }

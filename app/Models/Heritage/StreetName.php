@@ -116,9 +116,16 @@ class StreetName
     /**
      * @var PlaceAddress
      *
-     * @OGM\Relationship(type="IsIdentifiedBy", direction="INCOMING", targetEntity="PlaceAddress", mappedBy="placeAddress")
+     * @OGM\Relationship(type="IsIdentifiedBy", direction="OUTGOING", targetEntity="PlaceAddress", mappedBy="streetName")
      */
     protected $placeAddress;
+
+    /**
+     * @var PlaceAddress
+     *
+     * @OGM\Relationship(type="IsIncorporatedIn", direction="INCOMING", targetEntity="AdministrativeSubdivision", mappedBy="streetName")
+     */
+    protected $administrativeSubdivision;
 
     public function __construct(Resource $resource = null)
     {

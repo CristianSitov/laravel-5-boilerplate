@@ -155,7 +155,6 @@ class ResourceRepository extends BaseRepository
         $district = $this->em->find(AdministrativeSubdivision::class, $data['district']);
         $streetName = $this->em->find(StreetName::class, $data['street']);
         $place = new Place();
-        $place->setAdministrativeSubdivision($district);
         $placeAddress = new PlaceAddress();
         $placeAddress->setStreetName($streetName);
         $placeAddress->setNumber($data['number']);

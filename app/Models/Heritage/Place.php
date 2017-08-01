@@ -44,13 +44,6 @@ class Place
     protected $updated_at;
 
     /**
-     * @var AdministrativeSubdivision
-     *
-     * @OGM\Relationship(type="IsIncorporatedIn", direction="OUTGOING", targetEntity="AdministrativeSubdivision", mappedBy="place")
-     */
-    protected $administrativeSubdivision;
-
-    /**
      * @var PlaceAddress
      *
      * @OGM\Relationship(type="IsIdentifiedBy", direction="OUTGOING", targetEntity="PlaceAddress", mappedBy="place")
@@ -120,22 +113,6 @@ class Place
     public function setUpdatedAt($updated_at)
     {
         $this->updated_at = $updated_at;
-    }
-
-    /**
-     * @return AdministrativeSubdivision
-     */
-    public function getAdministrativeSubdivision()
-    {
-        return $this->administrativeSubdivision;
-    }
-
-    /**
-     * @param AdministrativeSubdivision $administrativeSubdivision
-     */
-    public function setAdministrativeSubdivision($administrativeSubdivision)
-    {
-        $this->administrativeSubdivision = $administrativeSubdivision;
     }
 
     /**

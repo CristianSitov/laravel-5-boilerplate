@@ -25,11 +25,25 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-xs-3">
+                <div class="col-lg-2 col-xs-3">
+                {{--@if(count($component->getArchitecturalElements())) > 0)--}}
                     <small><a title="{{ trans('menus.backend.heritage.components.edit') }}" class="btn btn-xs btn-warning" href="{{ route('admin.heritage.components.edit', [$resource->getId(), $production->getId(), $component->getId()]) }}"><i class="fa fa-edit"></i> Edit Component</a></small>
+                {{--@else--}}
+                {{--@endif--}}
                 </div>
-                <div class="col-lg-9 col-xs-9">
-
+                <div class="col-lg-10 col-xs-9">
+                    <table class="table">
+            @if(count($component->getArchitecturalElements()) > 0)
+                @foreach($component->getArchitecturalElements() as $element)
+                        <tr>
+                            <td>{{ $element->getAreaRo() }}</td>
+                            <td>{{ $element->getAspectRo() }}</td>
+                            <td>{{ $element->getValueRo() }}</td>
+                            <td>{{ $element->getModified() }}</td>
+                        </tr>
+                @endforeach
+            @endif
+                    </table>
                 </div>
             </div>
         @endforeach

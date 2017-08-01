@@ -7,6 +7,19 @@
   margin: 0 0 12px 0;
 }
 
+.select2-search-choice{
+  width:100%
+}
+
+.select2-container-multi .select2-choices {
+  overflow: inherit;
+}
+
+.select2-container-multi .select2-choices .select2-search-choice {
+  top: 30px;
+  width: 270px;
+}
+
 // Margin/Padding Helpers
 $margin-padding: 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50;
 @each $mp in $margin-padding {

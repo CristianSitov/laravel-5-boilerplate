@@ -4,6 +4,7 @@ namespace App\Models\Heritage;
 
 use App\Models\Heritage\Traits\Columns\Uuids;
 use GraphAware\Neo4j\OGM\Annotations as OGM;
+use GraphAware\Neo4j\OGM\Common\Collection;
 
 /**
  *
@@ -72,11 +73,11 @@ class Component
     protected $order;
 
     /**
-     * @var ArchitecturalElement
+     * @var ArchitecturalElement[]|Collection
      *
-     * @OGM\Relationship(type="HasProduced", direction="OUTGOING", targetEntity="ArchitecturalElement", mappedBy="component")
+     * @OGM\Relationship(type="HasProduced", direction="OUTGOING", targetEntity="ArchitecturalElement", collection=true, mappedBy="component")
      */
-    protected $architecturalElement;
+    protected $architecturalElements;
 
     /**
      * @var ConditionAssessment
@@ -211,6 +212,28 @@ class Component
     public function setConditionAssessment($condition_assessment)
     {
         $this->conditionAssessment = $condition_assessment;
+    }
+
+    /**
+     * @return ArchitecturalElement[]|Collection
+     */
+    public function getArchitecturalElements()
+    {
+        return $this->architecturalElements;
+    }
+
+    /**
+     * @return ArchitecturalElement[]|null
+     */
+    public function getArchitecturalElementByUuid($uuid)
+    {
+        foreach ($this->getArchitecturalElements() as $architecturalElement) {
+            if ($architecturalElement->getUuid() === $uuid) {
+                return $architecturalElement;
+            }
+        }
+
+        return null;
     }
 
     /**

@@ -1,4 +1,4 @@
-uuid,component,set,aspect,aspect_ro,area,area_ro,value,value_ro,published
+uuid,type,set,aspect,aspect_ro,area,area_ro,value,value_ro,published
 befafa6d-ba54-42e3-ad23-383dd6e8e50c,roof,chimney_type,Chimney Type,Tip coș de fum,,,Interior,Interior,true
 f897ff39-9545-434f-9aa9-8b886fefbac1,roof,chimney_type,Chimney Type,Tip coș de fum,,,Exterior,Exterior,true
 f8dfff19-c46c-4efb-b5bc-1630d6e7cb8d,roof,chimney_material,Chimney,Coș de fum,,,Brick,Cărămidă,true

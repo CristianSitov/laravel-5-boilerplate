@@ -71,14 +71,21 @@ class ComponentController extends Controller
         $building = $production->getBuilding();
         $component = $this->componentRepository->model->find($component_id);
         $component_type = $component->getType();
+
         $architecturalElements = collect($this->architecturalElementRepository->findPublished($component_type));
         $architectural_elements = [];
         foreach ($architecturalElements as $architecturalElement) {
-            if ($architecturalElement->component == $component_type) {
-                $architectural_elements[$architecturalElement->component][$architecturalElement->set][$architecturalElement->getId()] = $architecturalElement->value_ro;
+            if ($architecturalElement->getType() == $component_type) {
+                $architectural_elements[$architecturalElement->getType()][$architecturalElement->getSet()][$architecturalElement->getUuid()] = $architecturalElement->getValueRo();
             }
         }
         $architectural_element_map = ArchitecturalElement::MAP;
+
+        $existingArchitecturalElements = $component->getArchitecturalElements();
+        $existing_architectural_elements = [];
+        foreach ($existingArchitecturalElements as $existingArchitecturalElement) {
+            $existing_architectural_elements[$existingArchitecturalElement->getType()][$existingArchitecturalElement->getSet()][] = $existingArchitecturalElement->getUuid();
+        }
 
         return view('backend.heritage.component.edit')
             ->withResource($resource)
@@ -87,7 +94,8 @@ class ComponentController extends Controller
             ->withComponent($component)
             ->withComponentType($component_type)
             ->withArchitecturalElements($architectural_elements)
-            ->withArchitecturalElementMap($architectural_element_map);
+            ->withArchitecturalElementMap($architectural_element_map)
+            ->withExistingArchitecturalElements($existing_architectural_elements);
     }
 
     public function update(Request $request, $resource_id, $building_id, $component_id)
@@ -95,9 +103,12 @@ class ComponentController extends Controller
         $data = $request->all();
 
         $component = $this->componentRepository->model->find($component_id);
-        $component_type = $component->getType();
-        $architectural_element_map = ArchitecturalElement::MAP[$component_type];
-        dd($architectural_element_map, $data);
+
+        $this->architecturalElementRepository->updateElement($component, $data);
+
+        return redirect()
+            ->route('admin.heritage.components.index', [$resource_id, $building_id])
+            ->withFlashSuccess(trans('alerts.backend.resources.created'));
     }
 
     public function destroy($id)

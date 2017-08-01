@@ -3,6 +3,7 @@
 namespace App\Models\Heritage;
 
 use App\Models\Heritage\Traits\Columns\Uuids;
+use Arcanedev\Support\Collection;
 use GraphAware\Neo4j\OGM\Annotations as OGM;
 
 /**
@@ -51,15 +52,16 @@ class AdministrativeSubdivision
     protected $updated_at;
 
     /**
-     * @var Place
+     * @var StreetName
      *
-     * @OGM\Relationship(type="IsIncorporatedIn", direction="INCOMING", targetEntity="Place", mappedBy="place")
+     * @OGM\Relationship(type="IsIncorporatedIn", direction="OUTGOING", collection=true, targetEntity="StreetName", mappedBy="administrativeSubdivision")
      */
-    protected $place;
+    protected $streetNames;
 
-    public function __construct(Resource $resource = null)
+    public function __construct($name)
     {
-        $this->resource = $resource;
+        $this->name = $name;
+        $this->streetNames = new Collection();
     }
 
     /**
@@ -132,18 +134,10 @@ class AdministrativeSubdivision
     }
 
     /**
-     * @return Place
+     * @return StreetName
      */
-    public function getPlace()
+    public function getStreetNames()
     {
-        return $this->place;
-    }
-
-    /**
-     * @param Place $place
-     */
-    public function setPlace($place)
-    {
-        $this->place = $place;
+        return $this->streetNames;
     }
 }
