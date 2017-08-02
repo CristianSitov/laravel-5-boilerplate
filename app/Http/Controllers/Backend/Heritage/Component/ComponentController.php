@@ -81,7 +81,7 @@ class ComponentController extends Controller
         }
         $architectural_element_map = ArchitecturalElement::MAP;
 
-        $existingArchitecturalElements = $component->getArchitecturalElements();
+        $existingArchitecturalElements = $component->getArchitecturalElementsByType($component_type);
         $existing_architectural_elements = [];
         foreach ($existingArchitecturalElements as $existingArchitecturalElement) {
             $existing_architectural_elements[$existingArchitecturalElement->getType()][$existingArchitecturalElement->getSet()][] = $existingArchitecturalElement->getUuid();
@@ -108,10 +108,21 @@ class ComponentController extends Controller
 
         return redirect()
             ->route('admin.heritage.components.index', [$resource_id, $building_id])
-            ->withFlashSuccess(trans('alerts.backend.resources.created'));
+            ->withFlashSuccess(trans('alerts.backend.com'));
     }
 
     public function destroy($id)
     {
+    }
+
+    public function destroyElement($resource_id, $building_id, $component_id, $uuid)
+    {
+        $component = $this->componentRepository->model->find($component_id);
+
+        $this->architecturalElementRepository->removeByUuid($component, $uuid);
+
+        return redirect()
+            ->route('admin.heritage.components.index', [$resource_id, $building_id])
+            ->withFlashSuccess(trans('alerts.backend.elements.deleted'));
     }
 }

@@ -225,6 +225,21 @@ class Component
     /**
      * @return ArchitecturalElement[]|null
      */
+    public function getArchitecturalElementsByType($type)
+    {
+        $architecturalElements = [];
+        foreach ($this->getArchitecturalElements() as $architecturalElement) {
+            if ($architecturalElement->getType() === $type) {
+                $architecturalElements[] = $architecturalElement;
+            }
+        }
+
+        return $architecturalElements;
+    }
+
+    /**
+     * @return ArchitecturalElement[]|null
+     */
     public function getArchitecturalElementByUuid($uuid)
     {
         foreach ($this->getArchitecturalElements() as $architecturalElement) {

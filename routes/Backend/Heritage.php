@@ -46,6 +46,7 @@ Route::group([
             'prefix'    => 'resource/{resource}/building/{building}',
         ], function () {
             Route::resource('components', 'ComponentController');
+            Route::get('components/{component}/element/{element}/delete', 'ComponentController@destroyElement')->name('components.element.remove');
         });
         /*
         * Heritage Resource Classification Type Management

@@ -64,6 +64,10 @@ return [
                 'main'            => 'Components',
             ],
 
+            'elements' => [
+                'remove'          => 'Remove element',
+            ],
+
             'resource_type_classification' => [
                 'management'      => 'Type Management',
             ]

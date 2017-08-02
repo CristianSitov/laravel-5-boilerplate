@@ -48,9 +48,12 @@
                                 {{ Form::radio($set, $key, null, []) }} {{ $value }}<br />
             @endforeach
         @elseif(in_array('multiple', $options))
-                                {{ Form::select($set.'[]', $architectural_elements[$component_type][$set], isset($existing_architectural_elements[$component_type]) ? $existing_architectural_elements[$component_type][$set] : [], ['multiple', 'class' => 'col-lg-2 form-control basic-select2']) }}
+            @php
+                $value = (array_key_exists($component_type, $existing_architectural_elements)) ? $existing_architectural_elements[$component_type][$set] : [];
+            @endphp
+                                {{ Form::select($set.'[]', $architectural_elements[$component_type][$set], $value, ['multiple', 'class' => 'col-lg-2 form-control basic-select2']) }}
         @else
-                                {{ Form::select($set, $architectural_elements[$component_type][$set], isset($existing_architectural_elements[$component_type]) ? $existing_architectural_elements[$component_type][$set] : [], ['class' => 'col-lg-2 form-control basic-select2']) }}
+                                {{ Form::select($set, $architectural_elements[$component_type][$set], $value, ['class' => 'col-lg-2 form-control basic-select2']) }}
         @endif
                             </div>
                             <div class="col-lg-4">

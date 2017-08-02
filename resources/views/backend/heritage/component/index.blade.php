@@ -36,10 +36,12 @@
             @if(count($component->getArchitecturalElements()) > 0)
                 @foreach($component->getArchitecturalElements() as $element)
                         <tr>
+                            <td><small>{{ $element->getId() }}</small></td>
                             <td>{{ $element->getAreaRo() }}</td>
                             <td>{{ $element->getAspectRo() }}</td>
                             <td>{{ $element->getValueRo() }}</td>
                             <td>{{ $element->getModified() }}</td>
+                            <td><small><a title="{{ trans('menus.backend.heritage.elements.remove') }}" class="btn btn-xs btn-danger" href="{{ route('admin.heritage.components.element.remove', [$resource->getId(), $production->getId(), $component->getId(), $element->getUuid()]) }}"><i class="fa fa-trash"></i> Remove Element</a></small></td>
                         </tr>
                 @endforeach
             @endif
