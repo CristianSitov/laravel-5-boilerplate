@@ -44,7 +44,13 @@
                             <div class="col-lg-6">
         @if(in_array('single', $options))
             @foreach($architectural_elements[$component_type][$set] as $key => $value)
-                                {{ Form::radio($set, $key, null, []) }} {{ $value }}<br />
+                @php
+                    $checked = [];
+                    if(isset($existing_architectural_elements[$component_type][$set])) {
+                        $checked = ($existing_architectural_elements[$component_type][$set][0] == $key ? ['checked'] : []);
+                    }
+                @endphp
+                                {{ Form::radio($set, $key, null, array_merge($checked, [])) }} {{ $value }}<br />
             @endforeach
         @elseif(in_array('multiple', $options))
             @php

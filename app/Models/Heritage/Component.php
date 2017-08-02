@@ -241,6 +241,20 @@ class Component
     /**
      * @return ArchitecturalElement[]|null
      */
+    public function getArchitecturalElementBySet($set)
+    {
+        foreach ($this->getArchitecturalElements() as $architecturalElement) {
+            if ($architecturalElement->getSet() === $set) {
+                return $architecturalElement;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * @return ArchitecturalElement[]|null
+     */
     public function getArchitecturalElementByUuid($uuid)
     {
         foreach ($this->getArchitecturalElements() as $architecturalElement) {

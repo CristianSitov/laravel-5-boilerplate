@@ -61,7 +61,19 @@ class ArchitecturalElementRepository extends BaseRepository
                     }
                 }
             } elseif (in_array('single', $architectural_element_map[$set])) {
-
+                if (isset($data[$set])) {
+                    $stencilElement = $this->findStencilsByUuid($data[$set]);
+                    $existingElement = $component->getArchitecturalElementBySet($set);
+                    if (count($existingElement) > 0) {
+                        // delete
+                        $this->em->remove($existingElement, true);
+                    }
+                    // create it
+                    $newElement = new ArchitecturalElement($stencilElement[0]['element']->values());
+                    $component->getArchitecturalElements()->add($newElement);
+                    // unset
+                    unset($existingElementsArray[$newElement->getUuid()]);
+                }
             }
         }
 
