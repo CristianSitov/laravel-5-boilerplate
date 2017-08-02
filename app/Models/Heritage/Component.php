@@ -76,6 +76,7 @@ class Component
      * @var ArchitecturalElement[]|Collection
      *
      * @OGM\Relationship(type="HasProduced", direction="OUTGOING", targetEntity="ArchitecturalElement", collection=true, mappedBy="component")
+     * @OGM\OrderBy(property="order", order="ASC")
      */
     protected $architecturalElements;
 

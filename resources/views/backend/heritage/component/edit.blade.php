@@ -30,7 +30,6 @@
                 <div class="col-lg-12">
                     <h3>{{ trans('labels.backend.heritage.resources.components') }}</h3>
                 </div>
-@php $currGroup = false; @endphp
                 <div class="set-title row">
                     <div class="col-lg-2">
                         <h4 class="text-primary"><u>{{ trans('strings.backend.component.' . $component_type) }}</u></h4>

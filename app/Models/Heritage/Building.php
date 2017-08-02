@@ -131,7 +131,7 @@ class Building
      * @var Component[]|Collection
      *
      * @OGM\Relationship(type="IsComposedOf", direction="OUTGOING", collection=true, targetEntity="Component", mappedBy="building")
-     * @OGM\OrderBy(property="type", order="DESC")
+     * @OGM\OrderBy(property="order", order="ASC")
      */
     protected $components;
 
@@ -344,6 +344,22 @@ class Building
     public function getComponents()
     {
         return $this->components;
+    }
+
+    /**
+     * @return Component[]|Collection
+     */
+    public function getComponentsByType($type)
+    {
+        $components = [];
+
+        foreach ($this->getComponents() as $component) {
+            if ($component->getType() === $type) {
+                $components[] = $component;
+            }
+        }
+
+        return $components;
     }
 
     /**

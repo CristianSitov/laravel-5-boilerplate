@@ -54,6 +54,13 @@ class ArchitecturalElement
     protected $uuid;
 
     /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $order;
+
+    /**
      * @var \DateTime
      *
      * @OGM\Property()
@@ -164,6 +171,21 @@ class ArchitecturalElement
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }
+    /**
+     * @param string $order
+     */
+    public function setOrder($order)
+    {
+        $this->order = $order;
     }
 
     /**
@@ -389,6 +411,7 @@ class ArchitecturalElement
     public function toArray() {
         return [
             'uuid' => $this->uuid,
+            'order' => $this->order,
             'type' => $this->type,
             'set' => $this->set,
             'aspect' => $this->aspect,

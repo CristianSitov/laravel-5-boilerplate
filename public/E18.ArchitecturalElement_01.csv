@@ -1,407 +1,407 @@
-uuid,type,set,aspect,aspect_ro,area,area_ro,value,value_ro,published
-befafa6d-ba54-42e3-ad23-383dd6e8e50c,roof,chimney_type,Chimney Type,Tip coș de fum,,,Interior,Interior,true
-f897ff39-9545-434f-9aa9-8b886fefbac1,roof,chimney_type,Chimney Type,Tip coș de fum,,,Exterior,Exterior,true
-f8dfff19-c46c-4efb-b5bc-1630d6e7cb8d,roof,chimney_material,Chimney,Coș de fum,,,Brick,Cărămidă,true
-d2f702f4-8b7f-42a7-9398-beda66e50a75,roof,chimney_material,Chimney,Coș de fum,,,Concrete,Beton,true
-411323ef-2a68-408c-8510-35fa8107e0ec,roof,chimney_material,Chimney,Coș de fum,,,Concrete block,,false
-fa2fcc4d-2dac-470c-8f22-343cc7830be8,roof,chimney_material,Chimney,Coș de fum,,,Exterior,Exterior,true
-d4cd5689-a6cf-439e-b353-d568389d558b,roof,chimney_material,Chimney,Coș de fum,,,Interior,Interior,true
-472070d2-eb37-4db3-ad6d-7c694550095f,roof,chimney_material,Chimney,Coș de fum,,,Pipe,Țeavă,true
-f3ce27d7-ba20-42b2-a1c0-30200c11684f,roof,chimney_material,Chimney,Coș de fum,,,Stone,Piatră,true
-5a44c527-47a0-49d5-af03-a798a495285c,roof,chimney_material,Chimney,Coș de fum,,,Stucco,Tencuială de var,true
-c290c6d5-f6bc-4285-8cb3-7d425eb45207,roof,chimney_material,Chimney,Coș de fum,,,Unknown,Altele,true
-6cd9aa32-488f-41b6-b515-6e926e4f0a8c,roof,chimney_material,Chimney,Coș de fum,,,Wood,Lemn,true
-53baecdc-c468-40bd-bcac-d8004adcc76f,roof,type,Type,Formă,,,A-frame,În două ape,true
-9c8c15b2-c820-476c-bb09-64cd19f88d21,roof,type,Type,Formă,,,Bargeboards,În două ape cu atic,true
-fee9adb9-6efa-47a1-8e73-30cc5a21fa9a,roof,type,Type,Formă,,,Barrel vaulted,Acoperire în boltire,true
-ba99f871-277f-4f3f-aece-e2edc3a6a397,roof,type,Type,Formă,,,Brackets,,false
-e6a20a21-3a87-4d52-988d-b40386be1513,roof,type,Type,Formă,,,Butterfly,,false
-948b7ee0-22ac-4f0d-9475-4aa126c0bc7d,roof,type,Type,Formă,,,Clay tile coping,,false
-092b1f47-67cf-453d-86fe-6b1a2b728e26,roof,type,Type,Formă,,,"Clipped Gable, side",,false
-c107ec01-92ac-4266-9534-1d62a967bfef,roof,type,Type,Formă,,,Shed,Cu o apă și atic,true
-db4a19b8-b37f-4a77-b833-ddfe6e6a171d,roof,type,Type,Formă,,,Combination,Cu formă specială,true
-3a2c85b9-87a8-432f-87d6-d1d57dbb2647,roof,type,Type,Formă,,,Gambrel,Cu pantă frântă,true
-33713c4c-cdc8-4dee-a53d-43008c83c8e3,roof,type,Type,Formă,,,Hipped,În mai multe ape,true
-7295052d-034d-4e57-bc8a-83553b1b109a,roof,type,Type,Formă,,,"Hipped, pyramidal",În patru ape,true
-ad32bc78-a2b1-4429-9e00-c36b6233f84c,roof,type,Type,Formă,,,Jerkinhead,Cu formă complexă,true
-13d0869a-ac52-449c-b687-8bee769d26e7,roof,type,Type,Formă,,,Mansard,Mansardă,true
-f0095d9b-4440-4e39-870b-e5dd7b5509c4,roof,cladding_material,Cladding,Finisaj acoperiș,,,,Învelitoare ceramică,true
-69eb05fc-0fe2-4c26-863a-4451b529e09f,roof,cladding_material,Cladding,Finisaj acoperiș,,,,Învelitoare metalică,true
-4d828f45-1b01-418c-9723-a0d04afbe787,roof,cladding_material,Cladding,Finisaj acoperiș,,,,Învelitoare din azbociment (eternit),true
-fb8fc59b-dfd0-44c2-a2b3-af3acc8782f4,roof,cladding_material,Cladding,Finisaj acoperiș,,,,Învelitoare din carton bituminat,true
-45bd0837-6022-47bc-80a0-62b008d29a74,roof,cladding_material,Cladding,Finisaj acoperiș,,,,Învelitoare din ardezie,true
-b03deda7-dbb8-41fb-9930-0b3ee4f9b68a,roof,details,Details,Detalii,,,Cornice,Cornișă,true
-9f5c9d84-35c1-4de5-be0d-b44ec9d55fe3,roof,details,Details,Detalii,,,Cupola,Cupolă,true
-8af68c3f-40ce-49c2-8d8a-4af2a99b927d,roof,details,Details,Detalii,,,Dentils,Denticule,true
-7f5d8f91-9dc8-41cb-aff4-0b00d372135f,roof,details,Details,Detalii,,,Dormer,Lucarnă,true
-89a60f4b-4e3e-457e-9574-130ebec9a786,roof,details,Details,Detalii,,,Dovecote,Porumbar,true
-c3fb3fac-0c68-44da-b3e5-5d31f5201f04,roof,details,Details,Detalii,,,"Eaves, boxed",Streașină,true
-a47bb248-133e-49db-863e-40ec0de9f896,roof,details,Details,Detalii,,,"Eaves, flared",,false
-53a9fd43-8d9c-4ef8-aa86-1211fa6e3984,roof,details,Details,Detalii,,,"Eaves, open",,false
-606e4e07-bd77-4781-a564-119538d73f14,roof,details,Details,Detalii,,,"Eaves, rolled",,false
-94a909ea-4320-4848-a230-b80d102cafb1,roof,details,Details,Detalii,,,"Eaves, wide",,false
-7a51dfa9-f298-43d0-96a2-15d9b079bcf2,roof,details,Details,Detalii,,,Exposed purlins,,false
-2922f1f8-b0f9-4e4f-a305-ddbfc9f873ee,roof,details,Details,Detalii,,,Exposed rafter tails,,false
-18e1eeda-55e4-4c25-a103-3636244ec71f,roof,details,Details,Detalii,,,Exposed rafters,,false
-3d2b4a04-520a-4326-b2fc-8c3e8fd476c0,roof,details,Details,Detalii,,,Exposed Roof beams,,false
-5bd5e3f0-35c0-4bd3-95ee-e557c9fa27f6,roof,details,Details,Detalii,,,Finial,Finial / fleuron de Acoperiș,true
-90ded4f1-c9a1-4516-a4f1-73cfb4af3a64,roof,details,Details,Detalii,,,Flat,În terasă,true
-23ef3404-aa47-433f-913a-77436ede2fb5,roof,details,Details,Detalii,,,Folded Plate,,false
-006900dd-760a-4d1c-87b9-a323c2fab276,roof,details,Details,Detalii,,,"Gable, crossed",Frontispiciu,true
-340a8038-15d9-46c0-943c-9281f19e9833,roof,details,Details,Detalii,,,"Gable, front",,false
-a619d425-9b1b-4c21-952d-fe914336640f,roof,details,Details,Detalii,,,"Gable, side",,false
-a07381d3-8db1-4edd-82c2-b342a8579648,roof,details,Details,Detalii,,,Monitor,,false
-28c1f909-39c9-419a-90bb-6cafcba9c6d5,roof,details,Details,Detalii,,,Other,Altele,true
-13acde0a-b071-4c60-8717-2cffc75101ce,roof,details,Details,Detalii,,,Parapet,Atic,true
-57b7455a-23d5-4a8f-bce2-746102c089ee,roof,details,Details,Detalii,,,"Parapet, curved",,false
-d8c527aa-75f5-4c93-9de6-c0b4de63c710,roof,details,Details,Detalii,,,"Parapet, flat",,false
-907bb710-fa3e-49c7-9a95-0c467d08bd61,roof,details,Details,Detalii,,,"Parapet, stepped",,false
-7f2df321-1b2e-4dcf-bf80-c7811a405f89,roof,details,Details,Detalii,,,Pent,,false
-99615422-4a03-4e70-a55e-2b08c5e29b98,roof,details,Details,Detalii,,,Saddle,,false
-1ee1bea2-5c88-4b0a-90aa-3b15099924dd,roof,details,Details,Detalii,,,Sawtooth,,false
-ce5611f8-4be3-4678-b3c4-ef3285784eca,roof,details,Details,Detalii,,,Scalloped bargeboards,,false
-8781f92a-507d-4fec-8faf-49ba40b198fe,roof,details,Details,Detalii,,,Skirt,,false
-15f3ed2e-6cf4-4768-995a-5bbe114aac0d,roof,details,Details,Detalii,,,Skylight,Luminator zenital,true
-d3616f69-7822-45f8-a173-7c9a06ece61e,roof,details,Details,Detalii,,,Tower,Turn,true
-db88f3d4-1730-495f-82d5-32836ac0c2a0,roof,details,Details,Detalii,,,Turret,Turelă,true
-ae971b55-beb9-4cf5-bb7d-8f27215cad49,roof,details,Details,Detalii,,,Weathervane,Giruetă,true
-e3331824-d203-4899-8e15-02a70abd1f5f,roof,details,Details,Detalii,,,,Jgheaburi / burlane,true
-1679b2f8-56a9-43ea-b802-a2395296d754,facade,type,Formă,Fațadă,,,Asymmetrical,Asimetrică,true
-a3d95bf9-f9fc-48bb-82e4-539db4a0590f,facade,type,Formă,Fațadă,,,Symmetrical,Simetrică,true
-0d586ae6-2f7a-4cf9-9cb6-739ecd501ba6,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Aluminum,Metal,true
-71eebdef-da6a-4b9a-8289-2c07bab8583b,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Asbestos,,false
-61439882-2032-4bc8-938f-f3c6b4b72088,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Board and batten,Lemn,true
-6d757223-e4e4-46f9-910d-784d3edd9788,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Brick,Ceramic,true
-2c5b4ed0-7d53-49fd-a156-d3a4e7526d38,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Concrete,Tencuială de ciment,true
-86529082-c78b-48fb-9123-5f3b02293aeb,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Concrete block,,false
-f4a212d7-5f70-4d4a-b87d-ce535cb4cd6f,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Corrugated metal,Placaj metalic,true
-1a6c1434-8c5a-498c-bc35-4b0bc2f8f8e8,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Fieldstone,Placaj de piatra ,true
-c227e656-33d0-4bb2-9de8-995bc026ab46,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Glass skin,Fatadă de sticlă ,true
-48ba75cd-a347-4a83-b5a1-867d69287112,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Half timbering,,false
-ea111c82-63fd-4b29-a7f8-1b968d3caad2,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Marble,,false
-0e584e2a-7dd6-4bb5-b6cf-66a7e7a403a0,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Other,Altele,true
-a5b2141b-4e57-4215-829b-c853bc600da9,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Permastone,,false
-5e9268c0-54a6-49ec-aa3a-1a21e0faf947,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Stone,,false
-1596dcb6-eaa1-4dd4-9c5e-218fcd65dbfe,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,"Stone, arroyo",,false
-92f82f51-1503-4a1d-9684-1a83dae7ee26,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,"Stone, art",,false
-c492af25-7794-48c0-957d-5940de17ca5f,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,"Stone, cast",,false
-136c8619-4274-415a-8986-426484e97ad3,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,"Stone, cut",,false
-90d95f42-516b-4f3d-90f1-1d2225caec34,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,"Stone, natural",,false
-b230fde0-b74e-4a44-9d5e-884918cd24f6,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,"Stone, simulated",,false
-7905a1a9-9376-49df-9883-8178b1e82694,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,"Stucco, smooth",,false
-33fc7189-0742-401e-9983-5b382c4196fe,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,"Stucco, textured",,false
-9c2a371a-0cab-46ad-92d8-0cab22876211,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Terra cotta,Ceramică glazurată,true
-16071000-71eb-4faa-a4ce-a6dc6d6314cf,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Travertine,,false
-45e9097f-4b31-4104-8986-f2c255f28a8a,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Unknown,,false
-cd1bb5b0-8163-4a76-bf93-767351523c77,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Vinyl,Mase plastice,true
-2a7b1be4-65f6-42b8-821f-671e9b3e4b27,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Wood channel drop,,false
-08a7badc-d3cf-4c49-84a7-42ebddbc0357,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Wood clapboards,,false
-a2c363d7-a43b-4f5b-b643-1dea18d99005,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Wood horizontal boards,,false
-23c82276-51f1-4bd0-8b7b-dcea1c72fd42,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Wood panels,,false
-15618ff6-9526-40d7-b7b2-e5314216d24b,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Wood rustic,,false
-c15f2960-ceb5-43c1-9e21-01b0ccf0e182,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Wood shingles,,false
-c2bba2aa-0b51-48c4-9e5a-739973c4189a,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,"Wood shingles, fish scale",,false
-3b223936-40c7-4a0b-a665-8ff6c7f85bc3,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Wood tongue-and-groove,,false
-52168152-2b59-481d-bf65-430e75b8d012,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Wood vertical boards,,false
-1ea444fa-031c-4ad0-a5d6-6159fd191954,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,"Wood, Board and Batten",,false
-5d264ae1-ea75-41ad-9d73-31858a686823,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Aluminum,Metal,true
-850a182d-6a30-4ff4-bd33-026ae572948f,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Asbestos,Azbociment,false
-946c2b77-7b85-40f3-bfb6-8f8da33459b5,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Board and batten,Lemn,true
-1d84852c-58d4-4d29-a364-c5fcc8c860a8,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Brick,Ceramic,true
-dbb97943-fa00-432a-ae14-c2e9341269c8,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Concrete,Tencuială de ciment,true
-f0febabf-b5ec-48c3-8b53-d4c14a5b2a10,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Concrete block,,false
-2e724d01-2dc1-4338-90e8-4f36a3cb7f7c,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Corrugated metal,Placaj metalic,true
-96579698-670b-4051-8bbc-161c53a83b84,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Fieldstone,Placaj de piatra ,true
-e55e04a7-a9a5-4800-b604-efe68567517c,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Glass skin,Fatadă de sticlă ,true
-ac380a89-0d72-4f53-b0be-004f1f923fcf,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Half timbering,,false
-b07e65a3-44e5-42dd-8985-1460df76e321,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Marble,Marmură ,false
-d4e8ebb2-5c61-4ae0-85a8-6dcb3bad20db,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Other,Altele,true
-48d558eb-ba5e-436e-a9a0-59d679660607,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Permastone,,false
-3f1dd586-b168-4900-adca-cea8af915c39,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Stone,,false
-3d3c3325-dce6-4252-8975-b41099cdc2e6,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,"Stone, arroyo",,false
-39c7197f-afb7-4cf8-ac45-ae07392bcba6,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,"Stone, art",,false
-f631967e-bd9a-4e9c-b9dc-846a9ebfbaf4,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,"Stone, cast",,false
-c2e5d1c3-e86b-42f2-9edd-855ad607da4f,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,"Stone, cut",,false
-9fa9e3f9-d92d-481e-9037-75b2b11a7f0f,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,"Stone, natural",,false
-d555f724-90e3-40c0-85c6-e9d157aa3bda,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,"Stone, simulated",,false
-b6dc4540-393c-4adf-b640-2fc36cd8d872,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,"Stucco, smooth",,false
-78a09717-8b0b-45a5-8974-076924d70a79,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,"Stucco, textured",,false
-22194b45-7697-4046-b1da-e4f2435d06cf,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Terra cotta,Ceramică glazurată,true
-59cc19a3-8aaf-4460-866f-784f15e76190,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Travertine,,false
-64921549-9399-44e6-93e5-acb6b4c9ece9,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Unknown,,false
-cc2d986b-0fcb-44f2-961f-69ad911566ad,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Vinyl,Mase plastice,true
-16311f06-cf73-4de2-b805-b416b0483d2f,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Wood channel drop,,false
-2c364e46-fed8-43c2-939c-13ff85d1c6d7,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Wood clapboards,,false
-43639117-167e-4459-b37a-41d0d0608ed4,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Wood horizontal boards,,false
-dd431a05-7222-482d-9e81-8e84060db181,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Wood panels,,false
-24ec30e5-1f88-4d5f-9def-8f423c446976,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Wood rustic,,false
-a6721366-cd10-42a2-96ba-ef82c38d369b,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Wood shingles,,false
-23b4dda1-2628-435f-9444-7a832f1f4b53,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,"Wood shingles, fish scale",,false
-a56b3354-ee7c-42cd-9853-c353083c298e,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Wood tongue-and-groove,,false
-9998a629-830c-47f4-b565-fc38966a9a89,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Wood vertical boards,,false
-003514e6-d4fd-4476-9a4b-d67f16746a27,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,"Wood, Board and Batten",,false
-8b3c71cc-5f4a-4697-8417-8814a33990fd,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Aluminum,Metal,true
-b702c2c7-463a-4e22-a060-5562e454aeb2,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Asbestos,,false
-b7d83552-2fae-41b6-b1c9-2d0d2c8b15cc,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Board and batten,Lemn,true
-1905a1fc-da38-4e90-b8e4-3f11b710b3cd,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Brick,Ceramic,true
-c809cfc5-5f0b-4afb-b861-99b54a99946f,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Concrete,Tencuială de ciment,true
-5a3a6726-9eae-4698-9f89-2e880a3decb7,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Concrete block,,false
-ffa25dd3-608d-40ed-910f-e34a7729befb,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Corrugated metal,Placaj metalic,true
-f73d2abe-d64f-451c-8d30-6e524523a223,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Fieldstone,Placaj de piatra ,true
-f07b40c7-3506-4b2f-a51e-3459b9db4215,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Glass skin,Fatadă de sticlă ,true
-761881ec-f120-4203-87c0-6e31690f85cd,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Half timbering,,false
-8641a07a-c73e-4cff-b2c1-3f13c67b808a,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Marble,,false
-200fbaed-9bc4-4167-beed-857c8da0b45f,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Other,Altele,true
-14478fba-8448-40bd-bfe3-8fb97d5123b2,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Permastone,,false
-9d75242f-48cd-4b81-b90f-0637af193b65,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Stone,,false
-bf53bdf6-71cb-4c9c-88fa-a5ae476ebbf4,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,"Stone, arroyo",,false
-287c6e92-a50c-45f0-84ed-a81953b0fc52,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,"Stone, art",,false
-ea73bf44-0456-45c5-80d6-ef1425004626,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,"Stone, cast",,false
-ecff1684-56e3-4d61-b390-4e0c19de1aeb,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,"Stone, cut",,false
-8fcaeb04-65af-438d-ae6d-9013939faa94,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,"Stone, natural",,false
-1d5cf3d1-4d91-44c6-9014-10cd25afcb7f,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,"Stone, simulated",,false
-145fc9b5-3a25-448d-8db2-fc1ea5a02cf0,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,"Stucco, smooth",,false
-4338c96e-5486-4b96-b175-a6c11b13a5da,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,"Stucco, textured",,false
-98ed13c3-c4db-45af-b15e-6ce2ef62d072,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Terra cotta,Ceramică glazurată,true
-a25afc8f-d6b0-43bc-a75f-2530ac2c5ccd,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Travertine,,false
-72b8535d-0e20-4f8b-a4c6-1ea774a0b4eb,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Unknown,,false
-957450d2-43ce-4a41-9800-0a5c5ba2f8b0,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Vinyl,Mase plastice,true
-cc5609a7-17b5-45a2-a7a6-735614bf5f93,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Wood channel drop,,false
-eef6be52-66bc-4dd9-a4d9-9d4452ed7b58,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Wood clapboards,,false
-cb846dc4-d625-4b53-a9f4-d7734e2001ce,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Wood horizontal boards,,false
-13de60e8-2bc7-4ebe-888a-ad014eaafc3b,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Wood panels,,false
-7bf4c49a-2314-4d9c-bdb1-86abf06fa640,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Wood rustic,,false
-ba846cec-17fa-4fa9-aca6-93fb5de935e1,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Wood shingles,,false
-b81c484c-0189-49f7-bfb5-1dd3b1f564de,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,"Wood shingles, fish scale",,false
-2c72473d-c16f-41c2-837f-977b557d8ac6,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Wood tongue-and-groove,,false
-28099fbd-7145-47f3-9b81-067929e476d2,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Wood vertical boards,,false
-0c2bac69-3aa3-43cc-84fa-9f519e4c7c55,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,"Wood, Board and Batten",,false
-f32bf1b1-7910-4252-bd12-b35fbca94c6c,facade,cornice_details,Details,Detalii,Cornice,Cornișă,Applied decoration,Decorație aplicată,true
-e801e430-8dbc-4d03-ba5e-3a8c0da197a1,facade,cornice_details,Details,Detalii,Cornice,Cornișă,,Stucatură,true
-532b894a-5309-4bca-bcab-ae81193f9272,facade,cornice_details,Details,Detalii,Cornice,Cornișă,Dentils,Denticule,true
-11ba5e50-e677-4002-8b82-ece9fb05e416,facade,cornice_details,Details,Detalii,Cornice,Cornișă,,"Cornișă (profilată, decorată etc.)",true
-53bce185-6381-4728-90a9-38f737b57a92,facade,cornice_details,Details,Detalii,Cornice,Cornișă,Belt course,Friză decorativă,true
-ecbd5c1a-d78d-4b11-8ef1-2c33a358b485,facade,cornice_details,Details,Detalii,Cornice,Cornișă,,Hublou fals,true
-09b75251-60c7-48ff-9c38-1bc098a9a38a,facade,cornice_details,Details,Detalii,Cornice,Cornișă,Monogram,Monogramă,true
-ab74fe5f-af0b-453b-82d6-5e6ab7de1814,facade,cornice_details,Details,Detalii,Cornice,Cornișă,Dingbats,"Inscripție (comemorativă, informativă etc.)",true
-00fcaf3f-6d91-4ccc-b8b5-dbed08391cbb,facade,cornice_details,Details,Detalii,Cornice,Cornișă,Tile,Decorațiune ceramică,true
-9882a874-b931-4648-b10d-55503e57de5f,facade,cornice_details,Details,Detalii,Cornice,Cornișă,,Sculptură decorativă,true
-da6ed023-493f-488b-a132-2f247f1332cd,facade,cornice_details,Details,Detalii,Cornice,Cornișă,,Altele,true
-906f7912-cff0-4fe5-976d-ee8f87f53170,facade,plain_details,Details,Detalii,Plain,Câmp,Applied decoration,Decorație aplicată,true
-b9fbf54f-4dcd-444e-980f-bc16f973467a,facade,plain_details,Details,Detalii,Plain,Câmp,,Stucatură,true
-8af4cd8c-af44-4e84-9d1a-940ef160e325,facade,plain_details,Details,Detalii,Plain,Câmp,,Bosaj în tencuială,true
-a16bd1cc-1bea-4046-8d16-8a8491e3c865,facade,plain_details,Details,Detalii,Plain,Câmp,Balconette,Balconet ,true
-d4905546-4d0d-4bfd-a7e3-b504e2062557,facade,plain_details,Details,Detalii,Plain,Câmp,,Bovindou,true
-c77b25ec-aa27-4f3c-8a9b-49ab7856eaeb,facade,plain_details,Details,Detalii,Plain,Câmp,Belt course,Friză decorativă,true
-fe6ce0ae-8e64-494b-8753-c2f0affed51a,facade,plain_details,Details,Detalii,Plain,Câmp,Bris soleil,Marchiză,true
-c6c50cb0-6d93-4451-8e7a-876fb232d64f,facade,plain_details,Details,Detalii,Plain,Câmp,Porte-cochère,Porte-cochère,true
-d393fa0e-161a-4e5e-a142-54a47f002a4c,facade,plain_details,Details,Detalii,Plain,Câmp,,,false
-fc767ebe-d155-481e-b686-abe6740c185f,facade,plain_details,Details,Detalii,Plain,Câmp,,Hublou fals,true
-17e97910-bde9-4a3c-8fe8-b568bfbb9269,facade,plain_details,Details,Detalii,Plain,Câmp,Buttresses,Contrafort,true
-9650b338-8e58-477c-b3e3-300a8d3cf1e2,facade,plain_details,Details,Detalii,Plain,Câmp,Monogram,Monogramă,true
-7d0e5a18-eb20-47ea-826f-66f7181b0cf5,facade,plain_details,Details,Detalii,Plain,Câmp,Dingbats,"Inscripție (comemorativă, informativă etc.)",true
-6763acc1-7ec3-42fc-a99b-73ebb748586e,facade,plain_details,Details,Detalii,Plain,Câmp,Grilles,Grilaje usi / ferestre / false,true
-813e90ab-6191-45f0-8e53-29a10a7b35b9,facade,plain_details,Details,Detalii,Plain,Câmp,Light Fixtures,Corp de iluminat ,true
-34667977-a307-4f75-81fc-bbf8282db71e,facade,plain_details,Details,Detalii,Plain,Câmp,Pierced screens,Grilaj din tablă decupată / perforată,true
-cbe76c78-b2a7-4b68-b0bd-a8e616f262fd,facade,plain_details,Details,Detalii,Plain,Câmp,Pilasters,Pilaștrii adosați,
-60b58c62-c3ff-4ccc-ad0d-ce445ad2904b,facade,plain_details,Details,Detalii,Plain,Câmp,Planters,Jardiniere ,true
-fede243f-c9cd-4a04-896f-89169687dd25,facade,plain_details,Details,Detalii,Plain,Câmp,Quoins,Bosaje de colț,true
-125658c8-3197-4e2c-a061-e1ce3aa2aab9,facade,plain_details,Details,Detalii,Plain,Câmp,Sign,Semnalistică,true
-c5509019-d460-4c77-8055-67fadbd2e44c,facade,plain_details,Details,Detalii,Plain,Câmp,String course,Brâu decorativ / cornișă intermediară,true
-7eef67a2-e0b4-4d7b-b647-eab6a4696a6e,facade,plain_details,Details,Detalii,Plain,Câmp,Tile,Decorațiune ceramică,true
-76ab3ad5-13db-44ff-a0f3-d49c6c08bc8b,facade,plain_details,Details,Detalii,Plain,Câmp,,Console,true
-76b5068c-628f-4470-b8c9-4693798f6458,facade,plain_details,Details,Detalii,Plain,Câmp,,Sculptură decorativă,true
-e61c8fbb-922f-4b0c-b465-f68f07abd80a,facade,plain_details,Details,Detalii,Plain,Câmp,,Cablaj,true
-3e6cc6d3-0115-444f-8ae5-6eaae1daddca,facade,plain_details,Details,Detalii,Plain,Câmp,,Altele,true
-30d2d9e2-b3f5-45fa-9408-51e8c8983189,facade,base_details,Details,Detalii,Base,Soclu,Applied decoration,Decorație aplicată,true
-4912c13c-025f-4d56-80d8-7e1a64f57ac1,facade,base_details,Details,Detalii,Base,Soclu,,Bosaj în tencuială,true
-49a7f0a2-9293-4d2e-8c5d-efbf9b2be2eb,facade,base_details,Details,Detalii,Base,Soclu,,Soclu decorativ,true
-b8f2ea7f-9b9d-41b9-82a4-45ee2b5e719a,facade,base_details,Details,Detalii,Base,Soclu,Buttresses,Contrafort,true
-d2df8c56-37f9-4ffd-a6e0-d57a3b95ff36,facade,base_details,Details,Detalii,Base,Soclu,Grilles,Grilaje usi / ferestre / false,true
-018b5c07-e699-47a9-a70f-c4cc35ef4b16,facade,base_details,Details,Detalii,Base,Soclu,Loading Dock,Scară / rampă,true
-e4bc0e76-9c29-4f06-85c4-bd88989154fc,facade,base_details,Details,Detalii,Base,Soclu,Pierced screens,Grilaj din tablă decupată / perforată,true
-3da38e92-0831-448f-904d-dc6d98bc1c09,facade,base_details,Details,Detalii,Base,Soclu,Pilasters,Pilaștrii adosați,true
-5d7339f9-25d9-495f-84d6-26f7e6978c2c,facade,base_details,Details,Detalii,Base,Soclu,Quoins,Bosaje de colț,true
-18e01bc4-fd6d-4d73-afe5-6149c5e41754,facade,base_details,Details,Detalii,Base,Soclu,Tile,Decorațiune ceramică,true
-8c6b5a60-2e23-4ca2-9650-625a1e37d7c2,facade,base_details,Details,Detalii,Base,Soclu,,Altele,true
-edfc4d5c-b7fa-4ef0-a04c-a6e7f6817d81,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Angled,,false
-08797964-4236-4d17-bc43-af3dd94db00d,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Awning(s),Copertină,true
-6b17f76c-6c3e-4ec1-b43e-c99efa799ae9,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Bulkhead,,false
-0a86b2e5-48cc-4d6f-8ec3-ef57c76210e1,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Canopy,,false
-29dfd0d2-29bf-4efa-b243-b16cc41a1405,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Canted,,false
-e6d6cd42-75ff-4857-b7de-1e1a00165ded,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Capitals,,false
-dc7dde2b-2974-4f72-a9a2-cac550e778dd,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Corner,,false
-a890bb9d-0c07-40b0-8169-16b6bd0c97a1,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,"Entry paving, brick",,false
-165835f7-cab8-4fe0-a740-559791ca51a7,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,"Entry paving, terazzo",,false
-b81a3399-adc6-44ce-9c5e-81ff061b064f,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,"Entry paving, tile",,false
-cd1b0063-7cdd-4075-b2af-88d8e7a78cb2,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,"Entry paving, tile",,false
-232e081e-645e-4db8-b4ed-71d79bd76526,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Flush,,false
-13d265e1-74b5-4bfa-a143-dcecf6eaaa8a,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Frieze,,false
-23e7e35f-56ba-4b58-908d-9be9ec275619,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Ghost sign,,false
-5aed5405-3229-4a4d-b91a-73687217b4bf,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Lighting,,false
-b4d361c2-3623-498e-910b-316c6bd10f39,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Multiple,,false
-f15a3268-4fc5-4468-9034-ac075b59ec10,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Piers,,false
-fd03917f-d1cc-4590-b29b-66d3930a5d6b,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Pilasters,,false
-36926c99-da4a-446b-907c-d6ea6d154ff2,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Planters,,false
-441ad930-c268-4cf9-89e5-97a9100ad68e,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Recessed,,false
-81a4f258-683e-4733-a3dd-0867cb77cda5,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Security gate/screen,,false
-875b439b-6cb4-4972-841b-12fdba966167,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Sign,Semnalistică,true
-764e8f9d-8179-4b90-8f51-1efd90055161,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Arched opening,Arcuită,true
-1abf2760-4508-48ed-8f02-8214f296f9eb,facade,plain_window_type,Window,Fereastră,Plain,Câmp,"Arched opening, pointed",Arc frânt (gotic),true
-47052828-e8b9-4b15-afed-d5472d2c823a,facade,plain_window_type,Window,Fereastră,Plain,Câmp,"Arched opening, round",Arc în plin cintru (semicircular),true
-bcfd3d73-18eb-4ebb-ac05-065b7ea2b3ce,facade,plain_window_type,Window,Fereastră,Plain,Câmp,"Arched opening, segmental",Arcatura complexă,true
-d109e0a4-1331-4116-a7f9-16f226d052d1,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Awning,Copertină,true
-e9a21277-f49d-4607-8e49-e4b47c900d58,facade,plain_window_type,Window,Fereastră,Plain,Câmp,"Bay, bowed",,false
-ea761f9b-1715-495e-a7f6-5806e9df4cf2,facade,plain_window_type,Window,Fereastră,Plain,Câmp,"Bay, canted",Bovindou poligonal,true
-bf1ce060-52af-4f8d-b6b5-e4adff087eee,facade,plain_window_type,Window,Fereastră,Plain,Câmp,"Bay, rounded",Bovindou semicircular,true
-2c517ead-1f30-4e96-adb9-2f28b4e0a4a9,facade,plain_window_type,Window,Fereastră,Plain,Câmp,"Bay, squared","Bovindou rectangular (""bârfitoare"")",true
-90cacb04-b989-4e79-a009-4f32861349e3,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Butted glass,Sticla incastrata,false
-859793ea-3971-4680-906f-fb88ec801080,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Casement,Batantă,true
-9c0f876b-9a03-4bd7-b6ea-8cc3bba8985d,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Clerestory,Zenitală,true
-da53a82f-7e7a-4472-97b9-bca8f92661da,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Corner,De colț,true
-f75f5412-c5ef-4303-b8f4-6f59d340d97c,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Decorative surround,Cu ancadrament,true
-7fa94ede-3433-4db7-83b3-0c341d81e2b4,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Diamond pane,Gol de Fereastră poligonal,true
-e8517076-ccad-46f6-9fc8-1b6192645a0b,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Display,Vitrină,true
-2ae6dc65-da56-41c1-b207-399086167d33,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Divided lights,,false
-28afde8c-dfb8-4a68-981e-948a793d335a,facade,plain_window_type,Window,Fereastră,Plain,Câmp,"Divided lights, top sash",,false
-7c92cc61-d904-4b53-abff-83e66fd69cbf,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Double-hung,,false
-b4829b07-4d38-411f-bdd6-ee55fd236b1f,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Fixed,Fixă,true
-2d80fd4d-2251-4f14-8b92-88bfafa7dbac,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Floor-to-ceiling,Perete vitrat,true
-ba293089-d490-48e7-b802-2a919e31666f,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Grouped,,false
-57dcdc11-6ad3-4323-9077-c27f66fa6f9d,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Historic Surround,,false
-6364ac27-ddf1-4307-adff-a537b3d0952a,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Hopper,Basculantă,true
-873d70e3-1038-48a9-8b30-3a56cb555f1f,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Jalousie/louver,Jaluzele / rolete ,false
-7c6403e0-17e8-4632-b07d-43649b4a6d78,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Leaded glass,,false
-78b54443-cfcf-4383-a220-556eb4ea743b,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Multi-light,Cu mai multe ochiuri de Fereastră (complexă),true
-4bdeccda-7aec-4448-b194-2547ff599a28,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Multi-light top sash,,false
-f4de4112-281f-4774-8e98-c975dd20fcee,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Obscure glass,Sticlă mată,true
-b6186aa3-07f3-4465-9ed0-1750fcb88113,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Oriel,,false
-acef6002-826f-4188-8fe6-b6c711293fc9,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Other,Altele,true
-bdfb8eb2-e8fd-480f-bc47-98fe81b2ffd2,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Paired,Cu 2 ochiuri de Fereastră,true
-dbc747e3-c75d-4a8d-aa68-e1cdba8cc925,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Palladian,Tip Palladian,true
-e6222fed-e9a9-4985-8ca1-8508a0b16c6c,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Pivot,,false
-2201c88b-e76b-4fcf-9497-1269e4bb6ebc,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Porthole,Hublou,true
-5febcef8-0ac1-4584-a630-71c867d1e5c4,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Ribbon,În bandă,true
-5a004261-638f-4580-b01f-9d71a1a01480,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Sawtooth,,false
-8f843886-04c9-45f7-89fa-9424366dd9f8,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Security bars,Grilaj,true
-e403ecbd-22c2-4e6e-a3e6-04a16a2c4205,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Shutters,Obloane,true
-a30095f3-2394-4376-93cc-6d5fc5b0d7ef,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Single,Cu un ochi de Fereastră,true
-9934fdb6-a192-43fd-9922-cb75d7e871e9,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Single-hung,,false
-cc62e9e6-b0d0-457f-9248-f9829f28a7c5,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Sliding,Culisantă,true
-f6b5bc03-52b3-4080-bd69-5ee26c8828f4,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Stained glass,Vitraliu,true
-0eb2f7c1-2299-4fca-bdf8-975773509de1,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Storefront,,false
-d6b47406-5f8b-4868-babb-2ed82675cfea,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Transom,,false
-73068410-c504-4439-a25c-9317a4243bd5,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Tripartite,Cu 3 ochiuri de Fereastră,true
-70794938-50c5-48dd-9e9a-e5fff6615350,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Unknown,Altele,true
-e99afd51-9bb6-4d25-bafa-475004b20d5b,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Vent,Gură de ventilație,true
-f4ce53c5-fe57-422c-99e0-d984b4b15210,facade,base_window_type,Window,Fereastră,Base,Soclu,Arched opening,Arcuită,true
-30a6e0e1-e773-4755-bacb-3ac758822e8c,facade,base_window_type,Window,Fereastră,Base,Soclu,"Arched opening, pointed",Arc frânt (gotic),true
-9e5c161c-7a33-4d81-8a39-e6f36189451e,facade,base_window_type,Window,Fereastră,Base,Soclu,"Arched opening, round",Arc în plin cintru (semicircular),true
-f8086eb8-04b3-4f95-b545-f22f7c1afc19,facade,base_window_type,Window,Fereastră,Base,Soclu,"Arched opening, segmental",Arcatura complexă,true
-ef5c842d-d77f-42ce-9bee-7cc6f6ed66f8,facade,base_window_type,Window,Fereastră,Base,Soclu,Awning,Copertină,true
-079eb484-d681-45a4-8518-2e4b9253a2c3,facade,base_window_type,Window,Fereastră,Base,Soclu,"Bay, bowed",,false
-652dea78-77fa-4ac5-bb20-c95dc8782b2d,facade,base_window_type,Window,Fereastră,Base,Soclu,"Bay, canted",Bovindou poligonal,true
-61a0eacd-bc8f-40ff-8ef7-2fab3bbc6d47,facade,base_window_type,Window,Fereastră,Base,Soclu,"Bay, rounded",Bovindou semicircular,true
-96699aa0-cc68-4d08-bcd6-79321c11f6ee,facade,base_window_type,Window,Fereastră,Base,Soclu,"Bay, squared","Bovindou rectangular (""bârfitoare"")",true
-eb10fe3e-0f5c-4751-827f-ff462776fe4b,facade,base_window_type,Window,Fereastră,Base,Soclu,Butted glass,Sticla incastrata,false
-ecfbf96c-1829-41e9-ae09-7f425e784379,facade,base_window_type,Window,Fereastră,Base,Soclu,Casement,Batantă,true
-53c612d9-1cc7-4312-a646-b95c1ac85549,facade,base_window_type,Window,Fereastră,Base,Soclu,Clerestory,Zenitală,true
-d52bb0ea-dac0-44a8-8ab1-2aa895ddd957,facade,base_window_type,Window,Fereastră,Base,Soclu,Corner,De colț,true
-607ea401-0fa1-4baa-b0ee-c1c53ead6710,facade,base_window_type,Window,Fereastră,Base,Soclu,Decorative surround,Cu ancadrament,true
-7fb0fab4-f76e-4838-90dc-b57be46bfc18,facade,base_window_type,Window,Fereastră,Base,Soclu,Diamond pane,Gol de Fereastră poligonal,true
-01ec4c9d-403a-4d26-a933-ddfd3864309a,facade,base_window_type,Window,Fereastră,Base,Soclu,Display,Vitrină,true
-fcbd25bd-5bb9-4cc3-86b8-2960f3d9a233,facade,base_window_type,Window,Fereastră,Base,Soclu,Divided lights,,false
-c2c92da8-d7f3-4fe5-87fb-285e06004e07,facade,base_window_type,Window,Fereastră,Base,Soclu,"Divided lights, top sash",,false
-7a172820-82ff-445b-a3a7-ac5c80fbb42a,facade,base_window_type,Window,Fereastră,Base,Soclu,Double-hung,,false
-58e7fefc-19ce-48c5-8f65-fc4cd5f81df9,facade,base_window_type,Window,Fereastră,Base,Soclu,Fixed,Fixă,true
-191e63db-5708-4ea2-b04b-33e319504a36,facade,base_window_type,Window,Fereastră,Base,Soclu,Floor-to-ceiling,Perete vitrat,true
-1d3bc03b-e6fa-42b7-9ddc-aa6327ba5ead,facade,base_window_type,Window,Fereastră,Base,Soclu,Grouped,,false
-9ae18671-2993-4850-8c9a-9525d993edfb,facade,base_window_type,Window,Fereastră,Base,Soclu,Historic Surround,,false
-78f10f01-676b-4cd0-b225-2bcbd7335585,facade,base_window_type,Window,Fereastră,Base,Soclu,Hopper,Basculantă,true
-622f9ad0-86e7-47e2-bcec-071a844ee41e,facade,base_window_type,Window,Fereastră,Base,Soclu,Jalousie/louver,Jaluzele / rolete ,false
-7b7d24df-5261-462c-946f-a250446a76e1,facade,base_window_type,Window,Fereastră,Base,Soclu,Leaded glass,,false
-68a3260a-5f65-44d6-940b-f8cfc0647ab1,facade,base_window_type,Window,Fereastră,Base,Soclu,Multi-light,Cu mai multe ochiuri de Fereastră (complexă),true
-c4a76ac9-dafe-493d-bb62-d3f27606957a,facade,base_window_type,Window,Fereastră,Base,Soclu,Multi-light top sash,,false
-d9b788ae-a814-4246-8a44-4ef66da751d0,facade,base_window_type,Window,Fereastră,Base,Soclu,Obscure glass,Sticlă mată,true
-56a0c7e3-dfd5-4061-b633-71e979e492a1,facade,base_window_type,Window,Fereastră,Base,Soclu,Oriel,,false
-7cd563dc-f435-4bc4-8a74-12b42d63b5f0,facade,base_window_type,Window,Fereastră,Base,Soclu,Other,Altele,true
-590c7fe6-0779-41db-9eae-5667a5a5960e,facade,base_window_type,Window,Fereastră,Base,Soclu,Paired,Cu 2 ochiuri de Fereastră,true
-bf623a55-98d1-4ebc-951c-7534cdf0f1aa,facade,base_window_type,Window,Fereastră,Base,Soclu,Palladian,Tip Palladian,true
-8517bd87-7b0b-407f-ac4c-a1985e3fc528,facade,base_window_type,Window,Fereastră,Base,Soclu,Pivot,,false
-4ed42928-8248-43d6-956f-3c87b546b009,facade,base_window_type,Window,Fereastră,Base,Soclu,Porthole,Hublou,true
-1a84c49b-0ecf-42b4-a93e-b09d2a8b7fef,facade,base_window_type,Window,Fereastră,Base,Soclu,Ribbon,În bandă,true
-81bdcac3-30e4-4c0b-9864-95b6b08555a7,facade,base_window_type,Window,Fereastră,Base,Soclu,Sawtooth,,false
-84bac0dc-30b8-4a98-9d82-07848dd623ee,facade,base_window_type,Window,Fereastră,Base,Soclu,Security bars,Grilaj,true
-62e03480-3e65-4869-a9c0-4833df8b6622,facade,base_window_type,Window,Fereastră,Base,Soclu,Shutters,Obloane,true
-22d93b8b-8af9-4f75-a3ed-167e2a7453e3,facade,base_window_type,Window,Fereastră,Base,Soclu,Single,Cu un ochi de Fereastră,true
-fa3b27f2-f095-49bf-b12f-54f8b383efb1,facade,base_window_type,Window,Fereastră,Base,Soclu,Single-hung,,false
-fdc43858-8197-42c3-a441-e5da6c49bc04,facade,base_window_type,Window,Fereastră,Base,Soclu,Sliding,Culisantă,true
-091e5498-8ad7-4da8-ad4b-e7063673efe2,facade,base_window_type,Window,Fereastră,Base,Soclu,Stained glass,Vitraliu,true
-8438f149-b3f5-4e6d-bf39-9f7ea5616608,facade,base_window_type,Window,Fereastră,Base,Soclu,Storefront,,false
-a933d1b3-adb4-42b6-bcb3-c41b0ecdc7c7,facade,base_window_type,Window,Fereastră,Base,Soclu,Transom,,false
-ecd5378c-3768-4617-b79a-0addfa7a855c,facade,base_window_type,Window,Fereastră,Base,Soclu,Tripartite,Cu 3 ochiuri de Fereastră,true
-7196ab5c-796f-40a8-be18-07bfb000b022,facade,base_window_type,Window,Fereastră,Base,Soclu,Unknown,Altele,true
-3d347e5d-52c3-4b9a-9a44-ddb6f198ce36,facade,base_window_type,Window,Fereastră,Base,Soclu,Vent,Gură de ventilație,true
-21df9a8a-9188-40f8-b6ce-211ca49d967c,access,door_type,Door,Ușă,,,Arched,Arcuită,true
-0229a893-462c-40fe-a626-1ecef851a545,access,door_type,Door,Ușă,,,"Arched opening, pointed",Arc frânt (gotic),true
-c8c6f6fc-3e91-47c2-ab88-7bcf051c632c,access,door_type,Door,Ușă,,,"Arched opening, round",Arc în plin cintru (semicircular),true
-f5e5edfb-e88d-4e4e-a9fd-60066120b4a9,access,door_type,Door,Ușă,,,"Arched opening, segmental",Arcatura complexă,true
-9d13f82c-419b-4b3c-a8c3-dc1ce185ec1d,access,door_type,Door,Ușă,,,Awning,Marchiză,true
-d10d0a3b-a859-44e2-84a6-37fe2dc274a9,access,door_type,Door,Ușă,,,Canopy,,false
-bb2203d6-ef23-4a50-aceb-2a0dd2f6fab3,access,door_type,Door,Ușă,,,Decorative hardware,Elemente decorative,true
-3e2189c3-a9b4-4401-92c5-bab6505dc3e0,access,door_type,Door,Ușă,,,Decorative surround,Ancadrament decorativ,true
-f8da41e8-2bdb-4c18-855e-b7fb92c3e9ae,access,door_type,Door,Ușă,,,Divided lights,,false
-77328c41-693f-4933-8572-2609b418a64c,access,door_type,Door,Ușă,,,Double,Duble,true
-2fbe1aea-5036-4f88-9075-17fe9608e634,access,door_type,Door,Ușă,,,Fanlight,Luminator la partea superioară,true
-a2f6116e-00a7-49c7-974d-a48b7daacd06,access,door_type,Door,Ușă,,,French doors,Pliabile (sistem francez),true
-6cf88be5-fdfe-474e-989a-2032ff3af1a6,access,door_type,Door,Ușă,,,Fully glazed,Din sticlă / vitrate,true
-1fd4a386-8c35-47ae-828e-b97ce4e95922,access,door_type,Door,Ușă,,,"Glazed, fully",,false
-b76f6aa2-5de2-4632-8555-08c30bb7a7fb,access,door_type,Door,Ușă,,,"Glazed, partially",,false
-f7f4664a-1960-4cee-a60f-59a6705ee282,access,door_type,Door,Ușă,,,Historic Surround,,false
-62d4842e-4f02-4648-ad59-a8b61053cb98,access,door_type,Door,Ușă,,,Historic hardware,Elemente decorative istorice (originale),true
-0554919d-d858-4041-a364-99690ecfc2c6,access,door_type,Door,Ușă,,,Metal screen,Grilaj metalic,true
-06b1aaf4-c184-4fad-ab9d-e6d347ec91e4,access,door_type,Door,Ușă,,,Paneled,Casetate,true
-4ecf4234-809d-4ea3-97e6-0e64efd3ab9d,access,door_type,Door,Ușă,,,Partially glazed,Parțial vitrate,false
-dc7a97e3-7024-47a5-a960-41338ef8b707,access,door_type,Door,Ușă,,,Pediment,Prag,false
-0e37c2e5-6689-42d8-b1c2-c95fbc647724,access,door_type,Door,Ușă,,,Pilasters,Pilaștri adosați,true
-9aa0c165-49bf-475c-9843-7f4ad8155799,access,door_type,Door,Ușă,,,Roll-up,,false
-0a5d1e89-30e2-4637-a710-f87efb69411f,access,door_type,Door,Ușă,,,Security door,Suprasecurizate,true
-c89b0d2b-b2e8-449c-ab56-8384bd9a802d,access,door_type,Door,Ușă,,,Sidelights,Luminatoare laterale,false
-0326337c-156b-493a-9ada-2bd4884bc42a,access,door_type,Door,Ușă,,,Single,Simplă,true
-25006505-2677-402e-b523-45b690259cff,access,door_type,Door,Ușă,,,Sliding,Glisante / culisante,true
-d9981236-8573-42a8-a632-45d82583f93d,access,door_type,Door,Ușă,,,Transom,,false
-6a8b3159-0116-44cb-8ec7-ec01462d8a31,access,door_type,Door,Ușă,,,Unknown,Altele,true
-b7eed185-e966-4059-b940-006fdc28fe14,access,door_type,Door,Ușă,,,Wood screen,,false
-dd35bce2-49d5-4ec6-94fb-12f931918a58,access,entryway_type,Entryway,Intrare,,,Arches,Arcadă,true
-02a2ba5e-855c-47e1-8e53-276b21863b5e,access,entryway_type,Entryway,Intrare,,,Atrium,,false
-b74170d1-72b8-46dd-b726-250f4628e750,access,entryway_type,Entryway,Intrare,,,Awning(s),Copertină,true
-1481df52-95a8-44ab-97ef-68c384a4d3c2,access,entryway_type,Entryway,Intrare,,,Balcony,Balcon / terasă descoperită,true
-8c4b027a-0747-4eca-966e-edac46526291,access,entryway_type,Entryway,Intrare,,,Balustrade,Balustradă,true
-4cbb151d-056b-4649-8bdf-d1e801de5123,access,entryway_type,Entryway,Intrare,,,Canopy,,false
-bf5a7b20-611e-4e9a-bbc6-3e7665876977,access,entryway_type,Entryway,Intrare,,,Colonnade/arcade,Colonadă / arcadă,true
-dbf251db-f620-4705-b444-ebef6f6c9fa1,access,entryway_type,Entryway,Intrare,,,Columns,Pilaștri adosați,true
-b9ef279b-217e-42ce-8801-c59220e70b45,access,entryway_type,Entryway,Intrare,,,Courtyard,Curte interioară / patio,true
-3f4c69da-e431-4d05-aca5-7c7da5f93b51,access,entryway_type,Entryway,Intrare,,,Marquee,Marchiză,true
-0b166bcf-8adb-4cd4-9ddf-f80a10cab4c9,access,entryway_type,Entryway,Intrare,,,Patio,,false
-397d3614-6d83-4e71-b900-f2a74130baa6,access,entryway_type,Entryway,Intrare,,,Pilasters,,false
-a1737549-496f-4961-9720-388a3a51aaee,access,entryway_type,Entryway,Intrare,,,Portico,Porte-cochère,true
-ffde22c1-b106-4887-8ad9-653e504b80ff,access,entryway_type,Entryway,Intrare,,,Projecting,În rezalit,true
-0758e06f-28c7-48b0-9e8f-011784f44fa0,access,entryway_type,Entryway,Intrare,,,Recessed,Retras,true
-a07c139e-3449-4988-be49-4f2692a5ccda,access,entryway_type,Entryway,Intrare,,,Stoop,,false
-c3cd2c14-1354-4dba-b418-559207162dcd,access,entryway_type,Entryway,Intrare,,,Subterranean,Acces în demisol / subsol,true
-3e23bac7-1304-44d6-8a12-d4c03f4afe9c,access,entryway_type,Entryway,Intrare,,,Vehicular entry,Acces auto,true
-26a92661-98fc-4cdb-a2d5-370fb38eb773,access,entryway_type,Entryway,Intrare,,,Wall,Acces zidit,true
-6f724a4c-cead-4fce-bda9-be88f88421f6,access,portal_type,Porch,Portal,,,Entrance porch/stoop,Baldachin de intrare,true
-7a982b68-e3a9-468c-951e-5c53e43fe2f7,access,portal_type,Porch,Portal,,,Full width,Pe intraga lungime,false
-cceb92d4-6808-411b-a84b-185ad370c044,access,portal_type,Porch,Portal,,,Partial width,Partial pe o latura,false
-ce3456ce-c0da-4b18-ae97-ed11bba36f39,access,portal_type,Porch,Portal,,,Porch Rail (Porch Rail),Mana curenta,false
-9a037a05-34b2-4592-890c-6714ce8af78d,access,portal_type,Porch,Portal,,,Porch Supports (Porch Supports),,false
-69118d5a-c031-4e73-a546-81b1745c0824,access,portal_type,Porch,Portal,,,Projecting,Iesita din planul peretelui,false
-f92fdf7a-aab5-43ea-8fe5-8f884b3ecee3,access,portal_type,Porch,Portal,,,Recessed,Intrata in planul peretelui,false
-7acb7565-b205-41ad-b59d-29aeffc315b2,access,portal_type,Porch,Portal,,,"Roof, flat",Acoperis plat / copertina,false
-66f9df7c-161a-4dc3-80c6-5ce37778d352,access,portal_type,Porch,Portal,,,"Roof, gable",,false
-791a4c6c-2af1-4e86-8c8c-aee8227d609b,access,portal_type,Porch,Portal,,,"Roof, hipped",Sarpanta,false
-580a81d0-7b72-47d7-bea3-a6055135feaf,access,portal_type,Porch,Portal,,,"Roof, mansard",Mansarda,false
-aee09c47-e163-433a-8692-e973cb027328,access,portal_type,Porch,Portal,,,"Roof, parapet",Parapet,false
-6340bb44-276e-4756-818a-237b6512d2df,access,portal_type,Porch,Portal,,,"Roof, shed",Magazie,false
-ed39e5c6-1631-4888-abce-45b10738c0e3,access,portal_type,Porch,Portal,,,Wraparound,Care invaluie cladirea in intregime,false
+uuid,order,type,set,aspect,aspect_ro,area,area_ro,value,value_ro,published
+befafa6d-ba54-42e3-ad23-383dd6e8e50c,1,roof,chimney_type,Chimney Type,Tip coș de fum,,,Interior,Interior,true
+f897ff39-9545-434f-9aa9-8b886fefbac1,2,roof,chimney_type,Chimney Type,Tip coș de fum,,,Exterior,Exterior,true
+f8dfff19-c46c-4efb-b5bc-1630d6e7cb8d,3,roof,chimney_material,Chimney,Coș de fum,,,Brick,Cărămidă,true
+d2f702f4-8b7f-42a7-9398-beda66e50a75,4,roof,chimney_material,Chimney,Coș de fum,,,Concrete,Beton,true
+411323ef-2a68-408c-8510-35fa8107e0ec,5,roof,chimney_material,Chimney,Coș de fum,,,Concrete block,,false
+fa2fcc4d-2dac-470c-8f22-343cc7830be8,6,roof,chimney_material,Chimney,Coș de fum,,,Exterior,Exterior,true
+d4cd5689-a6cf-439e-b353-d568389d558b,7,roof,chimney_material,Chimney,Coș de fum,,,Interior,Interior,true
+472070d2-eb37-4db3-ad6d-7c694550095f,8,roof,chimney_material,Chimney,Coș de fum,,,Pipe,Țeavă,true
+f3ce27d7-ba20-42b2-a1c0-30200c11684f,9,roof,chimney_material,Chimney,Coș de fum,,,Stone,Piatră,true
+5a44c527-47a0-49d5-af03-a798a495285c,10,roof,chimney_material,Chimney,Coș de fum,,,Stucco,Tencuială de var,true
+c290c6d5-f6bc-4285-8cb3-7d425eb45207,11,roof,chimney_material,Chimney,Coș de fum,,,Unknown,Altele,true
+6cd9aa32-488f-41b6-b515-6e926e4f0a8c,12,roof,chimney_material,Chimney,Coș de fum,,,Wood,Lemn,true
+53baecdc-c468-40bd-bcac-d8004adcc76f,13,roof,type,Type,Formă,,,A-frame,În două ape,true
+9c8c15b2-c820-476c-bb09-64cd19f88d21,14,roof,type,Type,Formă,,,Bargeboards,În două ape cu atic,true
+fee9adb9-6efa-47a1-8e73-30cc5a21fa9a,15,roof,type,Type,Formă,,,Barrel vaulted,Acoperire în boltire,true
+ba99f871-277f-4f3f-aece-e2edc3a6a397,16,roof,type,Type,Formă,,,Brackets,,false
+e6a20a21-3a87-4d52-988d-b40386be1513,17,roof,type,Type,Formă,,,Butterfly,,false
+948b7ee0-22ac-4f0d-9475-4aa126c0bc7d,18,roof,type,Type,Formă,,,Clay tile coping,,false
+092b1f47-67cf-453d-86fe-6b1a2b728e26,19,roof,type,Type,Formă,,,"Clipped Gable, side",,false
+c107ec01-92ac-4266-9534-1d62a967bfef,20,roof,type,Type,Formă,,,Shed,Cu o apă și atic,true
+db4a19b8-b37f-4a77-b833-ddfe6e6a171d,21,roof,type,Type,Formă,,,Combination,Cu formă specială,true
+3a2c85b9-87a8-432f-87d6-d1d57dbb2647,22,roof,type,Type,Formă,,,Gambrel,Cu pantă frântă,true
+33713c4c-cdc8-4dee-a53d-43008c83c8e3,23,roof,type,Type,Formă,,,Hipped,În mai multe ape,true
+7295052d-034d-4e57-bc8a-83553b1b109a,24,roof,type,Type,Formă,,,"Hipped, pyramidal",În patru ape,true
+ad32bc78-a2b1-4429-9e00-c36b6233f84c,25,roof,type,Type,Formă,,,Jerkinhead,Cu formă complexă,true
+13d0869a-ac52-449c-b687-8bee769d26e7,26,roof,type,Type,Formă,,,Mansard,Mansardă,true
+f0095d9b-4440-4e39-870b-e5dd7b5509c4,27,roof,cladding_material,Cladding,Finisaj acoperiș,,,,Învelitoare ceramică,true
+69eb05fc-0fe2-4c26-863a-4451b529e09f,28,roof,cladding_material,Cladding,Finisaj acoperiș,,,,Învelitoare metalică,true
+4d828f45-1b01-418c-9723-a0d04afbe787,29,roof,cladding_material,Cladding,Finisaj acoperiș,,,,Învelitoare din azbociment (eternit),true
+fb8fc59b-dfd0-44c2-a2b3-af3acc8782f4,30,roof,cladding_material,Cladding,Finisaj acoperiș,,,,Învelitoare din carton bituminat,true
+45bd0837-6022-47bc-80a0-62b008d29a74,31,roof,cladding_material,Cladding,Finisaj acoperiș,,,,Învelitoare din ardezie,true
+b03deda7-dbb8-41fb-9930-0b3ee4f9b68a,32,roof,details,Details,Detalii,,,Cornice,Cornișă,true
+9f5c9d84-35c1-4de5-be0d-b44ec9d55fe3,33,roof,details,Details,Detalii,,,Cupola,Cupolă,true
+8af68c3f-40ce-49c2-8d8a-4af2a99b927d,34,roof,details,Details,Detalii,,,Dentils,Denticule,true
+7f5d8f91-9dc8-41cb-aff4-0b00d372135f,35,roof,details,Details,Detalii,,,Dormer,Lucarnă,true
+89a60f4b-4e3e-457e-9574-130ebec9a786,36,roof,details,Details,Detalii,,,Dovecote,Porumbar,true
+c3fb3fac-0c68-44da-b3e5-5d31f5201f04,37,roof,details,Details,Detalii,,,"Eaves, boxed",Streașină,true
+a47bb248-133e-49db-863e-40ec0de9f896,38,roof,details,Details,Detalii,,,"Eaves, flared",,false
+53a9fd43-8d9c-4ef8-aa86-1211fa6e3984,39,roof,details,Details,Detalii,,,"Eaves, open",,false
+606e4e07-bd77-4781-a564-119538d73f14,40,roof,details,Details,Detalii,,,"Eaves, rolled",,false
+94a909ea-4320-4848-a230-b80d102cafb1,41,roof,details,Details,Detalii,,,"Eaves, wide",,false
+7a51dfa9-f298-43d0-96a2-15d9b079bcf2,42,roof,details,Details,Detalii,,,Exposed purlins,,false
+2922f1f8-b0f9-4e4f-a305-ddbfc9f873ee,43,roof,details,Details,Detalii,,,Exposed rafter tails,,false
+18e1eeda-55e4-4c25-a103-3636244ec71f,44,roof,details,Details,Detalii,,,Exposed rafters,,false
+3d2b4a04-520a-4326-b2fc-8c3e8fd476c0,45,roof,details,Details,Detalii,,,Exposed Roof beams,,false
+5bd5e3f0-35c0-4bd3-95ee-e557c9fa27f6,46,roof,details,Details,Detalii,,,Finial,Finial / fleuron de Acoperiș,true
+90ded4f1-c9a1-4516-a4f1-73cfb4af3a64,47,roof,details,Details,Detalii,,,Flat,În terasă,true
+23ef3404-aa47-433f-913a-77436ede2fb5,48,roof,details,Details,Detalii,,,Folded Plate,,false
+006900dd-760a-4d1c-87b9-a323c2fab276,49,roof,details,Details,Detalii,,,"Gable, crossed",Frontispiciu,true
+340a8038-15d9-46c0-943c-9281f19e9833,50,roof,details,Details,Detalii,,,"Gable, front",,false
+a619d425-9b1b-4c21-952d-fe914336640f,51,roof,details,Details,Detalii,,,"Gable, side",,false
+a07381d3-8db1-4edd-82c2-b342a8579648,52,roof,details,Details,Detalii,,,Monitor,,false
+28c1f909-39c9-419a-90bb-6cafcba9c6d5,53,roof,details,Details,Detalii,,,Other,Altele,true
+13acde0a-b071-4c60-8717-2cffc75101ce,54,roof,details,Details,Detalii,,,Parapet,Atic,true
+57b7455a-23d5-4a8f-bce2-746102c089ee,55,roof,details,Details,Detalii,,,"Parapet, curved",,false
+d8c527aa-75f5-4c93-9de6-c0b4de63c710,56,roof,details,Details,Detalii,,,"Parapet, flat",,false
+907bb710-fa3e-49c7-9a95-0c467d08bd61,57,roof,details,Details,Detalii,,,"Parapet, stepped",,false
+7f2df321-1b2e-4dcf-bf80-c7811a405f89,58,roof,details,Details,Detalii,,,Pent,,false
+99615422-4a03-4e70-a55e-2b08c5e29b98,59,roof,details,Details,Detalii,,,Saddle,,false
+1ee1bea2-5c88-4b0a-90aa-3b15099924dd,60,roof,details,Details,Detalii,,,Sawtooth,,false
+ce5611f8-4be3-4678-b3c4-ef3285784eca,61,roof,details,Details,Detalii,,,Scalloped bargeboards,,false
+8781f92a-507d-4fec-8faf-49ba40b198fe,62,roof,details,Details,Detalii,,,Skirt,,false
+15f3ed2e-6cf4-4768-995a-5bbe114aac0d,63,roof,details,Details,Detalii,,,Skylight,Luminator zenital,true
+d3616f69-7822-45f8-a173-7c9a06ece61e,64,roof,details,Details,Detalii,,,Tower,Turn,true
+db88f3d4-1730-495f-82d5-32836ac0c2a0,65,roof,details,Details,Detalii,,,Turret,Turelă,true
+ae971b55-beb9-4cf5-bb7d-8f27215cad49,66,roof,details,Details,Detalii,,,Weathervane,Giruetă,true
+e3331824-d203-4899-8e15-02a70abd1f5f,67,roof,details,Details,Detalii,,,,Jgheaburi / burlane,true
+1679b2f8-56a9-43ea-b802-a2395296d754,68,facade,type,Formă,Fațadă,,,Asymmetrical,Asimetrică,true
+a3d95bf9-f9fc-48bb-82e4-539db4a0590f,69,facade,type,Formă,Fațadă,,,Symmetrical,Simetrică,true
+0d586ae6-2f7a-4cf9-9cb6-739ecd501ba6,70,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Aluminum,Metal,true
+71eebdef-da6a-4b9a-8289-2c07bab8583b,71,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Asbestos,,false
+61439882-2032-4bc8-938f-f3c6b4b72088,72,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Board and batten,Lemn,true
+6d757223-e4e4-46f9-910d-784d3edd9788,73,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Brick,Ceramic,true
+2c5b4ed0-7d53-49fd-a156-d3a4e7526d38,74,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Concrete,Tencuială de ciment,true
+86529082-c78b-48fb-9123-5f3b02293aeb,75,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Concrete block,,false
+f4a212d7-5f70-4d4a-b87d-ce535cb4cd6f,76,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Corrugated metal,Placaj metalic,true
+1a6c1434-8c5a-498c-bc35-4b0bc2f8f8e8,77,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Fieldstone,Placaj de piatra ,true
+c227e656-33d0-4bb2-9de8-995bc026ab46,78,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Glass skin,Fatadă de sticlă ,true
+48ba75cd-a347-4a83-b5a1-867d69287112,79,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Half timbering,,false
+ea111c82-63fd-4b29-a7f8-1b968d3caad2,80,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Marble,,false
+0e584e2a-7dd6-4bb5-b6cf-66a7e7a403a0,81,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Other,Altele,true
+a5b2141b-4e57-4215-829b-c853bc600da9,82,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Permastone,,false
+5e9268c0-54a6-49ec-aa3a-1a21e0faf947,83,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Stone,,false
+1596dcb6-eaa1-4dd4-9c5e-218fcd65dbfe,84,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,"Stone, arroyo",,false
+92f82f51-1503-4a1d-9684-1a83dae7ee26,85,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,"Stone, art",,false
+c492af25-7794-48c0-957d-5940de17ca5f,86,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,"Stone, cast",,false
+136c8619-4274-415a-8986-426484e97ad3,87,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,"Stone, cut",,false
+90d95f42-516b-4f3d-90f1-1d2225caec34,88,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,"Stone, natural",,false
+b230fde0-b74e-4a44-9d5e-884918cd24f6,89,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,"Stone, simulated",,false
+7905a1a9-9376-49df-9883-8178b1e82694,90,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,"Stucco, smooth",,false
+33fc7189-0742-401e-9983-5b382c4196fe,91,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,"Stucco, textured",,false
+9c2a371a-0cab-46ad-92d8-0cab22876211,92,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Terra cotta,Ceramică glazurată,true
+16071000-71eb-4faa-a4ce-a6dc6d6314cf,93,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Travertine,,false
+45e9097f-4b31-4104-8986-f2c255f28a8a,94,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Unknown,,false
+cd1bb5b0-8163-4a76-bf93-767351523c77,95,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Vinyl,Mase plastice,true
+2a7b1be4-65f6-42b8-821f-671e9b3e4b27,96,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Wood channel drop,,false
+08a7badc-d3cf-4c49-84a7-42ebddbc0357,97,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Wood clapboards,,false
+a2c363d7-a43b-4f5b-b643-1dea18d99005,98,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Wood horizontal boards,,false
+23c82276-51f1-4bd0-8b7b-dcea1c72fd42,99,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Wood panels,,false
+15618ff6-9526-40d7-b7b2-e5314216d24b,100,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Wood rustic,,false
+c15f2960-ceb5-43c1-9e21-01b0ccf0e182,101,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Wood shingles,,false
+c2bba2aa-0b51-48c4-9e5a-739973c4189a,102,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,"Wood shingles, fish scale",,false
+3b223936-40c7-4a0b-a665-8ff6c7f85bc3,103,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Wood tongue-and-groove,,false
+52168152-2b59-481d-bf65-430e75b8d012,104,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,Wood vertical boards,,false
+1ea444fa-031c-4ad0-a5d6-6159fd191954,105,facade,cladding_cornice_material,Cladding,Finisajul fațadei,Cornice,Cornișă,"Wood, Board and Batten",,false
+5d264ae1-ea75-41ad-9d73-31858a686823,106,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Aluminum,Metal,true
+850a182d-6a30-4ff4-bd33-026ae572948f,107,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Asbestos,Azbociment,false
+946c2b77-7b85-40f3-bfb6-8f8da33459b5,108,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Board and batten,Lemn,true
+1d84852c-58d4-4d29-a364-c5fcc8c860a8,109,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Brick,Ceramic,true
+dbb97943-fa00-432a-ae14-c2e9341269c8,110,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Concrete,Tencuială de ciment,true
+f0febabf-b5ec-48c3-8b53-d4c14a5b2a10,111,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Concrete block,,false
+2e724d01-2dc1-4338-90e8-4f36a3cb7f7c,112,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Corrugated metal,Placaj metalic,true
+96579698-670b-4051-8bbc-161c53a83b84,113,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Fieldstone,Placaj de piatra ,true
+e55e04a7-a9a5-4800-b604-efe68567517c,114,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Glass skin,Fatadă de sticlă ,true
+ac380a89-0d72-4f53-b0be-004f1f923fcf,115,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Half timbering,,false
+b07e65a3-44e5-42dd-8985-1460df76e321,116,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Marble,Marmură ,false
+d4e8ebb2-5c61-4ae0-85a8-6dcb3bad20db,117,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Other,Altele,true
+48d558eb-ba5e-436e-a9a0-59d679660607,118,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Permastone,,false
+3f1dd586-b168-4900-adca-cea8af915c39,119,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Stone,,false
+3d3c3325-dce6-4252-8975-b41099cdc2e6,120,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,"Stone, arroyo",,false
+39c7197f-afb7-4cf8-ac45-ae07392bcba6,121,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,"Stone, art",,false
+f631967e-bd9a-4e9c-b9dc-846a9ebfbaf4,122,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,"Stone, cast",,false
+c2e5d1c3-e86b-42f2-9edd-855ad607da4f,123,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,"Stone, cut",,false
+9fa9e3f9-d92d-481e-9037-75b2b11a7f0f,124,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,"Stone, natural",,false
+d555f724-90e3-40c0-85c6-e9d157aa3bda,125,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,"Stone, simulated",,false
+b6dc4540-393c-4adf-b640-2fc36cd8d872,126,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,"Stucco, smooth",,false
+78a09717-8b0b-45a5-8974-076924d70a79,127,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,"Stucco, textured",,false
+22194b45-7697-4046-b1da-e4f2435d06cf,128,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Terra cotta,Ceramică glazurată,true
+59cc19a3-8aaf-4460-866f-784f15e76190,129,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Travertine,,false
+64921549-9399-44e6-93e5-acb6b4c9ece9,130,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Unknown,,false
+cc2d986b-0fcb-44f2-961f-69ad911566ad,131,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Vinyl,Mase plastice,true
+16311f06-cf73-4de2-b805-b416b0483d2f,132,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Wood channel drop,,false
+2c364e46-fed8-43c2-939c-13ff85d1c6d7,133,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Wood clapboards,,false
+43639117-167e-4459-b37a-41d0d0608ed4,134,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Wood horizontal boards,,false
+dd431a05-7222-482d-9e81-8e84060db181,135,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Wood panels,,false
+24ec30e5-1f88-4d5f-9def-8f423c446976,136,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Wood rustic,,false
+a6721366-cd10-42a2-96ba-ef82c38d369b,137,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Wood shingles,,false
+23b4dda1-2628-435f-9444-7a832f1f4b53,138,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,"Wood shingles, fish scale",,false
+a56b3354-ee7c-42cd-9853-c353083c298e,139,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Wood tongue-and-groove,,false
+9998a629-830c-47f4-b565-fc38966a9a89,140,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,Wood vertical boards,,false
+003514e6-d4fd-4476-9a4b-d67f16746a27,141,facade,cladding_plain_material,Cladding,Finisajul fațadei,Plain,Câmp,"Wood, Board and Batten",,false
+8b3c71cc-5f4a-4697-8417-8814a33990fd,142,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Aluminum,Metal,true
+b702c2c7-463a-4e22-a060-5562e454aeb2,143,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Asbestos,,false
+b7d83552-2fae-41b6-b1c9-2d0d2c8b15cc,144,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Board and batten,Lemn,true
+1905a1fc-da38-4e90-b8e4-3f11b710b3cd,145,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Brick,Ceramic,true
+c809cfc5-5f0b-4afb-b861-99b54a99946f,146,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Concrete,Tencuială de ciment,true
+5a3a6726-9eae-4698-9f89-2e880a3decb7,147,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Concrete block,,false
+ffa25dd3-608d-40ed-910f-e34a7729befb,148,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Corrugated metal,Placaj metalic,true
+f73d2abe-d64f-451c-8d30-6e524523a223,149,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Fieldstone,Placaj de piatra ,true
+f07b40c7-3506-4b2f-a51e-3459b9db4215,150,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Glass skin,Fatadă de sticlă ,true
+761881ec-f120-4203-87c0-6e31690f85cd,151,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Half timbering,,false
+8641a07a-c73e-4cff-b2c1-3f13c67b808a,152,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Marble,,false
+200fbaed-9bc4-4167-beed-857c8da0b45f,153,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Other,Altele,true
+14478fba-8448-40bd-bfe3-8fb97d5123b2,154,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Permastone,,false
+9d75242f-48cd-4b81-b90f-0637af193b65,155,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Stone,,false
+bf53bdf6-71cb-4c9c-88fa-a5ae476ebbf4,156,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,"Stone, arroyo",,false
+287c6e92-a50c-45f0-84ed-a81953b0fc52,157,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,"Stone, art",,false
+ea73bf44-0456-45c5-80d6-ef1425004626,158,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,"Stone, cast",,false
+ecff1684-56e3-4d61-b390-4e0c19de1aeb,159,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,"Stone, cut",,false
+8fcaeb04-65af-438d-ae6d-9013939faa94,160,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,"Stone, natural",,false
+1d5cf3d1-4d91-44c6-9014-10cd25afcb7f,161,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,"Stone, simulated",,false
+145fc9b5-3a25-448d-8db2-fc1ea5a02cf0,162,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,"Stucco, smooth",,false
+4338c96e-5486-4b96-b175-a6c11b13a5da,163,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,"Stucco, textured",,false
+98ed13c3-c4db-45af-b15e-6ce2ef62d072,164,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Terra cotta,Ceramică glazurată,true
+a25afc8f-d6b0-43bc-a75f-2530ac2c5ccd,165,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Travertine,,false
+72b8535d-0e20-4f8b-a4c6-1ea774a0b4eb,166,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Unknown,,false
+957450d2-43ce-4a41-9800-0a5c5ba2f8b0,167,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Vinyl,Mase plastice,true
+cc5609a7-17b5-45a2-a7a6-735614bf5f93,168,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Wood channel drop,,false
+eef6be52-66bc-4dd9-a4d9-9d4452ed7b58,169,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Wood clapboards,,false
+cb846dc4-d625-4b53-a9f4-d7734e2001ce,170,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Wood horizontal boards,,false
+13de60e8-2bc7-4ebe-888a-ad014eaafc3b,171,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Wood panels,,false
+7bf4c49a-2314-4d9c-bdb1-86abf06fa640,172,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Wood rustic,,false
+ba846cec-17fa-4fa9-aca6-93fb5de935e1,173,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Wood shingles,,false
+b81c484c-0189-49f7-bfb5-1dd3b1f564de,174,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,"Wood shingles, fish scale",,false
+2c72473d-c16f-41c2-837f-977b557d8ac6,175,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Wood tongue-and-groove,,false
+28099fbd-7145-47f3-9b81-067929e476d2,176,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,Wood vertical boards,,false
+0c2bac69-3aa3-43cc-84fa-9f519e4c7c55,177,facade,cladding_base_material,Cladding,Finisajul fațadei,Base,Soclu,"Wood, Board and Batten",,false
+f32bf1b1-7910-4252-bd12-b35fbca94c6c,178,facade,cornice_details,Details,Detalii,Cornice,Cornișă,Applied decoration,Decorație aplicată,true
+e801e430-8dbc-4d03-ba5e-3a8c0da197a1,179,facade,cornice_details,Details,Detalii,Cornice,Cornișă,,Stucatură,true
+532b894a-5309-4bca-bcab-ae81193f9272,180,facade,cornice_details,Details,Detalii,Cornice,Cornișă,Dentils,Denticule,true
+11ba5e50-e677-4002-8b82-ece9fb05e416,181,facade,cornice_details,Details,Detalii,Cornice,Cornișă,,"Cornișă (profilată, decorată etc.)",true
+53bce185-6381-4728-90a9-38f737b57a92,182,facade,cornice_details,Details,Detalii,Cornice,Cornișă,Belt course,Friză decorativă,true
+ecbd5c1a-d78d-4b11-8ef1-2c33a358b485,183,facade,cornice_details,Details,Detalii,Cornice,Cornișă,,Hublou fals,true
+09b75251-60c7-48ff-9c38-1bc098a9a38a,184,facade,cornice_details,Details,Detalii,Cornice,Cornișă,Monogram,Monogramă,true
+ab74fe5f-af0b-453b-82d6-5e6ab7de1814,185,facade,cornice_details,Details,Detalii,Cornice,Cornișă,Dingbats,"Inscripție (comemorativă, informativă etc.)",true
+00fcaf3f-6d91-4ccc-b8b5-dbed08391cbb,186,facade,cornice_details,Details,Detalii,Cornice,Cornișă,Tile,Decorațiune ceramică,true
+9882a874-b931-4648-b10d-55503e57de5f,187,facade,cornice_details,Details,Detalii,Cornice,Cornișă,,Sculptură decorativă,true
+da6ed023-493f-488b-a132-2f247f1332cd,188,facade,cornice_details,Details,Detalii,Cornice,Cornișă,,Altele,true
+906f7912-cff0-4fe5-976d-ee8f87f53170,189,facade,plain_details,Details,Detalii,Plain,Câmp,Applied decoration,Decorație aplicată,true
+b9fbf54f-4dcd-444e-980f-bc16f973467a,190,facade,plain_details,Details,Detalii,Plain,Câmp,,Stucatură,true
+8af4cd8c-af44-4e84-9d1a-940ef160e325,191,facade,plain_details,Details,Detalii,Plain,Câmp,,Bosaj în tencuială,true
+a16bd1cc-1bea-4046-8d16-8a8491e3c865,192,facade,plain_details,Details,Detalii,Plain,Câmp,Balconette,Balconet ,true
+d4905546-4d0d-4bfd-a7e3-b504e2062557,193,facade,plain_details,Details,Detalii,Plain,Câmp,,Bovindou,true
+c77b25ec-aa27-4f3c-8a9b-49ab7856eaeb,194,facade,plain_details,Details,Detalii,Plain,Câmp,Belt course,Friză decorativă,true
+fe6ce0ae-8e64-494b-8753-c2f0affed51a,195,facade,plain_details,Details,Detalii,Plain,Câmp,Bris soleil,Marchiză,true
+c6c50cb0-6d93-4451-8e7a-876fb232d64f,196,facade,plain_details,Details,Detalii,Plain,Câmp,Porte-cochère,Porte-cochère,true
+d393fa0e-161a-4e5e-a142-54a47f002a4c,197,facade,plain_details,Details,Detalii,Plain,Câmp,,,false
+fc767ebe-d155-481e-b686-abe6740c185f,198,facade,plain_details,Details,Detalii,Plain,Câmp,,Hublou fals,true
+17e97910-bde9-4a3c-8fe8-b568bfbb9269,199,facade,plain_details,Details,Detalii,Plain,Câmp,Buttresses,Contrafort,true
+9650b338-8e58-477c-b3e3-300a8d3cf1e2,200,facade,plain_details,Details,Detalii,Plain,Câmp,Monogram,Monogramă,true
+7d0e5a18-eb20-47ea-826f-66f7181b0cf5,201,facade,plain_details,Details,Detalii,Plain,Câmp,Dingbats,"Inscripție (comemorativă, informativă etc.)",true
+6763acc1-7ec3-42fc-a99b-73ebb748586e,202,facade,plain_details,Details,Detalii,Plain,Câmp,Grilles,Grilaje usi / ferestre / false,true
+813e90ab-6191-45f0-8e53-29a10a7b35b9,203,facade,plain_details,Details,Detalii,Plain,Câmp,Light Fixtures,Corp de iluminat ,true
+34667977-a307-4f75-81fc-bbf8282db71e,204,facade,plain_details,Details,Detalii,Plain,Câmp,Pierced screens,Grilaj din tablă decupată / perforată,true
+cbe76c78-b2a7-4b68-b0bd-a8e616f262fd,205,facade,plain_details,Details,Detalii,Plain,Câmp,Pilasters,Pilaștrii adosați,
+60b58c62-c3ff-4ccc-ad0d-ce445ad2904b,206,facade,plain_details,Details,Detalii,Plain,Câmp,Planters,Jardiniere ,true
+fede243f-c9cd-4a04-896f-89169687dd25,207,facade,plain_details,Details,Detalii,Plain,Câmp,Quoins,Bosaje de colț,true
+125658c8-3197-4e2c-a061-e1ce3aa2aab9,208,facade,plain_details,Details,Detalii,Plain,Câmp,Sign,Semnalistică,true
+c5509019-d460-4c77-8055-67fadbd2e44c,209,facade,plain_details,Details,Detalii,Plain,Câmp,String course,Brâu decorativ / cornișă intermediară,true
+7eef67a2-e0b4-4d7b-b647-eab6a4696a6e,210,facade,plain_details,Details,Detalii,Plain,Câmp,Tile,Decorațiune ceramică,true
+76ab3ad5-13db-44ff-a0f3-d49c6c08bc8b,211,facade,plain_details,Details,Detalii,Plain,Câmp,,Console,true
+76b5068c-628f-4470-b8c9-4693798f6458,212,facade,plain_details,Details,Detalii,Plain,Câmp,,Sculptură decorativă,true
+e61c8fbb-922f-4b0c-b465-f68f07abd80a,213,facade,plain_details,Details,Detalii,Plain,Câmp,,Cablaj,true
+3e6cc6d3-0115-444f-8ae5-6eaae1daddca,214,facade,plain_details,Details,Detalii,Plain,Câmp,,Altele,true
+30d2d9e2-b3f5-45fa-9408-51e8c8983189,215,facade,base_details,Details,Detalii,Base,Soclu,Applied decoration,Decorație aplicată,true
+4912c13c-025f-4d56-80d8-7e1a64f57ac1,216,facade,base_details,Details,Detalii,Base,Soclu,,Bosaj în tencuială,true
+49a7f0a2-9293-4d2e-8c5d-efbf9b2be2eb,217,facade,base_details,Details,Detalii,Base,Soclu,,Soclu decorativ,true
+b8f2ea7f-9b9d-41b9-82a4-45ee2b5e719a,218,facade,base_details,Details,Detalii,Base,Soclu,Buttresses,Contrafort,true
+d2df8c56-37f9-4ffd-a6e0-d57a3b95ff36,219,facade,base_details,Details,Detalii,Base,Soclu,Grilles,Grilaje usi / ferestre / false,true
+018b5c07-e699-47a9-a70f-c4cc35ef4b16,220,facade,base_details,Details,Detalii,Base,Soclu,Loading Dock,Scară / rampă,true
+e4bc0e76-9c29-4f06-85c4-bd88989154fc,221,facade,base_details,Details,Detalii,Base,Soclu,Pierced screens,Grilaj din tablă decupată / perforată,true
+3da38e92-0831-448f-904d-dc6d98bc1c09,222,facade,base_details,Details,Detalii,Base,Soclu,Pilasters,Pilaștrii adosați,true
+5d7339f9-25d9-495f-84d6-26f7e6978c2c,223,facade,base_details,Details,Detalii,Base,Soclu,Quoins,Bosaje de colț,true
+18e01bc4-fd6d-4d73-afe5-6149c5e41754,224,facade,base_details,Details,Detalii,Base,Soclu,Tile,Decorațiune ceramică,true
+8c6b5a60-2e23-4ca2-9650-625a1e37d7c2,225,facade,base_details,Details,Detalii,Base,Soclu,,Altele,true
+edfc4d5c-b7fa-4ef0-a04c-a6e7f6817d81,226,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Angled,,false
+08797964-4236-4d17-bc43-af3dd94db00d,227,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Awning(s),Copertină,true
+6b17f76c-6c3e-4ec1-b43e-c99efa799ae9,228,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Bulkhead,,false
+0a86b2e5-48cc-4d6f-8ec3-ef57c76210e1,229,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Canopy,,false
+29dfd0d2-29bf-4efa-b243-b16cc41a1405,230,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Canted,,false
+e6d6cd42-75ff-4857-b7de-1e1a00165ded,231,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Capitals,,false
+dc7dde2b-2974-4f72-a9a2-cac550e778dd,232,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Corner,,false
+a890bb9d-0c07-40b0-8169-16b6bd0c97a1,233,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,"Entry paving, brick",,false
+165835f7-cab8-4fe0-a740-559791ca51a7,234,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,"Entry paving, terazzo",,false
+b81a3399-adc6-44ce-9c5e-81ff061b064f,235,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,"Entry paving, tile",,false
+cd1b0063-7cdd-4075-b2af-88d8e7a78cb2,236,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,"Entry paving, tile",,false
+232e081e-645e-4db8-b4ed-71d79bd76526,237,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Flush,,false
+13d265e1-74b5-4bfa-a143-dcecf6eaaa8a,238,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Frieze,,false
+23e7e35f-56ba-4b58-908d-9be9ec275619,239,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Ghost sign,,false
+5aed5405-3229-4a4d-b91a-73687217b4bf,240,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Lighting,,false
+b4d361c2-3623-498e-910b-316c6bd10f39,241,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Multiple,,false
+f15a3268-4fc5-4468-9034-ac075b59ec10,242,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Piers,,false
+fd03917f-d1cc-4590-b29b-66d3930a5d6b,243,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Pilasters,,false
+36926c99-da4a-446b-907c-d6ea6d154ff2,244,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Planters,,false
+441ad930-c268-4cf9-89e5-97a9100ad68e,245,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Recessed,,false
+81a4f258-683e-4733-a3dd-0867cb77cda5,246,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Security gate/screen,,false
+875b439b-6cb4-4972-841b-12fdba966167,247,facade,plain_storefront_type,Storefront,Parter comercial,Plain,Câmp,Sign,Semnalistică,true
+764e8f9d-8179-4b90-8f51-1efd90055161,248,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Arched opening,Arcuită,true
+1abf2760-4508-48ed-8f02-8214f296f9eb,249,facade,plain_window_type,Window,Fereastră,Plain,Câmp,"Arched opening, pointed",Arc frânt (gotic),true
+47052828-e8b9-4b15-afed-d5472d2c823a,250,facade,plain_window_type,Window,Fereastră,Plain,Câmp,"Arched opening, round",Arc în plin cintru (semicircular),true
+bcfd3d73-18eb-4ebb-ac05-065b7ea2b3ce,251,facade,plain_window_type,Window,Fereastră,Plain,Câmp,"Arched opening, segmental",Arcatura complexă,true
+d109e0a4-1331-4116-a7f9-16f226d052d1,252,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Awning,Copertină,true
+e9a21277-f49d-4607-8e49-e4b47c900d58,253,facade,plain_window_type,Window,Fereastră,Plain,Câmp,"Bay, bowed",,false
+ea761f9b-1715-495e-a7f6-5806e9df4cf2,254,facade,plain_window_type,Window,Fereastră,Plain,Câmp,"Bay, canted",Bovindou poligonal,true
+bf1ce060-52af-4f8d-b6b5-e4adff087eee,255,facade,plain_window_type,Window,Fereastră,Plain,Câmp,"Bay, rounded",Bovindou semicircular,true
+2c517ead-1f30-4e96-adb9-2f28b4e0a4a9,256,facade,plain_window_type,Window,Fereastră,Plain,Câmp,"Bay, squared","Bovindou rectangular (""bârfitoare"")",true
+90cacb04-b989-4e79-a009-4f32861349e3,257,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Butted glass,Sticla incastrata,false
+859793ea-3971-4680-906f-fb88ec801080,258,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Casement,Batantă,true
+9c0f876b-9a03-4bd7-b6ea-8cc3bba8985d,259,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Clerestory,Zenitală,true
+da53a82f-7e7a-4472-97b9-bca8f92661da,260,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Corner,De colț,true
+f75f5412-c5ef-4303-b8f4-6f59d340d97c,261,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Decorative surround,Cu ancadrament,true
+7fa94ede-3433-4db7-83b3-0c341d81e2b4,262,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Diamond pane,Gol de Fereastră poligonal,true
+e8517076-ccad-46f6-9fc8-1b6192645a0b,263,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Display,Vitrină,true
+2ae6dc65-da56-41c1-b207-399086167d33,264,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Divided lights,,false
+28afde8c-dfb8-4a68-981e-948a793d335a,265,facade,plain_window_type,Window,Fereastră,Plain,Câmp,"Divided lights, top sash",,false
+7c92cc61-d904-4b53-abff-83e66fd69cbf,266,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Double-hung,,false
+b4829b07-4d38-411f-bdd6-ee55fd236b1f,267,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Fixed,Fixă,true
+2d80fd4d-2251-4f14-8b92-88bfafa7dbac,268,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Floor-to-ceiling,Perete vitrat,true
+ba293089-d490-48e7-b802-2a919e31666f,269,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Grouped,,false
+57dcdc11-6ad3-4323-9077-c27f66fa6f9d,270,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Historic Surround,,false
+6364ac27-ddf1-4307-adff-a537b3d0952a,271,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Hopper,Basculantă,true
+873d70e3-1038-48a9-8b30-3a56cb555f1f,272,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Jalousie/louver,Jaluzele / rolete ,false
+7c6403e0-17e8-4632-b07d-43649b4a6d78,273,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Leaded glass,,false
+78b54443-cfcf-4383-a220-556eb4ea743b,274,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Multi-light,Cu mai multe ochiuri de Fereastră (complexă),true
+4bdeccda-7aec-4448-b194-2547ff599a28,275,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Multi-light top sash,,false
+f4de4112-281f-4774-8e98-c975dd20fcee,276,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Obscure glass,Sticlă mată,true
+b6186aa3-07f3-4465-9ed0-1750fcb88113,277,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Oriel,,false
+acef6002-826f-4188-8fe6-b6c711293fc9,278,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Other,Altele,true
+bdfb8eb2-e8fd-480f-bc47-98fe81b2ffd2,279,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Paired,Cu 2 ochiuri de Fereastră,true
+dbc747e3-c75d-4a8d-aa68-e1cdba8cc925,280,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Palladian,Tip Palladian,true
+e6222fed-e9a9-4985-8ca1-8508a0b16c6c,281,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Pivot,,false
+2201c88b-e76b-4fcf-9497-1269e4bb6ebc,282,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Porthole,Hublou,true
+5febcef8-0ac1-4584-a630-71c867d1e5c4,283,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Ribbon,În bandă,true
+5a004261-638f-4580-b01f-9d71a1a01480,284,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Sawtooth,,false
+8f843886-04c9-45f7-89fa-9424366dd9f8,285,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Security bars,Grilaj,true
+e403ecbd-22c2-4e6e-a3e6-04a16a2c4205,286,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Shutters,Obloane,true
+a30095f3-2394-4376-93cc-6d5fc5b0d7ef,287,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Single,Cu un ochi de Fereastră,true
+9934fdb6-a192-43fd-9922-cb75d7e871e9,288,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Single-hung,,false
+cc62e9e6-b0d0-457f-9248-f9829f28a7c5,289,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Sliding,Culisantă,true
+f6b5bc03-52b3-4080-bd69-5ee26c8828f4,290,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Stained glass,Vitraliu,true
+0eb2f7c1-2299-4fca-bdf8-975773509de1,291,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Storefront,,false
+d6b47406-5f8b-4868-babb-2ed82675cfea,292,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Transom,,false
+73068410-c504-4439-a25c-9317a4243bd5,293,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Tripartite,Cu 3 ochiuri de Fereastră,true
+70794938-50c5-48dd-9e9a-e5fff6615350,294,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Unknown,Altele,true
+e99afd51-9bb6-4d25-bafa-475004b20d5b,295,facade,plain_window_type,Window,Fereastră,Plain,Câmp,Vent,Gură de ventilație,true
+f4ce53c5-fe57-422c-99e0-d984b4b15210,296,facade,base_window_type,Window,Fereastră,Base,Soclu,Arched opening,Arcuită,true
+30a6e0e1-e773-4755-bacb-3ac758822e8c,297,facade,base_window_type,Window,Fereastră,Base,Soclu,"Arched opening, pointed",Arc frânt (gotic),true
+9e5c161c-7a33-4d81-8a39-e6f36189451e,298,facade,base_window_type,Window,Fereastră,Base,Soclu,"Arched opening, round",Arc în plin cintru (semicircular),true
+f8086eb8-04b3-4f95-b545-f22f7c1afc19,299,facade,base_window_type,Window,Fereastră,Base,Soclu,"Arched opening, segmental",Arcatura complexă,true
+ef5c842d-d77f-42ce-9bee-7cc6f6ed66f8,300,facade,base_window_type,Window,Fereastră,Base,Soclu,Awning,Copertină,true
+079eb484-d681-45a4-8518-2e4b9253a2c3,301,facade,base_window_type,Window,Fereastră,Base,Soclu,"Bay, bowed",,false
+652dea78-77fa-4ac5-bb20-c95dc8782b2d,302,facade,base_window_type,Window,Fereastră,Base,Soclu,"Bay, canted",Bovindou poligonal,true
+61a0eacd-bc8f-40ff-8ef7-2fab3bbc6d47,303,facade,base_window_type,Window,Fereastră,Base,Soclu,"Bay, rounded",Bovindou semicircular,true
+96699aa0-cc68-4d08-bcd6-79321c11f6ee,304,facade,base_window_type,Window,Fereastră,Base,Soclu,"Bay, squared","Bovindou rectangular (""bârfitoare"")",true
+eb10fe3e-0f5c-4751-827f-ff462776fe4b,305,facade,base_window_type,Window,Fereastră,Base,Soclu,Butted glass,Sticla incastrata,false
+ecfbf96c-1829-41e9-ae09-7f425e784379,306,facade,base_window_type,Window,Fereastră,Base,Soclu,Casement,Batantă,true
+53c612d9-1cc7-4312-a646-b95c1ac85549,307,facade,base_window_type,Window,Fereastră,Base,Soclu,Clerestory,Zenitală,true
+d52bb0ea-dac0-44a8-8ab1-2aa895ddd957,308,facade,base_window_type,Window,Fereastră,Base,Soclu,Corner,De colț,true
+607ea401-0fa1-4baa-b0ee-c1c53ead6710,309,facade,base_window_type,Window,Fereastră,Base,Soclu,Decorative surround,Cu ancadrament,true
+7fb0fab4-f76e-4838-90dc-b57be46bfc18,310,facade,base_window_type,Window,Fereastră,Base,Soclu,Diamond pane,Gol de Fereastră poligonal,true
+01ec4c9d-403a-4d26-a933-ddfd3864309a,311,facade,base_window_type,Window,Fereastră,Base,Soclu,Display,Vitrină,true
+fcbd25bd-5bb9-4cc3-86b8-2960f3d9a233,312,facade,base_window_type,Window,Fereastră,Base,Soclu,Divided lights,,false
+c2c92da8-d7f3-4fe5-87fb-285e06004e07,313,facade,base_window_type,Window,Fereastră,Base,Soclu,"Divided lights, top sash",,false
+7a172820-82ff-445b-a3a7-ac5c80fbb42a,314,facade,base_window_type,Window,Fereastră,Base,Soclu,Double-hung,,false
+58e7fefc-19ce-48c5-8f65-fc4cd5f81df9,315,facade,base_window_type,Window,Fereastră,Base,Soclu,Fixed,Fixă,true
+191e63db-5708-4ea2-b04b-33e319504a36,316,facade,base_window_type,Window,Fereastră,Base,Soclu,Floor-to-ceiling,Perete vitrat,true
+1d3bc03b-e6fa-42b7-9ddc-aa6327ba5ead,317,facade,base_window_type,Window,Fereastră,Base,Soclu,Grouped,,false
+9ae18671-2993-4850-8c9a-9525d993edfb,318,facade,base_window_type,Window,Fereastră,Base,Soclu,Historic Surround,,false
+78f10f01-676b-4cd0-b225-2bcbd7335585,319,facade,base_window_type,Window,Fereastră,Base,Soclu,Hopper,Basculantă,true
+622f9ad0-86e7-47e2-bcec-071a844ee41e,320,facade,base_window_type,Window,Fereastră,Base,Soclu,Jalousie/louver,Jaluzele / rolete ,false
+7b7d24df-5261-462c-946f-a250446a76e1,321,facade,base_window_type,Window,Fereastră,Base,Soclu,Leaded glass,,false
+68a3260a-5f65-44d6-940b-f8cfc0647ab1,322,facade,base_window_type,Window,Fereastră,Base,Soclu,Multi-light,Cu mai multe ochiuri de Fereastră (complexă),true
+c4a76ac9-dafe-493d-bb62-d3f27606957a,323,facade,base_window_type,Window,Fereastră,Base,Soclu,Multi-light top sash,,false
+d9b788ae-a814-4246-8a44-4ef66da751d0,324,facade,base_window_type,Window,Fereastră,Base,Soclu,Obscure glass,Sticlă mată,true
+56a0c7e3-dfd5-4061-b633-71e979e492a1,325,facade,base_window_type,Window,Fereastră,Base,Soclu,Oriel,,false
+7cd563dc-f435-4bc4-8a74-12b42d63b5f0,326,facade,base_window_type,Window,Fereastră,Base,Soclu,Other,Altele,true
+590c7fe6-0779-41db-9eae-5667a5a5960e,327,facade,base_window_type,Window,Fereastră,Base,Soclu,Paired,Cu 2 ochiuri de Fereastră,true
+bf623a55-98d1-4ebc-951c-7534cdf0f1aa,328,facade,base_window_type,Window,Fereastră,Base,Soclu,Palladian,Tip Palladian,true
+8517bd87-7b0b-407f-ac4c-a1985e3fc528,329,facade,base_window_type,Window,Fereastră,Base,Soclu,Pivot,,false
+4ed42928-8248-43d6-956f-3c87b546b009,330,facade,base_window_type,Window,Fereastră,Base,Soclu,Porthole,Hublou,true
+1a84c49b-0ecf-42b4-a93e-b09d2a8b7fef,331,facade,base_window_type,Window,Fereastră,Base,Soclu,Ribbon,În bandă,true
+81bdcac3-30e4-4c0b-9864-95b6b08555a7,332,facade,base_window_type,Window,Fereastră,Base,Soclu,Sawtooth,,false
+84bac0dc-30b8-4a98-9d82-07848dd623ee,333,facade,base_window_type,Window,Fereastră,Base,Soclu,Security bars,Grilaj,true
+62e03480-3e65-4869-a9c0-4833df8b6622,334,facade,base_window_type,Window,Fereastră,Base,Soclu,Shutters,Obloane,true
+22d93b8b-8af9-4f75-a3ed-167e2a7453e3,335,facade,base_window_type,Window,Fereastră,Base,Soclu,Single,Cu un ochi de Fereastră,true
+fa3b27f2-f095-49bf-b12f-54f8b383efb1,336,facade,base_window_type,Window,Fereastră,Base,Soclu,Single-hung,,false
+fdc43858-8197-42c3-a441-e5da6c49bc04,337,facade,base_window_type,Window,Fereastră,Base,Soclu,Sliding,Culisantă,true
+091e5498-8ad7-4da8-ad4b-e7063673efe2,338,facade,base_window_type,Window,Fereastră,Base,Soclu,Stained glass,Vitraliu,true
+8438f149-b3f5-4e6d-bf39-9f7ea5616608,339,facade,base_window_type,Window,Fereastră,Base,Soclu,Storefront,,false
+a933d1b3-adb4-42b6-bcb3-c41b0ecdc7c7,340,facade,base_window_type,Window,Fereastră,Base,Soclu,Transom,,false
+ecd5378c-3768-4617-b79a-0addfa7a855c,341,facade,base_window_type,Window,Fereastră,Base,Soclu,Tripartite,Cu 3 ochiuri de Fereastră,true
+7196ab5c-796f-40a8-be18-07bfb000b022,342,facade,base_window_type,Window,Fereastră,Base,Soclu,Unknown,Altele,true
+3d347e5d-52c3-4b9a-9a44-ddb6f198ce36,343,facade,base_window_type,Window,Fereastră,Base,Soclu,Vent,Gură de ventilație,true
+21df9a8a-9188-40f8-b6ce-211ca49d967c,344,access,door_type,Door,Ușă,,,Arched,Arcuită,true
+0229a893-462c-40fe-a626-1ecef851a545,345,access,door_type,Door,Ușă,,,"Arched opening, pointed",Arc frânt (gotic),true
+c8c6f6fc-3e91-47c2-ab88-7bcf051c632c,346,access,door_type,Door,Ușă,,,"Arched opening, round",Arc în plin cintru (semicircular),true
+f5e5edfb-e88d-4e4e-a9fd-60066120b4a9,347,access,door_type,Door,Ușă,,,"Arched opening, segmental",Arcatura complexă,true
+9d13f82c-419b-4b3c-a8c3-dc1ce185ec1d,348,access,door_type,Door,Ușă,,,Awning,Marchiză,true
+d10d0a3b-a859-44e2-84a6-37fe2dc274a9,349,access,door_type,Door,Ușă,,,Canopy,,false
+bb2203d6-ef23-4a50-aceb-2a0dd2f6fab3,350,access,door_type,Door,Ușă,,,Decorative hardware,Elemente decorative,true
+3e2189c3-a9b4-4401-92c5-bab6505dc3e0,351,access,door_type,Door,Ușă,,,Decorative surround,Ancadrament decorativ,true
+f8da41e8-2bdb-4c18-855e-b7fb92c3e9ae,352,access,door_type,Door,Ușă,,,Divided lights,,false
+77328c41-693f-4933-8572-2609b418a64c,353,access,door_type,Door,Ușă,,,Double,Duble,true
+2fbe1aea-5036-4f88-9075-17fe9608e634,354,access,door_type,Door,Ușă,,,Fanlight,Luminator la partea superioară,true
+a2f6116e-00a7-49c7-974d-a48b7daacd06,355,access,door_type,Door,Ușă,,,French doors,Pliabile (sistem francez),true
+6cf88be5-fdfe-474e-989a-2032ff3af1a6,356,access,door_type,Door,Ușă,,,Fully glazed,Din sticlă / vitrate,true
+1fd4a386-8c35-47ae-828e-b97ce4e95922,357,access,door_type,Door,Ușă,,,"Glazed, fully",,false
+b76f6aa2-5de2-4632-8555-08c30bb7a7fb,358,access,door_type,Door,Ușă,,,"Glazed, partially",,false
+f7f4664a-1960-4cee-a60f-59a6705ee282,359,access,door_type,Door,Ușă,,,Historic Surround,,false
+62d4842e-4f02-4648-ad59-a8b61053cb98,360,access,door_type,Door,Ușă,,,Historic hardware,Elemente decorative istorice (originale),true
+0554919d-d858-4041-a364-99690ecfc2c6,361,access,door_type,Door,Ușă,,,Metal screen,Grilaj metalic,true
+06b1aaf4-c184-4fad-ab9d-e6d347ec91e4,362,access,door_type,Door,Ușă,,,Paneled,Casetate,true
+4ecf4234-809d-4ea3-97e6-0e64efd3ab9d,363,access,door_type,Door,Ușă,,,Partially glazed,Parțial vitrate,false
+dc7a97e3-7024-47a5-a960-41338ef8b707,364,access,door_type,Door,Ușă,,,Pediment,Prag,false
+0e37c2e5-6689-42d8-b1c2-c95fbc647724,365,access,door_type,Door,Ușă,,,Pilasters,Pilaștri adosați,true
+9aa0c165-49bf-475c-9843-7f4ad8155799,366,access,door_type,Door,Ușă,,,Roll-up,,false
+0a5d1e89-30e2-4637-a710-f87efb69411f,367,access,door_type,Door,Ușă,,,Security door,Suprasecurizate,true
+c89b0d2b-b2e8-449c-ab56-8384bd9a802d,368,access,door_type,Door,Ușă,,,Sidelights,Luminatoare laterale,false
+0326337c-156b-493a-9ada-2bd4884bc42a,369,access,door_type,Door,Ușă,,,Single,Simplă,true
+25006505-2677-402e-b523-45b690259cff,370,access,door_type,Door,Ușă,,,Sliding,Glisante / culisante,true
+d9981236-8573-42a8-a632-45d82583f93d,371,access,door_type,Door,Ușă,,,Transom,,false
+6a8b3159-0116-44cb-8ec7-ec01462d8a31,372,access,door_type,Door,Ușă,,,Unknown,Altele,true
+b7eed185-e966-4059-b940-006fdc28fe14,373,access,door_type,Door,Ușă,,,Wood screen,,false
+dd35bce2-49d5-4ec6-94fb-12f931918a58,374,access,entryway_type,Entryway,Intrare,,,Arches,Arcadă,true
+02a2ba5e-855c-47e1-8e53-276b21863b5e,375,access,entryway_type,Entryway,Intrare,,,Atrium,,false
+b74170d1-72b8-46dd-b726-250f4628e750,376,access,entryway_type,Entryway,Intrare,,,Awning(s),Copertină,true
+1481df52-95a8-44ab-97ef-68c384a4d3c2,377,access,entryway_type,Entryway,Intrare,,,Balcony,Balcon / terasă descoperită,true
+8c4b027a-0747-4eca-966e-edac46526291,378,access,entryway_type,Entryway,Intrare,,,Balustrade,Balustradă,true
+4cbb151d-056b-4649-8bdf-d1e801de5123,379,access,entryway_type,Entryway,Intrare,,,Canopy,,false
+bf5a7b20-611e-4e9a-bbc6-3e7665876977,380,access,entryway_type,Entryway,Intrare,,,Colonnade/arcade,Colonadă / arcadă,true
+dbf251db-f620-4705-b444-ebef6f6c9fa1,381,access,entryway_type,Entryway,Intrare,,,Columns,Pilaștri adosați,true
+b9ef279b-217e-42ce-8801-c59220e70b45,382,access,entryway_type,Entryway,Intrare,,,Courtyard,Curte interioară / patio,true
+3f4c69da-e431-4d05-aca5-7c7da5f93b51,383,access,entryway_type,Entryway,Intrare,,,Marquee,Marchiză,true
+0b166bcf-8adb-4cd4-9ddf-f80a10cab4c9,384,access,entryway_type,Entryway,Intrare,,,Patio,,false
+397d3614-6d83-4e71-b900-f2a74130baa6,385,access,entryway_type,Entryway,Intrare,,,Pilasters,,false
+a1737549-496f-4961-9720-388a3a51aaee,386,access,entryway_type,Entryway,Intrare,,,Portico,Porte-cochère,true
+ffde22c1-b106-4887-8ad9-653e504b80ff,387,access,entryway_type,Entryway,Intrare,,,Projecting,În rezalit,true
+0758e06f-28c7-48b0-9e8f-011784f44fa0,388,access,entryway_type,Entryway,Intrare,,,Recessed,Retras,true
+a07c139e-3449-4988-be49-4f2692a5ccda,389,access,entryway_type,Entryway,Intrare,,,Stoop,,false
+c3cd2c14-1354-4dba-b418-559207162dcd,390,access,entryway_type,Entryway,Intrare,,,Subterranean,Acces în demisol / subsol,true
+3e23bac7-1304-44d6-8a12-d4c03f4afe9c,391,access,entryway_type,Entryway,Intrare,,,Vehicular entry,Acces auto,true
+26a92661-98fc-4cdb-a2d5-370fb38eb773,392,access,entryway_type,Entryway,Intrare,,,Wall,Acces zidit,true
+6f724a4c-cead-4fce-bda9-be88f88421f6,393,access,portal_type,Porch,Portal,,,Entrance porch/stoop,Baldachin de intrare,true
+7a982b68-e3a9-468c-951e-5c53e43fe2f7,394,access,portal_type,Porch,Portal,,,Full width,Pe intraga lungime,false
+cceb92d4-6808-411b-a84b-185ad370c044,395,access,portal_type,Porch,Portal,,,Partial width,Partial pe o latura,false
+ce3456ce-c0da-4b18-ae97-ed11bba36f39,396,access,portal_type,Porch,Portal,,,Porch Rail (Porch Rail),Mana curenta,false
+9a037a05-34b2-4592-890c-6714ce8af78d,397,access,portal_type,Porch,Portal,,,Porch Supports (Porch Supports),,false
+69118d5a-c031-4e73-a546-81b1745c0824,398,access,portal_type,Porch,Portal,,,Projecting,Iesita din planul peretelui,false
+f92fdf7a-aab5-43ea-8fe5-8f884b3ecee3,399,access,portal_type,Porch,Portal,,,Recessed,Intrata in planul peretelui,false
+7acb7565-b205-41ad-b59d-29aeffc315b2,400,access,portal_type,Porch,Portal,,,"Roof, flat",Acoperis plat / copertina,false
+66f9df7c-161a-4dc3-80c6-5ce37778d352,401,access,portal_type,Porch,Portal,,,"Roof, gable",,false
+791a4c6c-2af1-4e86-8c8c-aee8227d609b,402,access,portal_type,Porch,Portal,,,"Roof, hipped",Sarpanta,false
+580a81d0-7b72-47d7-bea3-a6055135feaf,403,access,portal_type,Porch,Portal,,,"Roof, mansard",Mansarda,false
+aee09c47-e163-433a-8692-e973cb027328,404,access,portal_type,Porch,Portal,,,"Roof, parapet",Parapet,false
+6340bb44-276e-4756-818a-237b6512d2df,405,access,portal_type,Porch,Portal,,,"Roof, shed",Magazie,false
+ed39e5c6-1631-4888-abce-45b10738c0e3,406,access,portal_type,Porch,Portal,,,Wraparound,Care invaluie cladirea in intregime,false

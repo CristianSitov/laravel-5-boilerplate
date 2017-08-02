@@ -60,6 +60,7 @@ return [
                 'all'             => 'All Components',
                 'management'      => 'Components Management',
                 'create'          => 'Create Component',
+                'create_facade'   => 'Add Facade',
                 'edit'            => 'Edit Component',
                 'main'            => 'Components',
             ],

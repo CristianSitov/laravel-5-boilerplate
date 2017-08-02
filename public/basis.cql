@@ -75,10 +75,10 @@ USING PERIODIC COMMIT LOAD CSV WITH HEADERS FROM 'http://heritageoftimisoara.dev
 USING PERIODIC COMMIT LOAD CSV WITH HEADERS FROM 'http://heritageoftimisoara.dev/E18.ArchitecturalElement_01.csv' AS row
   MERGE (n:ArchitecturalElement {uuid: row.uuid})
     ON CREATE
-    SET n = row, n.uuid = row.uuid, n.type = row.type, n.set = row.set, n.aspect = row.aspect, n.
+    SET n = row, n.uuid = row.uuid, n.type = row.type, n.set = row.set, n.aspect = row.aspect, n.order = row.order, n.
       aspect_ro = row.aspect_ro, n.area = row.area, n.area_ro = row.area_ro, n.value = row.value, n.value_ro = row.value_ro,
       n.created_at = timestamp(), n.updated_at = timestamp()
     ON MATCH
-    SET n = row, n.uuid = row.uuid, n.type = row.type, n.set = row.set, n.aspect = row.aspect, n.
+    SET n = row, n.uuid = row.uuid, n.type = row.type, n.set = row.set, n.aspect = row.aspect, n.order = row.order, n.
       aspect_ro = row.aspect_ro, n.area = row.area, n.area_ro = row.area_ro, n.value = row.value, n.value_ro = row.value_ro,
       n.created_at = timestamp(), n.updated_at = timestamp();
