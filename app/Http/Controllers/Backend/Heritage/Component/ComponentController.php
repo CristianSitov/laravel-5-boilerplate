@@ -90,9 +90,12 @@ class ComponentController extends Controller
 
         $existingArchitecturalElements = $component->getArchitecturalElementsByType($component_type);
         $existing_architectural_elements = [];
+        $modifiedElements = [];
         foreach ($existingArchitecturalElements as $existingArchitecturalElement) {
             $existing_architectural_elements[$existingArchitecturalElement->getType()][$existingArchitecturalElement->getSet()][] = $existingArchitecturalElement->getUuid();
+            $modifiedElements[$existingArchitecturalElement->getUuid()] = $existingArchitecturalElement->getModified();
         }
+        $modifiedElements = array_filter($modifiedElements); // get rid of nulls
 
         return view('backend.heritage.component.edit')
             ->withResource($resource)
@@ -102,7 +105,8 @@ class ComponentController extends Controller
             ->withComponentType($component_type)
             ->withArchitecturalElements($architectural_elements)
             ->withArchitecturalElementMap($architectural_element_map)
-            ->withExistingArchitecturalElements($existing_architectural_elements);
+            ->withExistingArchitecturalElements($existing_architectural_elements)
+            ->withModifiedElements($modifiedElements);
     }
 
     public function update(Request $request, $resource_id, $building_id, $component_id)

@@ -20,6 +20,15 @@
   width: 270px;
 }
 
+.track {
+  display: block;
+  margin: .5em 0;
+}
+.displays td {
+  vertical-align: top;
+}
+
+
 // Margin/Padding Helpers
 $margin-padding: 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50;
 @each $mp in $margin-padding {

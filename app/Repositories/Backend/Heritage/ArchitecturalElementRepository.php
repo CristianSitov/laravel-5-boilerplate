@@ -45,16 +45,28 @@ class ArchitecturalElementRepository extends BaseRepository
                         // find in Neo
                         $stencilElement = $this->findStencilsByUuid($uuid);
 
+                        $modified = '';
+                        if (isset($data[$set.'_modified'][$uuid])) {
+                            $modified = $data[$set.'_modified'][$uuid];
+                        }
+
                         // check if current Component does have such element
                         if (in_array($stencilElement[0]['element']->values()['uuid'], array_keys($existingElementsArray))) {
-                            // update the thing
                             // set modifications here, since it is the only thing that changes
+                            if ($modified != '') {
+                                // update the thing
+                                $updateElement = $component->getArchitecturalElementByUuid($stencilElement[0]['element']->values()['uuid']);
+                                $updateElement->setModified($modified);
+                            }
                             // remove element from array
                             $unsetElementUuid = $stencilElement[0]['element']->values()['uuid'];
                             unset($existingElementsArray[$unsetElementUuid]);
                         } else {
                             // create the thing
                             $newElement = new ArchitecturalElement($stencilElement[0]['element']->values());
+                            if ($modified != '') {
+                                $newElement->setModified($modified);
+                            }
                             $component->getArchitecturalElements()->add($newElement);
                             unset($existingElementsArray[$newElement->getUuid()]);
                         }
