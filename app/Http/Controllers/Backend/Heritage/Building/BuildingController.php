@@ -117,6 +117,9 @@ class BuildingController extends Controller
     public function edit($resource_id, $production_id)
     {
         $resource = $this->resourceRepository->model->find($resource_id);
+        $placeAddress = $resource->getPlace()->getPlaceAddress();
+        $streetName = $placeAddress->getStreetName();
+        $address = ucfirst($streetName->getCurrentName()).', nr. '.$placeAddress->getNumber();
         $production = $this->productionRepository->model->find($production_id);
         $current_types = $production->getBuilding()->getHeritageResourceTypeIds();
         $current_styles = $production->getBuilding()->getArchitecturalStyleIds();
@@ -153,6 +156,7 @@ class BuildingController extends Controller
 
         return view('backend.heritage.building.edit')
             ->withHeritageResourceTypes($heritageResourceTypes)
+            ->withAddress($address)
             ->withCurrentTypes($current_types)
             ->withArchitecturalStyles($architecturalStyles)
             ->withCurrentStyles($current_styles)

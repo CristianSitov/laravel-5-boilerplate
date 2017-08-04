@@ -30,7 +30,7 @@
                 @foreach($resource->getProductions() as $k => $production)
                 <div class="row">
                     <div class="col-lg-12">
-                        <h4>Building #{{ $k }}</h4>
+                        <h4>Building #{{ $production->getBuilding()->getCardinality() }}</h4>
                     </div>
                     <div class="col-lg-3 col-xs-3">
                         <div class="row">

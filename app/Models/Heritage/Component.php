@@ -94,6 +94,13 @@ class Component
      */
     protected $building;
 
+    /**
+     * @var Modification[]|Collection
+     *
+     * @OGM\Relationship(type="HasModifiedComponent", direction="OUTGOING", collection=true, targetEntity="Modification", mappedBy="component")
+     */
+    protected $modifications;
+
     public function __construct($type = null)
     {
         $this->type = $type;
@@ -280,5 +287,40 @@ class Component
     public function setBuilding($building)
     {
         $this->building = $building;
+    }
+
+
+    /**
+     * @return Modification[]|Collection
+     */
+    public function getModifications()
+    {
+        return $this->modifications;
+    }
+
+    /**
+     * @return array
+     */
+    public function getModificationsIds()
+    {
+        $modifications = [];
+        foreach($this->modifications as $modification) {
+            $modification[] = $modification->getId();
+        }
+        return $modifications;
+    }
+
+    /**
+     * @return Modification|null
+     */
+    public function getModificationById($id)
+    {
+        foreach ($this->getModifications() as $modification) {
+            if ($modification->getId() === $id) {
+                return $modification;
+            }
+        }
+
+        return null;
     }
 }

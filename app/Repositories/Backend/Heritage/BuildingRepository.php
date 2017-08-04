@@ -52,6 +52,7 @@ class BuildingRepository extends BaseRepository
         $building->setLevels($data['levels']);
         $building->setNotes($data['notes']);
         $building->setPlan($data['plot_plan']);
+        $building->setCardinality($data['order']);
 
         foreach ($data['heritage_resource_type'] as $type) {
             $heritageResourceType = $this->em->find(HeritageResourceType::class, $type);
@@ -104,7 +105,18 @@ class BuildingRepository extends BaseRepository
     public function updateBuilding($production_id, $input)
     {
         $data = $input['data'];
+        /* @var Production $production */
         $production = $this->em->find(Production::class, $production_id);
+
+        $production->getBuilding()->setType($data['type']);
+        $production->getBuilding()->setCardinality($data['order']);
+        $production->getBuilding()->setLevels($data['levels']);
+        $production->getBuilding()->setNotes($data['notes']);
+        $production->getBuilding()->setPlan($data['plot_plan']);
+
+        $this->em->persist($production);
+        $this->em->flush();
+//        $this->em->clear();
 
         if ($data['date_from'] || $data['date_to']) {
             $productionEvent = $production->getProductionEvent();
@@ -115,11 +127,6 @@ class BuildingRepository extends BaseRepository
             $productionEvent->setToDate($data['date_to'] ?   \DateTime::createFromFormat('Y/m/d', $data['date_to']) : null);
             $production->setProductionEvent($productionEvent);
         }
-
-        $production->getBuilding()->setType($data['type']);
-        $production->getBuilding()->setLevels($data['levels']);
-        $production->getBuilding()->setNotes($data['notes']);
-        $production->getBuilding()->setPlan($data['plot_plan']);
 
         // change Heritage Resource Types
         foreach ($production->getBuilding()->getHeritageResourceTypeIds() as $existingType) {
@@ -230,6 +237,7 @@ class BuildingRepository extends BaseRepository
         if (isset($data['new_modification_type'])) {
             foreach ($data['new_modification_type'] as $n => $new_modification_type) {
                 $newModificationDescription = new ModificationDescription($data['new_modification_type_description'][$n]);
+                /* var ModificationType $newModificationType */
                 $newModificationType = $this->em->find(ModificationType::class, $data['new_modification_type'][$n]);
                 $newModificationEvent = new ModificationEvent(
                     $newModificationType,

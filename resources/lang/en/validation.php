@@ -194,6 +194,7 @@ return [
                 ],
                 'buildings' => [
                     'type'                    => 'Building Type',
+                    'order'                   => 'Building Order #',
                 ]
             ],
         ],

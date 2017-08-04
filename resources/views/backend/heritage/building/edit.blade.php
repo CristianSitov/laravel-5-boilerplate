@@ -7,12 +7,16 @@
 @endsection
 
 @section('page-header')
-    <h1>
-        {{ trans('labels.backend.heritage.resources.edit') }} // {{ ucwords(
-                $resource->getPlace()->getPlaceAddress()->getStreetName()->getType() . ' ' .
-                $resource->getPlace()->getPlaceAddress()->getStreetName()->getCurrentName() .
-                ', no. ' . $resource->getPlace()->getPlaceAddress()->getNumber()) }}
-    </h1>
+    <h4>{{ link_to_route('admin.heritage.resource.index', trans('labels.backend.heritage.resources.list')) }}
+        <i class="fa fa-angle-right" aria-hidden="true"></i>
+        @if(access()->hasRoles(['Administrator', 1]))
+            {{ link_to_route('admin.heritage.resource.edit', $address, $resource->getId()) }}
+        @else
+            {{ $address }}
+        @endif
+        <i class="fa fa-angle-right" aria-hidden="true"></i>
+        {{ trans('labels.backend.heritage.building.edit') }}
+    </h4>
 @endsection
 
 @section('content')
@@ -30,10 +34,15 @@
                 <div class="col-lg-10 col-lg-offset-2"><h3>{{ trans('labels.backend.heritage.resources.building') }}</h3></div>
                 <div class="form-group">
                     {{ Form::label('type', trans('validation.attributes.backend.heritage.buildings.type'), ['class' => 'col-lg-2 control-label label_name']) }}
-
-                    <div class="col-lg-8">
+                    <div class="col-lg-3">
                         <div class="input-group">
                             {{ Form::selectBuildingType('type', $production->getBuilding()->getType(), ['class' => 'col-lg-4 form-control']) }}
+                        </div>
+                    </div>
+                    {{ Form::label('order', trans('validation.attributes.backend.heritage.buildings.order'), ['class' => 'col-lg-2 control-label label_name']) }}
+                    <div class="col-lg-3">
+                        <div class="input-group">
+                            {{ Form::text('order', $production->getBuilding()->getCardinality(), ['class' => 'col-lg-4 form-control']) }}
                         </div>
                     </div>
                 </div>

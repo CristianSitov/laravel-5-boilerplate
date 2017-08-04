@@ -147,6 +147,9 @@ class ResourceController extends Controller
     public function edit($resource_id, HeritageResourceRequest $request)
     {
         $resource = $this->resourceRepository->model->find($resource_id);
+        $placeAddress = $resource->getPlace()->getPlaceAddress();
+        $streetName = $placeAddress->getStreetName();
+        $address = ucfirst($streetName->getCurrentName()).', nr. '.$placeAddress->getNumber();
 
         $resourceTypeClassifications = collect($this->resourceTypeClassificationRepository->model->findAll())
             ->mapWithKeys(function ($item) {
@@ -174,6 +177,7 @@ class ResourceController extends Controller
 
         return view('backend.heritage.resource.edit')
             ->withResourceTypeClassifications($resourceTypeClassifications)
+            ->withAddress($address)
             ->withAdministrativeSubdivision($administrativeSubdivision)
             ->withStreetNames($streetNames)
             ->withProtectionTypes($protectionTypes)

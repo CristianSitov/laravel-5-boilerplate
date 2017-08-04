@@ -90,6 +90,13 @@ class Building
      *
      * @OGM\Property(type="string")
      */
+    protected $cardinality;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
     protected $type;
 
     /**
@@ -152,7 +159,7 @@ class Building
     /**
      * @var Modification[]|Collection
      *
-     * @OGM\Relationship(type="HasModified", direction="OUTGOING", collection=true, targetEntity="Modification", mappedBy="building")
+     * @OGM\Relationship(type="HasModifiedBuilding", direction="OUTGOING", collection=true, targetEntity="Modification", mappedBy="building")
      */
     protected $modifications;
 
@@ -248,6 +255,22 @@ class Building
     public function setType($type)
     {
         $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCardinality()
+    {
+        return $this->cardinality;
+    }
+
+    /**
+     * @param string $order
+     */
+    public function setCardinality($cardinality)
+    {
+        $this->cardinality = $cardinality;
     }
 
     /**

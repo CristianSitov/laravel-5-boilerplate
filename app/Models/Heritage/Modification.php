@@ -53,9 +53,16 @@ class Modification
     /**
      * @var Building
      *
-     * @OGM\Relationship(type="HasModified", direction="INCOMING", targetEntity="Building", mappedBy="modification")
+     * @OGM\Relationship(type="HasModifiedBuilding", direction="INCOMING", targetEntity="Building", mappedBy="modification")
      */
     protected $building;
+
+    /**
+     * @var Component
+     *
+     * @OGM\Relationship(type="HasModifiedComponent", direction="INCOMING", targetEntity="Component", mappedBy="modification")
+     */
+    protected $component;
 
     public function __construct(ModificationEvent $modificationEvent = null)
     {
@@ -145,5 +152,21 @@ class Modification
     public function setBuilding($building)
     {
         $this->building = $building;
+    }
+
+    /**
+     * @return Component
+     */
+    public function getComponent()
+    {
+        return $this->component;
+    }
+
+    /**
+     * @param Component $component
+     */
+    public function setComponent($component)
+    {
+        $this->component = $component;
     }
 }

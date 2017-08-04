@@ -130,6 +130,9 @@ return [
                     'confirmed'                    => 'Confirmed',
                 ],
             ],
+            'building' => [
+                'edit'               => 'Edit building'
+            ],
             'component' => [
                 'pages' => [
                     'list' => 'Elements & Details List'
