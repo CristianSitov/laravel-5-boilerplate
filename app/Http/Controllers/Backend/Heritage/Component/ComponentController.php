@@ -45,8 +45,12 @@ class ComponentController extends Controller
     {
         $resource = $this->resourceRepository->model->find($resource_id);
         $production = $this->productionRepository->model->find($building_id);
+        $placeAddress = $resource->getPlace()->getPlaceAddress();
+        $streetName = $placeAddress->getStreetName();
+        $address = ucfirst($streetName->getCurrentName()).', nr. '.$placeAddress->getNumber();
 
         return view('backend.heritage.component.index')
+            ->withAddress($address)
             ->withResource($resource)
             ->withProduction($production);
     }

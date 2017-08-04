@@ -63,6 +63,8 @@ return [
                 'create_facade'   => 'Add Facade',
                 'edit'            => 'Edit Component',
                 'main'            => 'Components',
+                'move_up'         => 'Move Up',
+                'move_down'       => 'Move Down',
             ],
 
             'elements' => [

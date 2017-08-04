@@ -293,6 +293,8 @@ class ResourceRepository extends BaseRepository
             }
         }
 
+        $resource->setPropertyType($data['property_type']);
+
         $this->em->persist($resource);
         $this->em->flush();
 

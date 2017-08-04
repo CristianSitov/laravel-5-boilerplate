@@ -58,9 +58,15 @@
                 </div>
 
                 <div class="form-group">
+                    {{ Form::label('property_type', trans('validation.attributes.backend.heritage.resources.property_type'), ['class' => 'col-lg-2 control-label']) }}
+
+                    <div class="col-lg-4">
+                        {{ Form::select('property_type', $property_types, $resource->getPropertyType(), ['required' => 'required', 'class' => 'col-lg-10 basic-select2 control-label']) }}
+                    </div>
+
                     {{ Form::label('type', trans('validation.attributes.backend.heritage.resources.type'), ['class' => 'col-lg-2 control-label']) }}
 
-                    <div class="col-lg-2">
+                    <div class="col-lg-4">
                         {{ Form::select('type', $resource_type_classifications, $resource->getResourceTypeClassification()->getId(), ['required' => 'required', 'class' => 'col-lg-10 basic-select2 control-label']) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
@@ -77,7 +83,7 @@
                     {{ Form::label('district', trans('validation.attributes.backend.heritage.resources.address'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-3">
-                        {{ Form::select('district', $administrative_subdivision, $resource->getPlace()->getAdministrativeSubdivision() ? $resource->getPlace()->getAdministrativeSubdivision()->getId() : '', ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2']) }}
+                        {{ Form::select('district', $administrative_subdivision, $resource->getPlace()->getPlaceAddress()->getStreetName()->getAdministrativeSubdivision() ? $resource->getPlace()->getPlaceAddress()->getStreetName()->getAdministrativeSubdivision()->getId() : '', ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2']) }}
                     </div><!--col-lg-10-->
                     <div class="col-lg-5">
                         {{ Form::select('street', $street_names, $resource->getPlace()->getPlaceAddress() ? $resource->getPlace()->getPlaceAddress()->getStreetName()->getId() : '', ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2']) }}
@@ -117,7 +123,7 @@
                         <div class="form-group">
                             <div class="col-lg-8 col-lg-offset-2">
                                 <div class="input-group">
-                                    <span class="input-group-addon"><label>Legal: </label></span>
+                                    <span class="input-group-addon"><label>{{ trans('validation.attributes.backend.heritage.resources.protection_type') }}: </label></span>
                                     {{ Form::text('protection_type_legal['.$protection->getId().']', $protection->getLegal() ?: '', ['class' => 'col-lg-10 form-control']) }}
                                 </div>
                             </div>

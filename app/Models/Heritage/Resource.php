@@ -17,6 +17,11 @@ class Resource extends Model
 {
     use ResourceAttribute;
 
+    const PROPERTY = [
+        'private',
+        'public',
+    ];
+
     /**
      * @var int
      *
@@ -90,6 +95,13 @@ class Resource extends Model
      * @OGM\Relationship(type="HasProtectionType", direction="OUTGOING", targetEntity="ProtectionType", collection=true, mappedBy="resource")
      */
     protected $protectionTypes;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $propertyType;
 
     /**
      * @var Description
@@ -293,6 +305,36 @@ class Resource extends Model
         }
 
         return false;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPropertyType()
+    {
+        return $this->propertyType;
+    }
+
+    /**
+     * @param string $propertyType
+     */
+    public function setPropertyType($propertyType)
+    {
+        $this->propertyType = $propertyType;
+    }
+
+    /**
+     * @return array
+     */
+    public static function getPropertyTypeOptions()
+    {
+        $types = [];
+
+        foreach (self::PROPERTY as $type) {
+            $types[$type] = trans('validation.attributes.backend.heritage.resources.' . $type);
+        }
+
+        return $types;
     }
 
     /**

@@ -3,7 +3,18 @@
 @section ('title', trans('labels.backend.heritage.resources.management'))
 
 @section('page-header')
-    <h1>{{ trans('labels.backend.heritage.resources.components_list') }}<small>{{ trans('labels.backend.heritage.resources.preview') }}</small></h1>
+    <h4>{{ link_to_route('admin.heritage.resource.index', trans('labels.backend.heritage.resources.list')) }}
+        <i class="fa fa-angle-right" aria-hidden="true"></i>
+    @if(access()->hasRoles(['Administrator', 1]))
+        {{ link_to_route('admin.heritage.resource.edit', $address, $resource->getId()) }}
+    @else
+        {{ $address }}
+    @endif
+        <i class="fa fa-angle-right" aria-hidden="true"></i>
+        {{ link_to_route('admin.heritage.buildings.index', trans('labels.backend.heritage.resources.buildings_list'), [$resource->getId(), $production->getId()]) }}
+        <i class="fa fa-angle-right" aria-hidden="true"></i>
+        {{ trans('labels.backend.heritage.component.pages.list') }}
+    </h4>
 @endsection
 
 @section('content')
@@ -11,7 +22,9 @@
         @foreach($production->getBuilding()->getComponents() as $k => $component)
     <div class="box box-success">
         <div class="box-header with-border">
-            <h3 class="box-title">{{ trans('strings.backend.component.' . $component->getType()) }} #{{ $component->getOrder() }}</h3>
+            <h3 class="box-title">{{ trans('strings.backend.component.' . $component->getType()) }} #{{ $component->getOrder() }}
+                <span class="label label-info"><i class="fa fa-arrow-up"></i>  {{ trans('menus.backend.heritage.components.move_up') }}</span>
+                <span class="label label-info"><i class="fa fa-arrow-down"></i>  {{ trans('menus.backend.heritage.components.move_down') }}</span></h3>
 
             @if('facade' == $component->getType())
             <div class="box-tools pull-right">

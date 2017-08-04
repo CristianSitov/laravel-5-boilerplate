@@ -3,10 +3,16 @@
 @section ('title', trans('labels.backend.heritage.resources.management'))
 
 @section('page-header')
-    <h1>
-        {{ trans('labels.backend.heritage.resources.management') }}
-        <small>{{ trans('labels.backend.heritage.resources.buildings_list') }}</small>
-    </h1>
+    <h4>{{ link_to_route('admin.heritage.resource.index', trans('labels.backend.heritage.resources.list')) }}
+        <i class="fa fa-angle-right" aria-hidden="true"></i>
+        @if(access()->hasRoles(['Administrator', 1]))
+            {{ link_to_route('admin.heritage.resource.edit', $address, $resource->getId()) }}
+        @else
+            {{ $address }}
+        @endif
+        <i class="fa fa-angle-right" aria-hidden="true"></i>
+        {{ trans('labels.backend.heritage.resources.buildings_list') }}
+    <h4>
 @endsection
 
 @section('content')

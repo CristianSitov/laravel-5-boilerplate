@@ -115,13 +115,22 @@
                         <div class="form-group">
                             <div class="col-lg-8 col-lg-offset-2">
                                 <div class="input-group">
-                                    <span class="input-group-addon"><label>Legal: </label></span>
+                                    <span class="input-group-addon"><label>{{ trans('validation.attributes.backend.heritage.resources.protection_type') }}: </label></span>
                                     {{ Form::text('protection_type_legal[]', '', ['class' => 'col-lg-10 form-control']) }}
                                 </div>
                             </div>
                         </div>
                     </div>
 
+                </div>
+
+                <div class="form-group">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="input-group">
+                            <span class="input-group-addon"><label>{{ trans('validation.attributes.backend.heritage.resources.property_type') }}: </label></span>
+                            {{ Form::text('property_type[]', '', ['class' => 'col-lg-10 form-control']) }}
+                        </div>
+                    </div>
                 </div>
 
             </div><!-- /.box-body -->

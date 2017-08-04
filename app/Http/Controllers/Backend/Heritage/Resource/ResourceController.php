@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Heritage\Resource;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\Heritage\HeritageResourceRequest;
 use App\Models\Heritage\ProtectionType;
+use App\Models\Heritage\Resource;
 use App\Repositories\Backend\Heritage\AdministrativeSubdivisionRepository;
 use App\Repositories\Backend\Heritage\ArchitecturalStyleRepository;
 use App\Repositories\Backend\Heritage\HeritageResourceTypeRepository;
@@ -99,11 +100,13 @@ class ResourceController extends Controller
             });
 
         $protectionTypes = ProtectionType::getTypeOptions();
+        $propertyTypes = Resource::getPropertyTypeOptions();
 
         return view('backend.heritage.resource.create')
             ->withAdministrativeSubdivision($administrativeSubdivision)
             ->withStreetNames($streetNames)
             ->withProtectionTypes($protectionTypes)
+            ->withPropertyTypes($propertyTypes)
             ->withResourceTypeClassifications($resourceTypeClassifications);
     }
 
@@ -161,6 +164,7 @@ class ResourceController extends Controller
             });
 
         $protectionTypes = ProtectionType::getTypeOptions();
+        $propertyTypes = Resource::getPropertyTypeOptions();
 
         $resourceNames = $resource->getNames();
         $names = [];
@@ -168,26 +172,12 @@ class ResourceController extends Controller
             $names[] = $resourceName->getId();
         }
 
-        // SCOUT
-//        $heritageResourceTypes = collect($this->heritageResourceTypeRepository->findPublished())
-//            ->mapWithKeys(function ($item) {
-//                return [$item->getId() => [
-//                    'id' => $item->getId(),
-//                    'set_ro' => $item->getSetRo(),
-//                    'name_ro' => $item->getNameRo(),
-//                ]];
-//            });
-//
-//        $architecturalStyles = collect($this->architecturalStyleRepository->findPublished())
-//            ->mapWithKeys(function ($item) {
-//                return [$item->getId() =>  $item->getNameRo()];
-//            });
-
         return view('backend.heritage.resource.edit')
             ->withResourceTypeClassifications($resourceTypeClassifications)
             ->withAdministrativeSubdivision($administrativeSubdivision)
             ->withStreetNames($streetNames)
             ->withProtectionTypes($protectionTypes)
+            ->withPropertyTypes($propertyTypes)
             ->withResource($resource);
     }
 

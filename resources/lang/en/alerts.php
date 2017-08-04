@@ -37,12 +37,12 @@ return [
         ],
 
         'components' => [
-            'created' => 'The Heritage Resource was successfully created.',
-            'deleted' => 'The Heritage Resource was successfully deleted.'
+            'updated' => 'The Components were successfully updated.',
+            'deleted' => 'The Components were successfully deleted.'
         ],
 
         'elements' => [
-            'deleted' => 'The Architectural Element was successfully deleted.'
+            'deleted' => 'The Architectural Elements were successfully deleted.'
         ],
     ],
 ];

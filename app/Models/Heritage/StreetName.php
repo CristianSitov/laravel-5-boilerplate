@@ -121,7 +121,7 @@ class StreetName
     protected $placeAddress;
 
     /**
-     * @var PlaceAddress
+     * @var AdministrativeSubdivision
      *
      * @OGM\Relationship(type="IsIncorporatedIn", direction="INCOMING", targetEntity="AdministrativeSubdivision", mappedBy="streetName")
      */
@@ -359,5 +359,21 @@ class StreetName
     public function setPlaceAddress($placeAddress)
     {
         $this->placeAddress = $placeAddress;
+    }
+
+    /**
+     * @return AdministrativeSubdivision
+     */
+    public function getAdministrativeSubdivision()
+    {
+        return $this->administrativeSubdivision;
+    }
+
+    /**
+     * @param AdministrativeSubdivision $administrativeSubdivision
+     */
+    public function setAdministrativeSubdivision($administrativeSubdivision)
+    {
+        $this->administrativeSubdivision = $administrativeSubdivision;
     }
 }

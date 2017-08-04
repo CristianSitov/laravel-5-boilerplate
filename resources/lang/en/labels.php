@@ -131,6 +131,9 @@ return [
                 ],
             ],
             'component' => [
+                'pages' => [
+                    'list' => 'Elements & Details List'
+                ],
                 'roof' => [
                     'chimney_type' => 'Chimney Type',
                     'chimney_material' => 'Chimney Material',
