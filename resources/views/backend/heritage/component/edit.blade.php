@@ -91,6 +91,31 @@
                 </div>
         @endif
     @endforeach
+                <div class="set-body row">
+                    <div class="col-lg-12 col-xs-12">
+                        <div class="form-group">
+                            {{ Form::label($component_type, trans('labels.backend.heritage.component.pages.changes'), ['class' => 'col-lg-2 control-label']) }}
+                            <div class="col-lg-4 selects">
+                                {{ Form::select('modification_type', $modification_types, [], ['class' => 'col-lg-4 form-control basic-select2']) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xs-6">
+
+                    </div>
+                </div>
+                <div class="set-body row">
+                    <div class="col-lg-12 col-xs-12">
+                        <div class="form-group">
+                            {{ Form::label($component_type, trans('labels.backend.heritage.component.pages.observations'), ['class' => 'col-lg-2 control-label']) }}
+
+                            <div class="col-lg-4 selects">
+                                {{ Form::textarea($component_type) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div><!-- /.box-body -->
         </div><!--box-->
 

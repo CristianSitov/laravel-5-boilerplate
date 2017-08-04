@@ -135,7 +135,9 @@ return [
             ],
             'component' => [
                 'pages' => [
-                    'list' => 'Elements & Details List'
+                    'list'           => 'Elements & Details List',
+                    'changes'        => 'Modifications on component',
+                    'observations'   => 'Modifications observations',
                 ],
                 'roof' => [
                     'chimney_type' => 'Chimney Type',

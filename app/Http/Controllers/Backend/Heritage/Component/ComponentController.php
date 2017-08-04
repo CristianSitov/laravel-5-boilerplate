@@ -7,6 +7,7 @@ use App\Models\Heritage\ArchitecturalElement;
 use App\Repositories\Backend\Heritage\ArchitecturalElementRepository;
 use App\Repositories\Backend\Heritage\BuildingRepository;
 use App\Repositories\Backend\Heritage\ComponentRepository;
+use App\Repositories\Backend\Heritage\ModificationTypeRepository;
 use App\Repositories\Backend\Heritage\ProductionRepository;
 use App\Repositories\Backend\Heritage\ResourceRepository;
 use Illuminate\Http\Request;
@@ -18,6 +19,7 @@ class ComponentController extends Controller
     protected $buildingRepository;
     protected $componentRepository;
     protected $architecturalElementRepository;
+    protected $modificationTypeRepository;
 
     /**
      * Building controller constructor.
@@ -32,13 +34,15 @@ class ComponentController extends Controller
                                 ProductionRepository $productionRepository,
                                 BuildingRepository $buildingRepository,
                                 ComponentRepository $componentRepository,
-                                ArchitecturalElementRepository $architecturalElementRepository)
+                                ArchitecturalElementRepository $architecturalElementRepository,
+                                ModificationTypeRepository $modificationTypeRepository)
     {
         $this->resourceRepository = $resourceRepository;
         $this->productionRepository = $productionRepository;
         $this->buildingRepository = $buildingRepository;
         $this->componentRepository = $componentRepository;
         $this->architecturalElementRepository = $architecturalElementRepository;
+        $this->modificationTypeRepository = $modificationTypeRepository;
     }
 
     public function index($resource_id, $building_id)
@@ -101,6 +105,12 @@ class ComponentController extends Controller
         }
         $modifiedElements = array_filter($modifiedElements); // get rid of nulls
 
+        $modificationTypes = $this->modificationTypeRepository->findPublished($component_type);
+        $modification_types = [];
+        foreach ($modificationTypes as $modificationType) {
+            $modification_types[$modificationType->getId()] = $modificationType->getNameRo();
+        }
+
         return view('backend.heritage.component.edit')
             ->withResource($resource)
             ->withProduction($production)
@@ -110,7 +120,8 @@ class ComponentController extends Controller
             ->withArchitecturalElements($architectural_elements)
             ->withArchitecturalElementMap($architectural_element_map)
             ->withExistingArchitecturalElements($existing_architectural_elements)
-            ->withModifiedElements($modifiedElements);
+            ->withModifiedElements($modifiedElements)
+            ->withModificationTypes($modification_types);
     }
 
     public function update(Request $request, $resource_id, $building_id, $component_id)
