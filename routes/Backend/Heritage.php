@@ -8,15 +8,6 @@ Route::group([
     'as'         => 'heritage.',
     'namespace'  => 'Heritage',
 ], function () {
-
-    Route::group([
-        'middleware' => 'access.routeNeedsPermission:view-backend;scout',
-    ], function () { // 'before' => 'auth'
-        Route::get('/laravel-filemanager/upload', '\Unisharp\Laravelfilemanager\controllers\LfmController@show');
-        Route::post('/laravel-filemanager/upload', '\Unisharp\Laravelfilemanager\controllers\LfmController@upload');
-        // list all lfm routes here...
-    });
-
     /*
      * Heritage Management
      */
@@ -33,6 +24,8 @@ Route::group([
             // For DataTables
             Route::post('resource/get', 'ResourceTableController')
                 ->name('resource.get');
+            Route::post('/upload', 'UploadController@uploadSubmit')
+                ->name('resource.photos_upload');
         });
         Route::group([
             'namespace' => 'Building',
@@ -48,13 +41,14 @@ Route::group([
             Route::resource('components', 'ComponentController');
             Route::get('components/{component}/element/{element}/delete', 'ComponentController@destroyElement')->name('components.element.remove');
         });
+
         /*
         * Heritage Resource Classification Type Management
         */
         Route::group(['namespace' => 'ResourceTypeClassification'], function () {
             Route::resource('resource-type-classification', 'ResourceTypeClassificationController');
 
-            // For DataTables
+             // For DataTables
              Route::post('resource-type-classification/get', 'ResourceTypeClassificationTableController')
                  ->name('resource-type-classification.get');
         });

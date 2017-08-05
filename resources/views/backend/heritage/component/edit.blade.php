@@ -115,30 +115,53 @@
                         </div>
                     </div>
                 </div>
-
-            </div><!-- /.box-body -->
-        </div><!--box-->
-
-        <div class="box box-success">
-            <div class="box-body">
-                <div class="pull-left">
-                    {{ link_to_route('admin.heritage.components.index', trans('buttons.general.cancel'), [$resource->getid(), $production->getId()], ['class' => 'btn btn-danger btn-xs']) }}
-                </div><!--pull-left-->
-
-                <div class="pull-right">
-                    {{ Form::submit(trans('buttons.general.crud.update'), ['class' => 'btn btn-success btn-xs']) }}
-                </div><!--pull-right-->
-
-                <div class="clearfix"></div>
             </div><!-- /.box-body -->
         </div><!--box-->
 
     {{ Form::close() }}
+
+
+    <div class="box box-success">
+        <div class="box-body">
+            <div class="row">
+                <div class="form-group">
+                    {{ Form::label($component_type, trans('labels.backend.heritage.component.pages.images'), ['class' => 'col-lg-2 control-label']) }}
+                    <div class="col-lg-4 selects">
+                        {{ Form::file('photos[]', ["data-url" => "/admin/heritage/upload", "multiple", "id" => "fileupload"]) }}
+                        <div id="files_list"></div>
+                        <p id="loading"></p>
+                        <input type="hidden" name="file_ids" id="file_ids" value="" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+        </div><!-- /.box-body -->
+    </div><!--box-->
+
+    <div class="box box-success">
+        <div class="box-body">
+            <div class="pull-left">
+                {{ link_to_route('admin.heritage.components.index', trans('buttons.general.cancel'), [$resource->getid(), $production->getId()], ['class' => 'btn btn-danger btn-xs']) }}
+            </div><!--pull-left-->
+
+            <div class="pull-right">
+                {{ Form::submit(trans('buttons.general.crud.update'), ['class' => 'btn btn-success btn-xs']) }}
+            </div><!--pull-right-->
+
+            <div class="clearfix"></div>
+        </div><!-- /.box-body -->
+    </div><!--box-->
+
 @endsection
 
 @section('after-scripts')
     <!-- Chosen -->
     {{ Html::script('js/backend/plugin/chosen/chosen.jquery.min.js') }}
+    <!-- jQuery File Upload -->
+    {{ Html::script('js/backend/plugin/jquery-file-upload/vendor/jquery.ui.widget.js') }}
+    {{ Html::script('js/backend/plugin/jquery-file-upload/jquery.iframe-transport.js') }}
+    {{ Html::script('js/backend/plugin/jquery-file-upload/jquery.fileupload.js') }}
 
     <script type="text/javascript">
     $(document).ready(function() {
@@ -180,13 +203,31 @@
             }
         });
 
-        $('a#clone_me').on('click', function(){
-            var $clone = jQuery('#toClone select:first').clone();
-            $clone.removeAttr('style');
-            //$clone.chosen('destroy');
-            jQuery('#toClone').append($clone);
-            jQuery('#toClone select:last').chosen();
+        // http://laraveldaily.com/laravel-ajax-file-upload-blueimp-jquery-library/
+        $('#fileupload').fileupload({
+            dataType: 'json',
+            add: function (e, data) {
+                $('#loading').text('Uploading...');
+                data.submit();
+            },
+            done: function (e, data) {
+                $.each(data.result.files, function (index, file) {
+                    $('<p/>').html(file.name + ' (' + file.size + ' KB)').appendTo($('#files_list'));
+                    if ($('#file_ids').val() != '') {
+                        $('#file_ids').val($('#file_ids').val() + ',');
+                    }
+                    $('#file_ids').val($('#file_ids').val() + file.fileID);
+                });
+                $('#loading').text('');
+            }
         });
+//        $('a#clone_me').on('click', function(){
+//            var $clone = jQuery('#toClone select:first').clone();
+//            $clone.removeAttr('style');
+//            //$clone.chosen('destroy');
+//            jQuery('#toClone').append($clone);
+//            jQuery('#toClone select:last').chosen();
+//        });
     });
     </script>
 @endsection

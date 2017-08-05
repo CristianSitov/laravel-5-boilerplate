@@ -138,6 +138,7 @@ return [
                     'list'           => 'Elements & Details List',
                     'changes'        => 'Modifications on component',
                     'observations'   => 'Modifications observations',
+                    'images'         => 'Descriptive images',
                 ],
                 'roof' => [
                     'chimney_type' => 'Chimney Type',
