@@ -1,4 +1,4 @@
-uuid,set,set_ro,name,name_ro,published
+uuid,component_type,component_type_ro,name,name_ro,published
 02cdbda8-6631-4f44-8e12-fce55dea3a65,building,corp clădire,Addition to primary elevation,Adiție (la corpul principal),true
 0a943aec-b8ff-42b9-a121-fc8e1b833a6b,building,corp clădire,Addition to rear/side elevation,Adiție (la corpul secundar),true
 33d16e3d-8de9-44d5-9401-af05715a4184,building,corp clădire,Addition to upper story,Etaj adăugat,true
