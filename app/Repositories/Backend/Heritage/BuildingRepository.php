@@ -47,12 +47,14 @@ class BuildingRepository extends BaseRepository
             $production->setProductionEvent($productionEvent);
         }
 
+        $building_count = count($resource->getProductions());
+
         $building = new Building();
         $building->setType($data['type']);
         $building->setLevels($data['levels']);
         $building->setNotes($data['notes']);
         $building->setPlan($data['plot_plan']);
-        $building->setCardinality($data['order']);
+        $building->setCardinality(isset($data['order']) ? $data['order'] : $building_count+1);
 
         foreach ($data['heritage_resource_type'] as $type) {
             $heritageResourceType = $this->em->find(HeritageResourceType::class, $type);
