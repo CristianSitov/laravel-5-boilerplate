@@ -54,7 +54,10 @@
             @endforeach
         @elseif(in_array('multiple', $options))
             @php
-                $value = (array_key_exists($set, $existing_architectural_elements[$component_type])) ? $existing_architectural_elements[$component_type][$set] : [];
+                $value = [];
+                if (isset($existing_architectural_elements[$component_type]) && array_key_exists($set, $existing_architectural_elements[$component_type])) {
+                    $value = $existing_architectural_elements[$component_type][$set];
+                }
                 $mods  = (in_array('mods', $options)) ? ' mods' : '';
             @endphp
                                 {{ Form::select($set.'[]', $architectural_elements[$component_type][$set], $value, ['multiple', 'class' => 'col-lg-2 form-control basic-select2' . $mods]) }}
