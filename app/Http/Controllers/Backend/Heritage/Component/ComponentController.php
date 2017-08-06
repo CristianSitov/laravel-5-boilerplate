@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend\Heritage\Component;
 
 use App\Http\Controllers\Controller;
 use App\Models\Heritage\ArchitecturalElement;
+use App\Photos;
 use App\Repositories\Backend\Heritage\ArchitecturalElementRepository;
 use App\Repositories\Backend\Heritage\BuildingRepository;
 use App\Repositories\Backend\Heritage\ComponentRepository;
@@ -11,6 +12,7 @@ use App\Repositories\Backend\Heritage\ModificationTypeRepository;
 use App\Repositories\Backend\Heritage\ProductionRepository;
 use App\Repositories\Backend\Heritage\ResourceRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ComponentController extends Controller
 {
@@ -111,6 +113,13 @@ class ComponentController extends Controller
             $modification_types[$modificationType->getId()] = $modificationType->getNameRo();
         }
 
+        $photos = Photos::where('component', '=', $component_id)
+            ->get()
+            ->mapWithKeys(function ($item) {
+                return [$item->id => Storage::url($item->filename)];
+            })
+        ;
+
         return view('backend.heritage.component.edit')
             ->withResource($resource)
             ->withProduction($production)
@@ -121,7 +130,9 @@ class ComponentController extends Controller
             ->withArchitecturalElementMap($architectural_element_map)
             ->withExistingArchitecturalElements($existing_architectural_elements)
             ->withModifiedElements($modifiedElements)
-            ->withModificationTypes($modification_types);
+            ->withModificationTypes($modification_types)
+            ->withPhotos($photos)
+            ;
     }
 
     public function update(Request $request, $resource_id, $building_id, $component_id)

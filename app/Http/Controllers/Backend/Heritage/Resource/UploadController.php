@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Backend\Heritage\Resource;
 use App\Http\Controllers\Controller;
 use App\Photos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Str;
 
 class UploadController extends Controller
 {
-    public function uploadSubmit(Request $request)
+    public function uploadImage(Request $request, $component_id)
     {
         $photos = [];
         foreach ($request->photos as $i => $photo) {
@@ -30,6 +31,7 @@ class UploadController extends Controller
 
             $imageModel = Photos::create([
                 'filename' => $image,
+                'component' => $component_id,
             ]);
 
             $photos[$i] = [
@@ -45,5 +47,38 @@ class UploadController extends Controller
         }
 
         return response()->json(array('files' => $photos), 200);
+    }
+
+    public function deleteImage(Request $request, $component_id, $id)
+    {
+        $deletePhoto = Photos::where('id', '=', $id)
+            ->where('component', '=', $component_id)
+            ->get()
+        ;
+
+        DB::beginTransaction();
+
+        if ($deletePhoto instanceof Photos) {
+            $image = $deletePhoto->filename;
+            $imageDeleted = Storage::disk('public')->delete($image);
+            $thumb = str_replace('images/', 'thumbs/', $image);
+            $thumbDeleted = Storage::disk('public')->delete($thumb);
+
+            if($deletePhoto->delete() && $imageDeleted && $thumbDeleted) {
+                DB::commit();
+
+                return response()->json([
+                    $image => $imageDeleted,
+                    $thumb => $thumbDeleted,
+                ], 200);
+            }
+
+            return response()->json([
+                $image => $imageDeleted,
+                $thumb => $thumbDeleted,
+            ], 400);
+
+            DB::rollBack();
+        }
     }
 }

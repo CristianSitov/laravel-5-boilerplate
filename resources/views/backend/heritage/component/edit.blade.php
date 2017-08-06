@@ -18,7 +18,7 @@
 @endsection
 
 @section('content')
-    {{ Form::model($resource, ['route' => ['admin.heritage.components.update', $resource->getid(), $production->getId(), $component->getId()], 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'PUT']) }}
+    {{ Form::model($resource, ['route' => ['admin.heritage.components.update', $resource->getid(), $production->getId(), $component->getId()], 'id' => 'main-form', 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'PUT']) }}
 
         <div class="box box-success">
             <div class="box-header with-border">
@@ -125,47 +125,66 @@
 
     {{ Form::close() }}
 
-
-    <div class="box box-success">
-        <div class="box-body">
-            <form id="fileupload" action="/admin/heritage/upload" method="POST" enctype="multipart/form-data">
+        <div class="box box-success">
+            <div class="box-body">
                 <div class="row">
-                    <div class="span16 fileupload-buttonbar">
-                        <div class="progressbar fileupload-progressbar"><div style="width:0%;"></div></div>
-                        <span class="btn btn-success fileinput-button">
-                            <span>Add files...</span>
-                            <input type="file" name="photos[]" multiple>
-                        </span>
-                        <!--/ Extra file input stop -->
-                        <button type="submit" class="btn btn-primary start">Start upload</button>
-                        <button type="reset" class="btn btn-info cancel">Cancel upload</button>
-                        <button type="button" class="btn btn-danger delete">Delete selected</button>
-                        <input type="checkbox" class="toggle">
+                    <div class="col-lg-12 col-xs-12">
+                        <h4>Photos</h4>
                     </div>
                 </div>
-                <br>
                 <div class="row">
-                    <div class="span16">
-                        <table class="zebra-striped"><tbody class="files"></tbody></table>
+    @foreach($photos as $id => $photo)
+        <div class="col-lg-4 col-md-6 col-xs-12 existingimage">
+            <img src="{{ $photo }}" class="img-responsive" /><br />
+            <span class="btn btn-danger delete" data-image="{{ $id }}"></span>
+        </div>
+    @endforeach
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-xs-12">
+                        <h4>Upload new photos</h4>
                     </div>
                 </div>
-            </form>
-        </div><!-- /.box-body -->
-    </div><!--box-->
+                <form id="fileupload" action="/admin/heritage/component/{{ $component->getId() }}/upload" method="POST" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-lg-6 col-xs-6 fileupload-buttonbar">
+                            <span class="btn btn-success fileinput-button">
+                                <span>Add files...</span>
+                                <input type="file" name="photos[]" multiple>
+                            </span>
+                            <!--/ Extra file input stop -->
+                            <button type="submit" class="btn btn-primary start">Start upload</button>
+                            <button type="reset" class="btn btn-info cancel">Cancel upload</button>
+                            <button type="button" class="btn btn-danger delete">Delete selected</button>
+                            <input type="checkbox" class="toggle">
+                        </div>
+                        <div class="col-lg-6 col-xs-6" id="progress">
+                            <div class="progressbar fileupload-progressbar"><div style="width:0%;"></div></div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-12 col-xs-12">
+                            <table class="table table-striped"><tbody class="files"></tbody></table>
+                        </div>
+                    </div>
+                </form>
+            </div><!-- /.box-body -->
+        </div><!--box-->
 
-    <div class="box box-success">
-        <div class="box-body">
-            <div class="pull-left">
-                {{ link_to_route('admin.heritage.components.index', trans('buttons.general.cancel'), [$resource->getid(), $production->getId()], ['class' => 'btn btn-danger btn-xs']) }}
-            </div><!--pull-left-->
+        <div class="box box-success">
+            <div class="box-body">
+                <div class="pull-left">
+                    {{ link_to_route('admin.heritage.components.index', trans('buttons.general.cancel'), [$resource->getid(), $production->getId()], ['class' => 'btn btn-danger btn-xs']) }}
+                </div><!--pull-left-->
 
-            <div class="pull-right">
-                {{ Form::submit(trans('buttons.general.crud.update'), ['class' => 'btn btn-success btn-xs']) }}
-            </div><!--pull-right-->
+                <div class="pull-right">
+                    {{ Form::submit(trans('buttons.general.crud.update'), ['id' => 'main-submit', 'class' => 'btn btn-success btn-xs']) }}
+                </div><!--pull-right-->
 
-            <div class="clearfix"></div>
-        </div><!-- /.box-body -->
-    </div><!--box-->
+                <div class="clearfix"></div>
+            </div><!-- /.box-body -->
+        </div><!--box-->
 
 @endsection
 
@@ -177,7 +196,7 @@
     {{ Html::script('js/backend/plugin/jquery-file-upload/vendor/tmpl.min.js') }}
     {{ Html::script('js/backend/plugin/jquery-file-upload/vendor/load-image.all.min.js') }}
     {{ Html::script('js/backend/plugin/jquery-file-upload/vendor/canvas-to-blob.min.js') }}
-    {{ Html::script('js/backend/plugin/jquery-file-upload/vendor/jquery.blueimp-gallery.min.js') }}
+    {{--{{ Html::script('js/backend/plugin/jquery-file-upload/vendor/jquery.blueimp-gallery.min.js') }}--}}
     {{ Html::script('js/backend/plugin/jquery-file-upload/jquery.iframe-transport.js') }}
     {{ Html::script('js/backend/plugin/jquery-file-upload/jquery.fileupload.js') }}
     {{ Html::script('js/backend/plugin/jquery-file-upload/jquery.fileupload-process.js') }}
@@ -301,30 +320,91 @@
         });
 
         // http://laraveldaily.com/laravel-ajax-file-upload-blueimp-jquery-library/
+        var uploadButton = $('<button/>')
+            .addClass('btn btn-primary')
+            .prop('disabled', true)
+            .text('Processing...')
+            .on('click', function () {
+                var $this = $(this),
+                    data = $this.data();
+                $this
+                    .off('click')
+                    .text('Abort')
+                    .on('click', function () {
+                        $this.remove();
+                        data.abort();
+                    });
+                data.submit().always(function () {
+                    $this.remove();
+                });
+            });
+        var photos = [];
         $('#fileupload').fileupload({
             dataType: 'json',
-//            add: function (e, data) {
-//                $('#loading').text('Uploading...');
-//                data.submit();
-//            },
-//            done: function (e, data) {
-//                $.each(data.result.files, function (index, file) {
-//                    $('<p/>').html(file.name + ' (' + file.size + ' KB)').appendTo($('#files_list'));
-//                    if ($('#file_ids').val() != '') {
-//                        $('#file_ids').val($('#file_ids').val() + ',');
-//                    }
-//                    $('#file_ids').val($('#file_ids').val() + file.fileID);
-//                });
-//                $('#loading').text('');
+            autoUpload: false,
+            acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+            disableImageResize: /Android(?!.*Chrome)|Opera/
+                .test(window.navigator.userAgent),
+            previewMaxWidth: 200,
+            previewMaxHeight: 150,
+            previewCrop: true
+//            done: function(e, data) {
+//                photos.push(data.result.files[0].id);
+//                $('#photos').val(photos.join());
+//                data.context.text('Upload finished.');
 //            }
+        }).on('fileuploadprogressall', function (e, data) {
+            var progress = parseInt(data.loaded / data.total * 100, 10);
+            $('#progress .progress-bar').css(
+                'width',
+                progress + '%'
+            );
+        }).on('fileuploaddone', function (e, data) {
+            $.each(data.result.files, function (index, file) {
+//                photos.push(file.id);
+//                $('#photos').val(photos.join());
+
+                if (file.url) {
+                    var link = $('<a>')
+                        .attr('target', '_blank')
+                        .prop('href', file.url);
+                    $(data.context.children()[index])
+                        .wrap(link);
+                } else if (file.error) {
+                    var error = $('<span class="text-danger"/>').text(file.error);
+                    $(data.context.children()[index])
+                        .append('<br>')
+                        .append(error);
+                }
+            });
+        }).on('fileuploadfail', function (e, data) {
+            $.each(data.files, function (index) {
+                var error = $('<span class="text-danger"/>').text('File upload failed.');
+                $(data.context.children()[index])
+                    .append('<br>')
+                    .append(error);
+            });
+        }).prop('disabled', !$.support.fileInput)
+            .parent().addClass($.support.fileInput ? undefined : 'disabled');
+
+        {{--$('.existingimage').each(function (index, elem) {--}}
+            {{--var id = elem.data('image')--}}
+            {{--var url = 'admin/heritage/component/{{ $component->getId() }}/upload/'+id+'/delete';--}}
+            {{--elem.click(function () {--}}
+                {{--$.ajax({--}}
+                    {{--type: "DELETE",--}}
+                    {{--url: url,--}}
+                    {{--success: function(result) {--}}
+                        {{--if (result[0] && result[1]) {--}}
+                            {{--this.parent().remove();--}}
+                        {{--}--}}
+                    {{--}--}}
+                {{--});--}}
+            {{--});--}}
+        {{--});--}}
+        $("#main-submit").click(function () {
+            $("#main-form").submit();
         });
-//        $('a#clone_me').on('click', function(){
-//            var $clone = jQuery('#toClone select:first').clone();
-//            $clone.removeAttr('style');
-//            //$clone.chosen('destroy');
-//            jQuery('#toClone').append($clone);
-//            jQuery('#toClone select:last').chosen();
-//        });
     });
     </script>
 @endsection

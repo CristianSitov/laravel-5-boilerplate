@@ -24,8 +24,10 @@ Route::group([
             // For DataTables
             Route::post('resource/get', 'ResourceTableController')
                 ->name('resource.get');
-            Route::post('/upload', 'UploadController@uploadSubmit')
+            Route::post('/component/{component_id}/upload', 'UploadController@uploadImage')
                 ->name('resource.photos_upload');
+            Route::delete('/component/{component_id}/upload/{id}/delete', 'UploadController@deleteImage')
+                ->name('resource.photos_delete');
         });
         Route::group([
             'namespace' => 'Building',
