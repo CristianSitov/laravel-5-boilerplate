@@ -177,18 +177,17 @@ return [
         /*
          * Package Service Providers...
          */
+        App\Providers\Neo4jOGMServiceProvider::class,
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
         Arcanedev\NoCaptcha\NoCaptchaServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Creativeorange\Gravatar\GravatarServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
+        Folklore\Image\ImageServiceProvider::class,
         HieuLe\Active\ActiveServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
-        App\Providers\Neo4jOGMServiceProvider::class,
-        Spatie\Glide\GlideServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -260,12 +259,11 @@ return [
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
         'Captcha'     => Arcanedev\NoCaptcha\Facades\NoCaptcha::class,
         'Form'        => Collective\Html\FormFacade::class,
-        'GlideImage'  => Spatie\Glide\GlideImageFacade::class,
         'Gravatar'    => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Html'        => Collective\Html\HtmlFacade::class,
+        'Image'       => Folklore\Image\Facades\Image::class,
         'Socialite'   => Laravel\Socialite\Facades\Socialite::class,
         'Uuid'        => Webpatser\Uuid\Uuid::class,
-        'Image'       => Intervention\Image\Facades\Image::class,
     ],
 
 ];

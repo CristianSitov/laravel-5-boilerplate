@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend\Heritage\Resource;
 
 use App\Http\Controllers\Controller;
 use App\Photos;
+use Folklore\Image\Facades\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -12,19 +13,28 @@ class UploadController extends Controller
     public function uploadSubmit(Request $request)
     {
         $photos = [];
-        foreach ($request->photos as $photo) {
-            $filename = $photo->store('photos');
+        foreach ($request->photos as $i => $photo) {
+            $path = storage_path('app/public/');
+            $subpath = 'photos/';
+            $filenamePath = $photo->store($subpath, ['disk' => 'public']);
             $product_photo = Photos::create([
-                'filename' => $filename
+                'filename' => str_replace($subpath . '/', '', $filenamePath)
             ]);
+            $thumbfile = Image::make($path.$filenamePath, ['width' => 300, 'height' => 300])
+                ->save($path.'thumbs/'.str_replace($subpath . '/', '', $filenamePath));
 
-            $photo_object = new \stdClass();
-            $photo_object->name = str_replace('photos/', '',$photo->getClientOriginalName());
-            $photo_object->size = round(Storage::size($filename) / 1024, 2);
-            $photo_object->fileID = $product_photo->id;
-            $photos[] = $photo_object;
+            $photos[$i] = [
+                'id'              => $product_photo->id,
+                'name'            => str_replace($subpath . '/', '', $photo->getClientOriginalName()), // send back the original name ;)
+                'type'            => Storage::disk('public')->mimeType($filenamePath),
+                'size'            => round(Storage::disk('public')->size($filenamePath) / 1024, 2),
+                'url'             => Image::url($filenamePath),
+                'thumbnailUrl'    => Image::url('thumbs/'.str_replace($subpath . '/', '', $filenamePath), 300, 300),
+                'deleteType'      => 'DELETE',
+                'deleteUrl'       => '/admin/heritage/upload/' . $product_photo->id . '/delete',
+            ];
         }
 
-        return response()->json(array('photos' => $photos), 200);
+        return response()->json(array('files' => $photos), 200);
     }
 }
