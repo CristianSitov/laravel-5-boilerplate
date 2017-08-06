@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Backend\Heritage\Resource;
 
 use App\Http\Controllers\Controller;
 use App\Photos;
-use Folklore\Image\Facades\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic as Image;
+use Illuminate\Support\Str;
 
 class UploadController extends Controller
 {
@@ -14,24 +15,32 @@ class UploadController extends Controller
     {
         $photos = [];
         foreach ($request->photos as $i => $photo) {
-            $path = storage_path('app/public/');
-            $subpath = 'photos/';
-            $filenamePath = $photo->store($subpath, ['disk' => 'public']);
-            $product_photo = Photos::create([
-                'filename' => str_replace($subpath . '/', '', $filenamePath)
+            $originalName = $photo->getClientOriginalName();
+            $ext = $photo->getClientOriginalExtension();
+            $newName = Str::random(40) . '.' . $ext;
+
+            // save image on disk
+            $image = Storage::disk('public')->putFileAs('images', $photo, $newName);
+            list($path, $uploadedName) = explode('/', $image);
+
+            // save thumb on disk
+            $stream = Image::make(Storage::disk('public')->get($path.'/'.$newName))->fit(300, 300)->stream();
+            $thumbName = 'thumbs/'.$newName;
+            $thumb = Storage::disk('public')->put($thumbName, $stream);
+
+            $imageModel = Photos::create([
+                'filename' => $image,
             ]);
-            $thumbfile = Image::make($path.$filenamePath, ['width' => 300, 'height' => 300])
-                ->save($path.'thumbs/'.str_replace($subpath . '/', '', $filenamePath));
 
             $photos[$i] = [
-                'id'              => $product_photo->id,
-                'name'            => str_replace($subpath . '/', '', $photo->getClientOriginalName()), // send back the original name ;)
-                'type'            => Storage::disk('public')->mimeType($filenamePath),
-                'size'            => round(Storage::disk('public')->size($filenamePath) / 1024, 2),
-                'url'             => Image::url($filenamePath),
-                'thumbnailUrl'    => Image::url('thumbs/'.str_replace($subpath . '/', '', $filenamePath), 300, 300),
+                'id'              => $imageModel->id,
+                'name'            => $originalName,
+                'type'            => Storage::disk('public')->mimeType($image),
+                'size'            => round(Storage::disk('public')->size($image) / 1024, 2),
+                'url'             => Storage::url($image),
+                'thumbnailUrl'    => Storage::url($thumbName),
                 'deleteType'      => 'DELETE',
-                'deleteUrl'       => '/admin/heritage/upload/' . $product_photo->id . '/delete',
+                'deleteUrl'       => '/admin/heritage/upload/' . $imageModel->id . '/delete',
             ];
         }
 
