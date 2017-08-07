@@ -109,9 +109,9 @@
                             <div class="col-lg-4">
                                 <div class="input-group input-daterange">
                                     <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
-                                    {{ Form::text('modification_type_date_from['.$modification->getId().']', $modification->getModificationEvent()->getDateFrom()->format('Y'), ['class' => 'form-control input_date_from']) }}
+                                    {{ Form::text('modification_type_date_from['.$modification->getId().']', isset($modification->getModificationEvent()->getDateFrom()) ? $modification->getModificationEvent()->getDateFrom()->format('Y') : '', ['class' => 'form-control input_date_from']) }}
                                     <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
-                                    {{ Form::text('modification_type_date_to['.$modification->getId().']', $modification->getModificationEvent()->getDateTo()->format('Y'), ['class' => 'form-control input_date_to']) }}
+                                    {{ Form::text('modification_type_date_to['.$modification->getId().']', isset($modification->getModificationEvent()->getDateTo()) ? $modification->getModificationEvent()->getDateTo()->format('Y') : '', ['class' => 'form-control input_date_to']) }}
                                 </div>
                             </div>
                             <div class="col-lg-2">
