@@ -145,7 +145,7 @@ class ComponentController extends Controller
 
         return redirect()
             ->route('admin.heritage.components.index', [$resource_id, $building_id])
-            ->withFlashSuccess(trans('alerts.backend.com'));
+            ->withFlashSuccess(trans('alerts.backend.components.updated'));
     }
 
     public function destroy($id)

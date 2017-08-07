@@ -97,7 +97,8 @@
                 </div>
 
                 <div class="types">
-@foreach($production->getBuilding()->getModifications() as $m => $modification)
+@if(count($production->getBuilding()->getModifications()) > 0)
+    @foreach($production->getBuilding()->getModifications() as $m => $modification)
                     <div id="types{{ $m+1 }}" class="clonedInput">
                         <div class="form-group">
                             {{ Form::label('modification_type['.$modification->getId().']', trans('validation.attributes.backend.heritage.resources.modification_type'), ['class' => 'col-lg-2 control-label']) }}
@@ -123,7 +124,34 @@
                             </div>
                         </div>
                     </div>
-@endforeach
+    @endforeach
+@else
+                        <div id="types1" class="clonedInput">
+                            <div class="form-group">
+                                {{ Form::label('new_modification_type[]', trans('validation.attributes.backend.heritage.resources.modification_type'), ['class' => 'col-lg-2 control-label']) }}
+
+                                <div class="col-lg-4">
+                                    {{ Form::select('new_modification_type[]', $modification_types, null, ['required' => 'required', 'class' => 'col-lg-2 form-control']) }}
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="input-group input-daterange">
+                                        <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
+                                        {{ Form::text('new_modification_type_date_from[]', '', ['class' => 'form-control input_date_from']) }}
+                                        <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
+                                        {{ Form::text('new_modification_type_date_to[]', '', ['class' => 'form-control input_date_to']) }}
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    <button type="button" class="btn btn-primary btn-sm clone">{{ trans('validation.attributes.backend.heritage.resources.add_name_button') }}</button>
+                                    <button type="button" class="btn btn-danger btn-sm remove">{{ trans('validation.attributes.backend.heritage.resources.delete_name_button') }}</button>
+                                </div>
+                                <div class="col-lg-8 col-lg-offset-2">
+                                    <br />
+                                    {{ Form::textarea('new_modification_type_description[]', null, ['class' => 'form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.modification_description')]) }}
+                                </div>
+                            </div>
+                        </div>
+@endif
                 </div>
                 <div class="form-group">
                     {{ Form::label('notes', trans('validation.attributes.backend.heritage.resources.notes'), ['class' => 'col-lg-2 control-label']) }}

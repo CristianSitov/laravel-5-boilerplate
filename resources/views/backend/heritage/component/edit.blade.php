@@ -43,7 +43,7 @@
                         <div class="form-group">
                             {{ Form::label($component_type . '_' . $set, trans('labels.backend.heritage.component.' . $component_type . '.' . $set), ['class' => 'col-lg-2 control-label']) }}
 
-                            <div class="col-lg-4 selects">
+                            <div class="col-lg-4 selects elements">
         @if(in_array('single', $options))
             @foreach($architectural_elements[$component_type][$set] as $key => $value)
                 @php
@@ -100,22 +100,31 @@
                     <div class="col-lg-12 col-xs-12">
                         <div class="form-group">
                             {{ Form::label($component_type, trans('labels.backend.heritage.component.pages.changes'), ['class' => 'col-lg-2 control-label']) }}
-                            <div class="col-lg-4 selects">
-                                {{ Form::select('modification_type', $modification_types, [], ['class' => 'col-lg-4 form-control basic-select2']) }}
+                            <div class="col-lg-4 selects modifications">
+                                {{ Form::select('modification_type[]', $modification_types, $component->getModificationsTypeIds(), ['multiple', 'class' => 'col-lg-4 form-control basic-select2']) }}
+                            </div>
+                            <div class="col-lg-6 displays">
+                                <table class="table table-condensed">
+                                    <tbody>
+@foreach($component->getModifications() as $modification)
+                                        <tr data-identifier="{{ $modification->getModificationEvent()->getModificationType()->getId() }}">
+                                            <td><i class="fa fa-check-square-o"></i>&nbsp;{{ $modification->getModificationEvent()->getModificationType()->getNameRo() }}</td>
+                                            <td><input type="text" class="input-md full-width" name="modification_type_description[{{ $modification->getModificationEvent()->getModificationType()->getId() }}]" value="{{ $modification->getModificationEvent()->getModificationDescription()->getNote() }}"></td>
+                                        </tr>
+@endforeach
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6 col-xs-6">
-
                     </div>
                 </div>
                 <div class="set-body row">
                     <div class="col-lg-12 col-xs-12">
                         <div class="form-group">
-                            {{ Form::label($component_type, trans('labels.backend.heritage.component.pages.observations'), ['class' => 'col-lg-2 control-label']) }}
+                            {{ Form::label('notes', trans('labels.backend.heritage.component.pages.observations'), ['class' => 'col-lg-2 control-label']) }}
 
-                            <div class="col-lg-4 selects">
-                                {{ Form::textarea($component_type) }}
+                            <div class="col-lg-4">
+                                {{ Form::textarea('notes', $component->getNote(), ['style' => 'width: 100%']) }}
                             </div>
                         </div>
                     </div>
@@ -289,9 +298,11 @@
                 var displays = $(this).parent('.selects').next();
                 var source = $('option[value='+params.selected+']');
                 var label = source.text();
-                var name = source.parent().attr('name').replace(/\[\]$/,'') + '_modified';
+                var name = source.parent().attr('name').replace(/\[\]$/,'');
 
                 // add new
+                if ($(this).parent().hasClass('elements')) {
+                    name = name + '_modified';
                     $('<tr/>').attr(
                         'data-identifier', params.selected
                     ).append(
@@ -310,8 +321,23 @@
                         ).append(
                             ' {{ trans('strings.backend.component.modified') }}<br>'
                         )
-                    )
-                    .appendTo(displays.find('table tbody'));
+                    ).appendTo(displays.find('table tbody'));
+                } else if($(this).parent().hasClass('modifications')) {
+                    name = name + '_description';
+                    $('<tr/>').attr(
+                        'data-identifier', params.selected
+                    ).append(
+                        $('<td>').append(
+                            $('<span>').addClass('track').append(
+                                $('<i class="fa fa-check-square-o"></i>&nbsp;')
+                            ).append('&nbsp;' + label)
+                        )
+                    ).append(
+                        $('<td>').append(
+                            $('<input>').attr('name', name+'['+params.selected+']').attr('type', 'text').addClass('input-md full-width')
+                        )
+                    ).appendTo(displays.find('table tbody'));
+                }
             }
             if ('deselected' in params) {
                 // remove existing

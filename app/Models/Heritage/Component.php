@@ -66,6 +66,13 @@ class Component
     protected $type;
 
     /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $note;
+
+    /**
      * @var int
      *
      * @OGM\Property(type="int")
@@ -191,6 +198,22 @@ class Component
     }
 
     /**
+     * @return string
+     */
+    public function getNote()
+    {
+        return $this->note;
+    }
+
+    /**
+     * @param string $note
+     */
+    public function setNote($note)
+    {
+        $this->note = $note;
+    }
+
+    /**
      * @return int
      */
     public function getOrder()
@@ -304,9 +327,25 @@ class Component
     public function getModificationsIds()
     {
         $modifications = [];
+
         foreach($this->modifications as $modification) {
-            $modification[] = $modification->getId();
+            $modifications[] = $modification->getId();
         }
+
+        return $modifications;
+    }
+
+    /**
+     * @return array
+     */
+    public function getModificationsTypeIds()
+    {
+        $modifications = [];
+
+        foreach($this->modifications as $modification) {
+            $modifications[] = $modification->getModificationEvent()->getModificationType()->getId();
+        }
+
         return $modifications;
     }
 

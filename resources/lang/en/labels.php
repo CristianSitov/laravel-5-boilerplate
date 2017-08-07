@@ -137,7 +137,7 @@ return [
                 'pages' => [
                     'list'           => 'Elements & Details List',
                     'changes'        => 'Modifications on component',
-                    'observations'   => 'Modifications observations',
+                    'observations'   => 'Notes',
                     'images'         => 'Descriptive images',
                 ],
                 'roof' => [

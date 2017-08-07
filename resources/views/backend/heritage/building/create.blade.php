@@ -107,7 +107,7 @@
                             </div>
                             <div class="col-lg-8 col-lg-offset-2">
                                 <br />
-                                {{ Form::textarea('modification_type_description[]', null, ['class' => 'form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.modification_description'), 'required' => 'required']) }}
+                                {{ Form::textarea('modification_type_description[]', null, ['class' => 'form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.modification_description')]) }}
                             </div>
                         </div>
                     </div>

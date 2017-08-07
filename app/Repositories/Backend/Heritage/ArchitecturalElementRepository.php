@@ -4,6 +4,10 @@ namespace App\Repositories\Backend\Heritage;
 
 use App\Models\Heritage\ArchitecturalElement;
 use App\Models\Heritage\Component;
+use App\Models\Heritage\Modification;
+use App\Models\Heritage\ModificationDescription;
+use App\Models\Heritage\ModificationEvent;
+use App\Models\Heritage\ModificationType;
 use App\Repositories\BaseRepository;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\Common\Collections\Expr\Comparison;
@@ -89,6 +93,66 @@ class ArchitecturalElementRepository extends BaseRepository
             }
         }
 
+        // modifications, very similar code with BuildingRepository
+        // @TODO; optimize this?!?!
+        foreach ($component->getModifications() as $existingModification) {
+            if (isset($data['modification_type'])) {
+                $d = array_search($existingModification->getId(), array_keys($data['modification_type']));
+            } else {
+                $d = false;
+            }
+
+            if ($d !== false) {
+                // modification not to be removed, lets put that aside and check if updates are needed
+                $currentModificationType = $existingModification->getModificationEvent()->getModificationType();
+
+                // type has changed, we have to update this modification instance
+                if ($data['modification_type'][$existingModification->getId()] != $currentModificationType->getId()) {
+                    $newModType = $this->em->find(ModificationType::class, $data['modification_type'][$existingModification->getId()]);
+                    $existingModification->getModificationEvent()->setModificationType($newModType);
+                }
+                // update description
+                $existingModification->getModificationEvent()->getModificationDescription()->setNote($data['modification_type_modified'][$existingModification->getId()]);
+                // update dates
+                $existingModification->getModificationEvent()->setDateFrom($data['modification_type_date_from'][$existingModification->getId()] ? \DateTime::createFromFormat('Y', $data['modification_type_date_from'][$existingModification->getId()]) : null);
+                $existingModification->getModificationEvent()->setDateTo($data['modification_type_date_to'][$existingModification->getId()] ? \DateTime::createFromFormat('Y', $data['modification_type_date_to'][$existingModification->getId()]) : null);
+
+                // remove this for future reference
+                unset($data['modification_type'][$existingModification->getId()]);
+            } else {
+                // this db has to be deleted
+                // lets start with the description
+                $deleteDescription = $existingModification->getModificationEvent()->getModificationDescription();
+                $this->em->remove($deleteDescription, true);
+                // break modification type
+                $deleteType = $existingModification->getModificationEvent()->getModificationType();
+                $deleteEvent = $existingModification->getModificationEvent();
+                $deleteType->getModificationEvents()->removeElement($deleteEvent);
+                // delete modification event
+                $this->em->remove($deleteEvent, true);
+                // delete modification
+                $this->em->remove($existingModification, true);
+            }
+        }
+        if (isset($data['modification_type']) && count($data['modification_type']) > 0) {
+            foreach ($data['modification_type'] as $n => $new_modification_type) {
+                $newModificationDescription = new ModificationDescription($data['modification_type_description'][$new_modification_type]);
+                /* var ModificationType $newModificationType */
+                $newModificationType = $this->em->find(ModificationType::class, $data['modification_type'][$n]);
+                $newModificationEvent = new ModificationEvent(
+                    $newModificationType,
+                    $newModificationDescription,
+                    // no dates yet
+                    null,
+                    null
+//                    $data['modification_type_date_from'][$new_modification_type] ? \DateTime::createFromFormat('Y', $data['modification_type_date_from'][$new_modification_type]) : null,
+//                    $data['modification_type_date_to'][$new_modification_type] ? \DateTime::createFromFormat('Y', $data['modification_type_date_to'][$new_modification_type]) : null
+                );
+                $newModification = new Modification($newModificationEvent);
+                $component->getModifications()->add($newModification);
+            }
+        }
+
         // now, consider deleting all the elements that weren't found
         if (count($existingElementsArray) > 0) {
             foreach ($existingElementsArray as $uuid => $existingElement) {
@@ -96,6 +160,8 @@ class ArchitecturalElementRepository extends BaseRepository
                 $this->em->remove($removeElement, true);
             }
         }
+
+        $component->setNote($data['notes']);
 
         $this->em->persist($component);
         $this->em->flush();
