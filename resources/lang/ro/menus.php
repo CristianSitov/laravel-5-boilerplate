@@ -38,7 +38,7 @@ return [
         ],
 
         'heritage' => [
-            'title'     => 'Heritage',
+            'title'     => 'Patrimoniu',
 
             'resources' => [
                 'all'             => 'Toate resursele',
@@ -72,21 +72,21 @@ return [
             ],
 
             'resource_type_classification' => [
-                'management'      => 'Type Management',
+                'management'      => 'Management Tipuri',
             ]
         ],
 
         'log-viewer' => [
             'main'      => 'Log Viewer',
-            'dashboard' => 'Dashboard',
+            'dashboard' => 'Panou de control',
             'logs'      => 'Logs',
         ],
 
         'sidebar' => [
-            'dashboard' => 'Dashboard',
-            'heritage'  => 'Heritage',
+            'dashboard' => 'Panou de control',
+            'heritage'  => 'Patrimoniu',
             'general'   => 'General',
-            'system'    => 'System',
+            'system'    => 'Sistem',
         ],
     ],
 
