@@ -125,8 +125,8 @@ class BuildingRepository extends BaseRepository
             if (!$productionEvent) {
                 $productionEvent = new ProductionEvent();
             }
-            $productionEvent->setFromDate($data['date_from'] ? \DateTime::createFromFormat('Y/m/d', $data['date_from']) : null);
-            $productionEvent->setToDate($data['date_to'] ?   \DateTime::createFromFormat('Y/m/d', $data['date_to']) : null);
+            $productionEvent->setFromDate($data['date_from'] ? \DateTime::createFromFormat('Y', $data['date_from']) : null);
+            $productionEvent->setToDate($data['date_to'] ?     \DateTime::createFromFormat('Y', $data['date_to']) : null);
             $production->setProductionEvent($productionEvent);
         }
 

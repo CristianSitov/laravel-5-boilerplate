@@ -181,6 +181,8 @@ return [
                     'action_button'            => 'Acțiuni',
                     'add_name_button'          => '+ Adaugă Nume',
                     'delete_name_button'       => '× Șterge Nume',
+                    'add_modification'         => '+ Adaugă Modificare',
+                    'delete_modification'      => '× Șterge Modificare',
                     'add_type_button'          => '+ Adaugă Tip',
                     'delete_type_button'       => '× Șterge Tip',
                     'add_protection_button'    => '+ Adaugă Tip',

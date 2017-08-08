@@ -150,8 +150,10 @@ class BuildingController extends Controller
             });
 
         $data = [
-            'date_from' => $production->getProductionEvent() ? $production->getProductionEvent()->getFromDate() : '',
-            'date_to'   => $production->getProductionEvent() ? $production->getProductionEvent()->getToDate() : '',
+            'date_from' => $production->getProductionEvent() ?
+                \DateTime::createFromFormat('Y/m/d', $production->getProductionEvent()->getFromDate()) : '',
+            'date_to'   => $production->getProductionEvent() ?
+                \DateTime::createFromFormat('Y/m/d', $production->getProductionEvent()->getToDate()) : '',
         ];
 
         return view('backend.heritage.building.edit')
