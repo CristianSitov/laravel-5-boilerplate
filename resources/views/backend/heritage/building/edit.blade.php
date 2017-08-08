@@ -202,15 +202,15 @@
         $('.input-daterange').datepicker(dateOptions);
 
         // http://jsfiddle.net/mjaric/tfFLt/
-        var cloneIndex = $(".clonedInput").length;
         var regex = /(^[^\[]+)(?=\[)|(([^\[\]]+)(?=\]))/g;
-        var current = /((current_)(.*))/g;
 
         var clone = function () {
-            var source = $(this).parents(".clonedInput").parent().attr('class');
-            var check = $(this).parents(".clonedInput").find("input[name^=current_]:checked").val();
+            var parent = $(this).parents(".clonedInput").parent().attr('class');
+            var cloneIndex = $(".clonedInput").length;
+            var thisId = cloneIndex - 1;
+            var clonable = $(this).parents('#' + parent + thisId);
 
-            $(this).parents(".clonedInput").clone()
+            clonable.clone()
                 .appendTo($(this).parents(".clonedInput").parent())
                 .attr("id", source + Number(cloneIndex + 1))
                 .find(":input")
@@ -228,7 +228,9 @@
             $('.input-daterange').datepicker(dateOptions);
         };
         var remove = function () {
-            $(this).parents(".clonedInput").remove();
+            if ($(this).parents(".clonedInput").parent().find('.clonedInput').length > 1) {
+                $(this).parents(".clonedInput").remove();
+            }
         }
         $("button.clone").on("click", clone);
         $("button.remove").on("click", remove);

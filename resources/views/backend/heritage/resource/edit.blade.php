@@ -33,30 +33,33 @@
             </div><!-- /.box-header -->
 
             <div class="box-body">
-                <div class="names">
+                <div class="form-group names">
 @foreach($resource->getNames() as $k => $name)
                     <div id="names{{ $k+1 }}" class="form-group clonedInput">
                         {{ Form::label('name[]', trans('validation.attributes.backend.heritage.resources.name'), ['class' => 'col-lg-2 control-label label_name']) }}
 
-                        <div class="col-lg-4">
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <label>Current?&nbsp;</label><input type="radio" name="current_name" class="current_name" value="{{ $k }}" {{ ($name->getCurrent()) ? "checked" : "" }}>
-                                </span>
-                                {{ Form::text('name['.$name->getId().']', $name->getName(), ['class' => 'form-control input_name', 'placeholder' => trans('validation.attributes.backend.heritage.resources.name')]) }}
+                        <div class="col-lg-10 col-xs-10 duplicable">
+                            <div class="col-lg-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <label>Current?&nbsp;</label><input type="radio" name="current_name" class="current_name" value="{{ $k }}" {{ ($name->getCurrent()) ? "checked" : "" }}>
+                                    </span>
+                                    {{ Form::text('name['.$name->getId().']', $name->getName(), ['class' => 'form-control input_name', 'placeholder' => trans('validation.attributes.backend.heritage.resources.name')]) }}
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="input-group input-daterange">
-                                <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
-                                {{ Form::text('name_date_from['.$name->getId().']', $name->getDateFrom() ? $name->getDateFrom()->format('Y') : '', ['class' => 'form-control input_date_from']) }}
-                                <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
-                                {{ Form::text('name_date_to['.$name->getId().']',  $name->getDateTo() ? $name->getDateTo()->format('Y') : '', ['class' => 'form-control input_date_to']) }}
+                            <div class="col-lg-4">
+                                <div class="input-group input-daterange">
+                                    <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
+                                    {{ Form::text('name_date_from['.$name->getId().']', $name->getDateFrom() ? $name->getDateFrom()->format('Y') : '', ['class' => 'form-control input_date_from']) }}
+                                    <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
+                                    {{ Form::text('name_date_to['.$name->getId().']',  $name->getDateTo() ? $name->getDateTo()->format('Y') : '', ['class' => 'form-control input_date_to']) }}
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <button type="button" class="btn btn-primary btn-sm clone">{{ trans('validation.attributes.backend.heritage.resources.add_name_button') }}</button>
-                            <button type="button" class="btn btn-danger btn-sm remove">{{ trans('validation.attributes.backend.heritage.resources.delete_name_button') }}</button>
+                            <div class="col-lg-3">
+                                <button type="button" class="btn btn-primary btn-sm clone">{{ trans('validation.attributes.backend.heritage.resources.add_name_button') }}</button>
+                                <button type="button" class="btn btn-danger btn-sm remove">{{ trans('validation.attributes.backend.heritage.resources.delete_name_button') }}</button>
+                            </div>
+                            <div class="col-lg-10">&nbsp;</div>
                         </div>
                     </div><!--form control-->
 @endforeach
@@ -73,7 +76,7 @@
 
                     <div class="col-lg-2">
                         {{ Form::select('type', $resource_type_classifications, $resource->getResourceTypeClassification()->getId(), ['required' => 'required', 'class' => 'col-lg-10 basic-select2 control-label']) }}
-                    </div><!--col-lg-10-->
+                    </div>
                 </div><!--form control-->
 
                 <div class="form-group">
@@ -98,12 +101,12 @@
                     </div>
                 </div><!--form control-->
 
-                <div class="types">
+                <div class="form-group types">
 @foreach($resource->getProtectionTypes() as $i => $protection)
-                    <div id="types{{ $i+1 }}" class="clonedInput">
-                        <div class="form-group">
-                            {{ Form::label('protection_type[]', trans('validation.attributes.backend.heritage.resources.protection_type'), ['class' => 'col-lg-2 control-label label_name']) }}
+                    <div id="types{{ $i+1 }}" class="clonedInput row">
+                        {{ Form::label('protection_type[]', trans('validation.attributes.backend.heritage.resources.protection_type'), ['class' => 'col-lg-2 control-label label_name']) }}
 
+                        <div class="col-lg-10 col-xs-10 duplicable">
                             <div class="col-lg-4">
                                 <div class="input-group">
                                 <span class="input-group-addon">
@@ -112,7 +115,7 @@
                                     {{ Form::select('protection_type['.$protection->getId().']', $protection_types, $protection->getType(), ['class' => 'col-lg-4 form-control input_type']) }}
                                 </div>
                             </div>
-                            <div class="col-lg-3">
+                            <div class="col-lg-4">
                                 <div class="input-group input-daterange">
                                     <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
                                     {{ Form::text('protection_type_date_from['.$protection->getId().']', $protection->getDateFrom() ? $protection->getDateFrom()->format('Y') : '', ['class' => 'form-control input_type_date_from']) }}
@@ -124,9 +127,8 @@
                                 <button type="button" class="btn btn-primary btn-sm clone">{{ trans('validation.attributes.backend.heritage.resources.add_type_button') }}</button>
                                 <button type="button" class="btn btn-danger btn-sm remove">{{ trans('validation.attributes.backend.heritage.resources.delete_type_button') }}</button>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-lg-7 col-lg-offset-2">
+                            <div class="col-lg-12 col-xs-12">&nbsp;</div>
+                            <div class="col-lg-8">
                                 <div class="input-group">
                                     <span class="input-group-addon"><label>{{ trans('validation.attributes.backend.heritage.resources.protection_type') }}: </label></span>
                                     {{ Form::text('protection_type_legal['.$protection->getId().']', $protection->getLegal() ?: '', ['class' => 'col-lg-10 form-control']) }}
@@ -179,27 +181,18 @@
                 todayBtn: true
             };
             $('.input-daterange').datepicker(dateOptions);
-            var editorOptions = {
-                filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-                filebrowserImageUploadUrl: '/admin/heritage/laravel-filemanager/upload?type=Images&_token=',
-                filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-                filebrowserUploadUrl: '/admin/heritage/laravel-filemanager/upload?type=Files&_token='
-            };
 
             // http://jsfiddle.net/mjaric/tfFLt/
-            var cloneIndex = $(".clonedInput").length;
             var regex = /(^[^\[]+)(?=\[)|(([^\[\]]+)(?=\]))/g;
-            var current = /((current_)(.*))/g;
 
             var clone = function () {
-                var source = $(this).parents(".clonedInput").parent().attr('class');
+                var parent = $(this).parents(".clonedInput").parent().attr('class');
                 var cloneIndex = $(".clonedInput").length;
-                var thisId = cloneIndex - 1;
-                var clonable = $(this).parents('#' + source + thisId);
+                var clonable = $(this).parent().parent();
 
                 clonable.clone()
                     .appendTo($(this).parents(".clonedInput").parent())
-                    .attr("id", source + cloneIndex)
+                    .attr("id", parent + cloneIndex)
                     .find(":input")
                     .each(function () {
                         var match = this.name.match(regex) || [];

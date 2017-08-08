@@ -90,7 +90,7 @@
                     </div>
                     <div class="col-lg-2"></div>
                 </div>
-                <div id="types">
+                <div class="types">
 
                     <div id="types1" class="clonedInput">
                         <div class="form-group">
@@ -167,12 +167,13 @@
         $('.input-daterange').datepicker(dateOptions);
 
         // http://jsfiddle.net/mjaric/tfFLt/
-        var cloneIndex = $(".clonedInput").length;
-
         var clone = function () {
             var source = $(this).parents(".clonedInput").parent().attr('class');
-
-            $(this).parents(".clonedInput").clone()
+            var cloneIndex = $(".clonedInput").length;
+            var thisId = cloneIndex - 1;
+            var clonable = $(this).parents('#' + source + thisId);
+console.log('#' + source + thisId);
+            clonable.clone()
                 .appendTo($(this).parents(".clonedInput").parent())
                 .attr("id", source + cloneIndex)
                 .find("*")
@@ -182,7 +183,9 @@
             $('.input-daterange').datepicker(dateOptions);
         };
         var remove = function () {
-            $(this).parents(".clonedInput").remove();
+            if ($(this).parents(".clonedInput").parent().find('.clonedInput').length > 1) {
+                $(this).parents(".clonedInput").remove();
+            }
         }
         $("button.clone").on("click", clone);
         $("button.remove").on("click", remove);
