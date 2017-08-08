@@ -90,16 +90,17 @@
                     </div>
                     <div class="col-lg-2"></div>
                 </div>
-                <div class="types">
+                <div class="form-group types">
 
-                    <div id="types1" class="clonedInput">
-                        <div class="form-group">
-                            {{ Form::label('modification_type[]', trans('validation.attributes.backend.heritage.resources.modification_type'), ['class' => 'col-lg-2 control-label']) }}
 
+                    <div id="types1" class="clonedInput row">
+                        {{ Form::label('modification_type[]', trans('validation.attributes.backend.heritage.resources.modification_type'), ['class' => 'col-lg-2 control-label']) }}
+
+                        <div class="col-lg-10 col-xs-10 duplicable">
                             <div class="col-lg-4">
                                 {{ Form::select('modification_type[]', $modification_types, null, ['required' => 'required', 'class' => 'col-lg-2 form-control']) }}
                             </div>
-                            <div class="col-lg-3">
+                            <div class="col-lg-4">
                                 <div class="input-group input-daterange">
                                     <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
                                     {{ Form::text('modification_type_date_from[]', '', ['class' => 'form-control input_date_from']) }}
@@ -117,6 +118,7 @@
                             </div>
                         </div>
                     </div>
+
 
                 </div>
                 <div class="form-group">
@@ -150,45 +152,43 @@
     {{ Html::script('js/backend/plugin/datepicker/bootstrap-datepicker.min.js') }}
 
     <script type="text/javascript">
-    $(document).ready(function() {
-        $(".basic-select2").select2({
-            width: '100%'
-        });
-        var dateOptions = {
-            autoclose: true,
-            clearBtn: true,
-            format: 'yyyy',
-            weekStart: 1,
-            startView: 2,
-            minViewMode: 2,
-            maxViewMode: 3,
-            todayBtn: true
-        };
-        $('.input-daterange').datepicker(dateOptions);
-
-        // http://jsfiddle.net/mjaric/tfFLt/
-        var clone = function () {
-            var source = $(this).parents(".clonedInput").parent().attr('class');
-            var cloneIndex = $(".clonedInput").length;
-            var thisId = cloneIndex - 1;
-            var clonable = $(this).parents('#' + source + thisId);
-console.log('#' + source + thisId);
-            clonable.clone()
-                .appendTo($(this).parents(".clonedInput").parent())
-                .attr("id", source + cloneIndex)
-                .find("*")
-                .on("click", 'button.clone', clone)
-                .on("click", 'button.remove', remove);
-
+        $(document).ready(function() {
+            $(".basic-select2").select2({
+                width: '100%'
+            });
+            var dateOptions = {
+                autoclose: true,
+                clearBtn: true,
+                format: 'yyyy',
+                weekStart: 1,
+                startView: 2,
+                minViewMode: 2,
+                maxViewMode: 3,
+                todayBtn: true
+            };
             $('.input-daterange').datepicker(dateOptions);
-        };
-        var remove = function () {
-            if ($(this).parents(".clonedInput").parent().find('.clonedInput').length > 1) {
-                $(this).parents(".clonedInput").remove();
+
+            // http://jsfiddle.net/mjaric/tfFLt/
+            var clone = function () {
+                var parent = $(this).parents(".clonedInput").parent().attr('class');
+                var cloneIndex = $(".clonedInput").length;
+                var clonable = $(this).parent().parent().parent();
+
+                clonable.clone()
+                    .appendTo($(this).parents(".clonedInput").parent())
+                    .attr("id", parent + cloneIndex)
+                    .on("click", 'button.clone', clone)
+                    .on("click", 'button.remove', remove);
+
+                $('.input-daterange').datepicker(dateOptions);
+            };
+            var remove = function () {
+                if ($(this).parents(".clonedInput").parent().find('.clonedInput').length > 1) {
+                    $(this).parents(".clonedInput").remove();
+                }
             }
-        }
-        $("button.clone").on("click", clone);
-        $("button.remove").on("click", remove);
-    });
-</script>
+            $("button.clone").on("click", clone);
+            $("button.remove").on("click", remove);
+        });
+    </script>
 @endsection
