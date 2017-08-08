@@ -20,9 +20,7 @@ trait ResourceAttribute
      */
     public function getEditButtonAttribute()
     {
-        if (access()->hasRole('Administrator')) {
-            return '<a href="' . route('admin.heritage.resource.edit', $this->getId()) . '" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="' . trans('buttons.general.crud.edit') . '"></i></a> ';
-        }
+        return '<a href="' . route('admin.heritage.resource.edit', $this->getId()) . '" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="' . trans('buttons.general.crud.edit') . '"></i></a> ';
     }
 
     /**
