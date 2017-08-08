@@ -66,7 +66,7 @@
 
             <li class="header">{{ trans('menus.backend.sidebar.system') }}</li>
 
-            @role(1)
+@role(1)
             <li class="{{ active_class(Active::checkUriPattern('admin/access/*')) }} treeview">
                 <a href="#">
                     <i class="fa fa-users"></i>
@@ -90,8 +90,9 @@
                     </li>
                 </ul>
             </li>
-            @endauth
+@endauth
 
+@if (access()->hasRoles(['Administrator', 1]))
             <li class="{{ active_class(Active::checkUriPattern('admin/log-viewer*')) }} treeview">
                 <a href="#">
                     <i class="fa fa-list"></i>
@@ -114,6 +115,7 @@
                     </li>
                 </ul>
             </li>
+@endif
         </ul><!-- /.sidebar-menu -->
     </section><!-- /.sidebar -->
 </aside>

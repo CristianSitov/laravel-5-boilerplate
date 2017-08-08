@@ -28,7 +28,7 @@
                         @include('includes.partials.lang')
                     </li>
                 @endif
-
+<!--
                 <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-envelope-o"></i>
@@ -41,7 +41,7 @@
                             {{ link_to('#', trans('strings.backend.general.see_all.messages')) }}
                         </li>
                     </ul>
-                </li><!-- /.messages-menu -->
+                </li>
 
                 <li class="dropdown notifications-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -55,7 +55,7 @@
                             {{ link_to('#', trans('strings.backend.general.see_all.notifications')) }}
                         </li>
                     </ul>
-                </li><!-- /.notifications-menu -->
+                </li>
 
                 <li class="dropdown tasks-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -69,8 +69,8 @@
                             {{ link_to('#', trans('strings.backend.general.see_all.tasks')) }}
                         </li>
                     </ul>
-                </li><!-- /.tasks-menu -->
-
+                </li>
+-->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="{{ access()->user()->picture }}" class="user-image" alt="User Avatar"/>
@@ -85,7 +85,7 @@
                                 <small>{{ trans('strings.backend.general.member_since') }} {{ access()->user()->created_at->format("m/d/Y") }}</small>
                             </p>
                         </li>
-
+<!--
                         <li class="user-body">
                             <div class="col-xs-4 text-center">
                                 {{ link_to('#', 'Link') }}
@@ -97,7 +97,7 @@
                                 {{ link_to('#', 'Link') }}
                             </div>
                         </li>
-
+-->
                         <li class="user-footer">
                             <div class="pull-left">
                                 <a href="{!! route('frontend.index') !!}" class="btn btn-default btn-flat">

@@ -27,16 +27,25 @@
             <table id="resources-table" class="table table-condensed table-hover">
                 <thead>
                 <tr>
-                    <th>{{ trans('labels.backend.heritage.resources.table.id') }}</th>
                     <th>{{ trans('labels.backend.heritage.resources.table.address') }}</th>
                     <th>{{ trans('labels.backend.heritage.resources.table.name') }}</th>
-                    <th>{{ trans('labels.backend.heritage.resources.table.status') }}</th>
-                    <th>{{ trans('labels.backend.heritage.resources.table.progress') }}</th>
                     <th>{{ trans('labels.backend.heritage.resources.table.created') }}</th>
                     <th>{{ trans('labels.backend.heritage.resources.table.last_updated') }}</th>
                     <th>{{ trans('labels.general.actions') }}</th>
                 </tr>
                 </thead>
+                <tbody>
+@foreach($results as $result)
+                    <tr>
+                        <td>{{ $result->getPlace()->getPlaceAddress()->getStreetName()->getCurrentName() . ', ' .
+                        $result->getPlace()->getPlaceAddress()->getNumber() }}</td>
+                        <td>{{ $result->getCurrentName()->getName() }}</td>
+                        <td>{{ $result->getCreatedAt() }}</td>
+                        <td>{{ $result->getUpdatedAt() }}</td>
+                        <td>{!! $result->getActionButtonsAttribute() !!}</td>
+                    </tr>
+@endforeach
+                </tbody>
             </table>
         </div><!-- /.box-body -->
     </div><!--box-->
@@ -60,35 +69,24 @@
 
     <script>
         $(function() {
-            var mapStatus = JSON.parse('{!! json_encode($statuses) !!}');
-            var mapProgress = JSON.parse('{!! json_encode($progresses) !!}');
-            $('#resources-table').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: {
-                    url: '{{ route("admin.heritage.resource.get") }}',
-                    type: 'post',
-                    data: {status: 1, trashed: false}
-                },
-                columns: [
-                    {data: 'uuid', name: 'resources.uuid', render: function ( data, type, full, meta ) {
-                        return '<small>' + data + '<small>';
-                    }},
-                    {data: 'address', name: 'resources.address'},
-                    {data: 'name', name: 'resources.name'},
-                    {data: 'status', name: 'resources.status', render: function ( data, type, full, meta ) {
-                        return '<span class="label label-'+mapStatus[data]['label']+'">' + mapStatus[data]['name'] + '<span>';
-                    }},
-                    {data: 'progress', name: 'resources.progress', render: function ( data, type, full, meta ) {
-                        return '<div class="progress"><div class="progress-bar progress-bar-'+mapProgress[data]['label']+'" role="progressbar" aria-valuenow="'+data+'" aria-valuemin="0" aria-valuemax="100" style="width: '+data+'%"><span class="sr-only">'+data+'% Complete (success)</span></div></div>';
-                    }},
-                    {data: 'created_at', name: 'resources.created_at', width: 150},
-                    {data: 'updated_at', name: 'resources.updated_at', width: 150},
-                    {data: 'actions', name: 'actions', searchable: false, sortable: false}
-                ],
-                order: [[0, "asc"]],
-                searchDelay: 500
-            });
+            {{--$('#resources-table').DataTable({--}}
+                {{--processing: true,--}}
+                {{--serverSide: true,--}}
+                {{--ajax: {--}}
+                    {{--url: '{{ route("admin.heritage.resource.get") }}',--}}
+                    {{--type: 'post',--}}
+                    {{--data: {}--}}
+                {{--},--}}
+                {{--columns: [--}}
+                    {{--{data: 'address', name: 'resources.address'},--}}
+                    {{--{data: 'name', name: 'resources.name'},--}}
+                    {{--{data: 'created_at', name: 'resources.created_at', width: 150},--}}
+                    {{--{data: 'updated_at', name: 'resources.updated_at', width: 150},--}}
+                    {{--{data: 'actions', name: 'actions', searchable: false, sortable: false}--}}
+                {{--],--}}
+                {{--order: [[0, "asc"]],--}}
+                {{--searchDelay: 500--}}
+            {{--});--}}
         });
     </script>
 @endsection

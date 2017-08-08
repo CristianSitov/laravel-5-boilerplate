@@ -35,10 +35,9 @@ class ResourceTableController extends Controller
      */
     public function __invoke(HeritageResourceRequest $request)
     {
-        $heritageResources = $this->resources->getForDataTable($request->get('status'), $request->get('trashed'));
+        $heritageResources = $this->resources->getForDataTable();
 
         return Datatables::of($heritageResources)
-            ->escapeColumns(['uuid', 'address', 'name', 'status', 'progress'])
             ->make(true);
     }
 }

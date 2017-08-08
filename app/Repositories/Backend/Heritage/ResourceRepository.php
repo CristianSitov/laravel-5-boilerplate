@@ -83,23 +83,21 @@ class ResourceRepository extends BaseRepository
      */
     public function getForDataTable($status = 1, $trashed = false)
     {
-//        $query = $this->entityManager
-//            ->createQuery("MATCH (resource:HeritageResource)-[:HasNote]->(description:Description) RETURN *");
-//        $heritageResources = $query->execute();
         $resources = $this->model->findAll();
 
         $results = [];
         foreach ($resources as $k => $resource) {
-            $results[$k]['uuid'] = explode("-", $resource->getUuid())[0];
-            $results[$k]['address'] = $resource->getPlace()->getPlaceAddress()->getStreetName()->getCurrentName() . ', ' .
-                                      $resource->getPlace()->getPlaceAddress()->getNumber();
-
-            $results[$k]['name'] = $resource->getCurrentName()->getName();
-            $results[$k]['status'] = $resource->getStatus();
-            $results[$k]['progress'] = $resource->getProgress();
-            $results[$k]['created_at'] = $resource->getCreatedAt();
-            $results[$k]['updated_at'] = $resource->getUpdatedAt();
-            $results[$k]['actions'] = $resource->getActionButtonsAttribute();
+            /* var Resource $resource */
+            $results[] =
+                ['resources' => [
+                    'address' => $resource->getPlace()->getPlaceAddress()->getStreetName()->getCurrentName() . ', ' .
+                                          $resource->getPlace()->getPlaceAddress()->getNumber(),
+                    'name' => $resource->getCurrentName()->getName(),
+                    'created_at' => $resource->getCreatedAt(),
+                    'updated_at' => $resource->getUpdatedAt(),
+                    'actions' => $resource->getActionButtonsAttribute(),
+                ]
+            ];
         }
 
         return $results;

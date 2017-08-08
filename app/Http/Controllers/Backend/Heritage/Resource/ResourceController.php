@@ -72,9 +72,10 @@ class ResourceController extends Controller
      */
     public function index()
     {
+        $resources = $this->resourceRepository->model->findAll();
+
         return view('backend.heritage.resource.index')
-            ->withStatuses(ResourceRepository::STATUSES)
-            ->withProgresses(ResourceRepository::PROGRESSES);
+            ->withResults($resources);
     }
 
     /**
