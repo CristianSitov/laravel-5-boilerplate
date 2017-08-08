@@ -65,13 +65,13 @@
                 <div class="form-group">
                     {{ Form::label('property_type', trans('validation.attributes.backend.heritage.resources.property_type'), ['class' => 'col-lg-2 control-label']) }}
 
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         {{ Form::select('property_type', $property_types, $resource->getPropertyType(), ['required' => 'required', 'class' => 'col-lg-10 basic-select2 control-label']) }}
                     </div>
 
                     {{ Form::label('type', trans('validation.attributes.backend.heritage.resources.type'), ['class' => 'col-lg-2 control-label']) }}
 
-                    <div class="col-lg-3">
+                    <div class="col-lg-2">
                         {{ Form::select('type', $resource_type_classifications, $resource->getResourceTypeClassification()->getId(), ['required' => 'required', 'class' => 'col-lg-10 basic-select2 control-label']) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
@@ -79,7 +79,7 @@
                 <div class="form-group">
                     {{ Form::label('description', trans('validation.attributes.backend.heritage.resources.description'), ['class' => 'col-lg-2 control-label']) }}
 
-                    <div class="col-lg-9">
+                    <div class="col-lg-7">
                         {{ Form::textarea('description', $resource->getDescription()->getNote(), ['class' => 'form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.description'), 'required' => 'required']) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
@@ -93,7 +93,7 @@
                     <div class="col-lg-4">
                         {{ Form::select('street', $street_names, $resource->getPlace()->getPlaceAddress() ? $resource->getPlace()->getPlaceAddress()->getStreetName()->getId() : '', ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2']) }}
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-1">
                         {{ Form::text('number', $resource->getPlace()->getPlaceAddress() ? $resource->getPlace()->getPlaceAddress()->getNumber() : '', ['required' => 'required', 'class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.heritage.resources.number')]) }}
                     </div>
                 </div><!--form control-->
@@ -193,10 +193,11 @@
 
             var clone = function () {
                 var source = $(this).parents(".clonedInput").parent().attr('class');
-                var check = $(this).parents(".clonedInput").find("input[name^=current_]:checked").val();
-                console.log(check);
+                var cloneIndex = $(".clonedInput").length;
+                var thisId = cloneIndex - 1;
+                var clonable = $(this).parents('#' + source + thisId);
 
-                $(this).parents(".clonedInput").clone()
+                clonable.clone()
                     .appendTo($(this).parents(".clonedInput").parent())
                     .attr("id", source + cloneIndex)
                     .find(":input")
@@ -211,13 +212,12 @@
                     .on("click", 'button.clone', clone)
                     .on("click", 'button.remove', remove);
 
-                // fix input names
-
-
                 $('.input-daterange').datepicker(dateOptions);
             };
             var remove = function () {
-                $(this).parents(".clonedInput").remove();
+                if ($(this).parents(".clonedInput").parent().find('.clonedInput').length > 1) {
+                    $(this).parents(".clonedInput").remove();
+                }
             }
             $("button.clone").on("click", clone);
             $("button.remove").on("click", remove);

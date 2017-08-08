@@ -86,12 +86,12 @@
                     <div class="col-lg-4">
                         {{ Form::select('street', $street_names, '', ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2']) }}
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-1">
                         {{ Form::text('number', '', ['required' => 'required', 'class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.heritage.resources.number')]) }}
                     </div>
                 </div><!--form control-->
 
-                <div id="types">
+                <div class="types">
 
                     <div id="types1" class="clonedInput">
                         <div class="form-group">
@@ -172,30 +172,26 @@
                 todayBtn: true
             };
             $('.input-daterange').datepicker(dateOptions);
-            var editorOptions = {
-                filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-                filebrowserImageUploadUrl: '/admin/heritage/laravel-filemanager/upload?type=Images&_token=',
-                filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-                filebrowserUploadUrl: '/admin/heritage/laravel-filemanager/upload?type=Files&_token='
-            };
 
             // http://jsfiddle.net/mjaric/tfFLt/
-            var cloneIndex = $(".clonedInput").length;
-
             var clone = function () {
                 var source = $(this).parents(".clonedInput").parent().attr('class');
+                var cloneIndex = $(".clonedInput").length;
+                var thisId = cloneIndex - 1;
+                var clonable = $(this).parents('#' + source + thisId);
 
-                $(this).parents(".clonedInput").clone()
+                clonable.clone(true)
                     .appendTo($(this).parents(".clonedInput").parent())
                     .attr("id", source + cloneIndex)
-                    .find("*")
                     .on("click", 'button.clone', clone)
                     .on("click", 'button.remove', remove);
 
                 $('.input-daterange').datepicker(dateOptions);
             };
             var remove = function () {
-                $(this).parents(".clonedInput").remove();
+                if ($(this).parents(".clonedInput").parent().find('.clonedInput').length > 1) {
+                    $(this).parents(".clonedInput").remove();
+                }
             }
             $("button.clone").on("click", clone);
             $("button.remove").on("click", remove);
