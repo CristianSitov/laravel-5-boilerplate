@@ -69,9 +69,6 @@ class ComponentController extends Controller
         $this->componentRepository->create($production->getBuilding());
 
         return redirect()->route('admin.heritage.components.index', [$resource->getId(), $production->getId()]);
-//        return view('backend.heritage.component.index')
-//            ->withResource($resource)
-//            ->withProduction($production);
     }
 
     public function store(Request $request)

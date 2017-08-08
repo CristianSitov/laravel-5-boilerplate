@@ -30,12 +30,7 @@
 
             <div class="box-body">
                 <div class="col-lg-12">
-                    <h3>{{ trans('labels.backend.heritage.resources.components') }}</h3>
-                </div>
-                <div class="set-title row">
-                    <div class="col-lg-2">
-                        <h4 class="text-primary"><u>{{ trans('strings.backend.component.' . $component_type) }}</u></h4>
-                    </div><div class="col-lg-10"></div>
+                    <h3>{{ trans('labels.backend.heritage.resources.components') }} &raquo; <u>{{ trans('strings.backend.component.' . $component_type) }}</u></h3>
                 </div>
     @foreach($architectural_element_map[$component_type] as $set => $options)
                 <div class="set-body row">
@@ -71,6 +66,7 @@
                                 <table class="table table-condensed">
                                     <tbody>
         @if(in_array('mods', $options))
+            {{ dump($options) }}
             @if(isset($existing_architectural_elements[$component_type][$set]))
                 @foreach($existing_architectural_elements[$component_type][$set] as $uuid)
                                         <tr data-identifier="{{ $uuid }}">
@@ -290,9 +286,6 @@
 
     <script type="text/javascript">
     $(document).ready(function() {
-//        $(".basic-select2").select2({
-//            width: '100%'
-//        });
         $(".basic-select2").chosen().on('change', function(evt, params) {
             if ('selected' in params) {
                 var displays = $(this).parent('.selects').next();
@@ -340,13 +333,12 @@
                 }
             }
             if ('deselected' in params) {
-                // remove existing
                 $("[data-identifier='" + params.deselected + "']").remove();
             }
         });
 
         // http://laraveldaily.com/laravel-ajax-file-upload-blueimp-jquery-library/
-        var uploadButton = $('<button/>')
+        $('<button/>')
             .addClass('btn btn-primary')
             .prop('disabled', true)
             .text('Processing...')
@@ -364,7 +356,6 @@
                     $this.remove();
                 });
             });
-        var photos = [];
         $('#fileupload').fileupload({
             dataType: 'json',
             autoUpload: false,
@@ -374,11 +365,6 @@
             previewMaxWidth: 200,
             previewMaxHeight: 150,
             previewCrop: true
-//            done: function(e, data) {
-//                photos.push(data.result.files[0].id);
-//                $('#photos').val(photos.join());
-//                data.context.text('Upload finished.');
-//            }
         }).on('fileuploadprogressall', function (e, data) {
             var progress = parseInt(data.loaded / data.total * 100, 10);
             $('#progress .progress-bar').css(
@@ -387,9 +373,6 @@
             );
         }).on('fileuploaddone', function (e, data) {
             $.each(data.result.files, function (index, file) {
-//                photos.push(file.id);
-//                $('#photos').val(photos.join());
-
                 if (file.url) {
                     var link = $('<a>')
                         .attr('target', '_blank')
@@ -413,21 +396,6 @@
         }).prop('disabled', !$.support.fileInput)
             .parent().addClass($.support.fileInput ? undefined : 'disabled');
 
-        {{--$('.existingimage').each(function (index, elem) {--}}
-            {{--var id = elem.data('image')--}}
-            {{--var url = 'admin/heritage/component/{{ $component->getId() }}/upload/'+id+'/delete';--}}
-            {{--elem.click(function () {--}}
-                {{--$.ajax({--}}
-                    {{--type: "DELETE",--}}
-                    {{--url: url,--}}
-                    {{--success: function(result) {--}}
-                        {{--if (result[0] && result[1]) {--}}
-                            {{--this.parent().remove();--}}
-                        {{--}--}}
-                    {{--}--}}
-                {{--});--}}
-            {{--});--}}
-        {{--});--}}
         $("#main-submit").click(function () {
             $("#main-form").submit();
         });

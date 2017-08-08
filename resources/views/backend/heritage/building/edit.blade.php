@@ -201,6 +201,17 @@
         };
         $('.input-daterange').datepicker(dateOptions);
 
+        if ('out' == $('#type option:selected').val()) {
+            $('#type').parent().parent().siblings().hide();
+        }
+        $('#type').change(function () {
+            if ('out' == $('#type option:selected').val()) {
+                $(this).parent().parent().siblings().hide();
+            } else if ('main' == $('#type option:selected').val()) {
+                $(this).parent().parent().siblings().show();
+            }
+        });
+
         // http://jsfiddle.net/mjaric/tfFLt/
         var regex = /(^[^\[]+)(?=\[)|(([^\[\]]+)(?=\]))/g;
 
