@@ -51,7 +51,7 @@
                                 <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
                                 {{ Form::text('name_date_from['.$name->getId().']', $name->getDateFrom() ? $name->getDateFrom()->format('Y') : '', ['class' => 'form-control input_date_from']) }}
                                 <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
-                                {{ Form::text('name_date_to['.$name->getId().']',  $name->getDateFrom() ? $name->getDateTo()->format('Y') : '', ['class' => 'form-control input_date_to']) }}
+                                {{ Form::text('name_date_to['.$name->getId().']',  $name->getDateTo() ? $name->getDateTo()->format('Y') : '', ['class' => 'form-control input_date_to']) }}
                             </div>
                         </div>
                         <div class="col-lg-3">
