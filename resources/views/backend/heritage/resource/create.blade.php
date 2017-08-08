@@ -39,7 +39,7 @@
                                 {{ Form::text('name[]', '', ['class' => 'form-control input_name', 'required', 'placeholder' => trans('validation.attributes.backend.heritage.resources.name')]) }}
                             </div>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-3">
                             <div class="input-group input-daterange">
                                 <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
                                 {{ Form::text('name_date_from[]', '', ['class' => 'form-control input_date_from datepicker']) }}
@@ -47,7 +47,7 @@
                                 {{ Form::text('name_date_to[]', date("Y"), ['class' => 'form-control input_date_to datepicker']) }}
                             </div>
                         </div>
-                        <div class="col-lg-2">
+                        <div class="col-lg-3">
                             <button type="button" class="btn btn-primary btn-sm clone">{{ trans('validation.attributes.backend.heritage.resources.add_name_button') }}</button>
                             <button type="button" class="btn btn-danger btn-sm remove">{{ trans('validation.attributes.backend.heritage.resources.delete_name_button') }}</button>
                         </div>
@@ -56,6 +56,12 @@
                 </div>
 
                 <div class="form-group">
+                    {{ Form::label('property_type', trans('validation.attributes.backend.heritage.resources.property_type'), ['class' => 'col-lg-2 control-label']) }}
+
+                    <div class="col-lg-3">
+                        {{ Form::select('property_type', $property_types, '', ['required' => 'required', 'class' => 'col-lg-10 basic-select2 control-label']) }}
+                    </div>
+
                     {{ Form::label('type', trans('validation.attributes.backend.heritage.resources.type'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-2">
@@ -66,7 +72,7 @@
                 <div class="form-group">
                     {{ Form::label('description', trans('validation.attributes.backend.heritage.resources.description'), ['class' => 'col-lg-2 control-label']) }}
 
-                    <div class="col-lg-10">
+                    <div class="col-lg-7">
                         {{ Form::textarea('description', null, ['class' => 'form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.description'), 'required' => 'required']) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
@@ -77,10 +83,10 @@
                     <div class="col-lg-3">
                         {{ Form::select('district', $administrative_subdivision, '', ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2']) }}
                     </div><!--col-lg-10-->
-                    <div class="col-lg-5">
+                    <div class="col-lg-4">
                         {{ Form::select('street', $street_names, '', ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2']) }}
                     </div>
-                    <div class="col-lg-2">
+                    <div class="col-lg-3">
                         {{ Form::text('number', '', ['required' => 'required', 'class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.heritage.resources.number')]) }}
                     </div>
                 </div><!--form control-->
@@ -99,7 +105,7 @@
                                     {{ Form::select('protection_type[]', $protection_types, '', ['class' => 'col-lg-4 form-control input_protection_type']) }}
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <div class="input-group input-daterange">
                                     <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
                                     {{ Form::text('protection_type_date_from[]', '', ['class' => 'form-control input_type_date_from datepicker']) }}
@@ -107,30 +113,21 @@
                                     {{ Form::text('protection_type_date_to[]', date("Y"), ['class' => 'form-control input_type_date_to datepicker']) }}
                                 </div>
                             </div>
-                            <div class="col-lg-2">
+                            <div class="col-lg-3">
                                 <button type="button" class="btn btn-primary btn-sm clone">{{ trans('validation.attributes.backend.heritage.resources.add_type_button') }}</button>
                                 <button type="button" class="btn btn-danger btn-sm remove">{{ trans('validation.attributes.backend.heritage.resources.delete_type_button') }}</button>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-lg-8 col-lg-offset-2">
+                            <div class="col-lg-7 col-lg-offset-2">
                                 <div class="input-group">
-                                    <span class="input-group-addon"><label>{{ trans('validation.attributes.backend.heritage.resources.protection_type') }}: </label></span>
+                                    <span class="input-group-addon"><label>{{ trans('validation.attributes.backend.heritage.resources.protection_code') }}: </label></span>
                                     {{ Form::text('protection_type_legal[]', '', ['class' => 'col-lg-10 form-control']) }}
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                </div>
-
-                <div class="form-group">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="input-group">
-                            <span class="input-group-addon"><label>{{ trans('validation.attributes.backend.heritage.resources.property_type') }}: </label></span>
-                            {{ Form::text('property_type[]', '', ['class' => 'col-lg-10 form-control']) }}
-                        </div>
-                    </div>
                 </div>
 
             </div><!-- /.box-body -->

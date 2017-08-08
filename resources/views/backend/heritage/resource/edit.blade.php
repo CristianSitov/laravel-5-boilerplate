@@ -46,7 +46,7 @@
                                 {{ Form::text('name['.$name->getId().']', $name->getName(), ['class' => 'form-control input_name', 'placeholder' => trans('validation.attributes.backend.heritage.resources.name')]) }}
                             </div>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-3">
                             <div class="input-group input-daterange">
                                 <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
                                 {{ Form::text('name_date_from['.$name->getId().']', $name->getDateFrom() ? $name->getDateFrom()->format('Y') : '', ['class' => 'form-control input_date_from']) }}
@@ -54,7 +54,7 @@
                                 {{ Form::text('name_date_to['.$name->getId().']',  $name->getDateFrom() ? $name->getDateTo()->format('Y') : '', ['class' => 'form-control input_date_to']) }}
                             </div>
                         </div>
-                        <div class="col-lg-2">
+                        <div class="col-lg-3">
                             <button type="button" class="btn btn-primary btn-sm clone">{{ trans('validation.attributes.backend.heritage.resources.add_name_button') }}</button>
                             <button type="button" class="btn btn-danger btn-sm remove">{{ trans('validation.attributes.backend.heritage.resources.delete_name_button') }}</button>
                         </div>
@@ -71,7 +71,7 @@
 
                     {{ Form::label('type', trans('validation.attributes.backend.heritage.resources.type'), ['class' => 'col-lg-2 control-label']) }}
 
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         {{ Form::select('type', $resource_type_classifications, $resource->getResourceTypeClassification()->getId(), ['required' => 'required', 'class' => 'col-lg-10 basic-select2 control-label']) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
@@ -79,7 +79,7 @@
                 <div class="form-group">
                     {{ Form::label('description', trans('validation.attributes.backend.heritage.resources.description'), ['class' => 'col-lg-2 control-label']) }}
 
-                    <div class="col-lg-10">
+                    <div class="col-lg-9">
                         {{ Form::textarea('description', $resource->getDescription()->getNote(), ['class' => 'form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.description'), 'required' => 'required']) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
@@ -90,10 +90,10 @@
                     <div class="col-lg-3">
                         {{ Form::select('district', $administrative_subdivision, $resource->getPlace()->getPlaceAddress()->getStreetName()->getAdministrativeSubdivision() ? $resource->getPlace()->getPlaceAddress()->getStreetName()->getAdministrativeSubdivision()->getId() : '', ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2']) }}
                     </div><!--col-lg-10-->
-                    <div class="col-lg-5">
+                    <div class="col-lg-4">
                         {{ Form::select('street', $street_names, $resource->getPlace()->getPlaceAddress() ? $resource->getPlace()->getPlaceAddress()->getStreetName()->getId() : '', ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2']) }}
                     </div>
-                    <div class="col-lg-2">
+                    <div class="col-lg-3">
                         {{ Form::text('number', $resource->getPlace()->getPlaceAddress() ? $resource->getPlace()->getPlaceAddress()->getNumber() : '', ['required' => 'required', 'class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.heritage.resources.number')]) }}
                     </div>
                 </div><!--form control-->
@@ -112,7 +112,7 @@
                                     {{ Form::select('protection_type['.$protection->getId().']', $protection_types, $protection->getType(), ['class' => 'col-lg-4 form-control input_type']) }}
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <div class="input-group input-daterange">
                                     <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
                                     {{ Form::text('protection_type_date_from['.$protection->getId().']', $protection->getDateFrom() ? $protection->getDateFrom()->format('Y') : '', ['class' => 'form-control input_type_date_from']) }}
@@ -120,13 +120,13 @@
                                     {{ Form::text('protection_type_date_to['.$protection->getId().']', $protection->getDateTo() ? $protection->getDateTo()->format('Y') : '', ['class' => 'form-control input_type_date_to']) }}
                                 </div>
                             </div>
-                            <div class="col-lg-2">
+                            <div class="col-lg-3">
                                 <button type="button" class="btn btn-primary btn-sm clone">{{ trans('validation.attributes.backend.heritage.resources.add_type_button') }}</button>
                                 <button type="button" class="btn btn-danger btn-sm remove">{{ trans('validation.attributes.backend.heritage.resources.delete_type_button') }}</button>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-lg-8 col-lg-offset-2">
+                            <div class="col-lg-7 col-lg-offset-2">
                                 <div class="input-group">
                                     <span class="input-group-addon"><label>{{ trans('validation.attributes.backend.heritage.resources.protection_type') }}: </label></span>
                                     {{ Form::text('protection_type_legal['.$protection->getId().']', $protection->getLegal() ?: '', ['class' => 'col-lg-10 form-control']) }}
