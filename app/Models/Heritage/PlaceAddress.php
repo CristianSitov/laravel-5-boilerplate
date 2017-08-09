@@ -53,7 +53,7 @@ class PlaceAddress
     /**
      * @var StreetName
      *
-     * @OGM\Relationship(type="IsIdentifiedBy", direction="OUTGOING", targetEntity="StreetName", mappedBy="placeAddress")
+     * @OGM\Relationship(type="IsIdentifiedBy", direction="INCOMING", targetEntity="StreetName", mappedBy="placeAddress")
      */
     protected $streetName;
 

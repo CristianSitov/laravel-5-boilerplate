@@ -243,7 +243,8 @@ class ResourceRepository extends BaseRepository
         $street = $resource->getPlace()->getPlaceAddress()->getStreetName();
         if ($street->getId() != $data['street']) {
             // delete old one
-            $this->em->createQuery('MATCH (s:StreetName)-[r]-(p:PlaceAddress) WHERE id(p)='.$resource->getPlace()->getPlaceAddress()->getId().' DELETE r');
+            $query = $this->em->createQuery('MATCH (s:StreetName)-[r]-(p:PlaceAddress) WHERE id(s)='.$street->getId().' DELETE r');
+            $result = $query->getResult();
             // find & add new one
             $newStreet = $this->em->find(StreetName::class, $data['street']);
             $resource->getPlace()->getPlaceAddress()->setStreetName($newStreet);
