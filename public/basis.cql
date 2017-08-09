@@ -50,7 +50,7 @@ USING PERIODIC COMMIT LOAD CSV WITH HEADERS FROM 'http://heritageoftimisoara.dev
       year_1936 = row.
       year_1936, n.created_at = timestamp(), n.updated_at = timestamp();
 
-MATCH (s:StreetName {district:"FABRIC"}), (a:AdministrativeSubdivision {name:"Fabric"}) MERGE (s)-[:IsIncorporatedIn]->(a);
+MATCH (s:StreetName {district:"Fabric"}), (a:AdministrativeSubdivision {name:"Fabric"}) MERGE (s)-[:IsIncorporatedIn]->(a);
 
 USING PERIODIC COMMIT LOAD CSV WITH HEADERS FROM 'http://heritageoftimisoara.dev/E57.Material_01.csv' AS row
   MERGE (n:Material {uuid: row.uuid})

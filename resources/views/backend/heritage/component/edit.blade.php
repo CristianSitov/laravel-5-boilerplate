@@ -66,7 +66,6 @@
                                 <table class="table table-condensed">
                                     <tbody>
         @if(in_array('mods', $options))
-            {{ dump($options) }}
             @if(isset($existing_architectural_elements[$component_type][$set]))
                 @foreach($existing_architectural_elements[$component_type][$set] as $uuid)
                                         <tr data-identifier="{{ $uuid }}">
