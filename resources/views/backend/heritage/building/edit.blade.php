@@ -202,13 +202,13 @@
         $('.input-daterange').datepicker(dateOptions);
 
         if ('out' == $('#type option:selected').val()) {
-            $('#type').parent().parent().siblings().hide();
+            $('#type').parent().parent().nextAll().hide();
         }
         $('#type').change(function () {
             if ('out' == $('#type option:selected').val()) {
-                $(this).parent().parent().siblings().hide();
+                $(this).parent().parent().nextAll().hide();
             } else if ('main' == $('#type option:selected').val()) {
-                $(this).parent().parent().siblings().show();
+                $(this).parent().parent().nextAll().show();
             }
         });
 

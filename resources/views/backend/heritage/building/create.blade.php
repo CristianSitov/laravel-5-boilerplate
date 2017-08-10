@@ -112,7 +112,7 @@
                                 <button type="button" class="btn btn-primary btn-sm clone">{{ trans('validation.attributes.backend.heritage.resources.add_modification') }}</button>
                                 <button type="button" class="btn btn-danger btn-sm remove">{{ trans('validation.attributes.backend.heritage.resources.delete_modification') }}</button>
                             </div>
-                            <div class="col-lg-7 col-lg-offset-2">
+                            <div class="col-lg-8">
                                 <br />
                                 {{ Form::textarea('modification_type_description[]', null, ['class' => 'form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.modification_description')]) }}
                             </div>
@@ -167,6 +167,17 @@
                 todayBtn: true
             };
             $('.input-daterange').datepicker(dateOptions);
+
+            if ('out' == $('#type option:selected').val()) {
+                $('#type').parent().parent().nextAll().hide();
+            }
+            $('#type').change(function () {
+                if ('out' == $('#type option:selected').val()) {
+                    $(this).parent().parent().nextAll().hide();
+                } else if ('main' == $('#type option:selected').val()) {
+                    $(this).parent().parent().nextAll().show();
+                }
+            });
 
             // http://jsfiddle.net/mjaric/tfFLt/
             var clone = function () {
