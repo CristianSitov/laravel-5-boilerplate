@@ -58,9 +58,9 @@
                         <div class="input-group input-daterange">
                             <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.building_interval') }}</span>
                             <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
-                            {{ Form::text('date_from', isset($data['date_from']) ? $data['date_from']->format('Y') : '', ['class' => 'form-control input_date_from', 'data-inputmask' => '"alias": "yyyy"', 'data-mask']) }}
+                            {{ Form::text('date_from', $data['date_from'], ['class' => 'form-control input_date_from', 'data-inputmask' => '"alias": "yyyy"', 'data-mask']) }}
                             <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
-                            {{ Form::text('date_to', isset($data['date_to']) ? $data['date_to']->format('Y') : '', ['class' => 'form-control input_date_to', 'data-inputmask' => '"alias": "yyyy"', 'data-mask']) }}
+                            {{ Form::text('date_to', $data['date_to'], ['class' => 'form-control input_date_to', 'data-inputmask' => '"alias": "yyyy"', 'data-mask']) }}
                         </div>
                     </div>
                 </div>
