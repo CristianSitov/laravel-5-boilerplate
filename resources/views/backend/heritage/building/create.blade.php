@@ -3,6 +3,7 @@
 @section ('title', trans('labels.backend.heritage.resources.management') . ' | ' . trans('labels.backend.heritage.resources.edit'))
 
 @section('after-styles')
+    {{ Html::style("css/backend/plugin/chosen/chosen.css") }}
     {{ Html::style("css/backend/plugin/datepicker/bootstrap-datepicker.min.css") }}
 @endsection
 
@@ -62,7 +63,7 @@
                     {{ Form::label('heritage_resource_type', trans('validation.attributes.backend.heritage.resources.heritage_resource_type'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-7">
-                        {{ Form::selectOpt($heritage_resource_types, 'heritage_resource_type[]', 'set_ro', 'name_ro', 'id', null, ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2', 'multiple' => 'multiple']) }}
+                        {{ Form::selectOpt($heritage_resource_types, 'heritage_resource_type[]', 'set_ro', 'name_ro', 'id', null, ['required' => 'required', 'class' => 'col-lg-12 control-label basic-select2', 'multiple' => 'multiple']) }}
                     </div>
                     <div class="col-lg-2"></div>
                 </div>
@@ -70,7 +71,7 @@
                     {{ Form::label('architectural_style', trans('validation.attributes.backend.heritage.resources.architectural_styles'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-7">
-                        {{ Form::select('architectural_style[]', $architectural_styles, null, ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2', 'multiple' => 'multiple']) }}
+                        {{ Form::select('architectural_style[]', $architectural_styles, null, ['required' => 'required', 'class' => 'col-lg-12 control-label basic-select2', 'multiple' => 'multiple']) }}
                     </div>
                     <div class="col-lg-2"></div>
                 </div>
@@ -78,7 +79,7 @@
                     {{ Form::label('material', trans('validation.attributes.backend.heritage.resources.materials'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-7">
-                        {{ Form::select('material[]', $materials, null, ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2', 'multiple' => 'multiple']) }}
+                        {{ Form::select('material[]', $materials, null, ['required' => 'required', 'class' => 'col-lg-12 control-label basic-select2', 'multiple' => 'multiple']) }}
                     </div>
                     <div class="col-lg-2"></div>
                 </div>
@@ -148,14 +149,15 @@
 @endsection
 
 @section('after-scripts')
+    <!-- Chosen -->
+    {{ Html::script('js/backend/plugin/chosen/chosen.jquery.min.js') }}
     <!-- Bootstrap Datepicker -->
     {{ Html::script('js/backend/plugin/datepicker/bootstrap-datepicker.min.js') }}
 
     <script type="text/javascript">
         $(document).ready(function() {
-            $(".basic-select2").select2({
-                width: '100%'
-            });
+            $(".basic-select2").chosen();
+
             var dateOptions = {
                 autoclose: true,
                 clearBtn: true,
