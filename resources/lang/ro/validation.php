@@ -199,6 +199,13 @@ return [
                 'buildings' => [
                     'type'                    => 'Tip corp',
                     'order'                   => 'Ordine #',
+                    'floors'                  => 'Etaje',
+                    'resource_types'          => 'Funcțiuni',
+                    'resource_types_single'   => 'Funcțiune unică',
+                    'resource_types_mixed'    => 'Funcțiune mixtă',
+                    'styles'                  => 'Stiluri arhitecturale',
+                    'materials'               => 'Materiale',
+                    'modifications'           => 'Modificări/Intervenții',
                 ]
             ],
         ],

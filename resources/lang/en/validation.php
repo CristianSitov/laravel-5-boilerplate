@@ -197,6 +197,13 @@ return [
                 'buildings' => [
                     'type'                    => 'Building Type',
                     'order'                   => 'Building Order #',
+                    'floors'                  => 'Floors',
+                    'resource_types'          => 'Heritage Resource Types',
+                    'resource_types_single'   => 'Unique Functionality',
+                    'resource_types_mixed'    => 'Mixed Functionality',
+                    'styles'                  => 'Architectural Styles',
+                    'materials'               => 'Materials',
+                    'modifications'           => 'Modification Types',
                 ]
             ],
         ],
