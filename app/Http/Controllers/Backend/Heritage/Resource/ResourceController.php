@@ -100,12 +100,14 @@ class ResourceController extends Controller
                 return [$item->getId() => $item->getCurrentName()];
             });
 
+        $protectionSets = ProtectionType::getSetOptions();
         $protectionTypes = ProtectionType::getTypeOptions();
         $propertyTypes = Resource::getPropertyTypeOptions();
 
         return view('backend.heritage.resource.create')
             ->withAdministrativeSubdivision($administrativeSubdivision)
             ->withStreetNames($streetNames)
+            ->withProtectionSets($protectionSets)
             ->withProtectionTypes($protectionTypes)
             ->withPropertyTypes($propertyTypes)
             ->withResourceTypeClassifications($resourceTypeClassifications);
@@ -167,6 +169,7 @@ class ResourceController extends Controller
                 return [$item->getId() => $item->getCurrentName()];
             });
 
+        $protectionSets = ProtectionType::getSetOptions();
         $protectionTypes = ProtectionType::getTypeOptions();
         $propertyTypes = Resource::getPropertyTypeOptions();
 
@@ -181,6 +184,7 @@ class ResourceController extends Controller
             ->withAddress($address)
             ->withAdministrativeSubdivision($administrativeSubdivision)
             ->withStreetNames($streetNames)
+            ->withProtectionSets($protectionSets)
             ->withProtectionTypes($protectionTypes)
             ->withPropertyTypes($propertyTypes)
             ->withResource($resource);

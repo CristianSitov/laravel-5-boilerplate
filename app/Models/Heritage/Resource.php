@@ -20,6 +20,8 @@ class Resource extends Model
     const PROPERTY = [
         'private',
         'public',
+        'public_private',
+        'other',
     ];
 
     /**

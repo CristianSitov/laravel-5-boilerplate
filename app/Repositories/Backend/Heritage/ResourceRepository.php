@@ -164,6 +164,7 @@ class ResourceRepository extends BaseRepository
             $protectionType = new ProtectionType($data['protection_type'][$l],
                 \DateTime::createFromFormat('Y', $data['protection_type_date_from'][$l]) ?: null,
                 \DateTime::createFromFormat('Y', $data['protection_type_date_to'][$l]) ?: null,
+                $data['protection_type_legal_set'][$l] ?: null,
                 $data['protection_type_legal'][$l] ?: null);
 
             if (isset($data['current_type'])) {
@@ -257,12 +258,13 @@ class ResourceRepository extends BaseRepository
 
         $typesArray = array_keys($data['protection_type']);
         foreach ($resource->getProtectionTypes() as $protectionType) {
-            if ($p = array_search($protectionType->getId(), $typesArray)) {
-//                dd($data['protection_type'][$typesArray[$p]]);
+            $p = array_search($protectionType->getId(), $typesArray);
+            if ($p !== false) {
                 $updateProtection = $this->em->find(ProtectionType::class, $protectionType->getId());
                 $updateProtection->setType($data['protection_type'][$typesArray[$p]]);
                 $updateProtection->setDateFrom(\DateTime::createFromFormat('Y', $data['protection_type_date_from'][$typesArray[$p]]) ?: null);
                 $updateProtection->setDateTo(\DateTime::createFromFormat('Y', $data['protection_type_date_to'][$typesArray[$p]]) ?: null);
+                $updateProtection->setSet($data['protection_type_legal_set'][$typesArray[$p]]);
                 $updateProtection->setLegal($data['protection_type_legal'][$typesArray[$p]]);
                 unset($typesArray[$p]);
                 $this->em->persist($updateProtection);
@@ -275,6 +277,7 @@ class ResourceRepository extends BaseRepository
                 $protectionType = new ProtectionType($data['new_protection_type'][$k],
                     \DateTime::createFromFormat('Y', $data['new_protection_type_date_from'][$k]) ?: null,
                     \DateTime::createFromFormat('Y', $data['new_protection_type_date_to'][$k]) ?: null,
+                    $data['new_protection_type_legal_set'][$k] ?: null,
                     $data['new_protection_type_legal'][$k] ?: null);
 
                 if (isset($data['current_type'])) {

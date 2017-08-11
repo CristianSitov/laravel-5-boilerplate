@@ -112,7 +112,7 @@
                                 <span class="input-group-addon">
                                     <label>Current?&nbsp;</label><input type="radio" name="current_type" class="current_type" value="{{ $i }}" {{ ($protection->getCurrent()) ? "checked" : "" }}>
                                 </span>
-                                    {{ Form::select('protection_type['.$protection->getId().']', $protection_types, $protection->getType(), ['class' => 'col-lg-4 form-control input_type']) }}
+                                    {{ Form::select('protection_type['.$protection->getId().']', $protection_types, $protection->getType(), ['class' => 'col-lg-4 form-control input_protection_type']) }}
                                 </div>
                             </div>
                             <div class="col-lg-4">
@@ -128,11 +128,14 @@
                                 <button type="button" class="btn btn-danger btn-sm remove">{{ trans('validation.attributes.backend.heritage.resources.delete_type_button') }}</button>
                             </div>
                             <div class="col-lg-12 col-xs-12">&nbsp;</div>
-                            <div class="col-lg-8">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><label>{{ trans('validation.attributes.backend.heritage.resources.protection_type') }}: </label></span>
-                                    {{ Form::text('protection_type_legal['.$protection->getId().']', $protection->getLegal() ?: '', ['class' => 'col-lg-10 form-control']) }}
+                            <div class="col-lg-2">
+                                <div class="input-group cod-lmi">
+                                    <span class="input-group-addon"><label>{{ trans('validation.attributes.backend.heritage.resources.protection_code') }}: </label></span>
+                                    {{ Form::select('protection_type_legal_set['.$protection->getId().']', $protection_sets, $protection->getSet() ?: '', ['class' => 'col-lg-1 form-control']) }}
                                 </div>
+                            </div>
+                            <div class="col-lg-6">
+                                {{ Form::text('protection_type_legal['.$protection->getId().']', $protection->getLegal() ?: '', ['class' => 'form-control']) }}
                             </div>
                         </div>
                     </div>
@@ -170,6 +173,13 @@
             $(".basic-select2").select2({
                 width: '100%'
             });
+            $('.input_protection_type').change(function () {
+                if ($(this).find(':selected').val() == 5) {
+                    $(this).parents('.duplicable').find('.cod-lmi').hide();
+                } else {
+                    $(this).parents('.duplicable').find('.cod-lmi').show();
+                }
+            });
             var dateOptions = {
                 autoclose: true,
                 clearBtn: true,
@@ -188,9 +198,9 @@
             var clone = function () {
                 var parent = $(this).parents(".clonedInput").parent().attr('class');
                 var cloneIndex = $(".clonedInput").length;
-                var clonable = $(this).parent().parent();
+                var clonable = $(this).parent().parent().parent();
 
-                clonable.clone()
+                clonable.clone(true)
                     .appendTo($(this).parents(".clonedInput").parent())
                     .attr("id", parent + cloneIndex)
                     .find(":input")
@@ -201,9 +211,7 @@
                             this.value = "";
                         }
                         $(this).prop("checked", false);
-                    })
-                    .on("click", 'button.clone', clone)
-                    .on("click", 'button.remove', remove);
+                    });
 
                 $('.input-daterange').datepicker(dateOptions);
             };

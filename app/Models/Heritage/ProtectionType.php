@@ -13,6 +13,14 @@ class ProtectionType
 {
     use Uuids;
 
+    const SETS = [
+        0 => '1955',
+        1 => '1991-1992',
+        2 => '2004',
+        3 => '2010',
+        4 => '2015',
+    ];
+
     const TYPES = [
         0 => 'none',
         1 => 'historical_monument',
@@ -37,11 +45,18 @@ class ProtectionType
     protected $uuid;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @OGM\Property(type="string")
+     * @OGM\Property(type="int")
      */
     protected $type;
+
+    /**
+     * @var integer
+     *
+     * @OGM\Property(type="int")
+     */
+    protected $set;
 
     /**
      * @var string
@@ -103,11 +118,12 @@ class ProtectionType
      * @param string $from
      * @param string $to
      */
-    public function __construct($type, $from, $to, $legal = null)
+    public function __construct($type, $from, $to, $set, $legal = null)
     {
         $this->type = $type;
         $this->date_from = $from;
         $this->date_to = $to;
+        $this->set = $set;
         $this->legal = $legal;
     }
 
@@ -179,6 +195,14 @@ class ProtectionType
     }
 
     /**
+     * @return array
+     */
+    public static function getSetOptions()
+    {
+        return self::SETS;
+    }
+
+    /**
      * @return integer
      */
     public function getType()
@@ -192,6 +216,22 @@ class ProtectionType
     public function setType($type)
     {
         $this->type = $type;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getSet()
+    {
+        return $this->set;
+    }
+
+    /**
+     * @param integer $set
+     */
+    public function setSet($set)
+    {
+        $this->set = $set;
     }
 
     /**

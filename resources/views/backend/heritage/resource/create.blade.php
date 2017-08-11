@@ -121,11 +121,14 @@
                                 <button type="button" class="btn btn-danger btn-sm remove">{{ trans('validation.attributes.backend.heritage.resources.delete_type_button') }}</button>
                             </div>
                             <div class="col-lg-12 col-xs-12">&nbsp;</div>
-                            <div class="col-lg-8">
+                            <div class="col-lg-2">
                                 <div class="input-group">
                                     <span class="input-group-addon"><label>{{ trans('validation.attributes.backend.heritage.resources.protection_code') }}: </label></span>
-                                    {{ Form::text('protection_type_legal[]', '', ['class' => 'col-lg-10 form-control']) }}
+                                    {{ Form::select('protection_type_legal_set[]', $protection_sets, '', ['class' => 'col-lg-1 form-control']) }}
                                 </div>
+                            </div>
+                            <div class="col-lg-6">
+                                {{ Form::text('protection_type_legal[]', '', ['class' => 'form-control']) }}
                             </div>
                         </div>
                     </div>
@@ -163,6 +166,13 @@
             $(".basic-select2").select2({
                 width: '100%'
             });
+            $('.input_protection_type').change(function () {
+                if ($(this).find(':selected').val() == 5) {
+                    $(this).parents('.duplicable').find('.cod-lmi').hide();
+                } else {
+                    $(this).parents('.duplicable').find('.cod-lmi').show();
+                }
+            });
             var dateOptions = {
                 autoclose: true,
                 clearBtn: true,
@@ -181,11 +191,9 @@
                 var cloneIndex = $(".clonedInput").length;
                 var clonable = $(this).parent().parent().parent();
 
-                clonable.clone()
+                clonable.clone(true)
                     .appendTo($(this).parents(".clonedInput").parent())
-                    .attr("id", parent + cloneIndex)
-                    .on("click", 'button.clone', clone)
-                    .on("click", 'button.remove', remove);
+                    .attr("id", parent + cloneIndex);
 
                 $('.input-daterange').datepicker(dateOptions);
             };
