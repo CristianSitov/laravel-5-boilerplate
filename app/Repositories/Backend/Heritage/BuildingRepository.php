@@ -269,7 +269,7 @@ class BuildingRepository extends BaseRepository
             $deleteType = $modification->getModificationEvent()->getModificationType();
             $deleteEvent = $modification->getModificationEvent();
             $deleteType->getModificationEvents()->removeElement($deleteEvent);
-            $this->em->remove($deleteType);
+            // $this->em->remove($deleteType); don't delete this
             // remove event
             $this->em->remove($deleteEvent, true);
             // remove modification
@@ -298,14 +298,33 @@ class BuildingRepository extends BaseRepository
         // remove components
         $components = $production->getBuilding()->getComponents();
         foreach ($components as $component) {
+            // remove component modifications
+            $componentModifications = $component->getModifications();
+            foreach ($componentModifications as $componentModification) {
+                $deleteComponentModificationDescription = $componentModification->getModificationEvent()->getModificationDescription();
+                $this->em->remove($deleteComponentModificationDescription, true);
+                // detach type
+                $deleteComponentModificationType = $componentModification->getModificationEvent()->getModificationType();
+                $deleteComponentModificationEvent = $componentModification->getModificationEvent();
+                $deleteComponentModificationType->getModificationEvents()->removeElement($deleteComponentModificationEvent);
+                // remove event
+                $this->em->remove($deleteComponentModificationEvent, true);
+                // remove modification
+                $this->em->remove($componentModification, true);
+            }
+
+            // remove elements
+            $elements = $component->getArchitecturalElements();
+            foreach ($elements as $element) {
+                $component->getArchitecturalElements()->removeElement($element);
+                $this->em->remove($element, true);
+            }
+
             $this->em->remove($component, true);
         }
 
         // remove building
         $this->em->remove($production->getBuilding(), true);
-
-        // remove production event
-//        $this->em->remove($production->getProductionEvent(), true);
 
         // remove production
         $this->em->remove($production, true);
