@@ -184,6 +184,8 @@
                 todayBtn: true
             };
             $('.input-daterange').datepicker(dateOptions);
+            $('.input_date_to').val('');
+            $('.input_type_date_to').val('');
 
             // http://jsfiddle.net/mjaric/tfFLt/
             var clone = function () {
