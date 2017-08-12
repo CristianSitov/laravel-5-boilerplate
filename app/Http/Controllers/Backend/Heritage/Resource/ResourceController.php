@@ -72,10 +72,14 @@ class ResourceController extends Controller
      */
     public function index()
     {
-        $resources = $this->resourceRepository->model->findAll();
+        if (access()->hasRole('Administrator')) {
+            $results = $this->resourceRepository->getForDataTable(false, false);
+        } else if (access()->hasRole('Scout') || access()->hasRole('Desk')) {
+            $results = $this->resourceRepository->getForDataTable(true, false);
+        }
 
         return view('backend.heritage.resource.index')
-            ->withResults($resources);
+            ->withResults($results);
     }
 
     /**

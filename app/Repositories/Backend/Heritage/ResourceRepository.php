@@ -75,32 +75,24 @@ class ResourceRepository extends BaseRepository
         $this->model = $this->em->getRepository(Resource::class);
     }
 
-    /**
-     * @param int $status
-     * @param bool $trashed
-     *
-     * @return mixed
-     */
-    public function getForDataTable($status = 1, $trashed = false)
+    public function getForDataTable($without_trashed = true, $published_only = true)
     {
-        $resources = $this->model->findAll();
-
-        $results = [];
-        foreach ($resources as $k => $resource) {
-            /* var Resource $resource */
-            $results[] =
-                ['resources' => [
-                    'address' => $resource->getPlace()->getPlaceAddress()->getStreetName()->getCurrentName() . ', ' .
-                                          $resource->getPlace()->getPlaceAddress()->getNumber(),
-                    'name' => $resource->getCurrentName()->getName(),
-                    'created_at' => $resource->getCreatedAt(),
-                    'updated_at' => $resource->getUpdatedAt(),
-                    'actions' => $resource->getActionButtonsAttribute(),
-                ]
-            ];
+        if (!$without_trashed) {
+            // admin
+            $resources = $this->model->findAll();
+        } else {
+            if ($published_only) {
+                // public
+                $queryResults = $this->em->createQuery('MATCH (r:Resource) WHERE r.published IS NOT NULL AND r.deleted_at IS NULL RETURN r');
+            } else {
+                // desk/scout
+                $queryResults = $this->em->createQuery('MATCH (r:Resource) WHERE r.deleted_at IS NULL RETURN r');
+            }
+            $queryResults->addEntityMapping('r', Resource::class);
+            $resources = $queryResults->getResult();
         }
 
-        return $results;
+        return $resources;
     }
 
     /**
@@ -113,6 +105,8 @@ class ResourceRepository extends BaseRepository
         $resource = new Resource();
         $resource->setUuid((string)Uuid::generate(4));
         $resource->setProgress(15);
+        $resource->setDeletedAt(null);
+        $resource->setPublishedAt(null);
         $resource->setCreatedAt(new \DateTime());
         $resource->setUpdatedAt(new \DateTime());
 
@@ -201,7 +195,8 @@ class ResourceRepository extends BaseRepository
 
         $namesArray = array_keys($data['name']);
         foreach ($resource->getNames() as $name) {
-            if ($f = array_search($name->getId(), $namesArray)) {
+            $f = array_search($name->getId(), $namesArray);
+            if ($f !== false) {
                 // update this if matches ID
                 $updateName = $this->em->find(Name::class, $name->getId());
                 $updateName->setName($data['name'][$namesArray[$f]]);

@@ -41,7 +41,7 @@ class Resource extends Model
     /**
      * @var \DateTime
      *
-     * @OGM\Property()
+     * @OGM\Property(nullable=true)
      * @OGM\Convert(type="datetime", options={"format":"timestamp"})
      */
     protected $created_at;
@@ -49,7 +49,7 @@ class Resource extends Model
     /**
      * @var \DateTime
      *
-     * @OGM\Property()
+     * @OGM\Property(nullable=true)
      * @OGM\Convert(type="datetime", options={"format":"timestamp"})
      */
     protected $updated_at;
@@ -57,7 +57,7 @@ class Resource extends Model
     /**
      * @var \DateTime
      *
-     * @OGM\Property()
+     * @OGM\Property(nullable=true)
      * @OGM\Convert(type="datetime", options={"format":"timestamp"})
      */
     protected $published_at;
@@ -65,7 +65,7 @@ class Resource extends Model
     /**
      * @var \DateTime
      *
-     * @OGM\Property()
+     * @OGM\Property(nullable=true)
      * @OGM\Convert(type="datetime", options={"format":"timestamp"})
      */
     protected $deleted_at;
@@ -178,7 +178,7 @@ class Resource extends Model
      */
     public function getCreatedAt()
     {
-        return Carbon::instance($this->created_at)->toDateTimeString();
+        return $this->created_at;
     }
     /**
      * @param \DateTime $created_at
@@ -193,7 +193,7 @@ class Resource extends Model
      */
     public function getUpdatedAt()
     {
-        return Carbon::instance($this->updated_at)->toDateTimeString();
+        return $this->updated_at;
     }
     /**
      * @param \DateTime $updated_at
@@ -208,7 +208,7 @@ class Resource extends Model
      */
     public function getPublishedAt()
     {
-        return Carbon::instance($this->published_at)->toDateTimeString();
+        return $this->published_at;
     }
     /**
      * @param \DateTime $published_at
@@ -223,7 +223,7 @@ class Resource extends Model
      */
     public function getDeletedAt()
     {
-        return Carbon::instance($this->deleted_at)->toDateTimeString();
+        return $this->deleted_at;
     }
     /**
      * @param \DateTime $deleted_at

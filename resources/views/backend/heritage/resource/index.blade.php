@@ -40,8 +40,8 @@
                         <td>{{ $result->getPlace()->getPlaceAddress()->getStreetName()->getCurrentName() . ', ' .
                         $result->getPlace()->getPlaceAddress()->getNumber() }}</td>
                         <td>{{ $result->getCurrentName()->getName() }}</td>
-                        <td>{{ $result->getCreatedAt() }}</td>
-                        <td>{{ $result->getUpdatedAt() }}</td>
+                        <td>{{ $result->getCreatedAt()->format('Y-m-d H:i:s') }}</td>
+                        <td>{{ $result->getUpdatedAt()->format('Y-m-d H:i:s') }}</td>
                         <td>{!! $result->getActionButtonsAttribute() !!}</td>
                     </tr>
 @endforeach
