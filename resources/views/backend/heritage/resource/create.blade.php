@@ -173,19 +173,19 @@
                     $(this).parents('.duplicable').find('.cod-lmi').show();
                 }
             });
-            var dateOptions = {
-                autoclose: true,
-                clearBtn: true,
-                format: 'yyyy',
-                weekStart: 1,
-                startView: 2,
-                minViewMode: 2,
-                maxViewMode: 3,
-                todayBtn: true
-            };
-            $('.input-daterange').datepicker(dateOptions);
-            $('.input_date_to').val('');
-            $('.input_type_date_to').val('');
+//            var dateOptions = {
+//                autoclose: true,
+//                clearBtn: true,
+//                format: 'yyyy',
+//                weekStart: 1,
+//                startView: 2,
+//                minViewMode: 2,
+//                maxViewMode: 3,
+//                todayBtn: true
+//            };
+//            $('.input-daterange').datepicker(dateOptions);
+//            $('.input_date_to').val('');
+//            $('.input_type_date_to').val('');
 
             // http://jsfiddle.net/mjaric/tfFLt/
             var clone = function () {
