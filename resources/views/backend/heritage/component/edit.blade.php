@@ -38,7 +38,7 @@
                         <div class="form-group">
                             {{ Form::label($component_type . '_' . $set, trans('labels.backend.heritage.component.' . $component_type . '.' . $set), ['class' => 'col-lg-2 control-label']) }}
 
-                            <div class="col-lg-4 selects elements">
+                            <div class="col-lg-8 selects elements">
         @if(in_array('single', $options))
             @foreach($architectural_elements[$component_type][$set] as $key => $value)
                 @php
@@ -47,7 +47,7 @@
                         $checked = ($existing_architectural_elements[$component_type][$set][0] == $key ? ['checked'] : []);
                     }
                 @endphp
-                                {{ Form::radio($set, $key, null, array_merge($checked, [])) }} {{ $value }}<br />
+                                {{ Form::radio($set, $key, null, array_merge($checked, [])) }} {{ $value }}&nbsp;
             @endforeach
         @elseif(in_array('multiple', $options))
             @php
@@ -62,24 +62,26 @@
                                 {{ Form::select($set, $architectural_elements[$component_type][$set], $value, ['class' => 'col-lg-2 form-control basic-select2']) }}
         @endif
                             </div>
-                            <div class="col-lg-6 displays">
-                                <table class="table table-condensed">
-                                    <tbody>
+                            <div class="col-lg-offset-4 col-lg-6 col-xs-12 displays">
         @if(in_array('mods', $options))
             @if(isset($existing_architectural_elements[$component_type][$set]))
                 @foreach($existing_architectural_elements[$component_type][$set] as $uuid)
-                                        <tr data-identifier="{{ $uuid }}">
-                                            <td><span class="track"><i class="fa fa-check-square-o"></i>&nbsp;{{ $architectural_elements[$component_type][$set][$uuid] }}</span></td>
-                                            <td>
-                                                {{ Form::radio($set.'_modified['.$uuid.']', 'unmodified', isset($modified_elements[$uuid]) ? ($modified_elements[$uuid] == 'unmodified') : null, []) }} {{ trans('strings.backend.component.unmodified') }}<br />
-                                                {{ Form::radio($set.'_modified['.$uuid.']', 'modified', isset($modified_elements[$uuid]) ? ($modified_elements[$uuid] == 'modified') : null, []) }} {{ trans('strings.backend.component.modified') }}<br />
-                                            </td>
-                                        </tr>
+                                <div class="row" data-identifier="{{ $uuid }}">
+                                    <div class="col-lg-6 col-xs-12">
+                                        <span class="track"><i class="fa fa-check-square-o"></i>&nbsp;{{ $architectural_elements[$component_type][$set][$uuid] }}</span>
+                                    </div>
+                                    <div class="col-lg-6 col-xs-12">
+                                        <span class="track">{{ Form::radio($set.'_modified['.$uuid.']', 'other', isset($modified_elements[$uuid]) ? ($modified_elements[$uuid] == 'other') : null, []) }} {{ trans('strings.backend.component.other') }}&nbsp;&nbsp;
+                                            {{ Form::radio($set.'_modified['.$uuid.']', 'unmodified', isset($modified_elements[$uuid]) ? ($modified_elements[$uuid] == 'unmodified') : null, []) }} {{ trans('strings.backend.component.unmodified') }}&nbsp;&nbsp;
+                                            {{ Form::radio($set.'_modified['.$uuid.']', 'modified', isset($modified_elements[$uuid]) ? ($modified_elements[$uuid] == 'modified') : null, []) }} {{ trans('strings.backend.component.modified') }}</span>
+                                    </div>
+                                    <div class="col-lg-12 col-xs-12">
+                                        {{ Form::textarea($set.'_note['.$uuid.']', isset($element_notes[$uuid]) ? $element_notes[$uuid] : '', ["rows" => "2", "cols" => null, "class" => "form-control description"]) }}
+                                    </div>
+                                </div>
                 @endforeach
             @endif
         @endif
-                                    </tbody>
-                                </table>
                             </div>
                         </div>
                     </div>
@@ -95,31 +97,37 @@
                     <div class="col-lg-12 col-xs-12">
                         <div class="form-group">
                             {{ Form::label($component_type, trans('labels.backend.heritage.component.pages.changes'), ['class' => 'col-lg-2 control-label']) }}
-                            <div class="col-lg-4 selects modifications">
+                            <div class="col-lg-8 selects modifications">
                                 {{ Form::select('modification_type[]', $modification_types, $component->getModificationsTypeIds(), ['multiple', 'class' => 'col-lg-4 form-control basic-select2']) }}
                             </div>
-                            <div class="col-lg-6 displays">
-                                <table class="table table-condensed">
-                                    <tbody>
+                            <div class="col-lg-offset-4 col-lg-6 col-xs-12 displays">
 @foreach($component->getModifications() as $modification)
-                                        <tr data-identifier="{{ $modification->getModificationEvent()->getModificationType()->getId() }}">
-                                            <td><i class="fa fa-check-square-o"></i>&nbsp;{{ $modification->getModificationEvent()->getModificationType()->getNameRo() }}</td>
-                                            <td><input type="text" class="input-md full-width" name="modification_type_description[{{ $modification->getModificationEvent()->getModificationType()->getId() }}]" value="{{ $modification->getModificationEvent()->getModificationDescription()->getNote() }}"></td>
-                                        </tr>
+                                <div class="row" data-identifier="{{ $modification->getModificationEvent()->getModificationType()->getId() }}">
+                                    <div class="col-lg-12 col-xs-12">
+                                        <span class="track"><i class="fa fa-check-square-o"></i>&nbsp;{{ $modification->getModificationEvent()->getModificationType()->getNameRo() }}</span>
+                                    </div>
+                                    <div class="col-lg-12 col-xs-12">
+                                        <span class="track">
+                                            {{ Form::textarea('modification_type_description['.$modification->getModificationEvent()->getModificationType()->getId().']', $modification->getModificationEvent()->getModificationDescription()->getNote() ?: '', ["rows" => "2", "cols" => null, "class" => "form-control description"]) }}
+                                        </span>
+                                    </div>
+                                </div>
 @endforeach
-                                    </tbody>
-                                </table>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-offset-2 col-lg-10"><hr/></div>
+                    <div class="col-lg-2"></div>
                 </div>
                 <div class="set-body row">
                     <div class="col-lg-12 col-xs-12">
                         <div class="form-group">
                             {{ Form::label('notes', trans('labels.backend.heritage.component.pages.observations'), ['class' => 'col-lg-2 control-label']) }}
 
-                            <div class="col-lg-4">
-                                {{ Form::textarea('notes', $component->getNote(), ['style' => 'width: 100%']) }}
+                            <div class="col-lg-8">
+                                {{ Form::textarea('notes', $component->getNote(), ["class" => "form-control description"]) }}
                             </div>
                         </div>
                     </div>
@@ -294,41 +302,55 @@
 
                 // add new
                 if ($(this).parent().hasClass('elements')) {
-                    name = name + '_modified';
-                    $('<tr/>').attr(
+                    console.log($(this).parent());
+                    modified = name + '_modified';
+                    note = name = '_note';
+                    $('<div class="row">').attr(
                         'data-identifier', params.selected
                     ).append(
-                        $('<td>').append(
+                        $('<div class="col-lg-6 col-xs-12">').append(
                             $('<span>').addClass('track').append(
                                 $('<i class="fa fa-check-square-o"></i>&nbsp;')
                             ).append('&nbsp;' + label)
                         )
                     ).append(
-                        $('<td>').append(
-                            $('<input>').attr('name', name+'['+params.selected+']').attr('type', 'radio').val('unmodified')
-                        ).append(
-                            ' {{ trans('strings.backend.component.unmodified') }}<br>'
-                        ).append(
-                            $('<input>').attr('name', name+'['+params.selected+']').attr('type', 'radio').val('modified')
-                        ).append(
-                            ' {{ trans('strings.backend.component.modified') }}<br>'
+                        $('<div class="col-lg-6 col-xs-12">').append(
+                            $('<span>').addClass('track').append(
+                                $('<input checked>').attr('name', modified+'['+params.selected+']').attr('type', 'radio').val('other')
+                            ).append(
+                                ' {{ trans('strings.backend.component.other') }}&nbsp;&nbsp;'
+                            ).append(
+                                $('<input>').attr('name', modified+'['+params.selected+']').attr('type', 'radio').val('unmodified')
+                            ).append(
+                                ' {{ trans('strings.backend.component.unmodified') }}&nbsp;&nbsp;'
+                            ).append(
+                                $('<input>').attr('name', modified+'['+params.selected+']').attr('type', 'radio').val('modified')
+                            ).append(
+                                ' {{ trans('strings.backend.component.modified') }}'
+                            )
                         )
-                    ).appendTo(displays.find('table tbody'));
+                    ).append(
+                        $('<div class="col-lg-12 col-xs-12">').append(
+                            $('<textarea class="form-control description">').attr('name', note+'['+params.selected+']')
+                        )
+                    ).appendTo(displays);
                 } else if($(this).parent().hasClass('modifications')) {
-                    name = name + '_description';
-                    $('<tr/>').attr(
+                    description = name + '_description';
+                    $('<div class="row">').attr(
                         'data-identifier', params.selected
                     ).append(
-                        $('<td>').append(
+                        $('<div class="col-lg-12 col-xs-12">').append(
                             $('<span>').addClass('track').append(
                                 $('<i class="fa fa-check-square-o"></i>&nbsp;')
                             ).append('&nbsp;' + label)
                         )
                     ).append(
-                        $('<td>').append(
-                            $('<input>').attr('name', name+'['+params.selected+']').attr('type', 'text').addClass('input-md full-width')
+                        $('<div class="col-lg-12 col-xs-12">').append(
+                            $('<span>').addClass('track').append(
+                                $('<textarea class="form-control description">').attr('name', description+'['+params.selected+']').attr('type', 'text').addClass('input-md full-width')
+                            )
                         )
-                    ).appendTo(displays.find('table tbody'));
+                    ).appendTo(displays);
                 }
             }
             if ('deselected' in params) {

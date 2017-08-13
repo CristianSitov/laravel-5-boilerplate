@@ -99,11 +99,14 @@ class ComponentController extends Controller
         $existingArchitecturalElements = $component->getArchitecturalElementsByType($component_type);
         $existing_architectural_elements = [];
         $modifiedElements = [];
+        $elementNotes = [];
         foreach ($existingArchitecturalElements as $existingArchitecturalElement) {
             $existing_architectural_elements[$existingArchitecturalElement->getType()][$existingArchitecturalElement->getSet()][] = $existingArchitecturalElement->getUuid();
             $modifiedElements[$existingArchitecturalElement->getUuid()] = $existingArchitecturalElement->getModified();
+            $elementNotes[$existingArchitecturalElement->getUuid()] = $existingArchitecturalElement->getNote();
         }
         $modifiedElements = array_filter($modifiedElements); // get rid of nulls
+        $elementNotes = array_filter($elementNotes); // get rid of nulls
 
         $modificationTypes = $this->modificationTypeRepository->findPublished($component_type);
         $modification_types = [];
@@ -128,6 +131,7 @@ class ComponentController extends Controller
             ->withArchitecturalElementMap($architectural_element_map)
             ->withExistingArchitecturalElements($existing_architectural_elements)
             ->withModifiedElements($modifiedElements)
+            ->withElementNotes($elementNotes)
             ->withModificationTypes($modification_types)
             ->withPhotos($photos)
             ;

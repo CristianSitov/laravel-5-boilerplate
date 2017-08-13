@@ -15,11 +15,11 @@ class ArchitecturalElement
 
     const MAP = [
         'roof' => [
-            'type' => ['multiple'],
-            'cladding_material' => ['multiple'],
+            'type' => ['multiple', 'mods'],
+            'cladding_material' => ['multiple', 'mods'],
             'details' => ['multiple', 'mods', 'group'],
             'chimney_type' => ['single'],
-            'chimney_material' => ['multiple', 'group'],
+            'chimney_material' => ['multiple', 'mods', 'group'],
         ],
         'facade' => [
             'type' => ['single', 'group'],
@@ -139,6 +139,13 @@ class ArchitecturalElement
      * @OGM\Property(type="string")
      */
     protected $type;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $note;
 
     /**
      * @var string
@@ -278,6 +285,22 @@ class ArchitecturalElement
     public function setType($type)
     {
         $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNote()
+    {
+        return $this->note;
+    }
+
+    /**
+     * @param string
+     */
+    public function setNote($note)
+    {
+        $this->note = $note;
     }
 
     /**

@@ -37,7 +37,7 @@
             <div class="row">
                 <div class="col-lg-2 col-xs-3">
                 {{--@if(count($component->getArchitecturalElements())) > 0)--}}
-                    <small><a title="{{ trans('menus.backend.heritage.components.edit') }}" class="btn btn-xs btn-warning" href="{{ route('admin.heritage.components.edit', [$resource->getId(), $production->getId(), $component->getId()]) }}"><i class="fa fa-edit"></i> Edit Component</a></small>
+                    <small><a title="{{ trans('menus.backend.heritage.components.edit') }}" class="btn btn-xs btn-warning" href="{{ route('admin.heritage.components.edit', [$resource->getId(), $production->getId(), $component->getId()]) }}"><i class="fa fa-edit"></i> {{ trans('menus.backend.heritage.components.edit') }}</a></small>
                 {{--@else--}}
                 {{--@endif--}}
                 </div>
@@ -51,7 +51,7 @@
                             <td>{{ $element->getAreaRo() }}</td>
                             <td>{{ $element->getValueRo() }}</td>
                             <td>{{ $element->getModified() }}</td>
-                            <td><small><a title="{{ trans('menus.backend.heritage.elements.remove') }}" class="btn btn-xs btn-danger" href="{{ route('admin.heritage.components.element.remove', [$resource->getId(), $production->getId(), $component->getId(), $element->getUuid()]) }}"><i class="fa fa-trash"></i> Remove Element</a></small></td>
+                            <td><small><a title="{{ trans('menus.backend.heritage.elements.remove') }}" class="btn btn-xs btn-danger" href="{{ route('admin.heritage.components.element.remove', [$resource->getId(), $production->getId(), $component->getId(), $element->getUuid()]) }}"><i class="fa fa-trash"></i> {{ trans('menus.backend.heritage.elements.remove') }}</a></small></td>
                         </tr>
                 @endforeach
             @endif

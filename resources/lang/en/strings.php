@@ -90,6 +90,7 @@ return [
             'roof' => 'Roof',
             'facade' => 'Facade',
             'access' => 'Access',
+            'other' => 'Other',
             'unmodified' => 'Apparently unmodified',
             'modified' => 'Modified afterwards',
         ],

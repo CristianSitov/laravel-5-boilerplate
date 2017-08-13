@@ -69,6 +69,9 @@ class BuildingController extends Controller
     public function create($resource_id)
     {
         $resource = $this->resourceRepository->model->find($resource_id);
+        $placeAddress = $resource->getPlace()->getPlaceAddress();
+        $streetName = $placeAddress->getStreetName();
+        $address = ucfirst($streetName->getCurrentName()).', nr. '.$placeAddress->getNumber();
 
         $levels = Building::LEVELS;
 
@@ -97,6 +100,7 @@ class BuildingController extends Controller
             });
 
         return view('backend.heritage.building.create')
+            ->withAddress($address)
             ->withLevels($levels)
             ->withHeritageResourceTypes($heritageResourceTypes)
             ->withArchitecturalStyles($architecturalStyles)

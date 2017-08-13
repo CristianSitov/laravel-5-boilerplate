@@ -57,7 +57,7 @@ return [
             ],
 
             'components' => [
-                'all'             => 'Toate elementele',
+                'all'             => 'Listează elementele',
                 'management'      => 'Management elemente',
                 'create'          => 'Adaugă element',
                 'create_facade'   => 'Adaugă fațadă',

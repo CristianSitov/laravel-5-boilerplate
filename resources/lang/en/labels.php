@@ -131,7 +131,8 @@ return [
                 ],
             ],
             'building' => [
-                'edit'               => 'Edit building'
+                'create'             => 'Create building',
+                'edit'               => 'Edit building',
             ],
             'component' => [
                 'pages' => [

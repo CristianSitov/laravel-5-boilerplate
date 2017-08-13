@@ -90,8 +90,9 @@ return [
             'roof' => 'Acoperiș',
             'facade' => 'Fațadă',
             'access' => 'Acces',
-            'unmodified' => 'Aparent nemodificat',
-            'modified' => 'Modificat ulterior',
+            'other' => 'Nu se aplică',
+            'unmodified' => 'Nemodificat',
+            'modified' => 'Modificat',
         ],
 
         'search' => [

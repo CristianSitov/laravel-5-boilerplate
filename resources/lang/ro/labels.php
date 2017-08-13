@@ -131,6 +131,7 @@ return [
                 ],
             ],
             'building' => [
+                'create'             => 'Crează corp clădire',
                 'edit'               => 'Editează corp clădire'
             ],
             'component' => [
