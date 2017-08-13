@@ -2,11 +2,15 @@ USING PERIODIC COMMIT
 LOAD CSV WITH HEADERS FROM 'http://heritageoftimisoara.dev/E55.HeritageResourceType_01.csv' AS row
   MERGE (n:HeritageResourceType {uuid: row.uuid})
     ON CREATE
-    SET n = row, n.uuid = row.uuid, n.name = row.name, n.name_ro = row.name_ro, n.set = row.set, n.
-      set_ro = row.set_ro, n.published = row.published, n.created_at = timestamp(), n.updated_at = timestamp()
+    SET n = row, n.uuid = row.uuid,
+    n.set_order = row.set_order, n.set = row.set, n.set_ro = row.set_ro,
+    n.name_order = row.name_order, n.name = row.name, n.name_ro = row.name_ro,
+    n.published = row.published, n.created_at = timestamp(), n.updated_at = timestamp()
     ON MATCH
-    SET n = row, n.uuid = row.uuid, n.name = row.name, n.name_ro = row.name_ro, n.set = row.set, n.
-      set_ro = row.set_ro, n.published = row.published, n.created_at = timestamp(), n.updated_at = timestamp();
+    SET n = row, n.uuid = row.uuid,
+    n.set_order = row.set_order, n.set = row.set, n.set_ro = row.set_ro,
+    n.name_orer = row.name_order, n.name = row.name, n.name_ro = row.name_ro,
+    n.published = row.published, n.created_at = timestamp(), n.updated_at = timestamp();
 
 USING PERIODIC COMMIT LOAD CSV WITH HEADERS FROM 'http://heritageoftimisoara.dev/E55.ArchitecturalStyle_01.csv' AS row
   MERGE (n:ArchitecturalStyle {uuid: row.uuid})

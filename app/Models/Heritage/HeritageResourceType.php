@@ -42,6 +42,13 @@ class HeritageResourceType
     protected $set;
 
     /**
+     * @var int
+     *
+     * @OGM\Property(type="int")
+     */
+    protected $set_order;
+
+    /**
      * @var string
      *
      * @OGM\Property(type="string")
@@ -54,6 +61,13 @@ class HeritageResourceType
      * @OGM\Property(type="string")
      */
     protected $name;
+
+    /**
+     * @var int
+     *
+     * @OGM\Property(type="int")
+     */
+    protected $name_order;
 
     /**
      * @var string
@@ -154,6 +168,22 @@ class HeritageResourceType
     }
 
     /**
+     * @return int
+     */
+    public function getNameOrder()
+    {
+        return $this->name_order;
+    }
+
+    /**
+     * @param int $name_order
+     */
+    public function setNameOrder($name_order)
+    {
+        $this->name_order = $name_order;
+    }
+
+    /**
      * @return string
      */
     public function getNameRo()
@@ -183,6 +213,22 @@ class HeritageResourceType
     public function setSet($set)
     {
         $this->set = $set;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSetOrder()
+    {
+        return $this->set_order;
+    }
+
+    /**
+     * @param int $set_order
+     */
+    public function setSetOrder($set_order)
+    {
+        $this->set_order = $set_order;
     }
 
     /**

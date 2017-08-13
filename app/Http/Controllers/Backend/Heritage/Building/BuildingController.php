@@ -79,9 +79,16 @@ class BuildingController extends Controller
             ->mapWithKeys(function ($item) {
                 return [$item->getId() => [
                     'id' => $item->getId(),
+                    'set_order' => $item->getSetOrder(),
                     'set_ro' => $item->getSetRo(),
+                    'name_order' => $item->getNameOrder(),
                     'name_ro' => $item->getNameRo(),
                 ]];
+            })
+            ->sort(function ($a, $b) {
+                // sort by column1 first, then 2, and so on
+                return strcmp($a['set_order'], $b['set_order'])
+                    ?: strcmp($a['name_order'], $b['name_order']);
             });
 
         $architecturalStyles = collect($this->architecturalStyleRepository->findPublished())
