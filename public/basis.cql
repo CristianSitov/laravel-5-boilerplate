@@ -2,26 +2,26 @@ USING PERIODIC COMMIT
 LOAD CSV WITH HEADERS FROM 'http://heritageoftimisoara.dev/E55.HeritageResourceType_01.csv' AS row
   MERGE (n:HeritageResourceType {uuid: row.uuid})
     ON CREATE
-    SET n = row, n.uuid = row.uuid,
+    SET n = row, n.uuid = row.uuid, n.type = row.type,
     n.set_order = row.set_order, n.set = row.set, n.set_ro = row.set_ro,
     n.name_order = row.name_order, n.name = row.name, n.name_ro = row.name_ro,
     n.published = row.published, n.created_at = timestamp(), n.updated_at = timestamp()
     ON MATCH
-    SET n = row, n.uuid = row.uuid,
+    SET n = row, n.uuid = row.uuid, n.type = row.type,
     n.set_order = row.set_order, n.set = row.set, n.set_ro = row.set_ro,
-    n.name_orer = row.name_order, n.name = row.name, n.name_ro = row.name_ro,
+    n.name_order = row.name_order, n.name = row.name, n.name_ro = row.name_ro,
     n.published = row.published, n.created_at = timestamp(), n.updated_at = timestamp();
 
 USING PERIODIC COMMIT LOAD CSV WITH HEADERS FROM 'http://heritageoftimisoara.dev/E55.ArchitecturalStyle_01.csv' AS row
   MERGE (n:ArchitecturalStyle {uuid: row.uuid})
     ON CREATE
-    SET n = row, n.uuid = row.uuid, n.name = row.name, n.name_ro = row.name_ro, n.published = row.published, n.
-      note = row.
-      note, n.created_at = timestamp(), n.updated_at = timestamp()
+    SET n = row, n.uuid = row.uuid,
+    n.name_order = row.name_order, n.name = row.name, n.name_ro = row.name_ro, n.type = row.type,
+    n.published = row.published, n.created_at = timestamp(), n.updated_at = timestamp()
     ON MATCH
-    SET n = row, n.uuid = row.uuid, n.name = row.name, n.name_ro = row.name_ro, n.published = row.published, n.
-      note = row.
-      note, n.created_at = timestamp(), n.updated_at = timestamp();
+    SET n = row, n.uuid = row.uuid,
+    n.name_order = row.name_order, n.name = row.name, n.name_ro = row.name_ro, n.type = row.type,
+    n.published = row.published, n.created_at = timestamp(), n.updated_at = timestamp();
 
 USING PERIODIC COMMIT LOAD CSV WITH HEADERS FROM 'http://heritageoftimisoara.dev/E48.AdministrativeSubdivision_01.csv'
 AS row

@@ -32,6 +32,27 @@ class ArchitecturalStyle
      *
      * @OGM\Property(type="string")
      */
+    protected $type;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $note;
+
+    /**
+     * @var int
+     *
+     * @OGM\Property(type="int")
+     */
+    protected $name_order;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
     protected $name;
 
     /**
@@ -58,12 +79,11 @@ class ArchitecturalStyle
     protected $updated_at;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @OGM\Property()
-     * @OGM\Convert(type="datetime", options={"format":"timestamp"})
+     * @OGM\Property(type="string")
      */
-    protected $published_at;
+    protected $published;
 
     /**
      * @var Building
@@ -92,12 +112,61 @@ class ArchitecturalStyle
     {
         return $this->uuid;
     }
+
     /**
      * @param string $uuid
      */
     public function setUuid($uuid)
     {
         $this->uuid = $uuid;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNote()
+    {
+        return $this->note;
+    }
+
+    /**
+     * @param string $note
+     */
+    public function setNote($note)
+    {
+        $this->note = $note;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNameOrder()
+    {
+        return $this->name_order;
+    }
+
+    /**
+     * @param int $name_order
+     */
+    public function setNameOrder($name_order)
+    {
+        $this->name_order = $name_order;
     }
 
     /**
@@ -163,18 +232,18 @@ class ArchitecturalStyle
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
-    public function getPublishedAt()
+    public function getPublished()
     {
-        return $this->published_at;
+        return $this->published;
     }
     /**
-     * @param \DateTime $published_at
+     * @param string $published
      */
-    public function setPublishedAt($published_at)
+    public function setPublished($published)
     {
-        $this->published_at = $published_at;
+        $this->published = $published;
     }
 
     /**

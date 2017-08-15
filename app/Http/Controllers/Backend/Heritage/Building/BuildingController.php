@@ -75,26 +75,62 @@ class BuildingController extends Controller
 
         $levels = Building::LEVELS;
 
-        $heritageResourceTypes = collect($this->heritageResourceTypeRepository->findPublished())
+        $heritageResourceTypes = collect($this->heritageResourceTypeRepository->findAllStencils())
             ->mapWithKeys(function ($item) {
-                return [$item->getId() => [
-                    'id' => $item->getId(),
+                return [$item->getUuid() => [
+                    'id' => $item->getUuid(),
                     'set_order' => $item->getSetOrder(),
                     'set_ro' => $item->getSetRo(),
                     'name_order' => $item->getNameOrder(),
                     'name_ro' => $item->getNameRo(),
+                    'type' => $item->getType(),
                 ]];
             })
             ->sort(function ($a, $b) {
-                // sort by column1 first, then 2, and so on
                 return strcmp($a['set_order'], $b['set_order'])
                     ?: strcmp($a['name_order'], $b['name_order']);
             });
+//        $heritageResourceTypesList = [];
+//        foreach ($heritageResourceTypes as $type) {
+//            $heritageResourceTypesList[$type['set_ro']][$type['id']] = $type['name_ro'];
+//        }
+//        $heritageResourceTypesAttr = [];
+//        foreach ($heritageResourceTypes as $type) {
+//            if ($type['type']) {
+//                $heritageResourceTypesAttr[$type['set_ro']][$type['id']] = $type['type'];
+//            }
+//        }
+        $heritageResourceTypesList = [];
+        foreach ($heritageResourceTypes as $type) {
+            $heritageResourceTypesList[$type['id']] = $type['set_ro'] . ' - ' . $type['name_ro'];
+        }
+        $heritageResourceTypesAttr = [];
+        foreach ($heritageResourceTypes as $type) {
+            if ($type['type']) {
+                $heritageResourceTypesAttr[$type['id']] = ['data-type' => $type['type']];
+            }
+        }
 
-        $architecturalStyles = collect($this->architecturalStyleRepository->findPublished())
+        $architecturalStyles = collect($this->architecturalStyleRepository->findAllStencils())
             ->mapWithKeys(function ($item) {
-                return [$item->getId() =>  $item->getNameRo()];
+                return [$item->getUuid() =>  [
+                    'name_order' => $item->getNameOrder(),
+                    'name_ro' => $item->getNameRo(),
+                    'type' => $item->getType(),
+                ]];
+            })
+            ->sort(function ($a, $b) {
+                return $a['name_order'] > $b['name_order'];
             });
+        $architecturalStylesList = $architecturalStyles
+            ->mapWithKeys(function ($item, $key) {
+                return [$key => $item['name_ro']];
+            });
+        $architecturalStylesAttr = $architecturalStyles
+            ->mapWithKeys(function ($item, $key) {
+                return [$key => ['data-type' => $item['type']]];
+            })
+            ->toArray();
 
         $materials = collect($this->materialRepository->findPublished())
             ->mapWithKeys(function ($item) {
@@ -109,8 +145,10 @@ class BuildingController extends Controller
         return view('backend.heritage.building.create')
             ->withAddress($address)
             ->withLevels($levels)
-            ->withHeritageResourceTypes($heritageResourceTypes)
-            ->withArchitecturalStyles($architecturalStyles)
+            ->withHeritageResourceTypes($heritageResourceTypesList)
+            ->withHeritageResourceTypesAttr($heritageResourceTypesAttr)
+            ->withArchitecturalStyles($architecturalStylesList)
+            ->withArchitecturalStylesAttr($architecturalStylesAttr)
             ->withMaterials($materials)
             ->withModificationTypes($modification_types)
             ->withResource($resource);
@@ -143,11 +181,21 @@ class BuildingController extends Controller
                     'set_ro' => $item->getSetRo(),
                     'name_ro' => $item->getNameRo(),
                 ]];
+            })
+            ->sort(function ($a, $b) {
+                return strcmp($a['set_order'], $b['set_order'])
+                    ?: strcmp($a['name_order'], $b['name_order']);
             });
 
         $architecturalStyles = collect($this->architecturalStyleRepository->findPublished())
             ->mapWithKeys(function ($item) {
-                return [$item->getId() =>  $item->getNameRo()];
+                return [$item->getId() =>  [
+                    $item->getNameOrder(),
+                    $item->getNameRo(),
+                ]];
+            })
+            ->sort(function ($a, $b) {
+                return strcmp($a['name_order'], $b['name_order']);
             });
 
         $materials = collect($this->materialRepository->findPublished())

@@ -21,37 +21,40 @@ class HeritageResourceTypeRepository extends BaseRepository
         $this->model = $this->em->getRepository(HeritageResourceType::class);
     }
 
-    /**
-     * @param int  $status
-     * @param bool $trashed
-     *
-     * @return mixed
-     */
-    public function getForDataTable($status = 1, $trashed = false)
-    {
-        $heritageResourceTypes = $this->model->findAll();
-
-        $results = [];
-        foreach ($heritageResourceTypes as $k => $heritageResourceType) {
-            $results[$k]['id'] = $heritageResourceType->getId();
-            $results[$k]['type_set'] = $heritageResourceType->getTypeSet();
-            $results[$k]['type'] = $heritageResourceType->getType();
-            $results[$k]['published'] = $heritageResourceType->getPublished();
-            $results[$k]['created_at'] = $heritageResourceType->getCreatedAt();
-            $results[$k]['updated_at'] = $heritageResourceType->getUpdatedAt();
-            $results[$k]['actions'] = $heritageResourceType->getActionButtonsAttribute();
-        }
-
-        return $results;
-    }
-
-    /**
-     * none
-     */
     public function findPublished()
     {
         $criteria = new Criteria();
         $criteria->where(new Comparison('published', Comparison::EQ, "true"));
         return $this->model->matching($criteria);
+    }
+
+    public function createClone(array $data)
+    {
+        $clone = new HeritageResourceType();
+
+        foreach ($data as $prop => $value) {
+            $clone->{'set'.ucfirst(camel_case($prop))}($value);
+        }
+
+        return $clone;
+    }
+
+    public function findAllStencils()
+    {
+        $queryResults = $this->em->createQuery('MATCH (type:HeritageResourceType) OPTIONAL MATCH (b:Building)-[r:Assigned]->(type) WITH type,r WHERE r IS NULL AND type.published="true" RETURN type');
+        $queryResults->addEntityMapping('type', HeritageResourceType::class);
+        $result = $queryResults->getResult();
+
+        return $result;
+    }
+
+    public function findStencilsByUuid($uuid)
+    {
+        $queryResults = $this->em->createQuery('MATCH (type:HeritageResourceType {uuid:"'.$uuid.'"}) OPTIONAL MATCH (b:Building)-[r:Assigned]->(type) WITH type,r WHERE r IS NULL AND type.published="true" RETURN type');
+        // use "n" to full OGM and access properties through values() method
+        $queryResults->addEntityMapping('n', HeritageResourceType::class);
+        $result = $queryResults->getResult();
+
+        return $result;
     }
 }

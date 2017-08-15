@@ -38,13 +38,13 @@ class MacroServiceProvider extends HtmlServiceProvider
 
         // https://gist.github.com/marekmurawski/8855132
         if ($this->app->bound('form')) {
-            $this->app['form']->macro('selectOpt', function(\ArrayAccess $collection, $name, $groupBy, $labelBy = 'name', $valueBy = 'id', $value = null, $attributes = array()) {
+            $this->app['form']->macro('selectOpt', function(\ArrayAccess $collection, $name, $groupBy, $labelBy = 'name', $valueBy = 'id', $value = null, $attributes = [], $optionsAttributes = []) {
                 $select_optgroup_arr = [];
-                foreach ($collection as $item)
-                {
+                foreach ($collection as $item) {
                     $select_optgroup_arr[$item[$groupBy]][$item[$valueBy]] = $item[$labelBy];
                 }
-                return Form::select($name, $select_optgroup_arr, $value, $attributes);
+
+                return Form::select($name, $select_optgroup_arr, $value, $attributes, $optionsAttributes);
             });
         }
     }

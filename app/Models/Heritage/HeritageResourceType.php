@@ -32,7 +32,21 @@ class HeritageResourceType
      *
      * @OGM\Property(type="string")
      */
-    protected $main;
+    protected $time;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $note;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $type;
 
     /**
      * @var string
@@ -93,12 +107,11 @@ class HeritageResourceType
     protected $updated_at;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @OGM\Property()
-     * @OGM\Convert(type="datetime", options={"format":"timestamp"})
+     * @OGM\Property(type="string")
      */
-    protected $published_at;
+    protected $published;
 
     /**
      * @var Building
@@ -107,9 +120,8 @@ class HeritageResourceType
      */
     protected $building;
 
-    public function __construct(Resource $resource = null)
+    public function __construct()
     {
-        $this->resource = $resource;
     }
 
     /**
@@ -138,65 +150,49 @@ class HeritageResourceType
     /**
      * @return string
      */
-    public function getMain()
+    public function getTime()
     {
-        return $this->main;
+        return $this->time;
     }
 
     /**
-     * @param string $main
+     * @param string $time
      */
-    public function setMain($main)
+    public function setTime($time)
     {
-        $this->main = $main;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
-    /**
-     * @return int
-     */
-    public function getNameOrder()
-    {
-        return $this->name_order;
-    }
-
-    /**
-     * @param int $name_order
-     */
-    public function setNameOrder($name_order)
-    {
-        $this->name_order = $name_order;
+        $this->time = $time;
     }
 
     /**
      * @return string
      */
-    public function getNameRo()
+    public function getNote()
     {
-        return $this->name_ro;
+        return $this->note;
     }
 
     /**
-     * @param string $name_ro
+     * @param string $note
      */
-    public function setNameRo($name_ro)
+    public function setNote($note)
     {
-        $this->name_ro = $name_ro;
+        $this->note = $note;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
     }
 
     /**
@@ -248,6 +244,54 @@ class HeritageResourceType
     }
 
     /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNameOrder()
+    {
+        return $this->name_order;
+    }
+
+    /**
+     * @param int $name_order
+     */
+    public function setNameOrder($name_order)
+    {
+        $this->name_order = $name_order;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNameRo()
+    {
+        return $this->name_ro;
+    }
+
+    /**
+     * @param string $name_ro
+     */
+    public function setNameRo($name_ro)
+    {
+        $this->name_ro = $name_ro;
+    }
+
+    /**
      * @return \DateTime
      */
     public function getCreatedAt()
@@ -278,18 +322,18 @@ class HeritageResourceType
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
-    public function getPublishedAt()
+    public function getPublished()
     {
-        return $this->published_at;
+        return $this->published;
     }
     /**
-     * @param \DateTime $published_at
+     * @param string $published
      */
-    public function setPublishedAt($published_at)
+    public function setPublished($published)
     {
-        $this->published_at = $published_at;
+        $this->published = $published;
     }
 
     /**

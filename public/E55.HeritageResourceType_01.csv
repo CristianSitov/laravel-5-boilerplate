@@ -103,7 +103,7 @@ adc22711-f7cc-46fb-957e-985814f60c23,9,Industrial,Industrie,,Television Broadcas
 c7621224-3be8-4f9b-8c3d-32a143f3d5dc,9,Industrial,Industrie,,Creamery,,,false
 64aaac02-cc85-4213-870d-6082085f96c9,9,Industrial,Industrie,,Fish Processing,,,false
 2ec64187-57aa-471e-938e-6e58e1031676,9,Industrial,Industrie,4,Flour Mill,Moară,,true
-6d1960fe-a385-43e9-8b8d-b579fc1fa35e,9,Industrial,Industrie,,Other,Altele,describe,false
+6d1960fe-a385-43e9-8b8d-b579fc1fa35e,9,Industrial,Industrie,5,Other,Altele,describe,true
 54ceb2cd-edc3-4cf5-a5a8-74c062204ce5,9,Industrial,Industrie,,Bakery,Fabrică de panificație,,false
 dd4e16d2-85f8-46a6-b5cd-e6989956e40a,9,Industrial,Industrie,,Bottling Plant,Fabrică de îmbuteliere,,false
 0b4c9321-da1c-4ed6-9b4f-150146bd3acb,9,Industrial,Industrie,,Garment Factory,Fabrică de confecții/textile,,false
@@ -141,7 +141,7 @@ d267af30-31e6-457a-b66b-e3f0f4c117f9,10,Infrastrucutre,Infrastructură,,Tunnel,,
 ca07f242-c460-4e38-9efd-7bd886c31295,10,Infrastrucutre,Infrastructură,,Tunnel,,,false
 5e955203-3288-416f-b91e-0ebba6ab8180,10,Infrastrucutre,Infrastructură,7,Canal/Aqueduct,Canal/Apeduct,,true
 8e469a01-32ad-4e1c-b96a-976396d46302,10,Infrastrucutre,Infrastructură,3,Dam and Flood Control,Baraj/stăvilar,,true
-d541be1d-9ea1-4e4d-a392-650b9ea6ca0e,10,Infrastrucutre,Infrastructură,,Other,Altele,describe,false
+d541be1d-9ea1-4e4d-a392-650b9ea6ca0e,10,Infrastrucutre,Infrastructură,8,Other,Altele,describe,true
 a9c61fb2-3955-4922-b58b-606dc27b2c46,10,Infrastrucutre,Infrastructură,1,Reservoir,Turn de apă,,true
 55e57839-3c81-424f-884c-3ad94c947fe1,10,Infrastrucutre,Infrastructură,2,Water plant,Uzină de apă,,true
 e0c877e3-6c65-4f4e-ab21-a6a7171b0fb6,10,Infrastrucutre,Infrastructură,,Street Lights,,,false

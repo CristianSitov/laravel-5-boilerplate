@@ -63,21 +63,27 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
+                <div id="heritage_resource_type" class="form-group has_description">
                     {{ Form::label('heritage_resource_type', trans('validation.attributes.backend.heritage.resources.heritage_resource_type'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-7">
-                        {{ Form::selectOpt($heritage_resource_types, 'heritage_resource_type[]', 'set_ro', 'name_ro', 'id', null, ['required' => 'required', 'class' => 'col-lg-12 control-label basic-select2', 'multiple' => 'multiple']) }}
+                        {{ Form::select('heritage_resource_type[]', $heritage_resource_types, null, ['required' => 'required', 'class' => 'col-lg-12 control-label basic-select2', 'multiple' => 'multiple'], $heritage_resource_types_attr) }}
                     </div>
-                    <div class="col-lg-2"></div>
+                    <div class="col-lg-12">&nbsp;</div>
+                    <div class="col-lg-offset-2 col-lg-7 heritage_resource_type_notes">
+                        {{ Form::textarea('heritage_resource_type_notes', null, ['class' => 'form-control description heritage_resource_type_notes']) }}
+                    </div>
                 </div>
-                <div class="form-group">
+                <div id="architectural_style" class="form-group has_description">
                     {{ Form::label('architectural_style', trans('validation.attributes.backend.heritage.resources.architectural_styles'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-7">
-                        {{ Form::select('architectural_style[]', $architectural_styles, null, ['required' => 'required', 'class' => 'col-lg-12 control-label basic-select2', 'multiple' => 'multiple']) }}
+                        {{ Form::select('architectural_style[]', $architectural_styles, null, ['required' => 'required', 'class' => 'col-lg-12 control-label basic-select2', 'multiple' => 'multiple'], $architectural_styles_attr) }}
                     </div>
-                    <div class="col-lg-2"></div>
+                    <div class="col-lg-12">&nbsp;</div>
+                    <div class="col-lg-offset-2 col-lg-7 architectural_style_notes">
+                        {{ Form::textarea('architectural_style_notes', null, ['class' => 'form-control description']) }}
+                    </div>
                 </div>
                 <div class="form-group">
                     {{ Form::label('material', trans('validation.attributes.backend.heritage.resources.materials'), ['class' => 'col-lg-2 control-label']) }}
@@ -160,7 +166,26 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            $(".basic-select2").chosen();
+            $(".basic-select2").chosen().on('change', function(evt, params) {
+                var id = $(this).parents('.has_description').attr('id');
+                var notes = '.'+id+'_notes';
+
+                if ($(evt.target).find(':selected').data('type') == "describe") {
+                    console.log(notes);
+                    $(notes).show();
+                } else {
+                    $(notes).hide();
+                }
+            });
+            // hide initially
+            $('.has_description').each(function (index, value) {
+                var description = '.' + $(value).attr('id') + '_notes';
+                $(value).find(description).hide();
+            });
+//            $('.has_description').each(function (index, value) {
+//                var id = $(value).attr('id');
+//                console.log($(value).find(':selected'));
+//            });
 
             var dateOptions = {
                 autoclose: true,

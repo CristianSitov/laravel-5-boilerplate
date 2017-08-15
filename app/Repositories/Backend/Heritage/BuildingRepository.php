@@ -27,23 +27,31 @@ use Webpatser\Uuid\Uuid;
 class BuildingRepository extends BaseRepository
 {
     protected $em;
+    protected $heritageResourceTypeRepository;
+    protected $architecturalStyleRepository;
 
-    public function __construct(EntityManager $entityManager)
-    {
+    public function __construct(EntityManager $entityManager,
+                                HeritageResourceTypeRepository $heritageResourceTypeRepository,
+                                ArchitecturalStyleRepository $architecturalStyleRepository
+    ) {
         $this->em = $entityManager;
+        $this->heritageResourceTypeRepository = $heritageResourceTypeRepository;
+        $this->architecturalStyleRepository = $architecturalStyleRepository;
         $this->model = $this->em->getRepository(Building::class);
     }
 
     public function storeBuilding($resource_id, $input)
     {
         $data = $input['data'];
+
         $resource = $this->em->find(Resource::class, $resource_id);
 
         $production = new Production();
         if ($data['date_from'] || $data['date_to']) {
             $productionEvent = new ProductionEvent(
                 $data['date_from'] ? \DateTime::createFromFormat('Y', $data['date_from']) : null,
-                $data['date_to'] ?   \DateTime::createFromFormat('Y', $data['date_to']) : null);
+                $data['date_to'] ?   \DateTime::createFromFormat('Y', $data['date_to']) : null
+            );
             $production->setProductionEvent($productionEvent);
         }
 
@@ -57,12 +65,26 @@ class BuildingRepository extends BaseRepository
         $building->setCardinality(isset($data['order']) ? $data['order'] : $building_count+1);
 
         foreach ($data['heritage_resource_type'] as $type) {
-            $heritageResourceType = $this->em->find(HeritageResourceType::class, $type);
-            $building->getHeritageResourceTypes()->add($heritageResourceType);
+            $heritageResourceType = $this->heritageResourceTypeRepository->findStencilsByUuid($type);
+            $newHeritageResourceType = $this->heritageResourceTypeRepository->createClone($heritageResourceType[0]['type']->values());
+            if ($newHeritageResourceType->getType() == 'describe' && isset($data['heritage_resource_type_notes'])) {
+                $newHeritageResourceType->setNote($data['heritage_resource_type_notes']);
+            }
+
+            $newHeritageResourceType->setCreatedAt(new \DateTime());
+            $newHeritageResourceType->setUpdatedAt(new \DateTime());
+            $building->getHeritageResourceTypes()->add($newHeritageResourceType);
         }
         foreach ($data['architectural_style'] as $style) {
-            $architecturalStyle = $this->em->find(ArchitecturalStyle::class, $style);
-            $building->getArchitecturalStyles()->add($architecturalStyle);
+            $architecturalStyle = $this->architecturalStyleRepository->findStencilsByUuid($style);
+            $newArchitecturalStyle = $this->architecturalStyleRepository->createClone($architecturalStyle[0]['style']->values());
+            if ($newArchitecturalStyle->getType() == 'describe' && isset($data['architectural_style_notes'])) {
+                $newArchitecturalStyle->setNote($data['architectural_style_notes']);
+            }
+
+            $newArchitecturalStyle->setCreatedAt(new \DateTime());
+            $newArchitecturalStyle->setUpdatedAt(new \DateTime());
+            $building->getArchitecturalStyles()->add($newArchitecturalStyle);
         }
         foreach ($data['material'] as $material) {
             $material = $this->em->find(Material::class, $material);
@@ -92,7 +114,7 @@ class BuildingRepository extends BaseRepository
             $component->setCreatedAt(new \DateTime());
             $component->setUpdatedAt(new \DateTime());
             $component->setOrder(1);
-            $component->setUuid((string)Uuid::generate(4));
+            $component->setUuid((string) Uuid::generate(4));
             $building->getComponents()->add($component);
         }
 
