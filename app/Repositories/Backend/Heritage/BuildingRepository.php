@@ -140,7 +140,6 @@ class BuildingRepository extends BaseRepository
 
         $this->em->persist($production);
         $this->em->flush();
-//        $this->em->clear();
 
         if ($data['date_from'] || $data['date_to']) {
             $productionEvent = $production->getProductionEvent();
@@ -153,45 +152,64 @@ class BuildingRepository extends BaseRepository
         }
 
         // change Heritage Resource Types
+        // first iterate all existing HRTs
+        $resourceTypes = $production->getBuilding()->getHeritageResourceTypes();
         foreach ($production->getBuilding()->getHeritageResourceTypeIds() as $existingType) {
             $t = array_search($existingType, $data['heritage_resource_type']);
-            // this db has to remain
-            if ($t !== false) {
-                unset($data['heritage_resource_type'][$t]);
-            } else {
-                // this db has to be deleted
-                $resourceTypes = $production->getBuilding()->getHeritageResourceTypes();
+            // if this existing HRT is the form list
+            if ($t === false) {
+                // REMOVE (ITERATE & REMOVE)
                 foreach ($resourceTypes as $resourceType) {
-                    if ($resourceType->getId() == $existingType) {
+                    if ($resourceType->getUuid() == $existingType) {
                         $resourceTypes->removeElement($resourceType);
+                        $this->em->remove($resourceType, true);
                     }
                 }
+            } else {
+                // then unset and go further
+                unset($data['heritage_resource_type'][$t]);
             }
         }
         foreach ($data['heritage_resource_type'] as $type) {
-            $newType = $this->em->find(HeritageResourceType::class, $type);
-            $production->getBuilding()->getHeritageResourceTypes()->add($newType);
+            $heritageResourceType = $this->heritageResourceTypeRepository->findStencilsByUuid($type);
+            $newHeritageResourceType = $this->heritageResourceTypeRepository->createClone($heritageResourceType[0]['type']->values());
+            if ($newHeritageResourceType->getType() == 'describe' && isset($data['heritage_resource_type_notes'])) {
+                $newHeritageResourceType->setNote($data['heritage_resource_type_notes']);
+            }
+
+            $newHeritageResourceType->setCreatedAt(new \DateTime());
+            $newHeritageResourceType->setUpdatedAt(new \DateTime());
+            $production->getBuilding()->getHeritageResourceTypes()->add($newHeritageResourceType);
         }
 
         // change Architectural Styles
+        $architecturalStyles = $production->getBuilding()->getArchitecturalStyles();
         foreach ($production->getBuilding()->getArchitecturalStyleIds() as $existingStyle) {
             $s = array_search($existingStyle, $data['architectural_style']);
             // this db has to remain
-            if ($s !== false) {
-                unset($data['architectural_style'][$s]);
-            } else {
-                // this db has to be deleted
-                $architecturalStyles = $production->getBuilding()->getArchitecturalStyles();
+            if ($s === false) {
+                // REMOVE (ITERATE & REMOVE)
                 foreach ($architecturalStyles as $architecturalStyle) {
-                    if ($architecturalStyle->getId() == $existingStyle) {
+                    if ($architecturalStyle->getUuid() == $existingStyle) {
                         $architecturalStyles->removeElement($architecturalStyle);
+                        $this->em->remove($architecturalStyle, true);
                     }
                 }
+            } else {
+                // then unset and go further
+                unset($data['architectural_style'][$s]);
             }
         }
         foreach ($data['architectural_style'] as $style) {
-            $newStyle = $this->em->find(ArchitecturalStyle::class, $style);
-            $production->getBuilding()->getArchitecturalStyles()->add($newStyle);
+            $architecturalStyle = $this->architecturalStyleRepository->findStencilsByUuid($style);
+            $newArchitecturalStyle = $this->architecturalStyleRepository->createClone($architecturalStyle[0]['style']->values());
+            if ($newArchitecturalStyle->getType() == 'describe' && isset($data['architectural_style_notes'])) {
+                $newArchitecturalStyle->setNote($data['architectural_style_notes']);
+            }
+
+            $newArchitecturalStyle->setCreatedAt(new \DateTime());
+            $newArchitecturalStyle->setUpdatedAt(new \DateTime());
+            $production->getBuilding()->getArchitecturalStyles()->add($newArchitecturalStyle);
         }
 
         // change Materials

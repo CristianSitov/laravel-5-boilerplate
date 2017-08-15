@@ -3,6 +3,7 @@
 @section ('title', trans('labels.backend.heritage.resources.management') . ' | ' . trans('labels.backend.heritage.resources.edit'))
 
 @section('after-styles')
+    {{ Html::style("css/backend/plugin/chosen/chosen.css") }}
     {{ Html::style("css/backend/plugin/datepicker/bootstrap-datepicker.min.css") }}
 @endsection
 
@@ -31,7 +32,7 @@
             </div><!-- /.box-header -->
 
             <div class="box-body">
-                <div class="col-lg-9 col-lg-offset-2"><h3>{{ trans('labels.backend.heritage.resources.building') }}</h3></div>
+                <div class="col-lg-9 col-lg-offset-2"><h2>{{ trans('labels.backend.heritage.resources.building') }}</h2><br /><br /></div>
                 <div class="form-group">
                     {{ Form::label('type', trans('validation.attributes.backend.heritage.buildings.type'), ['class' => 'col-lg-2 control-label label_name']) }}
 
@@ -58,25 +59,39 @@
                         <div class="input-group input-daterange">
                             <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.building_interval') }}</span>
                             <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
-                            {{ Form::text('date_from', $data['date_from'], ['class' => 'form-control input_date_from', 'data-inputmask' => '"alias": "yyyy"', 'data-mask']) }}
+                            {{ Form::text('date_from', $data['date_from']->format('Y') ?: '', ['class' => 'form-control input_date_from', 'data-inputmask' => '"alias": "yyyy"', 'data-mask']) }}
                             <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
-                            {{ Form::text('date_to', $data['date_to'], ['class' => 'form-control input_date_to', 'data-inputmask' => '"alias": "yyyy"', 'data-mask']) }}
+                            {{ Form::text('date_to', $data['date_to']->format('Y') ?: '', ['class' => 'form-control input_date_to', 'data-inputmask' => '"alias": "yyyy"', 'data-mask']) }}
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
+                <div id="heritage_resource_type" class="form-group has_description">
                     {{ Form::label('heritage_resource_type', trans('validation.attributes.backend.heritage.resources.heritage_resource_type'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-7">
-                        {{ Form::selectOpt($heritage_resource_types, 'heritage_resource_type[]', 'set_ro', 'name_ro', 'id', $current_types, ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2', 'multiple' => 'multiple']) }}
+                        {{ Form::select('heritage_resource_type[]', $heritage_resource_types, $current_types, ['required' => 'required', 'class' => 'col-lg-10 control-label basic-select2', 'multiple' => 'multiple'], $heritage_resource_types_attr) }}
                     </div>
-                    <div class="col-lg-2"></div>
+                    <div class="col-lg-12">&nbsp;</div>
+                    <div class="col-lg-offset-2 col-lg-6 heritage_resource_type_notes">
+                        {{ Form::textarea('heritage_resource_type_notes', $current_types_notes, ['class' => 'form-control description heritage_resource_type_notes']) }}
+                    </div>
                 </div>
-                <div class="form-group">
+                <div id="architectural_style" class="form-group has_description">
                     {{ Form::label('architectural_style', trans('validation.attributes.backend.heritage.resources.architectural_styles'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-7">
-                        {{ Form::select('architectural_style[]', $architectural_styles, $current_styles, ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2', 'multiple' => 'multiple']) }}
+                        {{ Form::select('architectural_style[]', $architectural_styles, $current_styles, ['required' => 'required', 'class' => 'col-lg-10 control-label basic-select2', 'multiple' => 'multiple'], $architectural_styles_attr) }}
+                    </div>
+                    <div class="col-lg-12">&nbsp;</div>
+                    <div class="col-lg-offset-2 col-lg-6 architectural_style_notes">
+                        {{ Form::textarea('architectural_style_notes', $current_styles_notes, ['class' => 'form-control description architectural_style_notes']) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ Form::label('material', trans('validation.attributes.backend.heritage.resources.materials'), ['class' => 'col-lg-2 control-label']) }}
+
+                    <div class="col-lg-7">
+                        {{ Form::select('material[]', $materials, $current_materials, ['required' => 'required', 'class' => 'col-lg-10 control-label basic-select2', 'multiple' => 'multiple']) }}
                     </div>
                     <div class="col-lg-2"></div>
                 </div>
@@ -86,14 +101,6 @@
                     <div class="col-lg-7">
                         {{ Form::selectPlotPlan('plot_plan', $production->getBuilding()->getPlan(), ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2']) }}
                     </div>
-                    <div class="col-lg-2"></div>
-                </div><!--form control-->
-                <div class="form-group">
-                    {{ Form::label('material', trans('validation.attributes.backend.heritage.resources.materials'), ['class' => 'col-lg-2 control-label']) }}
-
-                    <div class="col-lg-7">
-                        {{ Form::select('material[]', $materials, $current_materials, ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2', 'multiple' => 'multiple']) }}
-                    </div><!--col-lg-9-->
                     <div class="col-lg-2"></div>
                 </div>
 
@@ -181,14 +188,34 @@
 @endsection
 
 @section('after-scripts')
+    <!-- Chosen -->
+    {{ Html::script('js/backend/plugin/chosen/chosen.jquery.min.js') }}
     <!-- Bootstrap Datepicker -->
     {{ Html::script('js/backend/plugin/datepicker/bootstrap-datepicker.min.js') }}
 
     <script type="text/javascript">
     $(document).ready(function() {
-        $(".basic-select2").select2({
-            width: '100%'
+        $(".basic-select2").chosen().on('change', function(evt, params) {
+            var id = $(this).parents('.has_description').attr('id');
+            var notes = '.'+id+'_notes';
+
+            if ($(evt.target).find(':selected').data('type') == "describe") {
+                console.log(notes);
+                $(notes).show();
+            } else {
+                $(notes).hide();
+            }
         });
+        // hide initially
+        $('.has_description').each(function (index, value) {
+            var description = '.' + $(value).attr('id') + '_notes';
+            if ($(value).find(':selected').data('type') == "describe") {
+                $(value).find(description).show();
+            } else {
+                $(value).find(description).hide();
+            }
+        });
+
         var dateOptions = {
             autoclose: true,
             clearBtn: true,

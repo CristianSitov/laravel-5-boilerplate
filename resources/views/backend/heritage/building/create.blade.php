@@ -39,7 +39,9 @@
                     <div class="col-lg-3 col-xs-3">
                         {{ Form::selectBuildingType('type', '', ['class' => 'col-lg-4 form-control']) }}
                     </div>
+
                     {{ Form::label('order', trans('validation.attributes.backend.heritage.buildings.order'), ['class' => 'col-lg-2 control-label label_name']) }}
+
                     <div class="col-lg-4 col-xs-4">
                         <div class="input-group">
                             {{ Form::text('order', '', ['class' => 'col-lg-4 form-control full-width']) }}
@@ -101,6 +103,7 @@
                     </div>
                     <div class="col-lg-2"></div>
                 </div>
+
                 <div class="form-group types">
 
 
@@ -182,10 +185,6 @@
                 var description = '.' + $(value).attr('id') + '_notes';
                 $(value).find(description).hide();
             });
-//            $('.has_description').each(function (index, value) {
-//                var id = $(value).attr('id');
-//                console.log($(value).find(':selected'));
-//            });
 
             var dateOptions = {
                 autoclose: true,

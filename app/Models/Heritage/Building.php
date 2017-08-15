@@ -336,9 +336,25 @@ class Building
     {
         $types = [];
         foreach($this->heritageResourceTypes as $heritageResourceType) {
-            $types[] = $heritageResourceType->getId();
+            $types[] = $heritageResourceType->getUuid();
         }
         return $types;
+    }
+
+    /**
+     * @return array
+     */
+    public function getHeritageResourceTypeNotes()
+    {
+        $notes = [];
+        foreach($this->heritageResourceTypes as $heritageResourceType) {
+            if ($heritageResourceType->getType() == 'describe') {
+                // only one for the moment :(
+                $notes = $heritageResourceType->getNote();
+            }
+        }
+
+        return $notes;
     }
 
     /**
@@ -356,8 +372,24 @@ class Building
     {
         $styles = [];
         foreach($this->architecturalStyles as $architecturalStyle) {
-            $styles[] = $architecturalStyle->getId();
+            $styles[] = $architecturalStyle->getUuid();
         }
+        return $styles;
+    }
+
+    /**
+     * @return array
+     */
+    public function getArchitecturalStyleNotes()
+    {
+        $styles = [];
+        foreach($this->architecturalStyles as $architecturalStyle) {
+            if ($architecturalStyle->getType() == 'describe') {
+                // only one for the moment :(
+                $styles = $architecturalStyle->getNote();
+            }
+        }
+
         return $styles;
     }
 
