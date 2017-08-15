@@ -338,6 +338,7 @@ class Building
         foreach($this->heritageResourceTypes as $heritageResourceType) {
             $types[] = $heritageResourceType->getUuid();
         }
+
         return $types;
     }
 
@@ -346,7 +347,7 @@ class Building
      */
     public function getHeritageResourceTypeNotes()
     {
-        $notes = [];
+        $notes = '';
         foreach($this->heritageResourceTypes as $heritageResourceType) {
             if ($heritageResourceType->getType() == 'describe') {
                 // only one for the moment :(
@@ -382,7 +383,7 @@ class Building
      */
     public function getArchitecturalStyleNotes()
     {
-        $styles = [];
+        $styles = '';
         foreach($this->architecturalStyles as $architecturalStyle) {
             if ($architecturalStyle->getType() == 'describe') {
                 // only one for the moment :(
