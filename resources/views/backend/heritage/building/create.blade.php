@@ -16,7 +16,7 @@
             {{ $address }}
         @endif
         <i class="fa fa-angle-right" aria-hidden="true"></i>
-        {{ trans('labels.backend.heritage.building.edit') }}
+        {{ trans('labels.backend.heritage.building.create') }}
     </h4>
 @endsection
 
@@ -39,25 +39,19 @@
                     <div class="col-lg-3 col-xs-3">
                         {{ Form::selectBuildingType('type', '', ['class' => 'col-lg-4 form-control']) }}
                     </div>
-
+                </div>
+                <div class="form-group">
                     {{ Form::label('order', trans('validation.attributes.backend.heritage.buildings.order'), ['class' => 'col-lg-2 control-label label_name']) }}
 
-                    <div class="col-lg-4 col-xs-4">
+                    <div class="col-lg-3 col-xs-12">
                         <div class="input-group">
                             {{ Form::text('order', '', ['class' => 'col-lg-4 form-control full-width']) }}
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-lg-3 col-lg-offset-2">
-                        <div class="input-group">
-                            <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.levels') }}</span>
-                            {{ Form::selectNumberOfFloors('levels', '', ['class' => 'col-lg-4 form-control']) }}
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-5">
+                        {{ Form::label('date_from', trans('validation.attributes.backend.heritage.resources.building_interval'), ['class' => 'col-lg-4 control-label label_name']) }}
+
                         <div class="input-group input-daterange">
-                            <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.building_interval') }}</span>
                             <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
                             {{ Form::text('date_from', '', ['class' => 'form-control input_date_from datepicker', 'data-inputmask' => '"alias": "yyyy"', 'data-mask']) }}
                             <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
@@ -65,10 +59,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="form-group">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="input-group">
+                            <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.levels') }}</span>
+                            {{ Form::selectNumberOfFloors('levels[]', '', ['multiple', 'class' => 'col-lg-4 form-control basic-select2']) }}
+                        </div>
+                    </div>
+                </div>
                 <div id="heritage_resource_type" class="form-group has_description">
                     {{ Form::label('heritage_resource_type', trans('validation.attributes.backend.heritage.resources.heritage_resource_type'), ['class' => 'col-lg-2 control-label']) }}
 
-                    <div class="col-lg-7">
+                    <div class="col-lg-8">
                         {{ Form::select('heritage_resource_type[]', $heritage_resource_types, null, ['required' => 'required', 'class' => 'col-lg-12 control-label basic-select2', 'multiple' => 'multiple'], $heritage_resource_types_attr) }}
                     </div>
                     <div class="col-lg-12">&nbsp;</div>
@@ -79,7 +81,7 @@
                 <div id="architectural_style" class="form-group has_description">
                     {{ Form::label('architectural_style', trans('validation.attributes.backend.heritage.resources.architectural_styles'), ['class' => 'col-lg-2 control-label']) }}
 
-                    <div class="col-lg-7">
+                    <div class="col-lg-8">
                         {{ Form::select('architectural_style[]', $architectural_styles, null, ['required' => 'required', 'class' => 'col-lg-12 control-label basic-select2', 'multiple' => 'multiple'], $architectural_styles_attr) }}
                     </div>
                     <div class="col-lg-12">&nbsp;</div>
@@ -90,7 +92,7 @@
                 <div class="form-group">
                     {{ Form::label('material', trans('validation.attributes.backend.heritage.resources.materials'), ['class' => 'col-lg-2 control-label']) }}
 
-                    <div class="col-lg-7">
+                    <div class="col-lg-8">
                         {{ Form::select('material[]', $materials, null, ['required' => 'required', 'class' => 'col-lg-12 control-label basic-select2', 'multiple' => 'multiple']) }}
                     </div>
                     <div class="col-lg-2"></div>

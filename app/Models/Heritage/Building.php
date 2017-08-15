@@ -274,19 +274,19 @@ class Building
     }
 
     /**
-     * @return string
+     * @return array
      */
     public function getLevels()
     {
-        return $this->levels;
+        return explode(",", $this->levels);
     }
 
     /**
-     * @param string $levels
+     * @param array $levels
      */
     public function setLevels($levels)
     {
-        $this->levels = $levels;
+        $this->levels = implode(",", array_intersect(self::LEVELS, $levels));
     }
 
     /**
