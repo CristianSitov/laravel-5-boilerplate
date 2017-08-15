@@ -61,6 +61,8 @@ class BuildingRepository extends BaseRepository
         $building->setType($data['type']);
         $building->setLevels($data['levels']);
         $building->setNotes($data['notes']);
+        $building->setCondition($data['condition']);
+        $building->setConditionNotes($data['condition_notes']);
         $building->setPlan($data['plot_plan']);
         $building->setCardinality(isset($data['order']) ? $data['order'] : $building_count+1);
 
@@ -136,6 +138,8 @@ class BuildingRepository extends BaseRepository
         $production->getBuilding()->setCardinality($data['order']);
         $production->getBuilding()->setLevels($data['levels']);
         $production->getBuilding()->setNotes($data['notes']);
+        $production->getBuilding()->setCondition($data['condition']);
+        $production->getBuilding()->setConditionNotes($data['condition_notes']);
         $production->getBuilding()->setPlan($data['plot_plan']);
 
         $this->em->persist($production);

@@ -53,9 +53,9 @@
 
                         <div class="input-group input-daterange">
                             <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
-                            {{ Form::text('date_from', $data['date_from']->format('Y') ?: '', ['class' => 'form-control input_date_from', 'data-inputmask' => '"alias": "yyyy"', 'data-mask']) }}
+                            {{ Form::text('date_from', $data['date_from'] ? $data['date_from']->format('Y') : '', ['class' => 'form-control input_date_from', 'data-inputmask' => '"alias": "yyyy"', 'data-mask']) }}
                             <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
-                            {{ Form::text('date_to', $data['date_to']->format('Y') ?: '', ['class' => 'form-control input_date_to', 'data-inputmask' => '"alias": "yyyy"', 'data-mask']) }}
+                            {{ Form::text('date_to', $data['date_to'] ? $data['date_to']->format('Y') : '', ['class' => 'form-control input_date_to', 'data-inputmask' => '"alias": "yyyy"', 'data-mask']) }}
                         </div>
                     </div>
                 </div>
@@ -162,6 +162,18 @@
                         </div>
                     </div>
 @endif
+                </div>
+                <div class="form-group">
+                    {{ Form::label('condition', trans('labels.backend.heritage.building.condition'), ['class' => 'col-lg-2 control-label']) }}
+                    <div class="col-lg-3">
+                        {{ Form::selectConditionType('condition', $production->getBuilding()->getCondition() ?: null, ['required' => 'required', 'class' => 'form-control']) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ Form::label('condition_notes', trans('labels.backend.heritage.building.condition_note'), ['class' => 'col-lg-2 control-label']) }}
+                    <div class="col-lg-7">
+                        {{ Form::textarea('condition_notes', $production->getBuilding()->getConditionNotes() ?: '', ['class' => 'form-control description']) }}
+                    </div>
                 </div>
                 <div class="form-group">
                     {{ Form::label('notes', trans('validation.attributes.backend.heritage.resources.notes'), ['class' => 'col-lg-2 control-label']) }}

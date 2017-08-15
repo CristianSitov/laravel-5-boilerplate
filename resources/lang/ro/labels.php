@@ -132,7 +132,16 @@ return [
             ],
             'building' => [
                 'create'             => 'Crează corp clădire',
-                'edit'               => 'Editează corp clădire'
+                'edit'               => 'Editează corp clădire',
+                'condition'          => 'Condiție',
+                'condition_note'     => 'Condiție / Observații',
+                'conditions'         => [
+                    'very_good'            => 'Foarte bună (reabilitat)',
+                    'good'                 => 'Bună (întreținut/parțial reabilitat)',
+                    'fair'                 => 'Medie (conservat)',
+                    'poor'                 => 'Proastă (deteriorat/nefolosit)',
+                    'very_bad'             => 'Foarte proastă (precolaps/ruină)',
+                ]
             ],
             'component' => [
                 'pages' => [

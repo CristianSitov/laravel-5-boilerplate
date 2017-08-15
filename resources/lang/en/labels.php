@@ -133,6 +133,15 @@ return [
             'building' => [
                 'create'             => 'Create building',
                 'edit'               => 'Edit building',
+                'condition'          => 'Condition',
+                'condition_note'     => 'Condition Note',
+                'conditions'         => [
+                    'very_good'            => 'Very good',
+                    'good'                 => 'Good',
+                    'fair'                 => 'Fair',
+                    'poor'                 => 'Poor',
+                    'very_bad'             => 'Very bad',
+                ]
             ],
             'component' => [
                 'pages' => [

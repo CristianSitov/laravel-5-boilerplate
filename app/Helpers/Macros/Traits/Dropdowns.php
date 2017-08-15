@@ -1339,6 +1339,18 @@ trait Dropdowns
         return $this->select($name, $list, $selected, $options);
     }
 
+    public function selectConditionType($name, $selected = null, $options = [])
+    {
+        $list = [];
+        $types = Building::CONDITIONS;
+
+        foreach ($types as $type) {
+            $list[$type] = trans('labels.backend.heritage.building.conditions.' . $type);
+        }
+
+        return $this->select($name, $list, $selected, $options);
+    }
+
     public function selectComponentTypes($name, $selected = null, $options = [])
     {
         $list = [];

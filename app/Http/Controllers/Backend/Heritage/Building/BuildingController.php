@@ -231,6 +231,8 @@ class BuildingController extends Controller
                 \DateTime::createFromFormat('Y/m/d', $production->getProductionEvent()->getToDate()) : '',
         ];
 
+        $conditions = Building::CONDITIONS;
+
         return view('backend.heritage.building.edit')
             ->withAddress($address)
             ->withHeritageResourceTypes($heritageResourceTypesList)
@@ -245,6 +247,7 @@ class BuildingController extends Controller
             ->withModificationTypes($modification_types)
             ->withCurrentMaterials($current_materials)
             ->withData($data)
+            ->withConditions($conditions)
             ->withProduction($production)
             ->withResource($resource);
     }

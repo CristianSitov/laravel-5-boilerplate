@@ -138,6 +138,18 @@
 
                 </div>
                 <div class="form-group">
+                    {{ Form::label('condition', trans('labels.backend.heritage.building.condition'), ['class' => 'col-lg-2 control-label']) }}
+                    <div class="col-lg-3">
+                        {{ Form::selectConditionType('condition', null, ['required' => 'required', 'class' => 'form-control']) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ Form::label('condition_notes', trans('labels.backend.heritage.building.condition_note'), ['class' => 'col-lg-2 control-label']) }}
+                    <div class="col-lg-7">
+                        {{ Form::textarea('condition_notes', '', ['class' => 'form-control description']) }}
+                    </div>
+                </div>
+                <div class="form-group">
                     {{ Form::label('notes', trans('validation.attributes.backend.heritage.resources.notes'), ['class' => 'col-lg-2 control-label']) }}
                     <div class="col-lg-7">
                         {{ Form::textarea('notes', null, ['class' => 'form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.notes')]) }}

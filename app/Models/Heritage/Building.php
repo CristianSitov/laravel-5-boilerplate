@@ -46,6 +46,15 @@ class Building
         'u_shaped',
         'unknown',
     ];
+
+    const CONDITIONS = [
+        'very_good',
+        'good',
+        'fair',
+        'poor',
+        'very_bad',
+        'other',
+    ];
     
     /**
      * @var int
@@ -112,6 +121,20 @@ class Building
      * @OGM\Property(type="string")
      */
     protected $notes;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $condition;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $condition_notes;
 
     /**
      * @var HeritageResourceType
@@ -319,6 +342,38 @@ class Building
     public function setNotes($notes)
     {
         $this->notes = $notes;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCondition()
+    {
+        return $this->condition;
+    }
+
+    /**
+     * @param string $condition
+     */
+    public function setCondition($condition)
+    {
+        $this->condition = $condition;
+    }
+
+    /**
+     * @return string
+     */
+    public function getConditionNotes()
+    {
+        return $this->condition_notes;
+    }
+
+    /**
+     * @param string $condition_notes
+     */
+    public function setConditionNotes($condition_notes)
+    {
+        $this->condition_notes = $condition_notes;
     }
 
     /**
