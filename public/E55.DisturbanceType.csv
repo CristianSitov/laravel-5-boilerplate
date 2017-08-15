@@ -1,0 +1,26 @@
+uuid,group,order,name,name_ro,type,published
+69850662-4167-49a6-afe6-f1cefcfd0bf0,meteorological,1,Water infiltration,Infiltrații de apă (ape meteorice/ascensiune prin capilaritate a apei),,true
+fa3857a3-903c-4cd9-80ec-dc022a4c62db,meteorological,2,Fire induced by lightning,,,false
+d6e283f1-2435-4966-a485-8ce84afb7b64,biological,3,Biologic infestation,"Atac biologic (microorganisme, insecte etc.)",,true
+450876d3-d43b-42a9-afd7-bf3e4c64e719,biological,4,Plant growth,Vegetație parazitară,,true
+0f602060-47da-44d1-85a7-638bcf9fb81f,human-induced,5,Fire,Incendii,,false
+b6655783-5f50-4784-af97-51bafd8541b4,human-induced,6,Explosion,Accidente (explozii etc.),,false
+80bb390d-47fa-4131-8b2f-cc4d51fc5adb,human-induced,7,Pollution,Poluare,,false
+a85e5240-3707-4fa6-b3b9-81ade09419d3,human-induced,8,Violence and conflict,Violența și conflict ,,false
+41a7de2d-977e-4a95-bde9-1f30d47b07b6,human-induced,9,Looting/Theft,Furt/Jaf,,true
+2a1de2f2-3c99-4c51-805a-c2328eb63d58,human-induced,10,Vandalism,Vandalism,,true
+7818f2d3-c964-4823-b1d6-c5f014b2f6fd,human-induced,11,Infrastructure failure,Probleme generale de infrastructură,,true
+4935e348-30bd-48c0-b375-cad598217403,human-induced,12,Agriculture,,,false
+ff96c244-a090-4583-8782-eeb2952c52ef,human-induced,13,Mining,,,false
+3df8c469-8e77-4bfd-b737-8c97dfeda1b1,human-induced,14,Abusive construction,Construcții parazitare,,true
+3f8f1564-a99a-4f39-9d4c-040db5416503,human-induced,15,Abusive interventions,Intervenții abuzive,,true
+0ec0ae59-bce9-4904-974a-5f1c62e445f3,human-induced,16,Demolition (partial/total),Demolări (parțiale / totale),,true
+5a9fa638-d0a0-4ff7-85bc-cfd3cee0a1ad,human-induced,17,Inappropriate use,Utilizare inadecvată,,true
+ec4399b0-8721-48d8-a127-5ff9bf4f4777,human-induced,18,Lack of maintenance,Lipsă întreținere,,true
+23ea1acf-9516-4631-9fd4-4f37836379a3,hydrological,19,Disasters,Calamități,,true
+ace55b8a-a3eb-4e7c-a169-fd550ccb1807,hydrological,20,Tsunami,,,false
+a4646800-f193-4a89-bd58-4606cf5b090c,geological,21,Mass movement,,,false
+d101aed4-83a0-45ff-ba16-c856b4132f11,geological,22,Erosion,,,false
+9f27b1e0-aaa6-4fd9-8f27-782d5d659c34,geological,23,Volcanic,,,false
+22411c60-92f6-4f07-9ff7-630696d7cbfe,geological,24,Seismic,,,true
+cdbe92db-d0a1-4ae6-a886-a1c767f4fea6,unknown,25,Other,Altele,describe,true
