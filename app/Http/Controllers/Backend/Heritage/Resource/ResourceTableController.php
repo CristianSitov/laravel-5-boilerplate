@@ -18,14 +18,14 @@ class ResourceTableController extends Controller
     /**
      * @var ResourceRepository
      */
-    protected $resources;
+    protected $resourceRepository;
 
     /**
      * @param ResourceRepository $resources
      */
-    public function __construct(ResourceRepository $resources)
+    public function __construct(ResourceRepository $resourceRepository)
     {
-        $this->resources = $resources;
+        $this->resourceRepository = $resourceRepository;
     }
 
     /**
@@ -35,9 +35,14 @@ class ResourceTableController extends Controller
      */
     public function __invoke(HeritageResourceRequest $request)
     {
-        $heritageResources = $this->resources->getForDataTable();
+        if (access()->hasRole('Administrator')) {
+            $heritageResources = $this->resourceRepository->getForDataTable(false, false);
+        } else if (access()->hasRole('Scout') || access()->hasRole('Desk')) {
+            $heritageResources = $this->resourceRepository->getForDataTable(true, false);
+        }
 
         return Datatables::of($heritageResources)
+            ->escapeColumns(['address', 'name', 'status', 'progress'])
             ->make(true);
     }
 }

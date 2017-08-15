@@ -34,21 +34,9 @@
                     <th>{{ trans('labels.general.actions') }}</th>
                 </tr>
                 </thead>
-                <tbody>
-@foreach($results as $result)
-                    <tr>
-                        <td>{{ $result->getPlace()->getPlaceAddress()->getStreetName()->getCurrentName() . ', ' .
-                        $result->getPlace()->getPlaceAddress()->getNumber() }}</td>
-                        <td>{{ $result->getCurrentName()->getName() }}</td>
-                        <td>{{ $result->getCreatedAt()->format('Y-m-d H:i:s') }}</td>
-                        <td>{{ $result->getUpdatedAt()->format('Y-m-d H:i:s') }}</td>
-                        <td>{!! $result->getActionButtonsAttribute() !!}</td>
-                    </tr>
-@endforeach
-                </tbody>
             </table>
-        </div><!-- /.box-body -->
-    </div><!--box-->
+        </div>
+    </div>
 
     <div class="box box-info collapsed-box">
         <div class="box-header with-border">
@@ -69,24 +57,24 @@
 
     <script>
         $(function() {
-            {{--$('#resources-table').DataTable({--}}
-                {{--processing: true,--}}
-                {{--serverSide: true,--}}
-                {{--ajax: {--}}
-                    {{--url: '{{ route("admin.heritage.resource.get") }}',--}}
-                    {{--type: 'post',--}}
-                    {{--data: {}--}}
-                {{--},--}}
-                {{--columns: [--}}
-                    {{--{data: 'address', name: 'resources.address'},--}}
-                    {{--{data: 'name', name: 'resources.name'},--}}
-                    {{--{data: 'created_at', name: 'resources.created_at', width: 150},--}}
-                    {{--{data: 'updated_at', name: 'resources.updated_at', width: 150},--}}
-                    {{--{data: 'actions', name: 'actions', searchable: false, sortable: false}--}}
-                {{--],--}}
-                {{--order: [[0, "asc"]],--}}
-                {{--searchDelay: 500--}}
-            {{--});--}}
+            $('#resources-table').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: '{{ route("admin.heritage.resource.get") }}',
+                    type: 'post',
+                    data: {}
+                },
+                columns: [
+                    {data: 'address', name: 'address'},
+                    {data: 'name', name: 'name'},
+                    {data: 'created_at', name: 'created_at', width: 150},
+                    {data: 'updated_at', name: 'updated_at', width: 150},
+                    {data: 'actions', name: 'actions', searchable: false, sortable: false}
+                ],
+                order: [[0, "asc"]],
+                searchDelay: 500
+            });
         });
     </script>
 @endsection

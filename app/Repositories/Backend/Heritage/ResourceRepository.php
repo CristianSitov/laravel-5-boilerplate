@@ -92,7 +92,20 @@ class ResourceRepository extends BaseRepository
             $resources = $queryResults->getResult();
         }
 
-        return $resources;
+        $results = [];
+        foreach ($resources as $k => $resource) {
+            /* var Resource $resource */
+            $results[] = [
+                'address' => $resource->getPlace()->getPlaceAddress()->getStreetName()->getCurrentName() . ', ' .
+                    $resource->getPlace()->getPlaceAddress()->getNumber(),
+                'name' => $resource->getCurrentName()->getName(),
+                'created_at' => $resource->getCreatedAt()->format('Y-m-d H:i:s'),
+                'updated_at' => $resource->getUpdatedAt()->format('Y-m-d H:i:s'),
+                'actions' => $resource->getActionButtonsAttribute(),
+            ];
+        }
+
+        return $results;
     }
 
     /**
