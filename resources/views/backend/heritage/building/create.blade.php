@@ -112,7 +112,7 @@
                     <div id="types1" class="clonedInput">
                         {{ Form::label('modification_type[]', trans('validation.attributes.backend.heritage.resources.modification_type'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
-                        <div class="col-lg-10 col-xs-12 duplicable">
+                        <div class="col-lg-10 col-xs-10 duplicable">
                             <div class="col-lg-4">
                                 {{ Form::select('modification_type[]', $modification_types, null, ['required' => 'required', 'class' => 'col-lg-2 form-control']) }}
                             </div>
