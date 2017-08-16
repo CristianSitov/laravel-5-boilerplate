@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    {{ Form::label('order', trans('validation.attributes.backend.heritage.buildings.order'), ['class' => 'col-lg-2 control-label label_name']) }}
+                    {{ Form::label('order', trans('validation.attributes.backend.heritage.buildings.order'), ['class' => 'col-lg-2 col-xs-12 control-label label_name']) }}
 
                     <div class="col-lg-3 col-xs-12">
                         <div class="input-group">
@@ -49,7 +49,7 @@
                         </div>
                     </div>
                     <div class="col-lg-5">
-                        {{ Form::label('date_from', trans('validation.attributes.backend.heritage.resources.building_interval'), ['class' => 'col-lg-4 control-label label_name']) }}
+                        {{ Form::label('date_from', trans('validation.attributes.backend.heritage.resources.building_interval'), ['class' => 'col-lg-4 col-xs-12 control-label label_name']) }}
 
                         <div class="input-group input-daterange">
                             <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
@@ -63,12 +63,12 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="input-group">
                             <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.levels') }}</span>
-                            {{ Form::selectNumberOfFloors('levels[]', '', ['multiple', 'class' => 'col-lg-4 form-control basic-select2']) }}
+                            {{ Form::selectNumberOfFloors('levels[]', '', ['multiple', 'class' => 'col-lg-4 col-xs-12 form-control basic-select2']) }}
                         </div>
                     </div>
                 </div>
                 <div id="heritage_resource_type" class="form-group has_description">
-                    {{ Form::label('heritage_resource_type', trans('validation.attributes.backend.heritage.resources.heritage_resource_type'), ['class' => 'col-lg-2 control-label']) }}
+                    {{ Form::label('heritage_resource_type', trans('validation.attributes.backend.heritage.resources.heritage_resource_type'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-8">
                         {{ Form::select('heritage_resource_type[]', $heritage_resource_types, null, ['required' => 'required', 'class' => 'col-lg-12 control-label basic-select2', 'multiple' => 'multiple'], $heritage_resource_types_attr) }}
@@ -79,7 +79,7 @@
                     </div>
                 </div>
                 <div id="architectural_style" class="form-group has_description">
-                    {{ Form::label('architectural_style', trans('validation.attributes.backend.heritage.resources.architectural_styles'), ['class' => 'col-lg-2 control-label']) }}
+                    {{ Form::label('architectural_style', trans('validation.attributes.backend.heritage.resources.architectural_styles'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-8">
                         {{ Form::select('architectural_style[]', $architectural_styles, null, ['required' => 'required', 'class' => 'col-lg-12 control-label basic-select2', 'multiple' => 'multiple'], $architectural_styles_attr) }}
@@ -90,7 +90,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    {{ Form::label('material', trans('validation.attributes.backend.heritage.resources.materials'), ['class' => 'col-lg-2 control-label']) }}
+                    {{ Form::label('material', trans('validation.attributes.backend.heritage.resources.materials'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-8">
                         {{ Form::select('material[]', $materials, null, ['required' => 'required', 'class' => 'col-lg-12 control-label basic-select2', 'multiple' => 'multiple']) }}
@@ -98,7 +98,7 @@
                     <div class="col-lg-2"></div>
                 </div>
                 <div class="form-group">
-                    {{ Form::label('plot_plan', trans('validation.attributes.backend.heritage.resources.plot_plan'), ['class' => 'col-lg-2 control-label']) }}
+                    {{ Form::label('plot_plan', trans('validation.attributes.backend.heritage.resources.plot_plan'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-7">
                         {{ Form::selectPlotPlan('plot_plan', null, ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2']) }}
@@ -109,10 +109,10 @@
                 <div class="form-group types">
 
 
-                    <div id="types1" class="clonedInput row">
-                        {{ Form::label('modification_type[]', trans('validation.attributes.backend.heritage.resources.modification_type'), ['class' => 'col-lg-2 control-label']) }}
+                    <div id="types1" class="clonedInput">
+                        {{ Form::label('modification_type[]', trans('validation.attributes.backend.heritage.resources.modification_type'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
-                        <div class="col-lg-10 col-xs-10 duplicable">
+                        <div class="col-lg-10 col-xs-12 duplicable">
                             <div class="col-lg-4">
                                 {{ Form::select('modification_type[]', $modification_types, null, ['required' => 'required', 'class' => 'col-lg-2 form-control']) }}
                             </div>

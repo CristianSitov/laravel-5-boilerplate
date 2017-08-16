@@ -35,6 +35,13 @@ input.full-width {
   border-bottom: 10px solid #fff;
 }
 
+#resources-table_wrapper.dataTables_wrapper .dataTables_length,
+#resources-table_wrapper.dataTables_wrapper .dataTables_filter,
+#resources-table_wrapper.dataTables_wrapper .dataTables_info,
+#resources-table_wrapper.dataTables_wrapper .dataTables_paginate {
+  text-align: left !important;
+}
+
 
 // Margin/Padding Helpers
 $margin-padding: 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50;
