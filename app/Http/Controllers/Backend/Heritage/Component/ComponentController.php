@@ -82,6 +82,9 @@ class ComponentController extends Controller
     public function edit($resource_id, $building_id, $component_id)
     {
         $resource = $this->resourceRepository->model->find($resource_id);
+        $placeAddress = $resource->getPlace()->getPlaceAddress();
+        $streetName = $placeAddress->getStreetName();
+        $address = ucfirst($streetName->getCurrentName()).', nr. '.$placeAddress->getNumber();
         $production = $this->productionRepository->model->find($building_id);
         $building = $production->getBuilding();
         $component = $this->componentRepository->model->find($component_id);
@@ -123,6 +126,7 @@ class ComponentController extends Controller
 
         return view('backend.heritage.component.edit')
             ->withResource($resource)
+            ->withAddress($address)
             ->withProduction($production)
             ->withBuilding($building)
             ->withComponent($component)

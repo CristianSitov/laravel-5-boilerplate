@@ -16,6 +16,8 @@
             {{ $address }}
         @endif
         <i class="fa fa-angle-right" aria-hidden="true"></i>
+        {{ link_to_route('admin.heritage.buildings.index', trans('labels.backend.heritage.resources.buildings_list'), $resource->getId()) }}
+        <i class="fa fa-angle-right" aria-hidden="true"></i>
         {{ trans('labels.backend.heritage.building.edit') }}
     </h4>
 @endsection

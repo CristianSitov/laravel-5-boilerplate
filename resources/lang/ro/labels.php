@@ -114,8 +114,8 @@ return [
                 'relations'          => 'Relații',
                 'evaluations'        => 'Evaluare',
                 'legal'              => 'Legal',
-                'buildings_list'     => 'Listă corpuri clădire',
-                'components_list'    => 'Listă elemente clădire',
+                'buildings_list'     => 'Corpuri',
+                'components_list'    => 'Elemente',
                 'no_buildings'       => 'Nu există nici un corp de clădire pentru resursa creată',
                 'no_components'      => 'Nu există nici un element pentru corpul curent',
 
@@ -132,7 +132,7 @@ return [
             ],
             'building' => [
                 'create'             => 'Crează corp clădire',
-                'edit'               => 'Editează corp clădire',
+                'edit'               => 'Editează corp',
                 'condition'          => 'Condiție',
                 'condition_note'     => 'Condiție / Observații',
                 'conditions'         => [
@@ -145,7 +145,7 @@ return [
             ],
             'component' => [
                 'pages' => [
-                    'list'           => 'Elemente & Detalii',
+                    'list'           => 'Detalii',
                     'changes'        => 'Modificări ale elementului',
                     'observations'   => 'Note',
                     'images'         => 'Imagini descriptive',

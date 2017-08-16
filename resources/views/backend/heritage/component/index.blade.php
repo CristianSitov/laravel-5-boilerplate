@@ -13,7 +13,7 @@
         <i class="fa fa-angle-right" aria-hidden="true"></i>
         {{ link_to_route('admin.heritage.buildings.index', trans('labels.backend.heritage.resources.buildings_list'), [$resource->getId(), $production->getId()]) }}
         <i class="fa fa-angle-right" aria-hidden="true"></i>
-        {{ trans('labels.backend.heritage.component.pages.list') }}
+        {{ trans('labels.backend.heritage.resources.components_list') }}
     </h4>
 @endsection
 
