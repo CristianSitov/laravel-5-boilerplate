@@ -29,8 +29,6 @@
                 <tr>
                     <th>{{ trans('labels.backend.heritage.resources.table.address') }}</th>
                     <th>{{ trans('labels.backend.heritage.resources.table.name') }}</th>
-                    <th>{{ trans('labels.backend.heritage.resources.table.created') }}</th>
-                    <th>{{ trans('labels.backend.heritage.resources.table.last_updated') }}</th>
                     <th>{{ trans('labels.general.actions') }}</th>
                 </tr>
                 </thead>
@@ -67,9 +65,9 @@
                 },
                 columns: [
                     {data: 'address', name: 'address'},
-                    {data: 'name', name: 'name'},
-                    {data: 'created_at', name: 'created_at', width: 150},
-                    {data: 'updated_at', name: 'updated_at', width: 150},
+                    {data: 'name', name: 'name', render: function (data, type, row) {
+                        return data + '<br> <small class="text-muted">created: '+row.created_at+'<br>updated: '+row.updated_at+'</small>';
+                    }},
                     {data: 'actions', name: 'actions', searchable: false, sortable: false}
                 ],
                 order: [[0, "asc"]],
