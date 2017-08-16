@@ -34,9 +34,9 @@
             <div class="box-body">
                 <div class="col-lg-9 col-lg-offset-2"><h2>{{ trans('labels.backend.heritage.resources.building') }}</h2><br /><br /></div>
                 <div class="form-group">
-                    {{ Form::label('type', trans('validation.attributes.backend.heritage.buildings.type'), ['class' => 'col-lg-2 control-label']) }}
+                    {{ Form::label('type', trans('validation.attributes.backend.heritage.buildings.type'), ['class' => 'col-lg-2 col-xs-12 control-label label_name']) }}
 
-                    <div class="col-lg-3 col-xs-3">
+                    <div class="col-lg-4 col-xs-12">
                         {{ Form::selectBuildingType('type', '', ['class' => 'col-lg-4 form-control']) }}
                     </div>
                 </div>
