@@ -52,6 +52,13 @@ class ProtectionType
     protected $type;
 
     /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $name;
+
+    /**
      * @var integer
      *
      * @OGM\Property(type="int")
@@ -211,11 +218,27 @@ class ProtectionType
     }
 
     /**
-     * @param integer $name
+     * @param integer $type
      */
     public function setType($type)
     {
         $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
     }
 
     /**

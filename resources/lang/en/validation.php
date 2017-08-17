@@ -174,6 +174,7 @@ return [
                     'other'                    => 'Other',
                     'protection_type'          => 'Protection Type',
                     'protection_code'          => 'Protection Code',
+                    'protection_name'          => 'Protection Name',
                     'protection_description'   => 'Protection Description',
                     'heritage_resource_type'   => 'Heritage Resource Type',
                     'architectural_styles'     => 'Architectural Styles',

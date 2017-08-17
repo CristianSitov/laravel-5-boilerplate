@@ -110,7 +110,7 @@
                             <div class="col-lg-4">
                                 <div class="input-group">
                                 <span class="input-group-addon">
-                                    <label>Current?&nbsp;</label><input type="radio" name="current_type" class="current_type" value="{{ $i }}" {{ ($protection->getCurrent()) ? "checked" : "" }}>
+                                    <label>Current?&nbsp;</label><input type="radio" name="current_type" class="current_type" value="{{ $protection->getId() }}" {{ ($protection->getCurrent()) ? "checked" : "" }}>
                                 </span>
                                     {{ Form::select('protection_type['.$protection->getId().']', $protection_types, $protection->getType(), ['class' => 'col-lg-4 form-control input_protection_type']) }}
                                 </div>
@@ -136,6 +136,11 @@
                             </div>
                             <div class="col-lg-6">
                                 {{ Form::text('protection_type_legal['.$protection->getId().']', $protection->getLegal() ?: '', ['class' => 'form-control']) }}
+                            </div>
+                            <div class="col-lg-12 col-xs-12">&nbsp;</div>
+                            {{ Form::label('protection_type_name['.$protection->getId().']', trans('validation.attributes.backend.heritage.resources.protection_name'), ['class' => 'col-lg-2 control-label label_name']) }}
+                            <div class="col-lg-6">
+                                {{ Form::text('protection_type_name['.$protection->getId().']', $protection->getName() ?: '', ['class' => 'form-control']) }}
                             </div>
                         </div>
                     </div>

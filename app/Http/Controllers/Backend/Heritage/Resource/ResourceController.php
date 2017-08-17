@@ -65,21 +65,11 @@ class ResourceController extends Controller
         $this->streetNameRepository = $streetNameRepository;
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return View
-     */
     public function index()
     {
         return view('backend.heritage.resource.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return mixed
-     */
     public function create()
     {
         $resourceTypeClassifications = collect($this->resourceTypeClassificationRepository->model->findAll())
@@ -110,12 +100,6 @@ class ResourceController extends Controller
             ->withResourceTypeClassifications($resourceTypeClassifications);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $this->resourceRepository->create(['data' => $request->all()]);
@@ -125,25 +109,6 @@ class ResourceController extends Controller
             ->withFlashSuccess(trans('alerts.backend.resources.created'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param Resource                $resource
-     * @param HeritageResourceRequest $request
-     *
-     * @return mixed
-     */
     public function edit($resource_id, HeritageResourceRequest $request)
     {
         $resource = $this->resourceRepository->model->find($resource_id);

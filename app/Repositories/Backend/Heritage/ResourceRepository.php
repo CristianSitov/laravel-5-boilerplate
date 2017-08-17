@@ -183,6 +183,7 @@ class ResourceRepository extends BaseRepository
                 $protectionType->setCurrent(true);
             }
 
+            $protectionType->setName($data['protection_type_name'][$l]);
             $protectionType->setUuid((string)Uuid::generate(4));
             $protectionType->setCreatedAt(new \DateTime());
             $protectionType->setUpdatedAt(new \DateTime());
@@ -275,7 +276,15 @@ class ResourceRepository extends BaseRepository
                 $updateProtection->setDateTo(\DateTime::createFromFormat('Y', $data['protection_type_date_to'][$typesArray[$p]]) ?: null);
                 $updateProtection->setSet($data['protection_type_legal_set'][$typesArray[$p]]);
                 $updateProtection->setLegal($data['protection_type_legal'][$typesArray[$p]]);
+                $updateProtection->setName($data['protection_type_name'][$typesArray[$p]]);
                 unset($typesArray[$p]);
+
+                if ($protectionType->getId() == $data['current_type']) {
+                    $updateProtection->setCurrent(true);
+                } else {
+                    $updateProtection->setCurrent(false);
+                }
+
                 $this->em->persist($updateProtection);
                 $this->em->flush();
             }
@@ -289,16 +298,7 @@ class ResourceRepository extends BaseRepository
                     $data['new_protection_type_legal_set'][$k] ?: null,
                     $data['new_protection_type_legal'][$k] ?: null);
 
-                if (isset($data['current_type'])) {
-                    if ($data['current_type'] == ($k + count($data['protection_type']))) {
-                        $protectionType->setCurrent(true);
-                    } else {
-                        $protectionType->setCurrent(false);
-                    }
-                } else {
-                    $protectionType->setCurrent(true);
-                }
-
+                $protectionType->setName($data['new_protection_type_name'][$k]);
                 $protectionType->setUuid((string)Uuid::generate(4));
                 $protectionType->setCreatedAt(new \DateTime());
                 $protectionType->setUpdatedAt(new \DateTime());

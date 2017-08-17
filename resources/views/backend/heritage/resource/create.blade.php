@@ -130,6 +130,11 @@
                             <div class="col-lg-6">
                                 {{ Form::text('protection_type_legal[]', '', ['class' => 'form-control']) }}
                             </div>
+                            <div class="col-lg-12 col-xs-12">&nbsp;</div>
+                            {{ Form::label('protection_type_name[]', trans('validation.attributes.backend.heritage.resources.protection_name'), ['class' => 'col-lg-2 control-label label_name']) }}
+                            <div class="col-lg-6">
+                                {{ Form::text('protection_type_name[]', '', ['class' => 'form-control']) }}
+                            </div>
                         </div>
                     </div>
 
