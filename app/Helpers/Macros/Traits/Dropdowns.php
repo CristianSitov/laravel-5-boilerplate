@@ -1305,7 +1305,7 @@ trait Dropdowns
 
     public function selectPlotPlan($name, $selected = null, $options = [])
     {
-        $list = [''];
+        $list = [];
         $plans = Building::PLANS;
 
         foreach ($plans as $plan) {
@@ -1341,7 +1341,7 @@ trait Dropdowns
 
     public function selectConditionType($name, $selected = null, $options = [])
     {
-        $list = [''];
+        $list = [];
         $types = Building::CONDITIONS;
 
         foreach ($types as $type) {

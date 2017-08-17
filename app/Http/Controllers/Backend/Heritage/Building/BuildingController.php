@@ -94,8 +94,6 @@ class BuildingController extends Controller
         foreach ($heritageResourceTypes as $type) {
             $heritageResourceTypesList[$type['id']] = $type['set_ro'] . ' - ' . $type['name_ro'];
         }
-        array_unshift($heritageResourceTypesList, "");
-
         $heritageResourceTypesAttr = [];
         foreach ($heritageResourceTypes as $type) {
             if ($type['type']) {
@@ -117,15 +115,12 @@ class BuildingController extends Controller
         $architecturalStylesList = $architecturalStyles
             ->mapWithKeys(function ($item, $key) {
                 return [$key => $item['name_ro']];
-            })
-            ->toArray()
-        ;
+            });
         $architecturalStylesAttr = $architecturalStyles
             ->mapWithKeys(function ($item, $key) {
                 return [$key => ['data-type' => $item['type']]];
             })
-            ->toArray()
-        ;
+            ->toArray();
 
         $materials = collect($this->materialRepository->findPublished())
             ->mapWithKeys(function ($item) {
@@ -135,10 +130,7 @@ class BuildingController extends Controller
         $modification_types = collect($this->modificationTypeRepository->findPublished('building'))
             ->mapWithKeys(function ($item) {
                 return [$item->getId() => $item->getNameRo()];
-            })
-            ->toArray()
-        ;
-        array_unshift($modification_types, "");
+            });
 
         return view('backend.heritage.building.create')
             ->withAddress($address)
