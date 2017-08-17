@@ -334,7 +334,7 @@ function _init() {
                 e.preventDefault();
 
                 //Enable sidebar push menu
-                if ($(window).width() > (screenSizes.md - 1)) {
+                if ($(window).width() > (screenSizes.sm - 1)) {
                     $('body').toggleClass('sidebar-collapse');
                 }
                 //Handle sidebar push menu for small screens
