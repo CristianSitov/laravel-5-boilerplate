@@ -71,6 +71,7 @@
                     {data: 'actions', name: 'actions', searchable: false, sortable: false}
                 ],
                 order: [[0, "asc"]],
+                stateSave: true,
                 searchDelay: 500
             });
         });
