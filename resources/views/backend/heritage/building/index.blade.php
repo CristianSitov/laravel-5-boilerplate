@@ -29,21 +29,18 @@
             @if(count($resource->getProductions()) > 0)
                 @foreach($resource->getProductions() as $k => $production)
                 <div class="row">
-                    <div class="col-lg-9 col-xs-9">
+                    <div class="col-lg-3 col-xs-9">
                         <h4>Building #{{ $production->getBuilding()->getCardinality() }}</h4>
                     </div>
-                    <div class="col-lg-3 col-xs-3">
-                        <div class="row">
-                            <div class="col-lg-12 col-xs-12">
-                                <small><a title="{{ trans('menus.backend.heritage.buildings.edit') }}" class="btn btn-xs btn-warning" href="{{ route('admin.heritage.buildings.edit', [$resource->getId(), $production->getId()]) }}"><i class="fa fa-edit"></i> {{ trans('menus.backend.heritage.buildings.edit') }}</a></small>
-                                <small><a title="{{ trans('menus.backend.heritage.buildings.delete') }}" class="btn btn-xs btn-danger" href="{{ route('admin.heritage.buildings.remove', [$resource->getId(), $production->getId()]) }}"><i class="fa fa-trash"></i> {{ trans('menus.backend.heritage.buildings.delete') }}</a></small>
-                            </div>
-                        </div>
+                    <div class="col-lg-9 col-xs-3">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-3 col-xs-3">
-                        <small><a title="{{ trans('menus.backend.heritage.components.all') }}" class="btn btn-xs btn-warning" href="{{ route('admin.heritage.components.index', [$resource->getId(), $production->getId()]) }}"><i class="fa fa-list-ul"></i> {{ trans('menus.backend.heritage.components.all') }}</a></small>
+                        <br /><br />
+                        <small><a title="{{ trans('menus.backend.heritage.buildings.edit') }}" class="btn btn-sm btn-warning" href="{{ route('admin.heritage.buildings.edit', [$resource->getId(), $production->getId()]) }}"><i class="fa fa-edit"></i> {{ trans('menus.backend.heritage.buildings.edit') }}</a></small><br /><br />
+                        <small><a title="{{ trans('menus.backend.heritage.components.all') }}" class="btn btn-sm btn-warning" href="{{ route('admin.heritage.components.index', [$resource->getId(), $production->getId()]) }}"><i class="fa fa-list-ul"></i> {{ trans('menus.backend.heritage.components.all') }}</a></small><br /><br /><br /><br />
+                        <small><a title="{{ trans('menus.backend.heritage.buildings.delete') }}" class="btn btn-sm btn-danger" href="{{ route('admin.heritage.buildings.remove', [$resource->getId(), $production->getId()]) }}"><i class="fa fa-trash"></i> {{ trans('menus.backend.heritage.buildings.delete') }}</a></small>
                     </div>
                     <div class="col-lg-9 col-xs-12">
                         <table class="table table-sm table-striped table-hover">
