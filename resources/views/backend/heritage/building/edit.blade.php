@@ -39,7 +39,7 @@
                     {{ Form::label('type', trans('validation.attributes.backend.heritage.buildings.type'), ['class' => 'col-lg-2 col-xs-12 control-label label_name']) }}
 
                     <div class="col-lg-3 col-xs-12">
-                        {{ Form::selectBuildingType('type', $production->getBuilding()->getType(), ['class' => 'col-lg-4 form-control']) }}
+                        {{ Form::selectBuildingType('type', $production->getBuilding()->getType(), ['class' => 'input-lg col-lg-4 form-control']) }}
                     </div>
                 </div>
                 <div class="form-group">
@@ -47,7 +47,7 @@
 
                     <div class="col-lg-3 col-xs-12">
                         <div class="input-group">
-                            {{ Form::text('order', $production->getBuilding()->getCardinality(), ['class' => 'col-lg-4 form-control']) }}
+                            {{ Form::text('order', $production->getBuilding()->getCardinality(), ['class' => 'input-lg col-lg-4 form-control']) }}
                         </div>
                     </div>
                     <div class="col-lg-5 col-xs-12">
@@ -55,9 +55,9 @@
 
                         <div class="input-group input-daterange">
                             <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
-                            {{ Form::text('date_from', $data['date_from'] ? $data['date_from']->format('Y') : '', ['class' => 'form-control input_date_from', 'data-inputmask' => '"alias": "yyyy"', 'data-mask']) }}
+                            {{ Form::text('date_from', $data['date_from'] ? $data['date_from']->format('Y') : '', ['class' => 'input-lg form-control input_date_from', 'data-inputmask' => '"alias": "yyyy"', 'data-mask']) }}
                             <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
-                            {{ Form::text('date_to', $data['date_to'] ? $data['date_to']->format('Y') : '', ['class' => 'form-control input_date_to', 'data-inputmask' => '"alias": "yyyy"', 'data-mask']) }}
+                            {{ Form::text('date_to', $data['date_to'] ? $data['date_to']->format('Y') : '', ['class' => 'input-lg form-control input_date_to', 'data-inputmask' => '"alias": "yyyy"', 'data-mask']) }}
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                     <div class="col-lg-6 col-lg-offset-2 col-xs-12">
                         <div class="input-group">
                             <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.levels') }}</span>
-                            {{ Form::selectNumberOfFloors('levels[]', $production->getBuilding()->getLevels(), ['multiple', 'class' => 'col-lg-4 form-control basic-select2']) }}
+                            {{ Form::selectNumberOfFloors('levels[]', $production->getBuilding()->getLevels(), ['multiple', 'class' => 'input-lg col-lg-4 form-control basic-select2']) }}
                         </div>
                     </div>
                 </div>
@@ -73,29 +73,29 @@
                     {{ Form::label('heritage_resource_type', trans('validation.attributes.backend.heritage.resources.heritage_resource_type'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-8 col-xs-12">
-                        {{ Form::select('heritage_resource_type[]', $heritage_resource_types, $current_types, ['required' => 'required', 'class' => 'col-lg-10 form-control basic-select2', 'multiple' => 'multiple'], $heritage_resource_types_attr) }}
+                        {{ Form::select('heritage_resource_type[]', $heritage_resource_types, $current_types, ['required' => 'required', 'class' => 'input-lg col-lg-10 form-control basic-select2', 'multiple' => 'multiple'], $heritage_resource_types_attr) }}
                     </div>
                     <div class="col-lg-12">&nbsp;</div>
                     <div class="col-lg-offset-2 col-lg-6 col-xs-12 heritage_resource_type_notes">
-                        {{ Form::textarea('heritage_resource_type_notes', $current_types_notes, ['class' => 'form-control description heritage_resource_type_notes']) }}
+                        {{ Form::textarea('heritage_resource_type_notes', $current_types_notes, ['class' => 'input-lg form-control description heritage_resource_type_notes']) }}
                     </div>
                 </div>
                 <div id="architectural_style" class="form-group has_description">
                     {{ Form::label('architectural_style', trans('validation.attributes.backend.heritage.resources.architectural_styles'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-8 col-xs-12">
-                        {{ Form::select('architectural_style[]', $architectural_styles, $current_styles, ['required' => 'required', 'class' => 'col-lg-10 form-control basic-select2', 'multiple' => 'multiple'], $architectural_styles_attr) }}
+                        {{ Form::select('architectural_style[]', $architectural_styles, $current_styles, ['required' => 'required', 'class' => 'input-lg col-lg-10 form-control basic-select2', 'multiple' => 'multiple'], $architectural_styles_attr) }}
                     </div>
                     <div class="col-lg-12">&nbsp;</div>
                     <div class="col-lg-offset-2 col-lg-6 col-xs-12 architectural_style_notes">
-                        {{ Form::textarea('architectural_style_notes', $current_styles_notes, ['class' => 'form-control description architectural_style_notes']) }}
+                        {{ Form::textarea('architectural_style_notes', $current_styles_notes, ['class' => 'input-lg form-control description architectural_style_notes']) }}
                     </div>
                 </div>
                 <div class="form-group">
                     {{ Form::label('material', trans('validation.attributes.backend.heritage.resources.materials'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-8 col-xs-12">
-                        {{ Form::select('material[]', $materials, $current_materials, ['required' => 'required', 'class' => 'col-lg-10 form-control basic-select2', 'multiple' => 'multiple']) }}
+                        {{ Form::select('material[]', $materials, $current_materials, ['required' => 'required', 'class' => 'input-lg col-lg-10 form-control basic-select2', 'multiple' => 'multiple']) }}
                     </div>
                     <div class="col-lg-2"></div>
                 </div>
@@ -103,7 +103,7 @@
                     {{ Form::label('plot_plan', trans('validation.attributes.backend.heritage.resources.plot_plan'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-7 col-xs-12">
-                        {{ Form::selectPlotPlan('plot_plan', $production->getBuilding()->getPlan(), ['required' => 'required', 'class' => 'col-lg-10 control-label basic-select2']) }}
+                        {{ Form::selectPlotPlan('plot_plan', $production->getBuilding()->getPlan(), ['required' => 'required', 'class' => 'input-lg col-lg-10 control-label basic-select2']) }}
                     </div>
                     <div class="col-lg-2"></div>
                 </div>
@@ -116,14 +116,14 @@
 
                         <div class="col-lg-10 col-xs-10 duplicable">
                             <div class="col-lg-4">
-                                {{ Form::select('modification_type['.$modification->getId().']', $modification_types, $modification->getModificationEvent()->getModificationType()->getId(), ['required' => 'required', 'class' => 'col-lg-2 form-control']) }}
+                                {{ Form::select('modification_type['.$modification->getId().']', $modification_types, $modification->getModificationEvent()->getModificationType()->getId(), ['required' => 'required', 'class' => 'input-lg col-lg-2 form-control']) }}
                             </div>
                             <div class="col-lg-3">
                                 <div class="input-group input-daterange">
                                     <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
-                                    {{ Form::text('modification_type_date_from['.$modification->getId().']', $modification->getModificationEvent()->getDateFrom() ? $modification->getModificationEvent()->getDateFrom()->format('Y') : '', ['class' => 'form-control input_date_from']) }}
+                                    {{ Form::text('modification_type_date_from['.$modification->getId().']', $modification->getModificationEvent()->getDateFrom() ? $modification->getModificationEvent()->getDateFrom()->format('Y') : '', ['class' => 'input-lg form-control input_date_from']) }}
                                     <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
-                                    {{ Form::text('modification_type_date_to['.$modification->getId().']', $modification->getModificationEvent()->getDateTo() ? $modification->getModificationEvent()->getDateTo()->format('Y') : '', ['class' => 'form-control input_date_to']) }}
+                                    {{ Form::text('modification_type_date_to['.$modification->getId().']', $modification->getModificationEvent()->getDateTo() ? $modification->getModificationEvent()->getDateTo()->format('Y') : '', ['class' => 'input-lg form-control input_date_to']) }}
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -132,7 +132,7 @@
                             </div>
                             <div class="col-lg-7">
                                 <br />
-                                {{ Form::textarea('modification_type_description['.$modification->getId().']', $modification->getModificationEvent()->getModificationDescription()->getNote(), ['class' => 'form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.description'), 'required' => 'required']) }}
+                                {{ Form::textarea('modification_type_description['.$modification->getId().']', $modification->getModificationEvent()->getModificationDescription()->getNote(), ['class' => 'input-lg form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.description'), 'required' => 'required']) }}
                             </div>
                         </div>
                     </div>
@@ -143,14 +143,14 @@
 
                         <div class="col-lg-10 col-xs-10 duplicable">
                             <div class="col-lg-4">
-                                {{ Form::select('new_modification_type[]', $modification_types, null, ['required' => 'required', 'class' => 'col-lg-2 form-control']) }}
+                                {{ Form::select('new_modification_type[]', $modification_types, null, ['required' => 'required', 'class' => 'input-lg col-lg-2 form-control']) }}
                             </div>
                             <div class="col-lg-3">
                                 <div class="input-group input-daterange">
                                     <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
-                                    {{ Form::text('new_modification_type_date_from[]', '', ['class' => 'form-control input_date_from']) }}
+                                    {{ Form::text('new_modification_type_date_from[]', '', ['class' => 'input-lg form-control input_date_from']) }}
                                     <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
-                                    {{ Form::text('new_modification_type_date_to[]', '', ['class' => 'form-control input_date_to']) }}
+                                    {{ Form::text('new_modification_type_date_to[]', '', ['class' => 'input-lg form-control input_date_to']) }}
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -159,7 +159,7 @@
                             </div>
                             <div class="col-lg-7">
                                 <br />
-                                {{ Form::textarea('new_modification_type_description[]', null, ['class' => 'form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.modification_description')]) }}
+                                {{ Form::textarea('new_modification_type_description[]', null, ['class' => 'input-lg form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.modification_description')]) }}
                             </div>
                         </div>
                     </div>
@@ -168,19 +168,19 @@
                 <div class="form-group">
                     {{ Form::label('condition', trans('labels.backend.heritage.building.condition'), ['class' => 'col-lg-2 control-label']) }}
                     <div class="col-lg-3">
-                        {{ Form::selectConditionType('condition', $production->getBuilding()->getCondition() ?: null, ['required' => 'required', 'class' => 'form-control']) }}
+                        {{ Form::selectConditionType('condition', $production->getBuilding()->getCondition() ?: null, ['required' => 'required', 'class' => 'input-lg form-control']) }}
                     </div>
                 </div>
                 <div class="form-group">
                     {{ Form::label('condition_notes', trans('labels.backend.heritage.building.condition_note'), ['class' => 'col-lg-2 control-label']) }}
                     <div class="col-lg-7">
-                        {{ Form::textarea('condition_notes', $production->getBuilding()->getConditionNotes() ?: '', ['class' => 'form-control description']) }}
+                        {{ Form::textarea('condition_notes', $production->getBuilding()->getConditionNotes() ?: '', ['class' => 'input-lg form-control description']) }}
                     </div>
                 </div>
                 <div class="form-group">
                     {{ Form::label('notes', trans('validation.attributes.backend.heritage.resources.notes'), ['class' => 'col-lg-2 control-label']) }}
                     <div class="col-lg-7">
-                        {{ Form::textarea('notes', $production->getBuilding()->getNotes(), ['class' => 'form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.notes')]) }}
+                        {{ Form::textarea('notes', $production->getBuilding()->getNotes(), ['class' => 'input-lg form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.notes')]) }}
                     </div>
                 </div>
             </div><!-- /.box-body -->

@@ -65,9 +65,9 @@
                 }
                 $mods  = (in_array('mods', $options)) ? ' mods' : '';
             @endphp
-                                {{ Form::select($set.'[]', $architectural_elements[$component_type][$set], $value, ['multiple', 'class' => 'col-lg-2 form-control basic-select2' . $mods]) }}
+                                {{ Form::select($set.'[]', $architectural_elements[$component_type][$set], $value, ['multiple', 'class' => 'input-lg col-lg-2 form-control basic-select2' . $mods]) }}
         @else
-                                {{ Form::select($set, $architectural_elements[$component_type][$set], $value, ['class' => 'col-lg-2 form-control basic-select2']) }}
+                                {{ Form::select($set, $architectural_elements[$component_type][$set], $value, ['class' => 'input-lg col-lg-2 form-control basic-select2']) }}
         @endif
                             </div>
                             <div class="col-lg-offset-4 col-lg-6 col-xs-12 displays">
@@ -84,7 +84,7 @@
                                             {{ Form::radio($set.'_modified['.$uuid.']', 'modified', isset($modified_elements[$uuid]) ? ($modified_elements[$uuid] == 'modified') : null, []) }} {{ trans('strings.backend.component.modified') }}</span>
                                     </div>
                                     <div class="col-lg-12 col-xs-12">
-                                        {{ Form::textarea($set.'_note['.$uuid.']', isset($element_notes[$uuid]) ? $element_notes[$uuid] : '', ["rows" => "2", "cols" => null, "class" => "form-control description"]) }}
+                                        {{ Form::textarea($set.'_note['.$uuid.']', isset($element_notes[$uuid]) ? $element_notes[$uuid] : '', ["rows" => "2", "cols" => null, "class" => "input-lg form-control description"]) }}
                                     </div>
                                 </div>
                 @endforeach
@@ -116,7 +116,7 @@
                                     </div>
                                     <div class="col-lg-12 col-xs-12">
                                         <span class="track">
-                                            {{ Form::textarea('modification_type_description['.$modification->getModificationEvent()->getModificationType()->getId().']', $modification->getModificationEvent()->getModificationDescription()->getNote() ?: '', ["rows" => "2", "cols" => null, "class" => "form-control description"]) }}
+                                            {{ Form::textarea('modification_type_description['.$modification->getModificationEvent()->getModificationType()->getId().']', $modification->getModificationEvent()->getModificationDescription()->getNote() ?: '', ["rows" => "2", "cols" => null, "class" => "input-lg form-control description"]) }}
                                         </span>
                                     </div>
                                 </div>
@@ -135,7 +135,7 @@
                             {{ Form::label('notes', trans('labels.backend.heritage.component.pages.observations'), ['class' => 'col-lg-2 control-label']) }}
 
                             <div class="col-lg-8">
-                                {{ Form::textarea('notes', $component->getNote(), ["class" => "form-control description"]) }}
+                                {{ Form::textarea('notes', $component->getNote(), ["class" => "input-lg form-control description"]) }}
                             </div>
                         </div>
                     </div>
@@ -339,7 +339,7 @@
                         )
                     ).append(
                         $('<div class="col-lg-12 col-xs-12">').append(
-                            $('<textarea class="form-control description">').attr('name', note+'['+params.selected+']')
+                            $('<textarea class="input-lg form-control description">').attr('name', note+'['+params.selected+']')
                         )
                     ).appendTo(displays);
                 } else if($(this).parent().hasClass('modifications')) {
@@ -355,7 +355,7 @@
                     ).append(
                         $('<div class="col-lg-12 col-xs-12">').append(
                             $('<span>').addClass('track').append(
-                                $('<textarea class="form-control description">').attr('name', description+'['+params.selected+']').attr('type', 'text').addClass('input-md full-width')
+                                $('<textarea class="input-lg form-control description">').attr('name', description+'['+params.selected+']').attr('type', 'text').addClass('input-md full-width')
                             )
                         )
                     ).appendTo(displays);
