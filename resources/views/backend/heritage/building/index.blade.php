@@ -50,7 +50,7 @@
                             <tbody>
                                 <tr>
                                     <td><small>{{ trans('validation.attributes.backend.heritage.buildings.type') }}</small></td>
-                                    <td>{{ ucfirst($production->getBuilding()->getType()) }}</td>
+                                    <td>{{ trans('validation.attributes.backend.heritage.buildings.'.$production->getBuilding()->getType()) }}</td>
                                 </tr>
                                 <tr>
                                     <td><small>{{ trans('validation.attributes.backend.heritage.buildings.floors') }}</small></td>

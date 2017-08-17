@@ -198,6 +198,8 @@ return [
                 ],
                 'buildings' => [
                     'type'                    => 'Tip corp',
+                    'type_main'               => 'Principală',
+                    'type_out'                => 'Secundară',
                     'order'                   => 'Ordine #',
                     'floors'                  => 'Etaje',
                     'resource_types'          => 'Funcțiuni',

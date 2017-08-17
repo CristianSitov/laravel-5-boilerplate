@@ -196,6 +196,8 @@ return [
                 ],
                 'buildings' => [
                     'type'                    => 'Building Type',
+                    'type_main'               => 'Main',
+                    'type_out'                => 'Out',
                     'order'                   => 'Building Order #',
                     'floors'                  => 'Floors',
                     'resource_types'          => 'Heritage Resource Types',
