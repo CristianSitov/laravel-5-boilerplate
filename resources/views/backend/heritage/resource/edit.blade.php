@@ -91,7 +91,7 @@
                     {{ Form::label('district', trans('validation.attributes.backend.heritage.resources.address'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-3">
-                        {{ Form::select('district', $administrative_subdivision, $resource->getPlace()->getPlaceAddress()->getStreetName()->getAdministrativeSubdivision() ? $resource->getPlace()->getPlaceAddress()->getStreetName()->getAdministrativeSubdivision()->getId() : '', ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2']) }}
+                        {{ Form::select('district', $administrative_subdivision, $resource->getPlace()->getPlaceAddress()->getStreetName() ? $resource->getPlace()->getPlaceAddress()->getStreetName()->getAdministrativeSubdivision()->getId() : '', ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2']) }}
                     </div><!--col-lg-10-->
                     <div class="col-lg-4">
                         {{ Form::select('street', $street_names, $resource->getPlace()->getPlaceAddress() ? $resource->getPlace()->getPlaceAddress()->getStreetName()->getId() : '', ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2']) }}
