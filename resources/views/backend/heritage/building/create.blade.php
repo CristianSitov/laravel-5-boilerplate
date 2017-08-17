@@ -71,7 +71,7 @@
                     {{ Form::label('heritage_resource_type', trans('validation.attributes.backend.heritage.resources.heritage_resource_type'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-7 col-xs-12">
-                        {{ Form::select('heritage_resource_type[]', $heritage_resource_types, null, ['required' => 'required', 'class' => 'input-lg col-lg-12 control-label basic-select2', 'multiple' => 'multiple'], $heritage_resource_types_attr) }}
+                        {{ Form::select('heritage_resource_type[]', $heritage_resource_types, null, ['required' => 'required', 'class' => 'input-lg col-lg-10 control-label basic-select2', 'multiple' => 'multiple'], $heritage_resource_types_attr) }}
                     </div>
                     <div class="col-lg-12 col-xs-12">&nbsp;</div>
                     <div class="col-lg-offset-2 col-lg-7 heritage_resource_type_notes">
@@ -82,7 +82,7 @@
                     {{ Form::label('architectural_style', trans('validation.attributes.backend.heritage.resources.architectural_styles'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-8">
-                        {{ Form::select('architectural_style[]', $architectural_styles, null, ['required' => 'required', 'class' => 'input-lg col-lg-12 control-label basic-select2', 'multiple' => 'multiple'], $architectural_styles_attr) }}
+                        {{ Form::select('architectural_style[]', $architectural_styles, null, ['required' => 'required', 'class' => 'input-lg col-lg-10 control-label basic-select2', 'multiple' => 'multiple'], $architectural_styles_attr) }}
                     </div>
                     <div class="col-lg-12">&nbsp;</div>
                     <div class="col-lg-offset-2 col-lg-7 architectural_style_notes">
