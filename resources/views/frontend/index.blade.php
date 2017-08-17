@@ -71,6 +71,7 @@
             Heritage of Timișoara
         </div>
     </div>
+    <div style="position: absolute; top: 1rem; right: 1rem;"><a href="/admin/dashboard">Login</a></div>
 </div>
 </body>
 </html>
