@@ -183,7 +183,9 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            $(".basic-select2").chosen().on('change', function(evt, params) {
+            $(".basic-select2").chosen({
+                width:"100%"
+            }).on('change', function(evt, params) {
                 var id = $(this).parents('.has_description').attr('id');
                 var notes = '.'+id+'_notes';
 
