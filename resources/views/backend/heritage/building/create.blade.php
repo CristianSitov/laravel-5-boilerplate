@@ -70,7 +70,7 @@
                 <div id="heritage_resource_type" class="form-group has_description">
                     {{ Form::label('heritage_resource_type', trans('validation.attributes.backend.heritage.resources.heritage_resource_type'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
-                    <div class="col-lg-7 col-xs-12">
+                    <div class="col-lg-8 col-xs-12">
                         {{ Form::select('heritage_resource_type[]', $heritage_resource_types, null, ['required' => 'required', 'class' => 'input-lg col-lg-10 control-label basic-select2', 'multiple' => 'multiple'], $heritage_resource_types_attr) }}
                     </div>
                     <div class="col-lg-12 col-xs-12">&nbsp;</div>
@@ -101,7 +101,7 @@
                     {{ Form::label('plot_plan', trans('validation.attributes.backend.heritage.resources.plot_plan'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-7">
-                        {{ Form::selectPlotPlan('plot_plan', null, ['required' => 'required', 'class' => 'input-lg col-lg-2 control-label basic-select2']) }}
+                        {{ Form::selectPlotPlan('plot_plan', null, ['required' => 'required', 'class' => 'input-lg col-lg-6 control-label']) }}
                     </div>
                     <div class="col-lg-2"></div>
                 </div>
