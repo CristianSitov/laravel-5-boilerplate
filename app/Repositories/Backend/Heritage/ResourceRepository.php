@@ -94,9 +94,8 @@ class ResourceRepository extends BaseRepository
 
         $results = [];
         foreach ($resources as $k => $resource) {
-            /* var Resource $resource */
             $results[] = [
-                'address' => $resource->getPlace()->getPlaceAddress()->getStreetName()->getCurrentName() . ', ' .
+                'address' => (($resource->getPlace()->getPlaceAddress()->getStreetName()) ? $resource->getPlace()->getPlaceAddress()->getStreetName()->getCurrentName() : '') . ', ' .
                     $resource->getPlace()->getPlaceAddress()->getNumber(),
                 'name' => $resource->getCurrentName()->getName(),
                 'created_at' => $resource->getCreatedAt()->format('Y-m-d H:i:s'),
