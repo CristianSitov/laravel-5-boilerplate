@@ -70,10 +70,10 @@
                 <div id="heritage_resource_type" class="form-group has_description">
                     {{ Form::label('heritage_resource_type', trans('validation.attributes.backend.heritage.resources.heritage_resource_type'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
-                    <div class="col-lg-8">
+                    <div class="col-lg-7 col-xs-12">
                         {{ Form::select('heritage_resource_type[]', $heritage_resource_types, null, ['required' => 'required', 'class' => 'input-lg col-lg-12 control-label basic-select2', 'multiple' => 'multiple'], $heritage_resource_types_attr) }}
                     </div>
-                    <div class="col-lg-12">&nbsp;</div>
+                    <div class="col-lg-12 col-xs-12">&nbsp;</div>
                     <div class="col-lg-offset-2 col-lg-7 heritage_resource_type_notes">
                         {{ Form::textarea('heritage_resource_type_notes', null, ['class' => 'input-lg form-control description heritage_resource_type_notes']) }}
                     </div>
