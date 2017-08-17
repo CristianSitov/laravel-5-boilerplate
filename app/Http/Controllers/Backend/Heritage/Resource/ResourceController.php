@@ -149,6 +149,7 @@ class ResourceController extends Controller
         $resource = $this->resourceRepository->model->find($resource_id);
         $placeAddress = $resource->getPlace()->getPlaceAddress();
         $streetName = $placeAddress->getStreetName();
+        $address = '';
         if ($streetName) {
             $address = ucfirst($streetName->getCurrentName()).', nr. '.$placeAddress->getNumber();
         }
