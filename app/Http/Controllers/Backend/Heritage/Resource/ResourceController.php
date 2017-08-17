@@ -149,7 +149,9 @@ class ResourceController extends Controller
         $resource = $this->resourceRepository->model->find($resource_id);
         $placeAddress = $resource->getPlace()->getPlaceAddress();
         $streetName = $placeAddress->getStreetName();
-        $address = ucfirst($streetName->getCurrentName()).', nr. '.$placeAddress->getNumber();
+        if ($streetName) {
+            $address = ucfirst($streetName->getCurrentName()).', nr. '.$placeAddress->getNumber();
+        }
 
         $resourceTypeClassifications = collect($this->resourceTypeClassificationRepository->model->findAll())
             ->mapWithKeys(function ($item) {
