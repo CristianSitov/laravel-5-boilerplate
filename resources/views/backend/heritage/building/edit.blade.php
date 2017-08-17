@@ -132,7 +132,7 @@
                             </div>
                             <div class="col-lg-7">
                                 <br />
-                                {{ Form::textarea('modification_type_description['.$modification->getId().']', $modification->getModificationEvent()->getModificationDescription()->getNote(), ['class' => 'input-lg form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.description'), 'required' => 'required']) }}
+                                {{ Form::textarea('modification_type_description['.$modification->getId().']', $modification->getModificationEvent()->getModificationDescription()->getNote(), ['class' => 'input-lg form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.description')]) }}
                             </div>
                         </div>
                     </div>
