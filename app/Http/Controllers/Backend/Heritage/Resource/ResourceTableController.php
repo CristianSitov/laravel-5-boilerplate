@@ -33,7 +33,7 @@ class ResourceTableController extends Controller
      *
      * @return mixed
      */
-    public function __invoke(HeritageResourceRequest $request)
+    public function index(HeritageResourceRequest $request)
     {
         if (access()->hasRole('Administrator')) {
             $heritageResources = $this->resourceRepository->getForDataTable(false, false);
