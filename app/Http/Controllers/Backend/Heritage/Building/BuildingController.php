@@ -118,7 +118,7 @@ class BuildingController extends Controller
             });
         $architecturalStylesAttr = $architecturalStyles
             ->mapWithKeys(function ($item, $key) {
-                return [$key => ['data-type' => $item['type']]];
+                return [$key => ['data-descriptor' => $item['type']]];
             })
             ->toArray();
 

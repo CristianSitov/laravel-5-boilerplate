@@ -3,7 +3,9 @@
 @section ('title', trans('labels.backend.heritage.resources.management') . ' | ' . trans('labels.backend.heritage.resources.edit'))
 
 @section('after-styles')
-    {{ Html::style("css/backend/plugin/chosen/chosen.css") }}
+    {{ Html::style("css/backend/plugin/jquery-ui.min.css") }}
+    {{ Html::style("css/backend/plugin/selectize/selectize.bootstrap3.css") }}
+    {{ Html::style("css/backend/plugin/selectize/selectize.default.css") }}
     {{ Html::style("css/backend/plugin/datepicker/bootstrap-datepicker.min.css") }}
 @endsection
 
@@ -60,18 +62,17 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="input-group">
-                            <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.levels') }}</span>
-                            {{ Form::selectNumberOfFloors('levels[]', '', ['multiple', 'class' => 'input-lg col-lg-4 col-xs-12 form-control basic-select2']) }}
-                        </div>
+                    {{ Form::label('', trans('validation.attributes.backend.heritage.resources.levels'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
+
+                    <div class="col-lg-8 col-xs-12">
+                        {{ Form::selectNumberOfFloors('levels[]', '', ['multiple', 'class' => 'col-lg-10 basic-select2']) }}
                     </div>
                 </div>
                 <div id="heritage_resource_type" class="form-group has_description">
                     {{ Form::label('heritage_resource_type', trans('validation.attributes.backend.heritage.resources.heritage_resource_type'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-8 col-xs-12">
-                        {{ Form::select('heritage_resource_type[]', $heritage_resource_types, null, ['required' => 'required', 'class' => 'input-lg col-lg-10 control-label basic-select2', 'multiple' => 'multiple'], $heritage_resource_types_attr) }}
+                        {{ Form::select('heritage_resource_type[]', $heritage_resource_types, null, ['required' => 'required', 'class' => 'col-lg-10 basic-select2', 'multiple' => 'multiple']) }}
                     </div>
                     <div class="col-lg-12 col-xs-12">&nbsp;</div>
                     <div class="col-lg-offset-2 col-lg-7 heritage_resource_type_notes">
@@ -81,8 +82,8 @@
                 <div id="architectural_style" class="form-group has_description">
                     {{ Form::label('architectural_style', trans('validation.attributes.backend.heritage.resources.architectural_styles'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
-                    <div class="col-lg-8">
-                        {{ Form::select('architectural_style[]', $architectural_styles, null, ['required' => 'required', 'class' => 'input-lg col-lg-10 control-label basic-select2', 'multiple' => 'multiple'], $architectural_styles_attr) }}
+                    <div class="col-lg-8 col-xs-12">
+                        {{ Form::select('architectural_style[]', $architectural_styles, null, ['required' => 'required', 'class' => 'col-lg-10 basic-select2', 'multiple' => 'multiple']) }}
                     </div>
                     <div class="col-lg-12">&nbsp;</div>
                     <div class="col-lg-offset-2 col-lg-7 architectural_style_notes">
@@ -93,7 +94,7 @@
                     {{ Form::label('material', trans('validation.attributes.backend.heritage.resources.materials'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-8">
-                        {{ Form::select('material[]', $materials, null, ['required' => 'required', 'class' => 'input-lg col-lg-12 control-label basic-select2', 'multiple' => 'multiple']) }}
+                        {{ Form::select('material[]', $materials, null, ['required' => 'required', 'class' => 'col-lg-10 basic-select2', 'multiple' => 'multiple']) }}
                     </div>
                     <div class="col-lg-2"></div>
                 </div>
@@ -101,7 +102,7 @@
                     {{ Form::label('plot_plan', trans('validation.attributes.backend.heritage.resources.plot_plan'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-7">
-                        {{ Form::selectPlotPlan('plot_plan', null, ['required' => 'required', 'class' => 'input-lg col-lg-6 control-label']) }}
+                        {{ Form::selectPlotPlan('plot_plan', null, ['required' => 'required', 'class' => 'input-lg col-lg-10']) }}
                     </div>
                     <div class="col-lg-2"></div>
                 </div>
@@ -176,21 +177,28 @@
 @endsection
 
 @section('after-scripts')
+    {{ Html::script('js/backend/plugin/jquery-ui.min.js') }}
     <!-- Chosen -->
-    {{ Html::script('js/backend/plugin/chosen/chosen.jquery.min.js') }}
+    {{ Html::script('js/backend/plugin/selectize/selectize.js') }}
     <!-- Bootstrap Datepicker -->
     {{ Html::script('js/backend/plugin/datepicker/bootstrap-datepicker.min.js') }}
 
     <script type="text/javascript">
         $(document).ready(function() {
-            $(".basic-select2").chosen({
-                width:"100%"
-            }).on('change', function(evt, params) {
+            var describe = JSON.parse('{!! json_encode(array_merge($heritage_resource_types_attr, $architectural_styles_attr)) !!}');
+            $(".basic-select2").selectize({
+                plugins: ['remove_button', 'drag_drop'],
+                onInitialize: function () {
+                    var s = this;
+                    this.revertSettings.$children.each(function () {
+                        $.extend(s.options[this.value], $(this).data());
+                    });
+                }
+            }).on('change', function(evt) {
                 var id = $(this).parents('.has_description').attr('id');
                 var notes = '.'+id+'_notes';
 
-                if ($(evt.target).find(':selected').data('type') == "describe") {
-                    console.log(notes);
+                if ($(evt.target).find(':selected').val() in describe) {
                     $(notes).show();
                 } else {
                     $(notes).hide();
