@@ -39,15 +39,15 @@
 
             <li class="header">{{ trans('menus.backend.sidebar.heritage') }}</li>
 
-            <li class="{{ active_class(Active::checkUriPattern('admin/heritage/*')) }} treeview">
+            <li class="{{ active_class(Active::checkUriPattern(['admin/heritage/*', 'admin/dashboard'])) }} treeview">
                 <a href="#">
                     <i class="fa fa-building-o"></i>
                     <span>{{ trans('menus.backend.heritage.title') }}</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
 
-                <ul class="treeview-menu {{ active_class(Active::checkUriPattern('admin/heritage/*'), 'menu-open') }}" style="display: none; {{ active_class(Active::checkUriPattern('admin/heritage/*'), 'display: block;') }}">
-                    <li class="{{ active_class(Active::checkUriPattern('admin/heritage/resource*')) }}">
+                <ul class="treeview-menu {{ active_class(Active::checkUriPattern(['admin/heritage/*', 'admin/dashboard']), 'menu-open') }}">
+                    <li class="{{ active_class(Active::checkUriPattern(['admin/heritage/resource*', 'admin/dashboard'])) }}">
                         <a href="{{ route('admin.heritage.resource.index') }}">
                             <i class="fa fa-bank"></i>
                             <span>{{ trans('menus.backend.heritage.resources.management') }}</span>
@@ -64,9 +64,9 @@
                 </ul>
             </li>
 
+@if (access()->hasRoles(['Administrator', 1]))
             <li class="header">{{ trans('menus.backend.sidebar.system') }}</li>
 
-@role(1)
             <li class="{{ active_class(Active::checkUriPattern('admin/access/*')) }} treeview">
                 <a href="#">
                     <i class="fa fa-users"></i>
@@ -90,9 +90,7 @@
                     </li>
                 </ul>
             </li>
-@endauth
 
-@if (access()->hasRoles(['Administrator', 1]))
             <li class="{{ active_class(Active::checkUriPattern('admin/log-viewer*')) }} treeview">
                 <a href="#">
                     <i class="fa fa-list"></i>

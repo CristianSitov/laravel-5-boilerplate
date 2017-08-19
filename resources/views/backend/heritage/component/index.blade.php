@@ -5,7 +5,7 @@
 @section('page-header')
     <h4>{{ link_to_route('admin.heritage.resource.index', trans('labels.backend.heritage.resources.list')) }}
         <i class="fa fa-angle-right" aria-hidden="true"></i>
-    @if(access()->hasRoles(['Administrator', 1]))
+        @if(access()->hasRoles(['Desk', 1]))
         {{ link_to_route('admin.heritage.resource.edit', $address, $resource->getId()) }}
     @else
         {{ $address }}
