@@ -24,7 +24,8 @@ class ArchitecturalElement
         'facade' => [
             'type' => ['single', 'group'],
             'cladding_cornice_material' => ['multiple'],
-            'cornice_details' => ['multiple', 'mods', 'group'],
+            'cornice_details' => ['multiple', 'mods'],
+            'cornice_window_type' => ['multiple', 'mods', 'group'],
             'cladding_plain_material' => ['multiple'],
             'plain_details' => ['multiple', 'mods'],
             'plain_window_type' => ['multiple', 'mods', 'group'],
