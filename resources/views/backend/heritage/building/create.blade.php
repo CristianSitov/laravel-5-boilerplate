@@ -94,7 +94,7 @@
                     {{ Form::label('material', trans('validation.attributes.backend.heritage.resources.materials'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-8">
-                        {{ Form::select('material[]', $materials, null, ['required' => 'required', 'class' => 'col-lg-10 basic-select2', 'multiple' => 'multiple']) }}
+                        {{ Form::select('material[]', $materials, null, ['class' => 'col-lg-10 basic-select2', 'multiple' => 'multiple']) }}
                     </div>
                     <div class="col-lg-2"></div>
                 </div>

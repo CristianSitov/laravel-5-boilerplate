@@ -141,6 +141,7 @@ return [
                     'fair'                 => 'Medie (conservat)',
                     'poor'                 => 'Proastă (deteriorat/nefolosit)',
                     'very_bad'             => 'Foarte proastă (precolaps/ruină)',
+                    'Other'                => 'Altele',
                 ]
             ],
             'component' => [
