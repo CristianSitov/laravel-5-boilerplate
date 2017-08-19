@@ -186,6 +186,8 @@
     <script type="text/javascript">
         $(document).ready(function() {
             var describe = JSON.parse('{!! json_encode(array_merge($heritage_resource_types_attr, $architectural_styles_attr)) !!}');
+            var desc = {};
+
             $(".basic-select2").selectize({
                 plugins: ['remove_button', 'drag_drop'],
                 onInitialize: function () {
@@ -193,15 +195,25 @@
                     this.revertSettings.$children.each(function () {
                         $.extend(s.options[this.value], $(this).data());
                     });
-                }
-            }).on('change', function(evt) {
-                var id = $(this).parents('.has_description').attr('id');
-                var notes = '.'+id+'_notes';
+                },
+                onItemAdd: function(evt, $item) {
+                    var id = $item.parents('.has_description').attr('id');
+                    var notes = '.'+id+'_notes';
 
-                if ($(evt.target).find(':selected').val() in describe) {
-                    $(notes).show();
-                } else {
-                    $(notes).hide();
+                    if ($item.data('value') in describe) {
+                        if ($(notes).is(':hidden')) {
+                            desc[$item.data('value')] = notes;
+                            $(notes).show();
+                        }
+                    }
+                },
+                onItemRemove: function(value) {
+                    if (value in desc) {
+                        if ($(desc[value]).is(':visible')) {
+                            $('div'+desc[value]).hide();
+                            delete desc[value];
+                        }
+                    }
                 }
             });
 
