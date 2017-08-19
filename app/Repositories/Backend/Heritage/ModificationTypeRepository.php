@@ -30,7 +30,7 @@ class ModificationTypeRepository extends BaseRepository
     public function findPublished($set = null)
     {
         if ($set) {
-            $queryResults = $this->em->createQuery('MATCH (n:ModificationType {published:"true", component_type:"'.$set.'"}) RETURN n');
+            $queryResults = $this->em->createQuery('MATCH (n:ModificationType {published:"true", set:"'.$set.'"}) RETURN n');
             $queryResults->addEntityMapping('n', ModificationType::class);
             $result = $queryResults->getResult();
         } else {
