@@ -1,5 +1,5 @@
 <div class="pull-right mb-10 hidden-sm hidden-xs">
-    {{ link_to_route('admin.heritage.buildings.create', trans('menus.backend.heritage.buildings.create'), [$resource->getId()], ['class' => 'btn btn-success btn-xs']) }}
+    {{ link_to_route('admin.heritage.buildings.create', trans('menus.backend.heritage.buildings.create'), [$resource->getId()], ['class' => 'btn btn-success btn-sm']) }}
 </div><!--pull right-->
 
 <div class="pull-right mb-10 hidden-lg hidden-md">

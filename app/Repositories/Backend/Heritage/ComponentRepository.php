@@ -23,13 +23,13 @@ class ComponentRepository extends BaseRepository
         $this->model = $this->em->getRepository(Component::class);
     }
 
-    public function create(Building $building)
+    public function create(Building $building, $type = 'facade')
     {
         // only FACADE
-        $component = new Component('facade');
+        $component = new Component($type);
         $component->setCreatedAt(new \DateTime());
         $component->setUpdatedAt(new \DateTime());
-        $component->setOrder(count($building->getComponentsByType('facade')) + 1);
+        $component->setOrder(count($building->getComponentsByType($type)) + 1);
         $component->setUuid((string)Uuid::generate(4));
 
         $building->getComponents()->add($component);

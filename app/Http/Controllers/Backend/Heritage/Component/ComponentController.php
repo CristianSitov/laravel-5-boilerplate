@@ -61,22 +61,14 @@ class ComponentController extends Controller
             ->withProduction($production);
     }
 
-    public function create($resource_id, $building_id)
+    public function create($resource_id, $building_id, $type)
     {
         $resource = $this->resourceRepository->model->find($resource_id);
         $production = $this->productionRepository->model->find($building_id);
 
-        $this->componentRepository->create($production->getBuilding());
+        $this->componentRepository->create($production->getBuilding(), $type);
 
         return redirect()->route('admin.heritage.components.index', [$resource->getId(), $production->getId()]);
-    }
-
-    public function store(Request $request)
-    {
-    }
-
-    public function show($id)
-    {
     }
 
     public function edit($resource_id, $building_id, $component_id)
@@ -152,10 +144,6 @@ class ComponentController extends Controller
         return redirect()
             ->route('admin.heritage.components.index', [$resource_id, $building_id])
             ->withFlashSuccess(trans('alerts.backend.components.updated'));
-    }
-
-    public function destroy($id)
-    {
     }
 
     public function destroyElement($resource_id, $building_id, $component_id, $uuid)

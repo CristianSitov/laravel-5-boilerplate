@@ -55,7 +55,10 @@ Route::group([
             'namespace' => 'Component',
             'prefix'    => 'resource/{resource}/building/{building}',
         ], function () {
-            Route::resource('components', 'ComponentController');
+            Route::get('components', 'ComponentController@index')->name('components.index');
+            Route::get('components/create/{type}', 'ComponentController@create')->name('components.create');
+            Route::get('components/{component}/edit', 'ComponentController@edit')->name('components.edit');
+            Route::put('components/{component}/update', 'ComponentController@update')->name('components.update');
             Route::get('components/{component}/element/{element}/delete', 'ComponentController@destroyElement')->name('components.element.remove');
         });
 

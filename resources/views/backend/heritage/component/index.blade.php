@@ -26,9 +26,9 @@
                 <span class="label label-info"><i class="fa fa-arrow-up"></i>  {{ trans('menus.backend.heritage.components.move_up') }}</span>
                 <span class="label label-info"><i class="fa fa-arrow-down"></i>  {{ trans('menus.backend.heritage.components.move_down') }}</span></h3>
 
-            @if('facade' == $component->getType())
+            @if(in_array($component->getType(), ['facade', 'access']))
             <div class="box-tools pull-right">
-                @include('backend.heritage.includes.component-header-buttons', ['resource' => $resource])
+                @include('backend.heritage.includes.component-header-buttons', ['type' => $component->getType()])
             </div><!--box-tools pull-right-->
             @endif
         </div><!-- /.box-header -->
@@ -37,7 +37,7 @@
             <div class="row">
                 <div class="col-lg-2 col-xs-3">
                 {{--@if(count($component->getArchitecturalElements())) > 0)--}}
-                    <small><a title="{{ trans('menus.backend.heritage.components.edit') }}" class="btn btn-xs btn-warning" href="{{ route('admin.heritage.components.edit', [$resource->getId(), $production->getId(), $component->getId()]) }}"><i class="fa fa-edit"></i> {{ trans('menus.backend.heritage.components.edit') }}</a></small>
+                    <small><a title="{{ trans('menus.backend.heritage.components.edit') }}" class="btn btn-sm btn-warning" href="{{ route('admin.heritage.components.edit', [$resource->getId(), $production->getId(), $component->getId()]) }}"><i class="fa fa-edit"></i> {{ trans('menus.backend.heritage.components.edit') }}</a></small>
                 {{--@else--}}
                 {{--@endif--}}
                 </div>
