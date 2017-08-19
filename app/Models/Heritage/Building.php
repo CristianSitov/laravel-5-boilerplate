@@ -167,6 +167,13 @@ class Building
     protected $plan;
 
     /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $plan_description;
+
+    /**
      * @var Component[]|Collection
      *
      * @OGM\Relationship(type="IsComposedOf", direction="OUTGOING", collection=true, targetEntity="Component", mappedBy="building")
@@ -335,6 +342,22 @@ class Building
     public function setPlan($plan)
     {
         $this->plan = $plan;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPlanDescription()
+    {
+        return $this->plan_description;
+    }
+
+    /**
+     * @param string $plan_description
+     */
+    public function setPlanDescription($plan_description)
+    {
+        $this->plan_description = $plan_description;
     }
 
     /**

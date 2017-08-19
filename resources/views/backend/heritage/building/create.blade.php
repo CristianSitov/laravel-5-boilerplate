@@ -102,9 +102,12 @@
                     {{ Form::label('plot_plan', trans('validation.attributes.backend.heritage.resources.plot_plan'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-7">
-                        {{ Form::selectPlotPlan('plot_plan', null, ['class' => 'input-lg col-lg-10']) }}
+                        {{ Form::selectPlotPlan('plot_plan', null, ['class' => 'input-lg col-lg-10 plot_plan']) }}
                     </div>
-                    <div class="col-lg-2"></div>
+                    <div class="col-lg-12">&nbsp;</div>
+                    <div class="col-lg-offset-2 col-lg-7 plot_plan_notes">
+                        {{ Form::textarea('plot_plan_notes', null, ['class' => 'input-lg form-control description']) }}
+                    </div>
                 </div>
 
                 <div class="form-group types">
@@ -217,7 +220,17 @@
                 }
             });
 
+            $('.plot_plan').change(function () {
+                var attr = $('.plot_plan :selected').attr('describe');
+                if (typeof attr !== typeof undefined && attr !== false) {
+                    $('.plot_plan_notes').show();
+                } else {
+                    $('.plot_plan_notes').hide();
+                }
+            });
+
             // hide initially
+            $('.plot_plan_notes').hide();
             $('.has_description').each(function (index, value) {
                 var description = '.' + $(value).attr('id') + '_notes';
                 $(value).find(description).hide();

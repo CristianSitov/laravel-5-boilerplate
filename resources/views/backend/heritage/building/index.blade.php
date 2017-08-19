@@ -55,11 +55,14 @@
                                 <tr>
                                     <td><small>{{ trans('validation.attributes.backend.heritage.buildings.floors') }}</small></td>
                                     <td>
-    @foreach($production->getBuilding()->getLevels() as $level)
+        @foreach($production->getBuilding()->getLevels() as $level)
+            @if ($level !== '')
                                             {{ trans('strings.backend.building.' . $level) }}@if (!$loop->last),<br />@endif
-    @endforeach
+            @endif
+        @endforeach
                                     </td>
                                 </tr>
+
                                 <tr>
                                     <td><small>{{ trans('validation.attributes.backend.heritage.buildings.resource_types') }}</small></td>
                                     <td>

@@ -62,38 +62,57 @@ class BuildingRepository extends BaseRepository
         $building->setType($data['type']);
 
         if ($data['type'] == 'main') {
-            $building->setLevels($data['levels']);
-            $building->setNotes($data['notes']);
-            $building->setCondition($data['condition']);
-            $building->setConditionNotes($data['condition_notes']);
-            $building->setPlan($data['plot_plan']);
-
-            foreach ($data['heritage_resource_type'] as $type) {
-                $heritageResourceType = $this->heritageResourceTypeRepository->findStencilsByUuid($type);
-                $newHeritageResourceType = $this->heritageResourceTypeRepository->createClone($heritageResourceType[0]['type']->values());
-                if ($newHeritageResourceType->getType() == 'describe' && isset($data['heritage_resource_type_notes'])) {
-                    $newHeritageResourceType->setNote($data['heritage_resource_type_notes']);
-                }
-
-                $newHeritageResourceType->setCreatedAt(new \DateTime());
-                $newHeritageResourceType->setUpdatedAt(new \DateTime());
-                $building->getHeritageResourceTypes()->add($newHeritageResourceType);
+            if (isset($data['levels'])) {
+                $building->setLevels($data['levels']);
             }
-            foreach ($data['architectural_style'] as $style) {
-                $architecturalStyle = $this->architecturalStyleRepository->findStencilsByUuid($style);
-                $newArchitecturalStyle = $this->architecturalStyleRepository->createClone($architecturalStyle[0]['style']->values());
-                if ($newArchitecturalStyle->getType() == 'describe' && isset($data['architectural_style_notes'])) {
-                    $newArchitecturalStyle->setNote($data['architectural_style_notes']);
-                }
-
-                $newArchitecturalStyle->setCreatedAt(new \DateTime());
-                $newArchitecturalStyle->setUpdatedAt(new \DateTime());
-                $building->getArchitecturalStyles()->add($newArchitecturalStyle);
+            if (isset($data['notes'])) {
+                $building->setNotes($data['notes']);
             }
-            foreach ($data['material'] as $material) {
-                $material = $this->em->find(Material::class, $material);
-                $materiality = new BuildingConsistsOfMaterial($building, $material, isset($data['description']) ? $data['description'] : '');
-                $building->getBuildingConsistsOfMaterials()->add($materiality);
+            if (isset($data['condition'])) {
+                $building->setCondition($data['condition']);
+            }
+            if (isset($data['condition_notes'])) {
+                $building->setConditionNotes($data['condition_notes']);
+            }
+            if (isset($data['plot_plan'])) {
+                $building->setPlan($data['plot_plan']);
+            }
+            if (isset($data['plot_plan_notes'])) {
+                $building->setPlanDescription($data['plot_plan_notes']);
+            }
+
+            if (isset($data['heritage_resource_type'])) {
+                foreach ($data['heritage_resource_type'] as $type) {
+                    $heritageResourceType = $this->heritageResourceTypeRepository->findStencilsByUuid($type);
+                    $newHeritageResourceType = $this->heritageResourceTypeRepository->createClone($heritageResourceType[0]['type']->values());
+                    if ($newHeritageResourceType->getType() == 'describe' && isset($data['heritage_resource_type_notes'])) {
+                        $newHeritageResourceType->setNote($data['heritage_resource_type_notes']);
+                    }
+
+                    $newHeritageResourceType->setCreatedAt(new \DateTime());
+                    $newHeritageResourceType->setUpdatedAt(new \DateTime());
+                    $building->getHeritageResourceTypes()->add($newHeritageResourceType);
+                }
+            }
+            if (isset($data['architectural_style'])) {
+                foreach ($data['architectural_style'] as $style) {
+                    $architecturalStyle = $this->architecturalStyleRepository->findStencilsByUuid($style);
+                    $newArchitecturalStyle = $this->architecturalStyleRepository->createClone($architecturalStyle[0]['style']->values());
+                    if ($newArchitecturalStyle->getType() == 'describe' && isset($data['architectural_style_notes'])) {
+                        $newArchitecturalStyle->setNote($data['architectural_style_notes']);
+                    }
+
+                    $newArchitecturalStyle->setCreatedAt(new \DateTime());
+                    $newArchitecturalStyle->setUpdatedAt(new \DateTime());
+                    $building->getArchitecturalStyles()->add($newArchitecturalStyle);
+                }
+            }
+            if (isset($data['material'])) {
+                foreach ($data['material'] as $material) {
+                    $material = $this->em->find(Material::class, $material);
+                    $materiality = new BuildingConsistsOfMaterial($building, $material, isset($data['description']) ? $data['description'] : '');
+                    $building->getBuildingConsistsOfMaterials()->add($materiality);
+                }
             }
 
             if (count($data['modification_type']) > 0) {
@@ -137,13 +156,30 @@ class BuildingRepository extends BaseRepository
         /* @var Production $production */
         $production = $this->em->find(Production::class, $production_id);
 
-        $production->getBuilding()->setType($data['type']);
-        $production->getBuilding()->setCardinality($data['order']);
-        $production->getBuilding()->setLevels($data['levels']);
-        $production->getBuilding()->setNotes($data['notes']);
-        $production->getBuilding()->setCondition($data['condition']);
-        $production->getBuilding()->setConditionNotes($data['condition_notes']);
-        $production->getBuilding()->setPlan($data['plot_plan']);
+        if (isset($data['type'])) {
+            $production->getBuilding()->setType($data['type']);
+        }
+        if (isset($data['order'])) {
+            $production->getBuilding()->setCardinality($data['order']);
+        }
+        if (isset($data['levels'])) {
+            $production->getBuilding()->setLevels($data['levels']);
+        }
+        if (isset($data['notes'])) {
+            $production->getBuilding()->setNotes($data['notes']);
+        }
+        if (isset($data['condition'])) {
+            $production->getBuilding()->setCondition($data['condition']);
+        }
+        if (isset($data['condition_notes'])) {
+            $production->getBuilding()->setConditionNotes($data['condition_notes']);
+        }
+        if (isset($data['plot_plan'])) {
+            $production->getBuilding()->setPlan($data['plot_plan']);
+        }
+        if (isset($data['plot_plan_notes'])) {
+            $production->getBuilding()->setPlan($data['plot_plan_notes']);
+        }
 
         $this->em->persist($production);
         $this->em->flush();
@@ -177,110 +213,118 @@ class BuildingRepository extends BaseRepository
                 unset($data['heritage_resource_type'][$t]);
             }
         }
-        foreach ($data['heritage_resource_type'] as $type) {
-            $heritageResourceType = $this->heritageResourceTypeRepository->findStencilsByUuid($type);
-            $newHeritageResourceType = $this->heritageResourceTypeRepository->createClone($heritageResourceType[0]['type']->values());
-            if ($newHeritageResourceType->getType() == 'describe' && isset($data['heritage_resource_type_notes'])) {
-                $newHeritageResourceType->setNote($data['heritage_resource_type_notes']);
-            }
+        if (isset($data['heritage_resource_type'])) {
+            foreach ($data['heritage_resource_type'] as $type) {
+                $heritageResourceType = $this->heritageResourceTypeRepository->findStencilsByUuid($type);
+                $newHeritageResourceType = $this->heritageResourceTypeRepository->createClone($heritageResourceType[0]['type']->values());
+                if ($newHeritageResourceType->getType() == 'describe' && isset($data['heritage_resource_type_notes'])) {
+                    $newHeritageResourceType->setNote($data['heritage_resource_type_notes']);
+                }
 
-            $newHeritageResourceType->setCreatedAt(new \DateTime());
-            $newHeritageResourceType->setUpdatedAt(new \DateTime());
-            $production->getBuilding()->getHeritageResourceTypes()->add($newHeritageResourceType);
+                $newHeritageResourceType->setCreatedAt(new \DateTime());
+                $newHeritageResourceType->setUpdatedAt(new \DateTime());
+                $production->getBuilding()->getHeritageResourceTypes()->add($newHeritageResourceType);
+            }
         }
 
         // change Architectural Styles
-        $architecturalStyles = $production->getBuilding()->getArchitecturalStyles();
-        foreach ($production->getBuilding()->getArchitecturalStyleIds() as $existingStyle) {
-            $s = array_search($existingStyle, $data['architectural_style']);
-            // this db has to remain
-            if ($s === false) {
-                // REMOVE (ITERATE & REMOVE)
-                foreach ($architecturalStyles as $architecturalStyle) {
-                    if ($architecturalStyle->getUuid() == $existingStyle) {
-                        $architecturalStyles->removeElement($architecturalStyle);
-                        $this->em->remove($architecturalStyle, true);
+        if (isset($data['architectural_style'])) {
+            $architecturalStyles = $production->getBuilding()->getArchitecturalStyles();
+            foreach ($production->getBuilding()->getArchitecturalStyleIds() as $existingStyle) {
+                $s = array_search($existingStyle, $data['architectural_style']);
+                // this db has to remain
+                if ($s === false) {
+                    // REMOVE (ITERATE & REMOVE)
+                    foreach ($architecturalStyles as $architecturalStyle) {
+                        if ($architecturalStyle->getUuid() == $existingStyle) {
+                            $architecturalStyles->removeElement($architecturalStyle);
+                            $this->em->remove($architecturalStyle, true);
+                        }
                     }
+                } else {
+                    // then unset and go further
+                    unset($data['architectural_style'][$s]);
                 }
-            } else {
-                // then unset and go further
-                unset($data['architectural_style'][$s]);
             }
-        }
-        foreach ($data['architectural_style'] as $style) {
-            $architecturalStyle = $this->architecturalStyleRepository->findStencilsByUuid($style);
-            $newArchitecturalStyle = $this->architecturalStyleRepository->createClone($architecturalStyle[0]['style']->values());
-            if ($newArchitecturalStyle->getType() == 'describe' && isset($data['architectural_style_notes'])) {
-                $newArchitecturalStyle->setNote($data['architectural_style_notes']);
-            }
+            foreach ($data['architectural_style'] as $style) {
+                $architecturalStyle = $this->architecturalStyleRepository->findStencilsByUuid($style);
+                $newArchitecturalStyle = $this->architecturalStyleRepository->createClone($architecturalStyle[0]['style']->values());
+                if ($newArchitecturalStyle->getType() == 'describe' && isset($data['architectural_style_notes'])) {
+                    $newArchitecturalStyle->setNote($data['architectural_style_notes']);
+                }
 
-            $newArchitecturalStyle->setCreatedAt(new \DateTime());
-            $newArchitecturalStyle->setUpdatedAt(new \DateTime());
-            $production->getBuilding()->getArchitecturalStyles()->add($newArchitecturalStyle);
+                $newArchitecturalStyle->setCreatedAt(new \DateTime());
+                $newArchitecturalStyle->setUpdatedAt(new \DateTime());
+                $production->getBuilding()->getArchitecturalStyles()->add($newArchitecturalStyle);
+            }
         }
 
         // change Materials
-        foreach ($production->getBuilding()->getBuildingConsistsOfMaterialIds() as $existingMaterial) {
-            $m = array_search($existingMaterial, $data['material']);
-            // this db has to remain
-            if ($m !== false) {
-                unset($data['material'][$m]);
-            } else {
-                // this db has to be deleted
-                $materials = $production->getBuilding()->getBuildingConsistsOfMaterials();
-                foreach ($materials as $material) {
-                    if ($material->getMaterial()->getId() == $existingMaterial) {
-                        $materials->removeElement($material);
-                        $this->em->remove($material);
+        if (isset($data['material'])) {
+            foreach ($production->getBuilding()->getBuildingConsistsOfMaterialIds() as $existingMaterial) {
+                $m = array_search($existingMaterial, $data['material']);
+                // this db has to remain
+                if ($m !== false) {
+                    unset($data['material'][$m]);
+                } else {
+                    // this db has to be deleted
+                    $materials = $production->getBuilding()->getBuildingConsistsOfMaterials();
+                    foreach ($materials as $material) {
+                        if ($material->getMaterial()->getId() == $existingMaterial) {
+                            $materials->removeElement($material);
+                            $this->em->remove($material);
+                        }
                     }
                 }
             }
-        }
-        foreach ($data['material'] as $material) {
-            $newMaterial = $this->em->find(Material::class, $material);
-            $materiality = new BuildingConsistsOfMaterial($production->getBuilding(), $newMaterial, isset($data['description']) ? $data['description'] : '');
-            $production->getBuilding()->getBuildingConsistsOfMaterials()->add($materiality);
+            foreach ($data['material'] as $material) {
+                $newMaterial = $this->em->find(Material::class, $material);
+                $materiality = new BuildingConsistsOfMaterial($production->getBuilding(), $newMaterial, isset($data['description']) ? $data['description'] : '');
+                $production->getBuilding()->getBuildingConsistsOfMaterials()->add($materiality);
+            }
         }
 
         // change Modification Types
-        foreach ($production->getBuilding()->getModifications() as $existingModification) {
-            if (isset($data['modification_type'])) {
-                $d = array_search($existingModification->getId(), array_keys($data['modification_type']));
-            } else {
-                $d = false;
-            }
-
-            if ($d !== false) {
-                // modification not to be removed, lets put that aside and check if updates are needed
-                $currentModificationType = $existingModification->getModificationEvent()->getModificationType();
-
-                // type has changed, we have to update this modification instance
-                if ($data['modification_type'][$existingModification->getId()] != $currentModificationType->getId()) {
-                    $newModType = $this->em->find(ModificationType::class, $data['modification_type'][$existingModification->getId()]);
-                    $existingModification->getModificationEvent()->setModificationType($newModType);
+        if (isset($data['modification_type'])) {
+            foreach ($production->getBuilding()->getModifications() as $existingModification) {
+                if (isset($data['modification_type'])) {
+                    $d = array_search($existingModification->getId(), array_keys($data['modification_type']));
+                } else {
+                    $d = false;
                 }
-                // update description
-                $existingModification->getModificationEvent()->getModificationDescription()->setNote($data['modification_type_description'][$existingModification->getId()]);
-                // update dates
-                $existingModification->getModificationEvent()->setDateFrom($data['modification_type_date_from'][$existingModification->getId()] ? \DateTime::createFromFormat('Y', $data['modification_type_date_from'][$existingModification->getId()]) : null);
-                $existingModification->getModificationEvent()->setDateTo($data['modification_type_date_to'][$existingModification->getId()] ? \DateTime::createFromFormat('Y', $data['modification_type_date_to'][$existingModification->getId()]) : null);
 
-                // remove this for future reference
-                unset($data['modification_type'][$existingModification->getId()]);
-            } else {
-                // this db has to be deleted
-                // lets start with the description
-                $deleteDescription = $existingModification->getModificationEvent()->getModificationDescription();
-                $this->em->remove($deleteDescription, true);
-                // break modification type
-                $deleteType = $existingModification->getModificationEvent()->getModificationType();
-                $deleteEvent = $existingModification->getModificationEvent();
-                $deleteType->getModificationEvents()->removeElement($deleteEvent);
-                $this->em->remove($deleteType);
-                // delete modification event
-                $this->em->remove($deleteEvent, true);
-                // delete modification
-                $this->em->remove($existingModification, true);
+                if ($d !== false) {
+                    // modification not to be removed, lets put that aside and check if updates are needed
+                    $currentModificationType = $existingModification->getModificationEvent()->getModificationType();
+
+                    // type has changed, we have to update this modification instance
+                    if ($data['modification_type'][$existingModification->getId()] != $currentModificationType->getId()) {
+                        $newModType = $this->em->find(ModificationType::class, $data['modification_type'][$existingModification->getId()]);
+                        $existingModification->getModificationEvent()->setModificationType($newModType);
+                    }
+                    // update description
+                    $existingModification->getModificationEvent()->getModificationDescription()->setNote($data['modification_type_description'][$existingModification->getId()]);
+                    // update dates
+                    $existingModification->getModificationEvent()->setDateFrom($data['modification_type_date_from'][$existingModification->getId()] ? \DateTime::createFromFormat('Y', $data['modification_type_date_from'][$existingModification->getId()]) : null);
+                    $existingModification->getModificationEvent()->setDateTo($data['modification_type_date_to'][$existingModification->getId()] ? \DateTime::createFromFormat('Y', $data['modification_type_date_to'][$existingModification->getId()]) : null);
+
+                    // remove this for future reference
+                    unset($data['modification_type'][$existingModification->getId()]);
+                } else {
+                    // this db has to be deleted
+                    // lets start with the description
+                    $deleteDescription = $existingModification->getModificationEvent()->getModificationDescription();
+                    $this->em->remove($deleteDescription, true);
+                    // break modification type
+                    $deleteType = $existingModification->getModificationEvent()->getModificationType();
+                    $deleteEvent = $existingModification->getModificationEvent();
+                    $deleteType->getModificationEvents()->removeElement($deleteEvent);
+                    $this->em->remove($deleteType);
+                    // delete modification event
+                    $this->em->remove($deleteEvent, true);
+                    // delete modification
+                    $this->em->remove($existingModification, true);
+                }
             }
         }
         if (isset($data['new_modification_type'])) {
