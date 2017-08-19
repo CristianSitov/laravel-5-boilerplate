@@ -163,6 +163,7 @@ return [
                     'cladding_cornice_material' => 'Registrul Cornișei - Finisaj',
                     'cladding_plain_material' => 'Câmp - Finisaj',
                     'cladding_base_material' => 'Soclu - Finisaj',
+                    'cornice_window_type' => 'Registrul Cornișei - Gol',
                     'cornice_details' => 'Registrul Cornișei - Detalii',
                     'plain_details' => 'Câmpul Fațadei - Detalii',
                     'base_details' => 'Soclul - Detalii',
