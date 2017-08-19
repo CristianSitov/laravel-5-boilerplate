@@ -42,11 +42,11 @@ class Building
         'circular',
         'irregular',
         'unknown',
-        'octagonal',
-        'h_shaped',
-        'l_shaped',
-        't_shaped',
-        'u_shaped',
+//        'octagonal',
+//        'h_shaped',
+//        'l_shaped',
+//        't_shaped',
+//        'u_shaped',
     ];
 
     const PLANS_DESC = [
