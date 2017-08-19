@@ -34,6 +34,7 @@ class ArchitecturalElement
             'plain_storefront_type' => ['multiple', 'mods', 'group'],
         ],
         'access' => [
+            'type' => ['single', 'group'],
             'door_type' => ['multiple', 'mods'],
             'entryway_type' => ['multiple', 'mods'],
             'portal_type' => ['multiple', 'mods', 'group'],

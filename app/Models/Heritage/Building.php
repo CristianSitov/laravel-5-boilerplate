@@ -34,16 +34,25 @@ class Building
     ];
 
     const PLANS = [
-        'circular',
-        'h_shaped',
-        'irregular',
-        'l_shaped',
-        'octagonal',
         'rectangular',
+        'rectangular_complex',
         'square',
-        't_shaped',
         'triangular',
+        'polygonal',
+        'circular',
+        'irregular',
+        'unknown',
+        'octagonal',
+        'h_shaped',
+        'l_shaped',
+        't_shaped',
         'u_shaped',
+    ];
+
+    const PLANS_DESC = [
+        'rectangular_complex',
+        'polygonal',
+        'irregular',
         'unknown',
     ];
 

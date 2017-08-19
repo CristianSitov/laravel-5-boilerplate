@@ -41,39 +41,40 @@
                     <h3>{{ trans('labels.backend.heritage.resources.components') }} &raquo; <u>{{ trans('strings.backend.component.' . $component_type) }}</u></h3>
                 </div>
     @foreach($architectural_element_map[$component_type] as $set => $options)
+        @if(isset($architectural_elements[$component_type][$set]))
                 <div class="set-body row">
                     <div class="col-lg-12 col-xs-12">
                         <div class="form-group">
                             {{ Form::label($component_type . '_' . $set, trans('labels.backend.heritage.component.' . $component_type . '.' . $set), ['class' => 'col-lg-2 control-label']) }}
 
                             <div class="col-lg-8 selects elements">
-        @if(in_array('single', $options))
-            @foreach($architectural_elements[$component_type][$set] as $key => $value)
-                @php
-                    $checked = [];
-                    if(isset($existing_architectural_elements[$component_type][$set])) {
-                        $checked = ($existing_architectural_elements[$component_type][$set][0] == $key ? ['checked'] : []);
-                    }
-                @endphp
+            @if(in_array('single', $options))
+                @foreach($architectural_elements[$component_type][$set] as $key => $value)
+                    @php
+                        $checked = [];
+                        if(isset($existing_architectural_elements[$component_type][$set])) {
+                            $checked = ($existing_architectural_elements[$component_type][$set][0] == $key ? ['checked'] : []);
+                        }
+                    @endphp
                                 {{ Form::radio($set, $key, null, array_merge($checked, [])) }} {{ $value }}&nbsp;
-            @endforeach
-        @elseif(in_array('multiple', $options))
-            @php
-                $value = [];
-                if (isset($existing_architectural_elements[$component_type]) && array_key_exists($set, $existing_architectural_elements[$component_type])) {
-                    $value = $existing_architectural_elements[$component_type][$set];
-                }
-                $mods  = (in_array('mods', $options)) ? ' mods' : '';
-            @endphp
+                @endforeach
+            @elseif(in_array('multiple', $options))
+                @php
+                    $value = [];
+                    if (isset($existing_architectural_elements[$component_type]) && array_key_exists($set, $existing_architectural_elements[$component_type])) {
+                        $value = $existing_architectural_elements[$component_type][$set];
+                    }
+                    $mods  = (in_array('mods', $options)) ? ' mods' : '';
+                @endphp
                                 {{ Form::select($set.'[]', $architectural_elements[$component_type][$set], $value, ['multiple', 'class' => 'input-lg col-lg-2 form-control basic-select2' . $mods]) }}
-        @else
+            @else
                                 {{ Form::select($set, $architectural_elements[$component_type][$set], $value, ['class' => 'input-lg col-lg-2 form-control basic-select2']) }}
-        @endif
+            @endif
                             </div>
                             <div class="col-lg-offset-4 col-lg-6 col-xs-12 displays">
-        @if(in_array('mods', $options))
-            @if(isset($existing_architectural_elements[$component_type][$set]))
-                @foreach($existing_architectural_elements[$component_type][$set] as $uuid)
+            @if(in_array('mods', $options))
+                @if(isset($existing_architectural_elements[$component_type][$set]))
+                    @foreach($existing_architectural_elements[$component_type][$set] as $uuid)
                                 <div class="row" data-identifier="{{ $uuid }}">
                                     <div class="col-lg-6 col-xs-12">
                                         <span class="track"><i class="fa fa-check-square-o"></i>&nbsp;{{ $architectural_elements[$component_type][$set][$uuid] }}</span>
@@ -87,18 +88,19 @@
                                         {{ Form::textarea($set.'_note['.$uuid.']', isset($element_notes[$uuid]) ? $element_notes[$uuid] : '', ["rows" => "2", "cols" => null, "class" => "input-lg form-control description"]) }}
                                     </div>
                                 </div>
-                @endforeach
+                    @endforeach
+                @endif
             @endif
-        @endif
                             </div>
                         </div>
                     </div>
                 </div>
-        @if(in_array('group', $options))
+            @if(in_array('group', $options))
                 <div class="row">
                     <div class="col-lg-offset-2 col-lg-10"><hr/></div>
                     <div class="col-lg-2"></div>
                 </div>
+            @endif
         @endif
     @endforeach
                 <div class="set-body row">

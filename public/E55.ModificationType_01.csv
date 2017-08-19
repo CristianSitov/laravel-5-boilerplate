@@ -1,87 +1,74 @@
-uuid,component_type,component_type_ro,name,name_ro,published
-02cdbda8-6631-4f44-8e12-fce55dea3a65,building,corp clădire,Addition to primary elevation,Adiție (la corpul principal),true
-0a943aec-b8ff-42b9-a121-fc8e1b833a6b,building,corp clădire,Addition to rear/side elevation,Adiție (la corpul secundar),true
+uuid,set,set_ro,name,name_ro,published
+02cdbda8-6631-4f44-8e12-fce55dea3a65,building,corp clădire,Addition,Adiție volumetrică,true
+0a943aec-b8ff-42b9-a121-fc8e1b833a6b,building,corp clădire,Addition to rear/side elevation,Adiție (la corpul secundar),false
 33d16e3d-8de9-44d5-9401-af05715a4184,building,corp clădire,Addition to upper story,Etaj adăugat,true
 cd8823b3-882d-45aa-8025-b761406240fe,building,corp clădire,Exterior staircases added,Scări adăugate,true
-c8a55175-f007-4f8b-a659-358e1ae8e602,building,corp clădire,Seismic anchor plates added,Tiranți structurali,true
-0bc00be6-c8ee-4026-b08f-b6b80e175291,building,corp clădire,Perimeter fence or wall added,Gard modificat / înlocuit ,true
-5976a895-07e0-4f80-b544-dbf42c8e7857,building,corp clădire,Landscape/hardscape altered,Spațiu verde privat amenajat,true
-2656af53-d8bc-4758-b16d-5abc2f04c480,building,corp clădire,Single-family converted to multi-family,Locuință unufamilială transformată în locuință multifamilială ,true
+c8a55175-f007-4f8b-a659-358e1ae8e602,building,corp clădire,Seismic anchor added,Tiranți structurali,true
+0bc00be6-c8ee-4026-b08f-b6b80e175291,building,corp clădire,Perimeter fence/wall added,Gard modificat/înlocuit ,true
+5976a895-07e0-4f80-b544-dbf42c8e7857,building,corp clădire,Landscape/hardscape altered,Spațiu verde privat amenajat,false
+2656af53-d8bc-4758-b16d-5abc2f04c480,building,corp clădire,Single-family converted to multi-family,Locuință unufamilială transformată în locuință multifamilială ,false
 46544a9c-77b6-4aa9-99f8-41858bfb8a0b,building,corp clădire,Appears to be unaltered,Aparent nemodificată,true
 72d53d18-41ca-4108-94df-96424f885cfb,building,corp clădire,Completely altered,Complet modificată,true
 fb46a9e3-a84f-405e-9dc4-b645212350ca,building,corp clădire,Other,Altele,true
-d5e7aaa4-24d6-4e14-8443-0d055ded40b6,access,aparat de access,Brickwork/stone painted,Cărămida / piatra aparentă vopsită / zugrăvită,true
-e14f9213-6f9c-4454-82be-d93d889182c0,access,aparat de access,Carport added,,false
-46567a26-c495-4fda-b0e2-839e3f9bc183,access,aparat de access,Carport altered or enclosed,,false
-60a74bc1-0ce0-476e-8821-61325b80ae2a,access,aparat de access,Carport removed,,false
-c53ad2f5-bd7d-402f-bbba-c92e879d7ff5,access,aparat de access,Decorative elements added,Elemente decorative adaugate,true
-40666a64-427c-4685-9166-fd6959e05b37,access,aparat de access,Decorative elements removed,Elemente decorative îndepărtate,true
-e186e783-6552-400e-a1d9-851a8e94e62c,access,aparat de access,Door (primary) opening or entrance altered,Acces (principal) modificat,true
-6025c12b-d2cd-457e-86b0-ebb2a96a4e1b,access,aparat de access,Door (primary) replaced,Acces (principal) înlocuit,true
-634125da-2163-4968-8874-7a904e1d3a09,access,aparat de access,Door/entrance added,Acces adăugat,true
-dd027247-6ae2-4a4e-86a5-d8d55e45898d,access,aparat de access,Garage altered or replaced,,false
-9a8b1f44-c443-4401-8bf9-4e19c6241e4d,access,aparat de access,Garage door replaced,,false
-2ad6eed4-3bf3-4c6c-8255-84092c4a435f,access,aparat de access,Garage postdates residence,,false
-ddca78cc-965f-4a4f-8986-d0033f446501,access,aparat de access,No major alterations,,false
-cb6496b7-4d0b-406f-a7aa-635d95834c9c,access,aparat de access,Parapet altered or removed,Parapet modificat / îndepărtat ,true
-ebba3e68-c3a4-4b24-b1b5-b770e5c3a302,access,aparat de access,Porch added,Portic adăugat,true
-b9a9c14a-4f4c-4f0d-b680-52159ddf7d43,access,aparat de access,Porch altered or enclosed,Portic modificat / închis,true
-c3549bc1-339f-47a8-8b4c-84d9d649bfdd,access,aparat de access,Porch rails altered or replaced,Balustradă modificată / îndepărtată,true
-a02243ee-be10-4641-9cfd-933784444e7c,access,aparat de access,Porch removed,Portic îndepărtat ,true
-b87ce5c7-0466-41f3-9148-a1cc278975ab,access,aparat de access,Porte cochere added,Porte-cochère adăugat,true
-1266e3c0-4acf-4751-9961-90b90724c10c,access,aparat de access,Porte cochere altered or removed,Porte-cochère modificat / îndepartat ,true
-82eb5a4f-fa86-4004-bbf3-d63fdb2d7361,access,aparat de access,Security door(s) added,Suprasecurizare adăugată (uși),true
-640fc5de-d701-4158-b4ff-b0bbd1ff02f6,access,aparat de access,Security window bars added,Suprasecurizare adăugată (ferestre),true
-a075bc26-2b81-4af5-871b-f695538fb8c3,access,aparat de access,Stonework painted,,false
-799b5c14-e4f4-4413-9089-c24cf42371f0,access,aparat de access,Unknown/not visible,Descriere,true
-4dccf254-066f-4cc0-b5a1-19f9f6a73044,access,aparat de access,Appears to be unaltered,Aparent nemodificată,true
-afb20b14-60a7-4895-a14e-740f02392043,access,aparat de access,Completely altered,Complet modificată,true
-05924f74-7977-4d5f-8ec5-b6aac145c957,access,aparat de access,Other,Altele,true
-85f3eb84-0bfa-43b6-a6db-828d453806a3,building,corp,Addition to primary elevation,Adiție (la corpul principal),true
-cfa21fce-244c-4e07-b815-e5fa53a7ea92,building,corp,Addition to rear/side elevation,Adiție (la corpul secundar),true
-1fc1f6dd-fc5f-4bed-8182-2192f06a1cf1,building,corp,Addition to upper story,Etaj adăugat,true
-b23d7853-5ee9-4ae9-a45a-f268b536cf9f,building,corp,Appears to be unaltered,Aparent nemodificată,true
-26b7fd7f-d5f1-4636-86d1-11a48b1b858c,building,corp,Completely altered,Complet modificată,true
-11582ba4-d834-4088-845f-40ddc35fd8a7,building,corp,Exterior staircases added,Scări adăugate,true
-599382bc-aea7-4dc7-a01c-ef2c0b7a7d2b,building,corp,Landscape/hardscape altered,Spațiu verde privat amenajat,true
-ecc6b4c0-04e9-4822-8f21-78011677a7ac,building,corp,Perimeter fence or wall added,Gard modificat / înlocuit ,true
-8d6e1d6b-8f33-4231-8a6b-f4fb6c16a620,building,corp,Seismic anchor plates added,Tiranți structurali,true
-fa430674-42f8-4f18-a34e-115ac15a0548,building,corp,Single-family converted to multi-family,Locuință unufamilială transformată în locuință multifamilială ,true
-9e26bfbc-7fb8-4ba2-a29d-fe9892b8c90d,building,corp,Appears to be unaltered,Aparent nemodificată,true
-637e4137-8347-4064-81b7-7d658bf162f2,building,corp,Completely altered,Complet modificată,true
-a1e96c1a-fa66-4e47-adcb-433d31e9e2ac,building,corp,Other,Altele,true
+d5e7aaa4-24d6-4e14-8443-0d055ded40b6,access,aparat de acces,Brickwork/stone painted,,false
+e14f9213-6f9c-4454-82be-d93d889182c0,access,aparat de acces,Carport added,,false
+46567a26-c495-4fda-b0e2-839e3f9bc183,access,aparat de acces,Carport altered or enclosed,,false
+60a74bc1-0ce0-476e-8821-61325b80ae2a,access,aparat de acces,Carport removed,,false
+c53ad2f5-bd7d-402f-bbba-c92e879d7ff5,access,aparat de acces,Decorative elements added,Elemente decorative adaugate,true
+40666a64-427c-4685-9166-fd6959e05b37,access,aparat de acces,Decorative elements removed,Elemente decorative îndepărtate,true
+e186e783-6552-400e-a1d9-851a8e94e62c,access,aparat de acces,Door opening or entrance altered,Acces modificat,true
+6025c12b-d2cd-457e-86b0-ebb2a96a4e1b,access,aparat de acces,Door replaced,Ușă înlocuită,true
+634125da-2163-4968-8874-7a904e1d3a09,access,aparat de acces,Door/Entrance added,Acces/Ușă adăugat(ă),true
+dd027247-6ae2-4a4e-86a5-d8d55e45898d,access,aparat de acces,Garage altered or replaced,,false
+9a8b1f44-c443-4401-8bf9-4e19c6241e4d,access,aparat de acces,Garage door replaced,,false
+2ad6eed4-3bf3-4c6c-8255-84092c4a435f,access,aparat de acces,Garage postdates residence,,false
+ddca78cc-965f-4a4f-8986-d0033f446501,access,aparat de acces,No major alterations,,false
+cb6496b7-4d0b-406f-a7aa-635d95834c9c,access,aparat de acces,Parapet altered/removed,Parapet modificat/îndepărtat ,false
+ebba3e68-c3a4-4b24-b1b5-b770e5c3a302,access,aparat de acces,Porch added,Portic adăugat,true
+b9a9c14a-4f4c-4f0d-b680-52159ddf7d43,access,aparat de acces,Porch altered/enclosed,Portic modificat/închis,true
+c3549bc1-339f-47a8-8b4c-84d9d649bfdd,access,aparat de acces,Porch rails altered/replaced,Balustradă modificată/îndepărtată,true
+a02243ee-be10-4641-9cfd-933784444e7c,access,aparat de acces,Porch removed,Portic îndepărtat ,false
+b87ce5c7-0466-41f3-9148-a1cc278975ab,access,aparat de acces,Porte cochere added,Porte-cochère adăugat,true
+1266e3c0-4acf-4751-9961-90b90724c10c,access,aparat de acces,Porte cochere altered/removed,Porte-cochère modificat/îndepartat ,true
+82eb5a4f-fa86-4004-bbf3-d63fdb2d7361,access,aparat de acces,Security door(s) added,Suprasecurizare adăugată(uși),true
+640fc5de-d701-4158-b4ff-b0bbd1ff02f6,access,aparat de acces,Security window bars added,Suprasecurizare adăugată(ferestre),true
+a075bc26-2b81-4af5-871b-f695538fb8c3,access,aparat de acces,Repainted/Replastered,Revopsit/rezugrăvit,true
+799b5c14-e4f4-4413-9089-c24cf42371f0,access,aparat de acces,Other,Altele,false
+4dccf254-066f-4cc0-b5a1-19f9f6a73044,access,aparat de acces,Appears to be unaltered,Aparent nemodificată,true
+afb20b14-60a7-4895-a14e-740f02392043,access,aparat de acces,Completely altered,Complet modificată,true
+05924f74-7977-4d5f-8ec5-b6aac145c957,access,aparat de acces,Other,Altele,true
 1d37865d-ae54-4e24-a162-6ca5e5d4d6ba,roof,acoperiș,Chimney altered,Coș de fum modificat,true
 f8698604-5453-4c3c-96c1-a4f26e60b958,roof,acoperiș,Roof dormer added,Lucarnă adăugată,true
 038af267-bd9c-4247-b681-75fe8131e82d,roof,acoperiș,Roof dormer altered,Lucarnă modificată,true
 69853e68-3a11-4e46-81ef-3a9fc0819343,roof,acoperiș,Roof replaced with incompatible materials,Învelitoare modificată,true
 fc1db7e2-67bb-4aef-95be-6fa48443aa20,roof,acoperiș,Roofline altered,"Acoperiș modificat (silueta, structura etc.)",true
-2dafd44e-5506-49a5-8185-f9440f55511b,roof,acoperiș,,Jgheab / burlan adăugat,true
-8315ddff-cb47-462b-958b-72adb1313a07,roof,acoperiș,,Jgheab / burlan modificat / înlocuit,true
+2dafd44e-5506-49a5-8185-f9440f55511b,roof,acoperiș,,Jgheab/burlan adăugat,false
+8315ddff-cb47-462b-958b-72adb1313a07,roof,acoperiș,Gutter/pipes altred/replaced,Jgheab/burlan modificat/înlocuit,true
 b23d7853-5ee9-4ae9-a45a-f268b536cf9f,roof,acoperiș,Appears to be unaltered,Aparent nemodificată,true
 26b7fd7f-d5f1-4636-86d1-11a48b1b858c,roof,acoperiș,Completely altered,Complet modificată,true
 a1e96c1a-fa66-4e47-adcb-433d31e9e2ac,roof,acoperiș,Other,Altele,true
-c8d1de54-81ad-4cb5-87e9-d7039f5ab3e4,facade,fațadă,Awnings added,Marchiză adăugată,true
-6de71078-6d0b-4fbb-b35c-9862957372f7,facade,fațadă,Balcony added,Balcon adăugat,true
-22cfbe02-8356-4405-94e1-7a56ecee1f1f,facade,fațadă,Balcony altered or enclosed,Balcon modificat / închis,true
-8946a152-9602-49d8-9914-5840555c47bb,facade,fațadă,Brickwork/stone painted,Cărămida / piatra aparentă vopsită / zugrăvită,true
-1efedb41-7de4-45c5-8335-61f674f973d9,facade,fațadă,Decorative elements added,Elemente decorative adaugate,true
-43bd19c8-9361-43fe-8084-cb183737c53a,facade,fațadă,Decorative elements removed,Elemente decorative îndepărtate,true
-b0aff85f-8a5b-4085-a061-392c49240a7e,facade,fațadă,Parapet altered or removed,Parapet modificat / îndepărtat ,true
-715e9b92-7afb-4a97-9539-ca1cba3a152d,facade,fațadă,Porch added,Portic adăugat,true
-cd53afef-5998-4562-9ccc-6a3ec5a19ecd,facade,fațadă,Porch altered or enclosed,Portic modificat / închis,true
-8f2ac3d2-c910-4d8f-a1b0-582fb3772851,facade,fațadă,Porch rails altered or replaced,Balustradă modificată / îndepărtată,true
-3a7210cd-5f0d-4593-93b5-6d1d044fd18d,facade,fațadă,Porch removed,Portic îndepărtat ,true
-98d894cf-ea92-4ebc-af01-40eafae6743e,facade,fațadă,Signage added,Semnalistică adaugată,true
-99934702-f1d0-4d33-84a1-8d29cdc35a89,facade,fațadă,Signage altered,Semnalistică modificată,false
-6874ed1b-9311-4f52-8e47-3d4f833e895b,facade,fațadă,Signage removed,Semnalistică modificată / îndepărtată,true
-8b2ef806-92ab-4347-bb02-af5c8e9aaf5d,facade,fațadă,Storefront altered or replaced,Parter comercial modificat ,true
-b097290a-eaa2-4add-b4f6-3fa1512e96c9,facade,fațadă,Wall cladding replaced,Finisajul fațadei modificat / înlocuit,true
+c8d1de54-81ad-4cb5-87e9-d7039f5ab3e4,facade,fațadă,Awning added,Copertină adăugată,true
+6de71078-6d0b-4fbb-b35c-9862957372f7,facade,fațadă,Balcony/Terrace added,Balcon/Terasă adăugat(ă),true
+22cfbe02-8356-4405-94e1-7a56ecee1f1f,facade,fațadă,Balcony/Terrace altered/enclosed,Balcon/Terasă modificat(ă)/închis(ă),true
+8946a152-9602-49d8-9914-5840555c47bb,facade,fațadă,Architectural elements altred / removed,Elemente arhitecturale modificate/îndepărtate,true
+1efedb41-7de4-45c5-8335-61f674f973d9,facade,fațadă,Architectural elements added,Elemente arhitecturale adăugate,true
+43bd19c8-9361-43fe-8084-cb183737c53a,facade,fațadă,Decorative elements altred/removed,Elemente decorative modificate/îndepărtate,true
+b0aff85f-8a5b-4085-a061-392c49240a7e,facade,fațadă,Decorative elements added,Elemente decorative adăugate,true
+715e9b92-7afb-4a97-9539-ca1cba3a152d,facade,fațadă,Parapet altered or removed,Parapet modificat/îndepărtat ,true
+cd53afef-5998-4562-9ccc-6a3ec5a19ecd,facade,fațadă,Porch added,Portic adăugat,true
+8f2ac3d2-c910-4d8f-a1b0-582fb3772851,facade,fațadă,Porch altered/enclosed,Portic modificat/închis,true
+3a7210cd-5f0d-4593-93b5-6d1d044fd18d,facade,fațadă,Balustrade altered/replaced,Balustradă modificată/îndepărtată,true
+98d894cf-ea92-4ebc-af01-40eafae6743e,facade,fațadă,Porch removed,Portic îndepărtat ,true
+99934702-f1d0-4d33-84a1-8d29cdc35a89,facade,fațadă,Signage added,Semnalistică adaugată,true
+6874ed1b-9311-4f52-8e47-3d4f833e895b,facade,fațadă,Signage removed,Semnalistică modificată/îndepărtată,true
+8b2ef806-92ab-4347-bb02-af5c8e9aaf5d,facade,fațadă,Storefront altered/replaced,Parter comercial modificat ,true
+b097290a-eaa2-4add-b4f6-3fa1512e96c9,facade,fațadă,Wall cladding replaced,Finisajul fațadei modificat/înlocuit,true
 f3a23b81-52de-400e-a92d-384eee5a0e80,facade,fațadă,Window openings altered,Gol de fereastră modificat,true
-b328a46c-eb9d-4971-a1de-0367abfbb914,facade,fațadă,Window openings infilled,Gol de fereastră obturat parțial / închis,true
+b328a46c-eb9d-4971-a1de-0367abfbb914,facade,fațadă,Window openings infilled,Gol de fereastră obturat parțial/închis,true
 de15946d-755f-4532-9505-b11c88f54304,facade,fațadă,Windows boarded up,Ferestre încastrate,false
-16c09298-a7b3-4860-98b6-3154cd736524,facade,fațadă,Windows replaced - all,Fereastră înlocuită total,true
-d91b3bcb-7098-48e3-b340-266d4369fd81,facade,fațadă,Windows replaced - some,Fereastră înlocuită parțial,true
-64e46bf9-0b1a-4c8e-94e8-6e871e752dd4,facade,fațadă,Wiring added,Cablaj adăugat,true
+16c09298-a7b3-4860-98b6-3154cd736524,facade,fațadă,"Windows replaced, totally",Tâmplărie/Foaie de geam înlocuită total,true
+d91b3bcb-7098-48e3-b340-266d4369fd81,facade,fațadă,"Windows replaced, partially",Tâmplărie/Foaie de geam înlocuită parțial,true
+64e46bf9-0b1a-4c8e-94e8-6e871e752dd4,facade,fațadă,Wiring/Fixtures added,Cablaje/Instalații adăugate,true
 a84d06f4-7e99-4799-afcb-b1610da14343,facade,fațadă,Appears to be unaltered,Aparent nemodificată,true
 f277861d-dc1a-4a97-9591-48d5bd93d14f,facade,fațadă,Completely altered,Complet modificată,true
 a75a1f3a-fc77-47cb-abfe-c74d3dc9073d,facade,fațadă,Other,Altele,true
