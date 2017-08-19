@@ -72,7 +72,7 @@
                     {{ Form::label('heritage_resource_type', trans('validation.attributes.backend.heritage.resources.heritage_resource_type'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-8 col-xs-12">
-                        {{ Form::select('heritage_resource_type[]', $heritage_resource_types, null, ['required' => 'required', 'class' => 'col-lg-10 basic-select2', 'multiple' => 'multiple']) }}
+                        {{ Form::select('heritage_resource_type[]', $heritage_resource_types, null, ['class' => 'col-lg-10 basic-select2', 'multiple' => 'multiple']) }}
                     </div>
                     <div class="col-lg-12 col-xs-12">&nbsp;</div>
                     <div class="col-lg-offset-2 col-lg-7 heritage_resource_type_notes">
@@ -83,7 +83,7 @@
                     {{ Form::label('architectural_style', trans('validation.attributes.backend.heritage.resources.architectural_styles'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-8 col-xs-12">
-                        {{ Form::select('architectural_style[]', $architectural_styles, null, ['required' => 'required', 'class' => 'col-lg-10 basic-select2', 'multiple' => 'multiple']) }}
+                        {{ Form::select('architectural_style[]', $architectural_styles, null, ['class' => 'col-lg-10 basic-select2', 'multiple' => 'multiple']) }}
                     </div>
                     <div class="col-lg-12">&nbsp;</div>
                     <div class="col-lg-offset-2 col-lg-7 architectural_style_notes">
@@ -102,7 +102,7 @@
                     {{ Form::label('plot_plan', trans('validation.attributes.backend.heritage.resources.plot_plan'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-7">
-                        {{ Form::selectPlotPlan('plot_plan', null, ['required' => 'required', 'class' => 'input-lg col-lg-10']) }}
+                        {{ Form::selectPlotPlan('plot_plan', null, ['class' => 'input-lg col-lg-10']) }}
                     </div>
                     <div class="col-lg-2"></div>
                 </div>
@@ -115,7 +115,7 @@
 
                         <div class="col-lg-10 col-xs-10 duplicable">
                             <div class="col-lg-4">
-                                {{ Form::select('modification_type[]', $modification_types, null, ['required' => 'required', 'class' => 'input-lg col-lg-2 form-control']) }}
+                                {{ Form::select('modification_type[]', $modification_types, null, ['class' => 'input-lg col-lg-2 form-control']) }}
                             </div>
                             <div class="col-lg-4">
                                 <div class="input-group input-daterange">
@@ -141,7 +141,7 @@
                 <div class="form-group">
                     {{ Form::label('condition', trans('labels.backend.heritage.building.condition'), ['class' => 'col-lg-2 control-label']) }}
                     <div class="col-lg-3">
-                        {{ Form::selectConditionType('condition', null, ['required' => 'required', 'class' => 'input-lg form-control']) }}
+                        {{ Form::selectConditionType('condition', null, ['class' => 'input-lg form-control']) }}
                     </div>
                 </div>
                 <div class="form-group">

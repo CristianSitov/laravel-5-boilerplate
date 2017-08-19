@@ -74,7 +74,7 @@
                     {{ Form::label('heritage_resource_type', trans('validation.attributes.backend.heritage.resources.heritage_resource_type'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-8 col-xs-12">
-                        {{ Form::select('heritage_resource_type[]', $heritage_resource_types, $current_types, ['required' => 'required', 'class' => 'input-lg col-lg-10 form-control basic-select2', 'multiple' => 'multiple'], $heritage_resource_types_attr) }}
+                        {{ Form::select('heritage_resource_type[]', $heritage_resource_types, $current_types, ['class' => 'input-lg col-lg-10 form-control basic-select2', 'multiple' => 'multiple'], $heritage_resource_types_attr) }}
                     </div>
                     <div class="col-lg-12">&nbsp;</div>
                     <div class="col-lg-offset-2 col-lg-6 col-xs-12 heritage_resource_type_notes">
@@ -85,7 +85,7 @@
                     {{ Form::label('architectural_style', trans('validation.attributes.backend.heritage.resources.architectural_styles'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-8 col-xs-12">
-                        {{ Form::select('architectural_style[]', $architectural_styles, $current_styles, ['required' => 'required', 'class' => 'input-lg col-lg-10 form-control basic-select2', 'multiple' => 'multiple'], $architectural_styles_attr) }}
+                        {{ Form::select('architectural_style[]', $architectural_styles, $current_styles, ['class' => 'input-lg col-lg-10 form-control basic-select2', 'multiple' => 'multiple'], $architectural_styles_attr) }}
                     </div>
                     <div class="col-lg-12">&nbsp;</div>
                     <div class="col-lg-offset-2 col-lg-6 col-xs-12 architectural_style_notes">
@@ -104,7 +104,7 @@
                     {{ Form::label('plot_plan', trans('validation.attributes.backend.heritage.resources.plot_plan'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-7 col-xs-12">
-                        {{ Form::selectPlotPlan('plot_plan', $production->getBuilding()->getPlan(), ['required' => 'required', 'class' => 'input-lg col-lg-10 control-label']) }}
+                        {{ Form::selectPlotPlan('plot_plan', $production->getBuilding()->getPlan(), ['class' => 'input-lg col-lg-10 control-label']) }}
                     </div>
                     <div class="col-lg-2"></div>
                 </div>
@@ -117,7 +117,7 @@
 
                         <div class="col-lg-10 col-xs-10 duplicable">
                             <div class="col-lg-4">
-                                {{ Form::select('modification_type['.$modification->getId().']', $modification_types, $modification->getModificationEvent()->getModificationType()->getId(), ['required' => 'required', 'class' => 'input-lg col-lg-2 form-control']) }}
+                                {{ Form::select('modification_type['.$modification->getId().']', $modification_types, $modification->getModificationEvent()->getModificationType()->getId(), ['class' => 'input-lg col-lg-2 form-control']) }}
                             </div>
                             <div class="col-lg-3">
                                 <div class="input-group input-daterange">
@@ -144,7 +144,7 @@
 
                         <div class="col-lg-10 col-xs-10 duplicable">
                             <div class="col-lg-4">
-                                {{ Form::select('new_modification_type[]', $modification_types, null, ['required' => 'required', 'class' => 'input-lg col-lg-2 form-control']) }}
+                                {{ Form::select('new_modification_type[]', $modification_types, null, ['class' => 'input-lg col-lg-2 form-control']) }}
                             </div>
                             <div class="col-lg-3">
                                 <div class="input-group input-daterange">
@@ -169,7 +169,7 @@
                 <div class="form-group">
                     {{ Form::label('condition', trans('labels.backend.heritage.building.condition'), ['class' => 'col-lg-2 control-label']) }}
                     <div class="col-lg-3">
-                        {{ Form::selectConditionType('condition', $production->getBuilding()->getCondition() ?: null, ['required' => 'required', 'class' => 'input-lg form-control']) }}
+                        {{ Form::selectConditionType('condition', $production->getBuilding()->getCondition() ?: null, ['class' => 'input-lg form-control']) }}
                     </div>
                 </div>
                 <div class="form-group">
