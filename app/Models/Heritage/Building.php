@@ -50,10 +50,10 @@ class Building
     ];
 
     const PLANS_DESC = [
-        'rectangular_complex',
-        'polygonal',
-        'irregular',
-        'unknown',
+        'rectangular_complex' => ['describe'],
+        'polygonal' => ['describe'],
+        'irregular' => ['describe'],
+        'unknown' => ['describe'],
     ];
 
     const CONDITIONS = [

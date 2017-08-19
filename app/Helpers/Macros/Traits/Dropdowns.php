@@ -1307,12 +1307,13 @@ trait Dropdowns
     {
         $list = [];
         $plans = Building::PLANS;
+        $attrs = Building::PLANS_DESC;
 
         foreach ($plans as $plan) {
             $list[$plan] = trans('strings.backend.building.' . $plan);
         }
 
-        return $this->select($name, $list, $selected, $options);
+        return $this->select($name, $list, $selected, $options, $attrs);
     }
 
     public function selectBuildingType($name, $selected = null, $options = [])

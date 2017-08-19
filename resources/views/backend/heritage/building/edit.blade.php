@@ -3,7 +3,9 @@
 @section ('title', trans('labels.backend.heritage.resources.management') . ' | ' . trans('labels.backend.heritage.resources.edit'))
 
 @section('after-styles')
-    {{ Html::style("css/backend/plugin/chosen/chosen.css") }}
+    {{ Html::style("css/backend/plugin/jquery-ui.min.css") }}
+    {{ Html::style("css/backend/plugin/selectize/selectize.bootstrap3.css") }}
+    {{ Html::style("css/backend/plugin/selectize/selectize.default.css") }}
     {{ Html::style("css/backend/plugin/datepicker/bootstrap-datepicker.min.css") }}
 @endsection
 
@@ -62,11 +64,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-lg-6 col-lg-offset-2 col-xs-12">
-                        <div class="input-group">
-                            <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.levels') }}</span>
-                            {{ Form::selectNumberOfFloors('levels[]', $production->getBuilding()->getLevels(), ['multiple', 'class' => 'input-lg col-lg-4 form-control basic-select2']) }}
-                        </div>
+                    {{ Form::label('', trans('validation.attributes.backend.heritage.resources.levels'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
+
+                    <div class="col-lg-6 col-xs-12">
+                        {{ Form::selectNumberOfFloors('levels[]', $production->getBuilding()->getLevels(), ['multiple', 'class' => 'input-lg col-lg-4 form-control basic-select2']) }}
                     </div>
                 </div>
                 <div id="heritage_resource_type" class="form-group has_description">
@@ -103,7 +104,7 @@
                     {{ Form::label('plot_plan', trans('validation.attributes.backend.heritage.resources.plot_plan'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-7 col-xs-12">
-                        {{ Form::selectPlotPlan('plot_plan', $production->getBuilding()->getPlan(), ['required' => 'required', 'class' => 'input-lg col-lg-10 control-label basic-select2']) }}
+                        {{ Form::selectPlotPlan('plot_plan', $production->getBuilding()->getPlan(), ['required' => 'required', 'class' => 'input-lg col-lg-10 control-label']) }}
                     </div>
                     <div class="col-lg-2"></div>
                 </div>
@@ -204,28 +205,50 @@
 @endsection
 
 @section('after-scripts')
+    {{ Html::script('js/backend/plugin/jquery-ui.min.js') }}
     <!-- Chosen -->
-    {{ Html::script('js/backend/plugin/chosen/chosen.jquery.min.js') }}
+    {{ Html::script('js/backend/plugin/selectize/selectize.js') }}
     <!-- Bootstrap Datepicker -->
     {{ Html::script('js/backend/plugin/datepicker/bootstrap-datepicker.min.js') }}
 
     <script type="text/javascript">
     $(document).ready(function() {
-        $(".basic-select2").chosen().on('change', function(evt, params) {
-            var id = $(this).parents('.has_description').attr('id');
-            var notes = '.'+id+'_notes';
+        var describe = JSON.parse('{!! json_encode(array_merge($heritage_resource_types_attr, $architectural_styles_attr)) !!}');
+        var desc = {};
 
-            if ($(evt.target).find(':selected').data('type') == "describe") {
-                console.log(notes);
-                $(notes).show();
-            } else {
-                $(notes).hide();
+        $(".basic-select2").selectize({
+            plugins: ['remove_button', 'drag_drop'],
+            onInitialize: function () {
+                var s = this;
+                this.revertSettings.$children.each(function () {
+                    $.extend(s.options[this.value], $(this).data());
+                });
+            },
+            onItemAdd: function(evt, $item) {
+                var id = $item.parents('.has_description').attr('id');
+                var notes = '.'+id+'_notes';
+
+                if ($item.data('value') in describe) {
+                    if ($(notes).is(':hidden')) {
+                        desc[$item.data('value')] = notes;
+                        $(notes).show();
+                    }
+                }
+            },
+            onItemRemove: function(value) {
+                if (value in desc) {
+                    if ($(desc[value]).is(':visible')) {
+                        $('div'+desc[value]).hide();
+                        delete desc[value];
+                    }
+                }
             }
         });
+
         // hide initially
         $('.has_description').each(function (index, value) {
             var description = '.' + $(value).attr('id') + '_notes';
-            if ($(value).find(':selected').data('type') == "describe") {
+            if ($(value).find(':selected').val() in describe) {
                 $(value).find(description).show();
             } else {
                 $(value).find(description).hide();
