@@ -39,7 +39,9 @@
                     <div class="col-lg-3 col-xs-3">
                         <br /><br />
                         <small><a title="{{ trans('menus.backend.heritage.buildings.edit') }}" class="btn btn-sm btn-warning" href="{{ route('admin.heritage.buildings.edit', [$resource->getId(), $production->getId()]) }}"><i class="fa fa-edit"></i> {{ trans('menus.backend.heritage.buildings.edit') }}</a></small><br /><br />
+@if($production->getBuilding()->getType() == 'main')
                         <small><a title="{{ trans('menus.backend.heritage.components.all') }}" class="btn btn-sm btn-warning" href="{{ route('admin.heritage.components.index', [$resource->getId(), $production->getId()]) }}"><i class="fa fa-list-ul"></i> {{ trans('menus.backend.heritage.components.all') }}</a></small><br /><br /><br /><br />
+@endif
                         <small><a title="{{ trans('menus.backend.heritage.buildings.delete') }}" class="btn btn-sm btn-danger" href="{{ route('admin.heritage.buildings.remove', [$resource->getId(), $production->getId()]) }}"><i class="fa fa-trash"></i> {{ trans('menus.backend.heritage.buildings.delete') }}</a></small>
                     </div>
                     <div class="col-lg-9 col-xs-12">
@@ -49,12 +51,13 @@
                                     <td><small>{{ trans('validation.attributes.backend.heritage.buildings.type') }}</small></td>
                                     <td>{{ trans('validation.attributes.backend.heritage.buildings.type_'.$production->getBuilding()->getType()) }}</td>
                                 </tr>
+@if($production->getBuilding()->getType() == 'main')
                                 <tr>
                                     <td><small>{{ trans('validation.attributes.backend.heritage.buildings.floors') }}</small></td>
                                     <td>
-@foreach($production->getBuilding()->getLevels() as $level)
+    @foreach($production->getBuilding()->getLevels() as $level)
                                             {{ trans('strings.backend.building.' . $level) }}@if (!$loop->last),<br />@endif
-@endforeach
+    @endforeach
                                     </td>
                                 </tr>
                                 <tr>
@@ -94,6 +97,7 @@
                                         @endforeach
                                     </td>
                                 </tr>
+@endif
                             </tbody>
                         </table>
                     </div>

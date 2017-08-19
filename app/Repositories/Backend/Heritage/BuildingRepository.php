@@ -58,66 +58,69 @@ class BuildingRepository extends BaseRepository
         $building_count = count($resource->getProductions());
 
         $building = new Building();
-        $building->setType($data['type']);
-        $building->setLevels($data['levels']);
-        $building->setNotes($data['notes']);
-        $building->setCondition($data['condition']);
-        $building->setConditionNotes($data['condition_notes']);
-        $building->setPlan($data['plot_plan']);
         $building->setCardinality(isset($data['order']) ? $data['order'] : $building_count+1);
+        $building->setType($data['type']);
 
-        foreach ($data['heritage_resource_type'] as $type) {
-            $heritageResourceType = $this->heritageResourceTypeRepository->findStencilsByUuid($type);
-            $newHeritageResourceType = $this->heritageResourceTypeRepository->createClone($heritageResourceType[0]['type']->values());
-            if ($newHeritageResourceType->getType() == 'describe' && isset($data['heritage_resource_type_notes'])) {
-                $newHeritageResourceType->setNote($data['heritage_resource_type_notes']);
+        if ($data['type'] == 'main') {
+            $building->setLevels($data['levels']);
+            $building->setNotes($data['notes']);
+            $building->setCondition($data['condition']);
+            $building->setConditionNotes($data['condition_notes']);
+            $building->setPlan($data['plot_plan']);
+
+            foreach ($data['heritage_resource_type'] as $type) {
+                $heritageResourceType = $this->heritageResourceTypeRepository->findStencilsByUuid($type);
+                $newHeritageResourceType = $this->heritageResourceTypeRepository->createClone($heritageResourceType[0]['type']->values());
+                if ($newHeritageResourceType->getType() == 'describe' && isset($data['heritage_resource_type_notes'])) {
+                    $newHeritageResourceType->setNote($data['heritage_resource_type_notes']);
+                }
+
+                $newHeritageResourceType->setCreatedAt(new \DateTime());
+                $newHeritageResourceType->setUpdatedAt(new \DateTime());
+                $building->getHeritageResourceTypes()->add($newHeritageResourceType);
+            }
+            foreach ($data['architectural_style'] as $style) {
+                $architecturalStyle = $this->architecturalStyleRepository->findStencilsByUuid($style);
+                $newArchitecturalStyle = $this->architecturalStyleRepository->createClone($architecturalStyle[0]['style']->values());
+                if ($newArchitecturalStyle->getType() == 'describe' && isset($data['architectural_style_notes'])) {
+                    $newArchitecturalStyle->setNote($data['architectural_style_notes']);
+                }
+
+                $newArchitecturalStyle->setCreatedAt(new \DateTime());
+                $newArchitecturalStyle->setUpdatedAt(new \DateTime());
+                $building->getArchitecturalStyles()->add($newArchitecturalStyle);
+            }
+            foreach ($data['material'] as $material) {
+                $material = $this->em->find(Material::class, $material);
+                $materiality = new BuildingConsistsOfMaterial($building, $material, isset($data['description']) ? $data['description'] : '');
+                $building->getBuildingConsistsOfMaterials()->add($materiality);
             }
 
-            $newHeritageResourceType->setCreatedAt(new \DateTime());
-            $newHeritageResourceType->setUpdatedAt(new \DateTime());
-            $building->getHeritageResourceTypes()->add($newHeritageResourceType);
-        }
-        foreach ($data['architectural_style'] as $style) {
-            $architecturalStyle = $this->architecturalStyleRepository->findStencilsByUuid($style);
-            $newArchitecturalStyle = $this->architecturalStyleRepository->createClone($architecturalStyle[0]['style']->values());
-            if ($newArchitecturalStyle->getType() == 'describe' && isset($data['architectural_style_notes'])) {
-                $newArchitecturalStyle->setNote($data['architectural_style_notes']);
+            if (count($data['modification_type']) > 0) {
+                foreach ($data['modification_type'] as $m => $modification_type) {
+                    $modificationDescription = new ModificationDescription($data['modification_type_description'][$m]);
+                    $modificationType = $this->em->find(ModificationType::class, $modification_type);
+                    $modificationEvent = new ModificationEvent(
+                        $modificationType,
+                        $modificationDescription,
+                        $data['modification_type_date_from'][$m] ? \DateTime::createFromFormat('Y', $data['modification_type_date_from'][$m]) : null,
+                        $data['modification_type_date_from'][$m] ? \DateTime::createFromFormat('Y', $data['modification_type_date_to'][$m]) : null
+                    );
+                    $modification = new Modification($modificationEvent);
+                    $building->getModifications()->add($modification);
+                }
             }
 
-            $newArchitecturalStyle->setCreatedAt(new \DateTime());
-            $newArchitecturalStyle->setUpdatedAt(new \DateTime());
-            $building->getArchitecturalStyles()->add($newArchitecturalStyle);
-        }
-        foreach ($data['material'] as $material) {
-            $material = $this->em->find(Material::class, $material);
-            $materiality = new BuildingConsistsOfMaterial($building, $material, isset($data['description']) ? $data['description'] : '');
-            $building->getBuildingConsistsOfMaterials()->add($materiality);
-        }
-
-        if (count($data['modification_type']) > 0) {
-            foreach ($data['modification_type'] as $m => $modification_type) {
-                $modificationDescription = new ModificationDescription($data['modification_type_description'][$m]);
-                $modificationType = $this->em->find(ModificationType::class, $modification_type);
-                $modificationEvent = new ModificationEvent(
-                    $modificationType,
-                    $modificationDescription,
-                    $data['modification_type_date_from'][$m] ? \DateTime::createFromFormat('Y', $data['modification_type_date_from'][$m]) : null,
-                    $data['modification_type_date_from'][$m] ? \DateTime::createFromFormat('Y', $data['modification_type_date_to'][$m]) : null
-                );
-                $modification = new Modification($modificationEvent);
-                $building->getModifications()->add($modification);
+            // initialize all types of components
+            $componentTypes = Component::TYPES;
+            foreach ($componentTypes as $k => $componentType) {
+                $component = new Component($componentType);
+                $component->setCreatedAt(new \DateTime());
+                $component->setUpdatedAt(new \DateTime());
+                $component->setOrder(1);
+                $component->setUuid((string) Uuid::generate(4));
+                $building->getComponents()->add($component);
             }
-        }
-
-        // initialize all types of components
-        $componentTypes = Component::TYPES;
-        foreach ($componentTypes as $k => $componentType) {
-            $component = new Component($componentType);
-            $component->setCreatedAt(new \DateTime());
-            $component->setUpdatedAt(new \DateTime());
-            $component->setOrder(1);
-            $component->setUuid((string) Uuid::generate(4));
-            $building->getComponents()->add($component);
         }
 
         $production->setBuilding($building);
