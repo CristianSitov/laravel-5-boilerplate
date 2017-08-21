@@ -140,6 +140,48 @@ class Resource extends Model
      */
     protected $modifications;
 
+    /**
+     * @OGM\Relationship(relationshipEntity="WasDesignedBy", type="WasDesignedBy", direction="INCOMING", collection=true, mappedBy="resource")
+     *
+     * @var WasDesignedBy[]|Collection
+     */
+    protected $wasDesignBy;
+
+    /**
+     * @OGM\Relationship(relationshipEntity="WasBuiltBy", type="WasBuiltBy", direction="INCOMING", collection=true, mappedBy="resource")
+     *
+     * @var WasBuiltBy[]|Collection
+     */
+    protected $wasBuiltBy;
+
+    /**
+     * @OGM\Relationship(relationshipEntity="WasOwnedBy", type="WasOwnedBy", direction="INCOMING", collection=true, mappedBy="resource")
+     *
+     * @var WasOwnedBy[]|Collection
+     */
+    protected $wasOwnedBy;
+
+    /**
+     * @OGM\Relationship(relationshipEntity="WasFormerOwnerOf", type="WasFormerOwnerOf", direction="INCOMING", collection=true, mappedBy="resource")
+     *
+     * @var WasFormerOwnerOf[]|Collection
+     */
+    protected $wasFormerOwnerOf;
+
+    /**
+     * @OGM\Relationship(relationshipEntity="HadCustodyOf", type="HadCustodyOf", direction="INCOMING", collection=true, mappedBy="resource")
+     *
+     * @var HadCustodyOf[]|Collection
+     */
+    protected $hadCustodyOf;
+
+    /**
+     * @OGM\Relationship(relationshipEntity="HadFormerOrCurrentResidence", type="HadFormerOrCurrentResidence", direction="INCOMING", collection=true, mappedBy="resource")
+     *
+     * @var HadFormerOrCurrentResidence[]|Collection
+     */
+    protected $hadFormerOrCurrentResidence;
+
     public function __construct()
     {
         $this->status = 'field_ready';

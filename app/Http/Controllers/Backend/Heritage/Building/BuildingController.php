@@ -8,13 +8,11 @@ use App\Models\Heritage\Building;
 use App\Repositories\Backend\Heritage\MaterialRepository;
 use App\Repositories\Backend\Heritage\ModificationTypeRepository;
 use Illuminate\Http\Request;
-use App\Models\Heritage\Resource;
 use App\Repositories\Backend\Heritage\ArchitecturalStyleRepository;
 use App\Repositories\Backend\Heritage\BuildingRepository;
 use App\Repositories\Backend\Heritage\HeritageResourceTypeRepository;
 use App\Repositories\Backend\Heritage\ProductionRepository;
 use App\Repositories\Backend\Heritage\ResourceRepository;
-use GraphAware\Neo4j\OGM\EntityManager;
 
 class BuildingController extends Controller
 {

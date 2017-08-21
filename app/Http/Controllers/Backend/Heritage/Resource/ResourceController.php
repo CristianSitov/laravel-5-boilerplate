@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\Heritage\HeritageResourceRequest;
 use App\Models\Heritage\ProtectionType;
 use App\Models\Heritage\Resource;
+use App\Repositories\Backend\Heritage\ActorRepository;
 use App\Repositories\Backend\Heritage\AdministrativeSubdivisionRepository;
 use App\Repositories\Backend\Heritage\ArchitecturalStyleRepository;
 use App\Repositories\Backend\Heritage\HeritageResourceTypeRepository;
@@ -48,6 +49,11 @@ class ResourceController extends Controller
     protected $streetNameRepository;
 
     /**
+     * @var ActorRepository
+     */
+    protected $actorRepository;
+
+    /**
      * HeritageResource constructor.
      *
      * @param ResourceRepository $resourceRepository
@@ -57,12 +63,14 @@ class ResourceController extends Controller
                                 AdministrativeSubdivisionRepository $administrativeSubdivisionRepository,
                                 StreetNameRepository $streetNameRepository,
                                 ArchitecturalStyleRepository $architecturalStyleRepository,
-                                HeritageResourceTypeRepository $heritageResourceTypeRepository
+                                HeritageResourceTypeRepository $heritageResourceTypeRepository,
+                                ActorRepository $actorRepository
     ) {
         $this->resourceRepository = $resourceRepository;
         $this->resourceTypeClassificationRepository = $resourceTypeClassificationRepository;
         $this->administrativeSubdivisionRepository = $administrativeSubdivisionRepository;
         $this->streetNameRepository = $streetNameRepository;
+        $this->actorRepository = $actorRepository;
     }
 
     public function index()
@@ -199,5 +207,15 @@ class ResourceController extends Controller
         return redirect()
             ->route('admin.heritage.resource.index')
             ->withFlashSuccess(trans('alerts.backend.resources.created'));
+    }
+
+    public function actors($id)
+    {
+        $resource = $this->resourceRepository->model->find($id);
+        $actors = $this->actorRepository->findPublished();
+
+        return view('backend.heritage.actors.index')
+            ->withResource($resource)
+            ->withActors($actors);
     }
 }

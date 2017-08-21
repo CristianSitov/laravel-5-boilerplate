@@ -38,6 +38,9 @@ return [
                 'restore_user'       => 'Restore User',
                 'edit_buildings'     => 'Edit Buildings',
             ],
+            'actors' => [
+                'index'              => 'Actor Management'
+            ]
         ]
     ],
 

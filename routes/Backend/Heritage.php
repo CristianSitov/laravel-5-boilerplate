@@ -27,6 +27,7 @@ Route::group([
             Route::delete('resource/{resource}', 'ResourceController@destroy')->name('resource.destroy');
             Route::put('resource/{resource}/restore', 'ResourceController@restore')->name('resource.restore');
         });
+
         Route::group([
             'namespace' => 'Resource',
             'middleware' => 'access.routeNeedsPermission:scout',
@@ -38,6 +39,7 @@ Route::group([
             Route::get('resource/create', 'ResourceController@create')->name('resource.create');
             Route::get('resource/{resource}', 'ResourceController@show')->name('resource.show');
             Route::post('resource', 'ResourceController@store')->name('resource.store');
+            Route::get('resource/{resource}/actors', 'ResourceController@actors')->name('resource.actors.index');
             // For Uploading images
             Route::post('/component/{component_id}/upload', 'UploadController@uploadImage')->name('resource.photos_upload');
             Route::delete('/component/{component_id}/upload/{id}/delete', 'UploadController@deleteImage')->name('resource.photos_delete');
@@ -71,6 +73,17 @@ Route::group([
              // For DataTables
              Route::post('resource-type-classification/get', 'ResourceTypeClassificationTableController')
                  ->name('resource-type-classification.get');
+        });
+
+        /*
+        * Actors
+        */
+        Route::group(['namespace' => 'Actor'], function () {
+            Route::resource('actors', 'ActorsController');
+
+             // For DataTables
+             Route::post('actors/get', 'ActorsTableController')
+                 ->name('actors.table.get');
         });
     });
 });

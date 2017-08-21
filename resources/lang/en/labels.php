@@ -188,6 +188,10 @@ return [
                     'created'        => 'Created',
                     'updated'        => 'Updated',
                 ],
+            ],
+            'actors' => [
+                'management' => 'Actors Management',
+                'list' => 'Actors List',
             ]
         ]
     ],

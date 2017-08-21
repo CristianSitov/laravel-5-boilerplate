@@ -38,6 +38,9 @@ return [
                 'restore_user'       => 'Restore User',
                 'edit_buildings'     => 'Actualizează corpuri clădire',
             ],
+            'actors' => [
+                'index'              => 'Management Persoane'
+            ]
         ]
     ],
 

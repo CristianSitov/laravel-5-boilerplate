@@ -191,6 +191,10 @@ return [
                     'created'        => 'Created',
                     'updated'        => 'Updated',
                 ],
+            ],
+            'actors' => [
+                'management' => 'Management Actori',
+                'list' => 'Listă Actori',
             ]
         ]
     ],
