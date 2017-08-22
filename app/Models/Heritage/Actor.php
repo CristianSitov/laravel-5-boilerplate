@@ -122,6 +122,22 @@ class Actor
     protected $updated_at;
 
     /**
+     * @var \DateTime
+     *
+     * @OGM\Property()
+     * @OGM\Convert(type="datetime", options={"format":"timestamp"})
+     */
+    protected $deleted_at;
+
+    /**
+     * @var \DateTime
+     *
+     * @OGM\Property()
+     * @OGM\Convert(type="datetime", options={"format":"timestamp"})
+     */
+    protected $published_at;
+
+    /**
      * @OGM\Relationship(relationshipEntity="WasDesignedBy", type="WasDesignedBy", direction="OUTGOING", collection=true, mappedBy="actor")
      *
      * @var WasDesignedBy[]|Collection
@@ -214,6 +230,36 @@ class Actor
     public function setUpdatedAt($updated_at)
     {
         $this->updated_at = $updated_at;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDeletedAt()
+    {
+        return $this->deleted_at;
+    }
+    /**
+     * @param \DateTime $deleted_at
+     */
+    public function setDeletedAt($deleted_at)
+    {
+        $this->deleted_at = $deleted_at;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getPublishedAt()
+    {
+        return $this->published_at;
+    }
+    /**
+     * @param \DateTime $published_at
+     */
+    public function setPublishedAt($published_at)
+    {
+        $this->published_at = $published_at;
     }
 
     /**

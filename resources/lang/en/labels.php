@@ -190,8 +190,9 @@ return [
                 ],
             ],
             'actors' => [
-                'management' => 'Actors Management',
-                'list' => 'Actors List',
+                'management'         => 'Actors Management',
+                'list'               => 'Actors List',
+                'create'             => 'Create Actor',
             ]
         ]
     ],

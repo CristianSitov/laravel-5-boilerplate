@@ -73,6 +73,10 @@ return [
 
             'resource_type_classification' => [
                 'management'      => 'Type Management',
+            ],
+
+            'actors' => [
+                'create'          => 'Create Actor'
             ]
         ],
 

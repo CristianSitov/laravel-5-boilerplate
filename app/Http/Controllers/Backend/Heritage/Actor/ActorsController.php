@@ -4,27 +4,31 @@ namespace App\Http\Controllers\Backend\Heritage\Actor;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Repositories\Backend\Heritage\ResourceRepository;
 
 class ActorsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    protected $resourceRepository;
+
+    public function __construct(ResourceRepository $resourceRepository)
     {
-        //
+        $this->resourceRepository = $resourceRepository;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function index()
     {
-        //
+    }
+
+    public function create($resource_id)
+    {
+        $resource = $this->resourceRepository->model->find($resource_id);
+        $placeAddress = $resource->getPlace()->getPlaceAddress();
+        $streetName = $placeAddress->getStreetName();
+        $address = ucfirst($streetName->getCurrentName()).', nr. '.$placeAddress->getNumber();
+
+        return view('backend.heritage.actors.create')
+            ->withResource($resource)
+            ->withAddress($address);
     }
 
     /**

@@ -19,7 +19,7 @@
             <h3 class="box-title">{{ trans('labels.backend.heritage.actors.list') }}</h3>
 
             <div class="box-tools pull-right">
-                {{--@include('backend.heritage.includes.header-buttons')--}}
+                @include('backend.heritage.includes.actor-header-buttons')
             </div><!--box-tools pull-right-->
         </div><!-- /.box-header -->
 

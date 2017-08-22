@@ -73,7 +73,12 @@ return [
 
             'resource_type_classification' => [
                 'management'      => 'Management Tipuri',
+            ],
+
+            'actors' => [
+                'create'          => 'Create Actor'
             ]
+
         ],
 
         'log-viewer' => [

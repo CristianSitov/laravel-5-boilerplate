@@ -3,6 +3,7 @@
 namespace App\Repositories\Backend\Heritage;
 
 use App\Models\Heritage\Actor;
+use App\Models\Heritage\Resource;
 use App\Repositories\BaseRepository;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\Common\Collections\Expr\Comparison;
@@ -27,22 +28,23 @@ class ActorRepository extends BaseRepository
      *
      * @return mixed
      */
-    public function getForDataTable($without_trashed = true, $published_only = true)
+    public function getForDataTable($resource, $without_trashed = true, $published_only = true)
     {
         if (!$without_trashed) {
             // admin
-            $actors = $this->model->findAll();
+            $queryResults = $this->em->createQuery('MATCH (a:Actor)-[]-(r:Resource) RETURN a, r');
         } else {
             if ($published_only) {
                 // public
-                $queryResults = $this->em->createQuery('MATCH (a:Actor) WHERE a.published IS NOT NULL AND a.deleted_at IS NULL RETURN a');
+                $queryResults = $this->em->createQuery('MATCH (a:Actor)-[]-(r:Resource) WHERE a.published IS NOT NULL AND a.deleted_at IS NULL RETURN a, r');
             } else {
                 // desk/scout
-                $queryResults = $this->em->createQuery('MATCH (a:Actor) WHERE a.deleted_at IS NULL RETURN a');
+                $queryResults = $this->em->createQuery('MATCH (a:Actor)-[]-(r:Resource) WHERE a.deleted_at IS NULL RETURN a, r');
             }
-            $queryResults->addEntityMapping('a', Resource::class);
-            $actors = $queryResults->getResult();
         }
+        $queryResults->addEntityMapping('a', Actor::class);
+        $queryResults->addEntityMapping('r', Resource::class);
+        $actors = $queryResults->getResult();
 
         $results = [];
         foreach ($actors as $k => $actor) {

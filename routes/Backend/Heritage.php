@@ -80,6 +80,7 @@ Route::group([
         */
         Route::group(['namespace' => 'Actor'], function () {
             Route::resource('actors', 'ActorsController');
+            Route::get('resource/{resource}/actors/create', 'ActorsController@create')->name('resource.actors.create');
 
              // For DataTables
              Route::post('actors/get', 'ActorsTableController')
