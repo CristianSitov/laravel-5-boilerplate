@@ -33,7 +33,80 @@
             </div>
         </div>
         <div class="box-body">
+            <div class="form-group">
+                {{ Form::label('name', trans('validation.attributes.backend.heritage.actors.name'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
+                <div class="col-lg-2 col-xs-12">
+                    {{ Form::text('appelation', '', ['class' => 'form-control']) }}
+                </div>
+                <div class="col-lg-4 col-xs-12">
+                    {{ Form::text('first_name', '', ['class' => 'form-control']) }}
+                </div>
+                <div class="col-lg-4 col-xs-12">
+                    {{ Form::text('last_name', '', ['class' => 'form-control']) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ Form::label('nick_name', trans('validation.attributes.backend.heritage.actors.nick_name'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
+                <div class="col-lg-6">
+                    {{ Form::text('nick_name', '', ['class' => 'form-control']) }}
+                </div>
+
+                {{ Form::label('is_legal', trans('validation.attributes.backend.heritage.actors.legal'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
+                <div class="col-lg-2">
+                    {{ Form::radio('is_legal', 'true', ['class' => 'form-control']) }}&nbsp;&nbsp;<span>Yes</span><br />
+                    {{ Form::radio('is_legal', 'false', ['class' => 'form-control']) }}&nbsp;&nbsp;<span>No</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <hr />
+            </div>
+            <div class="form-group">
+                {{ Form::label('keywords', trans('validation.attributes.backend.heritage.actors.keywords'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
+                
+                <div class="col-lg-10">
+                    {{ Form::text('keywords', '', ['class' => 'form-control']) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ Form::label('description', trans('validation.attributes.backend.heritage.actors.description'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
+
+                <div class="col-lg-10">
+                    {{ Form::textarea('description', '', ['class' => 'form-control']) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <hr />
+            </div>
+            <div class="form-group">
+                {{ Form::label('date_birth', trans('validation.attributes.backend.heritage.actors.date_birth'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
+                <div class="col-lg-4">
+                    {{ Form::text('date_birth', '', ['class' => 'form-control']) }}
+                </div>
+                {{ Form::label('date_death', trans('validation.attributes.backend.heritage.actors.date_death'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
+                <div class="col-lg-4">
+                    {{ Form::text('date_death', '', ['class' => 'form-control']) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ Form::label('place_birth', trans('validation.attributes.backend.heritage.actors.place_birth'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
+                <div class="col-lg-4">
+                    {{ Form::text('place_birth', '', ['class' => 'form-control']) }}
+                </div>
+                {{ Form::label('place_death', trans('validation.attributes.backend.heritage.actors.place_death'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
+                <div class="col-lg-4">
+                    {{ Form::text('place_death', '', ['class' => 'form-control']) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <hr />
+            </div>
+            <div class="form-group">
+                {{ Form::label('relationship', trans('validation.attributes.backend.heritage.actors.relationship'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
+                <div class="col-lg-4">
+                    {{ Form::selectActorRelationshipTypes('relationship', null, ['class' => 'input-sm col-lg-8']) }}
+                </div>
+            </div>
         </div>
     </div>
 

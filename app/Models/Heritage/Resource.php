@@ -176,11 +176,18 @@ class Resource extends Model
     protected $hadCustodyOf;
 
     /**
-     * @OGM\Relationship(relationshipEntity="HadFormerOrCurrentResidence", type="HadFormerOrCurrentResidence", direction="INCOMING", collection=true, mappedBy="resource")
+     * @OGM\Relationship(relationshipEntity="HadFormerResidence", type="HadFormerResidence", direction="INCOMING", collection=true, mappedBy="resource")
      *
-     * @var HadFormerOrCurrentResidence[]|Collection
+     * @var HadFormerResidence[]|Collection
      */
-    protected $hadFormerOrCurrentResidence;
+    protected $hadFormerResidence;
+
+    /**
+     * @OGM\Relationship(relationshipEntity="HasCurrentResidence", type="HasCurrentResidence", direction="INCOMING", collection=true, mappedBy="resource")
+     *
+     * @var HasCurrentResidence[]|Collection
+     */
+    protected $hasCurrentResidence;
 
     public function __construct()
     {

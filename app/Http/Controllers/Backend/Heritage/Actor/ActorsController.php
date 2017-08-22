@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend\Heritage\Actor;
 
+use App\Models\Heritage\Actor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Backend\Heritage\ResourceRepository;
@@ -22,6 +23,7 @@ class ActorsController extends Controller
     public function create($resource_id)
     {
         $resource = $this->resourceRepository->model->find($resource_id);
+
         $placeAddress = $resource->getPlace()->getPlaceAddress();
         $streetName = $placeAddress->getStreetName();
         $address = ucfirst($streetName->getCurrentName()).', nr. '.$placeAddress->getNumber();

@@ -98,6 +98,16 @@ return [
             'modified' => 'Modified afterwards',
         ],
 
+        'actor' => [
+            'wasDesignBy'             => 'Architect',
+            'wasBuiltBy'              => 'Constructor',
+            'wasOwnedBy'              => 'Owner',
+            'wasFormerOwnerOf'        => 'Former Owner',
+            'hadCustodyOf'            => 'Had Custody',
+            'hadFormerResidence'      => 'Former Residence',
+            'hasCurrentResidence'     => 'Current Residence',
+        ],
+
         'search' => [
             'empty'      => 'Please enter a search term.',
             'incomplete' => 'You must write your own search logic for this system.',

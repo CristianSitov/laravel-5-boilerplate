@@ -5,11 +5,11 @@ namespace App\Models\Heritage;
 use GraphAware\Neo4j\OGM\Annotations as OGM;
 
 /**
- * Class HadFormerOrCurrentResidence.
+ * Class HadFormerResidence.
  *
- * @OGM\RelationshipEntity(type="HadFormerOrCurrentResidence")
+ * @OGM\RelationshipEntity(type="HadFormerResidence")
  */
-class HadFormerOrCurrentResidence
+class HadFormerResidence
 {
     /**
      * @OGM\GraphId()

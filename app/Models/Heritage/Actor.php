@@ -173,11 +173,28 @@ class Actor
     protected $hadCustodyOf;
 
     /**
-     * @OGM\Relationship(relationshipEntity="HadFormerOrCurrentResidence", type="HadFormerOrCurrentResidence", direction="OUTGOING", collection=true, mappedBy="actor")
+     * @OGM\Relationship(relationshipEntity="HadFormerResidence", type="HadFormerResidence", direction="OUTGOING", collection=true, mappedBy="actor")
      *
-     * @var HadFormerOrCurrentResidence[]|Collection
+     * @var HadFormerResidence[]|Collection
      */
-    protected $hadFormerOrCurrentResidence;
+    protected $hadFormerResidence;
+
+    /**
+     * @OGM\Relationship(relationshipEntity="HasCurrentResidence", type="HasCurrentResidence", direction="OUTGOING", collection=true, mappedBy="actor")
+     *
+     * @var HasCurrentResidence[]|Collection
+     */
+    protected $hasCurrentResidence;
+
+    const RELS = [
+        'wasDesignBy',
+        'wasBuiltBy',
+        'wasOwnedBy',
+        'wasFormerOwnerOf',
+        'hadCustodyOf',
+        'hadFormerResidence',
+        'hasCurrentResidence',
+    ];
 
     /**
      * @return int

@@ -2,6 +2,7 @@
 
 namespace App\Helpers\Macros\Traits;
 
+use App\Models\Heritage\Actor;
 use App\Models\Heritage\Building;
 use App\Models\Heritage\Component;
 
@@ -1359,6 +1360,18 @@ trait Dropdowns
 
         foreach ($types as $type) {
             $list[$type] = trans('strings.backend.component.' . $type);
+        }
+
+        return $this->select($name, $list, $selected, $options);
+    }
+
+    public function selectActorRelationshipTypes($name, $selected = null, $options = [])
+    {
+        $list = [];
+        $types = Actor::RELS;
+
+        foreach ($types as $type) {
+            $list[$type] = trans('strings.backend.actor.' . $type);
         }
 
         return $this->select($name, $list, $selected, $options);
