@@ -37,7 +37,8 @@ class ActorsTableController extends Controller
 //        } else if (access()->hasRole('Scout') || access()->hasRole('Desk')) {
 //            $heritageResources = $this->actorsRepository->getForDataTable(true, false);
 //        }
-        $actors = $this->actorsRepository->getForDataTable(false, false);
+        $resource_id = (int) $request->getQueryString();
+        $actors = $this->actorsRepository->getForDataTable($resource_id, false, false);
 
         return Datatables::of($actors)
             ->escapeColumns(['address', 'name'])

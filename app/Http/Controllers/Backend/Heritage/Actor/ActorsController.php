@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Heritage\Actor;
 
 use App\Models\Heritage\Actor;
+use App\Repositories\Backend\Heritage\ActorRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Backend\Heritage\ResourceRepository;
@@ -10,10 +11,13 @@ use App\Repositories\Backend\Heritage\ResourceRepository;
 class ActorsController extends Controller
 {
     protected $resourceRepository;
+    protected $actorRepository;
 
-    public function __construct(ResourceRepository $resourceRepository)
+    public function __construct(ResourceRepository $resourceRepository,
+                                ActorRepository $actorRepository)
     {
         $this->resourceRepository = $resourceRepository;
+        $this->actorRepository = $actorRepository;
     }
 
     public function index()
@@ -41,7 +45,14 @@ class ActorsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $resource_id = (int) $request->getQueryString();
+        $resource = $this->resourceRepository->model->find($resource_id);
+
+        $this->actorRepository->store($request->all(), $resource);
+
+        return redirect()
+            ->route('admin.heritage.resource.actors.index', $resource_id)
+            ->withFlashSuccess(trans('alerts.backend.resources.created'));
     }
 
     /**

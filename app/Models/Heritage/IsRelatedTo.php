@@ -5,11 +5,11 @@ namespace App\Models\Heritage;
 use GraphAware\Neo4j\OGM\Annotations as OGM;
 
 /**
- * Class HadCustodyOf.
+ * Class IsRelatedTo.
  *
- * @OGM\RelationshipEntity(type="HadCustodyOf")
+ * @OGM\RelationshipEntity(type="IsRelatedTo")
  */
-class HadCustodyOf
+class IsRelatedTo
 {
     /**
      * @OGM\GraphId()
@@ -37,6 +37,13 @@ class HadCustodyOf
      *
      * @var string
      */
+    protected $relation;
+
+    /**
+     * @OGM\Property()
+     *
+     * @var string
+     */
     protected $since;
 
     /**
@@ -54,10 +61,11 @@ class HadCustodyOf
      * @param string $since
      * @param string $until
      */
-    public function __construct(Actor $actor, Resource $resource = null, $since = null, $until = null)
+    public function __construct(Actor $actor, Resource $resource = null, $relation = null, $since = null, $until = null, $main = null)
     {
         $this->actor = $actor;
         $this->resource = $resource;
+        $this->relation = $relation;
         $this->since = $since;
         $this->since = $until;
     }
@@ -100,6 +108,22 @@ class HadCustodyOf
     public function setResource($resource)
     {
         $this->resource = $resource;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRelation()
+    {
+        return $this->relation;
+    }
+
+    /**
+     * @param string $relation
+     */
+    public function setRelation($relation)
+    {
+        $this->relation = $relation;
     }
 
     /**

@@ -23,7 +23,7 @@
 @endsection
 
 @section('content')
-    {{ Form::model($resource, ['route' => ['admin.heritage.buildings.store', $resource->getId()], 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'POST']) }}
+    {{ Form::model($resource, ['route' => ['admin.heritage.actors.store', $resource->getId()], 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'POST']) }}
 
     <div class="box box-success">
         <div class="box-header with-border">
@@ -101,10 +101,18 @@
             <div class="form-group">
                 <hr />
             </div>
-            <div class="form-group">
+            <div class="form-group has-success has-feedback">
                 {{ Form::label('relationship', trans('validation.attributes.backend.heritage.actors.relationship'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
-                <div class="col-lg-4">
-                    {{ Form::selectActorRelationshipTypes('relationship', null, ['class' => 'input-sm col-lg-8']) }}
+                <div class="col-lg-3">
+                    {{ Form::selectActorRelationshipTypes('relationship', null, ['class' => 'input-sm col-lg-10']) }}
+                </div>
+                <div class="col-lg-7">
+                    <div class="input-group">
+                        <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
+                        {{ Form::text('date_from', '', ['class' => 'form-control']) }}
+                        <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
+                        {{ Form::text('date_to', '', ['class' => 'form-control']) }}
+                    </div>
                 </div>
             </div>
         </div>

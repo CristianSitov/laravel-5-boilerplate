@@ -99,13 +99,14 @@ return [
         ],
 
         'actor' => [
-            'wasDesignBy'             => 'Architect',
-            'wasBuiltBy'              => 'Constructor',
-            'wasOwnedBy'              => 'Owner',
-            'wasFormerOwnerOf'        => 'Former Owner',
-            'hadCustodyOf'            => 'Had Custody',
-            'hadFormerResidence'      => 'Former Residence',
-            'hasCurrentResidence'     => 'Current Residence',
+            'architect' => 'Architect',
+            'constructor' => 'Constructor',
+            'owner' => 'Owner',
+            'former_owner' => 'Former Owner',
+            'administrator' => 'Administrator',
+            'former_administrator' => 'Former Administrator',
+            'tenant' => 'Tenant',
+            'former_tenant' => 'Former Tenant',
         ],
 
         'search' => [

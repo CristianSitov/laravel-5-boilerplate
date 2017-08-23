@@ -123,6 +123,7 @@ return [
                     'id'                           => 'ID',
                     'name'                         => 'Name',
                     'address'                      => 'Address',
+                    'relation'                     => 'Relation',
                     'status'                       => 'Status',
                     'progress'                     => 'Progress',
                     'created'                      => 'Created',

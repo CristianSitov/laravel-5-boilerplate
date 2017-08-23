@@ -141,53 +141,11 @@ class Resource extends Model
     protected $modifications;
 
     /**
-     * @OGM\Relationship(relationshipEntity="WasDesignedBy", type="WasDesignedBy", direction="INCOMING", collection=true, mappedBy="resource")
+     * @OGM\Relationship(relationshipEntity="IsRelatedTo", type="IsRelatedTo", direction="INCOMING", collection=true, mappedBy="resource")
      *
-     * @var WasDesignedBy[]|Collection
+     * @var IsRelatedTo[]|Collection
      */
-    protected $wasDesignBy;
-
-    /**
-     * @OGM\Relationship(relationshipEntity="WasBuiltBy", type="WasBuiltBy", direction="INCOMING", collection=true, mappedBy="resource")
-     *
-     * @var WasBuiltBy[]|Collection
-     */
-    protected $wasBuiltBy;
-
-    /**
-     * @OGM\Relationship(relationshipEntity="WasOwnedBy", type="WasOwnedBy", direction="INCOMING", collection=true, mappedBy="resource")
-     *
-     * @var WasOwnedBy[]|Collection
-     */
-    protected $wasOwnedBy;
-
-    /**
-     * @OGM\Relationship(relationshipEntity="WasFormerOwnerOf", type="WasFormerOwnerOf", direction="INCOMING", collection=true, mappedBy="resource")
-     *
-     * @var WasFormerOwnerOf[]|Collection
-     */
-    protected $wasFormerOwnerOf;
-
-    /**
-     * @OGM\Relationship(relationshipEntity="HadCustodyOf", type="HadCustodyOf", direction="INCOMING", collection=true, mappedBy="resource")
-     *
-     * @var HadCustodyOf[]|Collection
-     */
-    protected $hadCustodyOf;
-
-    /**
-     * @OGM\Relationship(relationshipEntity="HadFormerResidence", type="HadFormerResidence", direction="INCOMING", collection=true, mappedBy="resource")
-     *
-     * @var HadFormerResidence[]|Collection
-     */
-    protected $hadFormerResidence;
-
-    /**
-     * @OGM\Relationship(relationshipEntity="HasCurrentResidence", type="HasCurrentResidence", direction="INCOMING", collection=true, mappedBy="resource")
-     *
-     * @var HasCurrentResidence[]|Collection
-     */
-    protected $hasCurrentResidence;
+    protected $isRelatedTo;
 
     public function __construct()
     {
@@ -461,5 +419,20 @@ class Resource extends Model
     public function getModifications()
     {
         return $this->modifications;
+    }
+
+    /**
+     * @return Collection|IsRelatedTo[]
+     */
+    public function getIsRelatedTo()
+    {
+        return $this->isRelatedTo;
+    }
+    /**
+     * @param IsRelatedTo $isRelatedTo
+     */
+    public function setIsRelatedTo($isRelatedTo)
+    {
+        $this->isRelatedTo = $isRelatedTo;
     }
 }

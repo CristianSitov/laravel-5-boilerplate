@@ -138,62 +138,21 @@ class Actor
     protected $published_at;
 
     /**
-     * @OGM\Relationship(relationshipEntity="WasDesignedBy", type="WasDesignedBy", direction="OUTGOING", collection=true, mappedBy="actor")
+     * @OGM\Relationship(relationshipEntity="IsRelatedTo", type="IsRelatedTo", direction="OUTGOING", collection=true, mappedBy="actor")
      *
-     * @var WasDesignedBy[]|Collection
+     * @var IsRelatedTo[]|Collection
      */
-    protected $wasDesignBy;
-
-    /**
-     * @OGM\Relationship(relationshipEntity="WasBuiltBy", type="WasBuiltBy", direction="OUTGOING", collection=true, mappedBy="actor")
-     *
-     * @var WasBuiltBy[]|Collection
-     */
-    protected $wasBuiltBy;
-
-    /**
-     * @OGM\Relationship(relationshipEntity="WasOwnedBy", type="WasOwnedBy", direction="OUTGOING", collection=true, mappedBy="actor")
-     *
-     * @var WasOwnedBy[]|Collection
-     */
-    protected $wasOwnedBy;
-
-    /**
-     * @OGM\Relationship(relationshipEntity="WasFormerOwnerOf", type="WasFormerOwnerOf", direction="OUTGOING", collection=true, mappedBy="actor")
-     *
-     * @var WasFormerOwnerOf[]|Collection
-     */
-    protected $wasFormerOwnerOf;
-
-    /**
-     * @OGM\Relationship(relationshipEntity="HadCustodyOf", type="HadCustodyOf", direction="OUTGOING", collection=true, mappedBy="actor")
-     *
-     * @var HadCustodyOf[]|Collection
-     */
-    protected $hadCustodyOf;
-
-    /**
-     * @OGM\Relationship(relationshipEntity="HadFormerResidence", type="HadFormerResidence", direction="OUTGOING", collection=true, mappedBy="actor")
-     *
-     * @var HadFormerResidence[]|Collection
-     */
-    protected $hadFormerResidence;
-
-    /**
-     * @OGM\Relationship(relationshipEntity="HasCurrentResidence", type="HasCurrentResidence", direction="OUTGOING", collection=true, mappedBy="actor")
-     *
-     * @var HasCurrentResidence[]|Collection
-     */
-    protected $hasCurrentResidence;
+    protected $isRelatedTo;
 
     const RELS = [
-        'wasDesignBy',
-        'wasBuiltBy',
-        'wasOwnedBy',
-        'wasFormerOwnerOf',
-        'hadCustodyOf',
-        'hadFormerResidence',
-        'hasCurrentResidence',
+        'architect',
+        'constructor',
+        'owner',
+        'former_owner',
+        'administrator',
+        'former_administrator',
+        'tenant',
+        'former_tenant',
     ];
 
     /**
@@ -449,5 +408,13 @@ class Actor
     public function setPlaceDeath($place_death)
     {
         $this->place_death = $place_death;
+    }
+
+    /**
+     * @return Collection|IsRelatedTo[]
+     */
+    public function getIsRelatedTo()
+    {
+        return $this->isRelatedTo;
     }
 }
