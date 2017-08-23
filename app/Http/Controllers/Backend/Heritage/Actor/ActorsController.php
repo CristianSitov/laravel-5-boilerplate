@@ -72,9 +72,20 @@ class ActorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($resource_id, $actor_id)
     {
-        //
+        $resource = $this->resourceRepository->model->find($resource_id);
+
+        $placeAddress = $resource->getPlace()->getPlaceAddress();
+        $streetName = $placeAddress->getStreetName();
+        $address = ucfirst($streetName->getCurrentName()).', nr. '.$placeAddress->getNumber();
+
+        $actor = $this->actorRepository->model->find($actor_id);
+
+        return view('backend.heritage.actors.edit')
+            ->withResource($resource)
+            ->withAddress($address)
+            ->withActor($actor);
     }
 
     /**
@@ -84,9 +95,16 @@ class ActorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $resource_id, $actor_id)
     {
-        //
+        $resource = $this->resourceRepository->model->find($resource_id);
+        $actor = $this->actorRepository->model->find($actor_id);
+
+        $this->actorRepository->update($request->all(), $resource, $actor);
+
+        return redirect()
+            ->route('admin.heritage.resource.actors.index', $resource_id)
+            ->withFlashSuccess(trans('alerts.backend.resources.edited'));
     }
 
     /**

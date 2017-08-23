@@ -129,6 +129,7 @@ return [
                     'created'                      => 'Created',
                     'last_updated'                 => 'Last Updated',
                     'confirmed'                    => 'Confirmed',
+                    'actions'                      => 'Actions',
                 ],
             ],
             'building' => [
@@ -194,6 +195,7 @@ return [
                 'management'         => 'Actors Management',
                 'list'               => 'Actors List',
                 'create'             => 'Create Actor',
+                'edit'               => 'Edit Actor',
             ]
         ]
     ],

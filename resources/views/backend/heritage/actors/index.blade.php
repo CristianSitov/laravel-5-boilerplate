@@ -30,6 +30,7 @@
                     <th>{{ trans('labels.backend.heritage.resources.table.address') }}</th>
                     <th>{{ trans('labels.backend.heritage.resources.table.relation') }}</th>
                     <th>{{ trans('labels.backend.heritage.resources.table.name') }}</th>
+                    <th>{{ trans('labels.backend.heritage.resources.table.actions') }}</th>
                     {{--<th>{{ trans('labels.general.actions') }}</th>--}}
                 </tr>
                 </thead>
@@ -70,7 +71,7 @@
                         return data + '<br> <small class="text-muted">c: '+row.created_at+'<br>u: '+row.updated_at+'</small>';
                     }},
                     {data: 'name', name: 'name'},
-//                    {data: 'actions', name: 'actions', searchable: false, sortable: false}
+                    {data: 'actions', name: 'actions', searchable: false, sortable: false}
                 ],
                 order: [[0, "asc"]],
                 stateSave: true,

@@ -44,5 +44,11 @@ return [
         'elements' => [
             'deleted' => 'The Architectural Elements were successfully deleted.'
         ],
+
+        'actors' => [
+            'created' => 'The Actor was successfully created.',
+            'updated' => 'The Actor was successfully updated.',
+            'detached' => 'The Actor was successfully detached.',
+        ],
     ],
 ];

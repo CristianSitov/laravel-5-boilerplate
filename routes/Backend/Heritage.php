@@ -80,7 +80,11 @@ Route::group([
         */
         Route::group(['namespace' => 'Actor'], function () {
             Route::resource('actors', 'ActorsController');
+            Route::get('actors/{actor}/restore', 'ActorsController@create')->name('actors.restore');
             Route::get('resource/{resource}/actors/create', 'ActorsController@create')->name('resource.actors.create');
+            Route::get('resource/{resource}/actors/{actor}/edit', 'ActorsController@edit')->name('resource.actors.edit');
+            Route::put('resource/{resource}/actors/{actor}/update', 'ActorsController@update')->name('resource.actors.update');
+            Route::get('resource/{resource}/actors/{actor}/detach', 'ActorsController@detach')->name('resource.actors.detach');
 
              // For DataTables
              Route::post('actors/get', 'ActorsTableController')

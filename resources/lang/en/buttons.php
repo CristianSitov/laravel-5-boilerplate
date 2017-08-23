@@ -56,12 +56,13 @@ return [
         'continue' => 'Continue',
 
         'crud' => [
-            'create' => 'Create',
-            'delete' => 'Delete',
-            'restore' => 'Restore',
-            'edit'   => 'Edit',
-            'update' => 'Update',
-            'view'   => 'View',
+            'create'    => 'Create',
+            'delete'    => 'Delete',
+            'unlink'    => 'Unlink',
+            'restore'   => 'Restore',
+            'edit'      => 'Edit',
+            'update'    => 'Update',
+            'view'      => 'View',
         ],
 
         'save' => 'Save',
