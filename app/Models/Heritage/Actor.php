@@ -417,4 +417,38 @@ class Actor
     {
         return $this->isRelatedTo;
     }
+
+    /**
+     * @return IsRelatedTo
+     */
+    public function getIsRelatedToById($id)
+    {
+        $relationships = $this->isRelatedTo;
+
+        $result = null;
+        foreach ($relationships as $relationship) {
+            if ($id == $relationship->getId()) {
+                $result = $relationship;
+            }
+        }
+
+        return $result;
+    }
+
+    /**
+     * @return array
+     */
+    public function getIsRelatedToIds()
+    {
+        $relationships = $this->isRelatedTo;
+
+        $results = [];
+        if ($relationships) {
+            foreach ($relationships as $relationship) {
+                $results[] = $relationship->getId();
+            }
+        }
+
+        return $results;
+    }
 }

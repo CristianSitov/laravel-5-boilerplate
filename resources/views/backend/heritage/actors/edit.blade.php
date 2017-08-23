@@ -101,17 +101,32 @@
             <div class="form-group">
                 <hr />
             </div>
-            <div class="form-group has-success has-feedback">
-                {{ Form::label('relationship', trans('validation.attributes.backend.heritage.actors.relationship'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
-                <div class="col-lg-3">
-                    {{ Form::selectActorRelationshipTypes('relationship', null, ['class' => 'input-sm col-lg-10']) }}
+            <div class="form-group relations">
+@foreach($actor->getIsRelatedTo() as $relation)
+                <div class="row clonedInput">
+                    {{ Form::label('relationship', trans('validation.attributes.backend.heritage.actors.relationship'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
+                    <div class="col-lg-3">
+                        {{ Form::selectActorRelationshipTypes('relationship['.$relation->getId().']', $relation->getRelation(), ['class' => 'input-sm col-lg-10']) }}
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="input-group">
+                            <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
+                            {{ Form::text('date_from['.$relation->getId().']', $relation->getSince(), ['class' => 'form-control']) }}
+                            <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
+                            {{ Form::text('date_to['.$relation->getId().']', $relation->getUntil(), ['class' => 'form-control']) }}
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <button type="button" class="btn btn-danger btn-sm remove">{{ trans('validation.attributes.backend.heritage.resources.delete_type_button') }}</button>
+                    </div>
+                    <div class="col-lg-12">&nbsp;</div>
                 </div>
-                <div class="col-lg-7">
-                    <div class="input-group">
-                        <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
-                        {{ Form::text('date_from', '', ['class' => 'form-control']) }}
-                        <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_to') }}</span>
-                        {{ Form::text('date_to', '', ['class' => 'form-control']) }}
+@endforeach
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-offset-11">
+                        <button type="button" class="btn btn-primary btn-sm clone"><span class="fa fa-plus-circle"></span></button>
                     </div>
                 </div>
             </div>
@@ -135,4 +150,31 @@
 @endsection
 
 @section('after-scripts')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var clone = function () {
+                var source = $('.relations');
+                var clonable = $('.relations .clonedInput:last');
+
+                clonable.clone(true).each(function(idx, elem) {
+                    $(elem).find('input, select')
+                        .attr({
+                            'name': function(_, id) {
+                                return id.replace(/\[.*?\]/g, '[]');
+                            },
+                            'value': ''
+                        });
+                }).appendTo(source)
+            };
+
+            var remove = function () {
+                if ($(this).parents(".clonedInput").parent().find('.clonedInput').length > 1) {
+                    $(this).parents(".clonedInput").remove();
+                }
+            };
+
+            $("button.clone").on("click", clone);
+            $("button.remove").on("click", remove);
+        });
+    </script>
 @endsection

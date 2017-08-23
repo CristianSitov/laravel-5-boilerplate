@@ -10,6 +10,7 @@ use Doctrine\Common\Collections\Criteria;
 use Doctrine\Common\Collections\Expr\Comparison;
 use GraphAware\Neo4j\OGM\EntityManager;
 use GraphAware\Neo4j\OGM\Query;
+use Hamcrest\Core\Is;
 
 /**
  * Class MaterialRepository.
@@ -44,7 +45,9 @@ class ActorRepository extends BaseRepository
         $this->em->persist($actor);
         $this->em->flush();
 
-        $resource->getIsRelatedTo()->add(new IsRelatedTo($actor, $resource, $data['relationship'], $data['date_from'], $data['date_to']));
+        foreach ($data['relationship'] as $inputRelationship => $relation) {
+            $resource->getIsRelatedTo()->add(new IsRelatedTo($actor, $resource, $data['relationship'][$inputRelationship], $data['date_from'][$inputRelationship], $data['date_to'][$inputRelationship]));
+        }
 
         $this->em->persist($actor);
         $this->em->persist($resource);
@@ -60,7 +63,7 @@ class ActorRepository extends BaseRepository
      *
      * @return mixed
      */
-    public function update($data, $resource, $actor)
+    public function update($data, Resource $resource, Actor $actor)
     {
         $actor->setAppelation($data['appelation']);
         $actor->setFirstName($data['first_name']);
@@ -78,8 +81,45 @@ class ActorRepository extends BaseRepository
         $this->em->persist($actor);
         $this->em->flush();
 
-        // detect changes
-        $resource->getIsRelatedTo()->add(new IsRelatedTo($actor, $resource, $data['relationship'], $data['date_from'], $data['date_to']));
+        // get existing relationships
+        $existingRelationshipIds = $actor->getIsRelatedToIds();
+        // iterate through received changes
+        foreach ($data['relationship'] as $inputRelationship => $relation) {
+            // existing
+            if (in_array($inputRelationship, $existingRelationshipIds)) {
+                // update existing
+                $upd = $actor->getIsRelatedToById($inputRelationship);
+                /* @var $upd IsRelatedTo */
+                $upd->setRelation($data['relationship'][$inputRelationship]);
+                $upd->setSince($data['date_from'][$inputRelationship]);
+                $upd->setUntil($data['date_to'][$inputRelationship]);
+                $this->em->persist($upd);
+                $this->em->persist($actor);
+                $this->em->persist($resource);
+                $this->em->flush();
+                // remove from list
+                $rem = array_search($inputRelationship, $existingRelationshipIds);
+                unset($existingRelationshipIds[$rem]);
+            } else {
+                // add new relation
+                /* @var $resource Resource */
+                $resource->getIsRelatedTo()->add(new IsRelatedTo($actor, $resource, $data['relationship'][$inputRelationship], $data['date_from'][$inputRelationship], $data['date_to'][$inputRelationship]));
+                $this->em->persist($resource);
+                $this->em->flush();
+            }
+        }
+
+        // if there are any left relations, remove them
+        if (count($existingRelationshipIds) > 0) {
+            foreach ($existingRelationshipIds as $removableRelationship) {
+                // remove relationship
+                $rem = $actor->getIsRelatedToById($removableRelationship);
+                $resource->getIsRelatedTo()->removeElement($rem);
+                $actor->getIsRelatedTo()->removeElement($rem);
+                $this->em->remove($rem);
+                $this->em->flush();
+            }
+        }
 
         $this->em->persist($actor);
         $this->em->persist($resource);
