@@ -9,6 +9,7 @@ use App\Models\Heritage\IsRelatedTo;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\Common\Collections\Expr\Comparison;
 use GraphAware\Neo4j\OGM\EntityManager;
+use GraphAware\Neo4j\OGM\Query;
 
 /**
  * Class MaterialRepository.
@@ -100,22 +101,26 @@ class ActorRepository extends BaseRepository
             }
         }
         $queryResults->addEntityMapping('actor', Actor::class);
+        $queryResults->addEntityMapping('rel', null, Query::HYDRATE_RAW);
         $queryResults->addEntityMapping('resource', Resource::class);
         $rawResults = $queryResults->getResult();
 
         $results = [];
-        foreach ($rawResults as $k => $rawResult) {
+        foreach ($rawResults as $rawResult) {
+            $unique = $rawResult['resource']->getId() . '_' . $rawResult['actor']->getId();
+
             $relations = [];
             foreach($rawResult['actor']->getIsRelatedTo() as $isRelatedTo) {
                 $relations[] = trans('strings.backend.actor.' . $isRelatedTo->getRelation());
             }
-            $results[$k]['id'] = $rawResult['actor']->getId();
-            $results[$k]['relation'] = implode(', ', $relations);
-            $results[$k]['name'] = $rawResult['actor']->getAppelation() . ' ' . $rawResult['actor']->getFirstName() . ' ' . $rawResult['actor']->getLastName();
-            $results[$k]['address'] = $rawResult['resource']->getPlace()->getPlaceAddress()->getStreetName()->getCurrentName().', nr. '.$rawResult['resource']->getPlace()->getPlaceAddress()->getNumber();
-            $results[$k]['actions'] = $rawResult['actor']->getActionButtonsAttribute($rawResult['resource']);
-            $results[$k]['created_at'] = $rawResult['actor']->getCreatedAt() ? $rawResult['actor']->getCreatedAt()->format('Y-m-d H:i:s') : '';
-            $results[$k]['updated_at'] = $rawResult['actor']->getUpdatedAt() ? $rawResult['actor']->getUpdatedAt()->format('Y-m-d H:i:s') : '';
+
+            $results[$unique]['id'] = $rawResult['actor']->getId();
+            $results[$unique]['relation'] = implode(', ', $relations);
+            $results[$unique]['name'] = $rawResult['actor']->getAppelation() . ' ' . $rawResult['actor']->getFirstName() . ' ' . $rawResult['actor']->getLastName();
+            $results[$unique]['address'] = $rawResult['resource']->getPlace()->getPlaceAddress()->getStreetName()->getCurrentName().', nr. '.$rawResult['resource']->getPlace()->getPlaceAddress()->getNumber();
+            $results[$unique]['actions'] = $rawResult['actor']->getActionButtonsAttribute($rawResult['resource']);
+            $results[$unique]['created_at'] = $rawResult['actor']->getCreatedAt() ? $rawResult['actor']->getCreatedAt()->format('Y-m-d H:i:s') : '';
+            $results[$unique]['updated_at'] = $rawResult['actor']->getUpdatedAt() ? $rawResult['actor']->getUpdatedAt()->format('Y-m-d H:i:s') : '';
         }
 
         return $results;

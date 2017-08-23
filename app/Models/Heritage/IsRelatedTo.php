@@ -67,7 +67,7 @@ class IsRelatedTo
         $this->resource = $resource;
         $this->relation = $relation;
         $this->since = $since;
-        $this->since = $until;
+        $this->until = $until;
     }
 
     /**
