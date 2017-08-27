@@ -107,10 +107,10 @@
 
                 <div class="form-group types">
 @foreach($resource->getProtectionTypes() as $i => $protection)
-                    <div id="types{{ $i+1 }}" class="clonedInput row mb-10">
+                    <div id="types{{ $i+1 }}" class="clonedInput mb-10">
                         {{ Form::label('protection_type[]', trans('validation.attributes.backend.heritage.resources.protection_type'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
-                        <div class="col-lg-10 col-xs-10 duplicable">
+                        <div class="col-lg-9 col-xs-11 duplicable">
                             <div class="col-lg-4">
                                 <div class="input-group">
                                 <span class="input-group-addon">
@@ -131,7 +131,7 @@
                                 <button type="button" class="btn btn-primary btn-sm clone">{{ trans('validation.attributes.backend.heritage.resources.add_type_button') }}</button>
                                 <button type="button" class="btn btn-danger btn-sm remove">{{ trans('validation.attributes.backend.heritage.resources.delete_type_button') }}</button>
                             </div>
-                            <div class="col-lg-12 col-xs-12">&nbsp;</div>
+                            <div class="col-lg-11 col-xs-11">&nbsp;</div>
                             <div class="col-lg-2">
                                 <div class="input-group cod-lmi">
                                     <span class="input-group-addon"><label>{{ trans('validation.attributes.backend.heritage.resources.protection_code') }}: </label></span>
@@ -141,7 +141,7 @@
                             <div class="col-lg-6">
                                 {{ Form::text('protection_type_legal['.$protection->getId().']', $protection->getLegal() ?: '', ['class' => 'form-control']) }}
                             </div>
-                            <div class="col-lg-12 col-xs-12">&nbsp;</div>
+                            <div class="col-lg-11 col-xs-11">&nbsp;</div>
                             {{ Form::label('protection_type_name['.$protection->getId().']', trans('validation.attributes.backend.heritage.resources.protection_name'), ['class' => 'col-lg-2 control-label label_name']) }}
                             <div class="col-lg-6">
                                 {{ Form::text('protection_type_name['.$protection->getId().']', $protection->getName() ?: '', ['class' => 'form-control']) }}

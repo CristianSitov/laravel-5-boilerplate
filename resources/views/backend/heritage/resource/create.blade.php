@@ -107,7 +107,7 @@
 
                 <div class="form-group types">
 
-                    <div id="types1" class="clonedInput row mb-10">
+                    <div id="types1" class="clonedInput mb-10">
                         {{ Form::label('protection_type[]', trans('validation.attributes.backend.heritage.resources.protection_type'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                         <div class="col-lg-10 col-xs-10 duplicable">
