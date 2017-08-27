@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="form-group">
-                    {{ Form::label('property_type', trans('validation.attributes.backend.heritage.resources.property_type'), ['class' => 'col-lg-2 control-label']) }}
+                    {{ Form::label('property_type', trans('validation.attributes.backend.heritage.resources.property_type'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-4 col-xs-12">
                         {{ Form::select('property_type', $property_types, $resource->getPropertyType(), ['required' => 'required', 'class' => 'col-lg-10 basic-select2 control-label']) }}
@@ -76,7 +76,7 @@
                 </div><!--form control-->
 
                 <div class="form-group">
-                    {{ Form::label('description', trans('validation.attributes.backend.heritage.resources.description'), ['class' => 'col-lg-2 control-label']) }}
+                    {{ Form::label('description', trans('validation.attributes.backend.heritage.resources.description'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-10 col-xs-12">
                         {{ Form::textarea('description', $resource->getDescription()->getNote(), ['class' => 'form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.description'), 'required' => 'required']) }}
@@ -84,7 +84,7 @@
                 </div><!--form control-->
 
                 <div class="form-group">
-                    {{ Form::label('description_ro', trans('validation.attributes.backend.heritage.resources.description_ro'), ['class' => 'col-lg-2 control-label']) }}
+                    {{ Form::label('description_ro', trans('validation.attributes.backend.heritage.resources.description_ro'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-10 col-xs-12">
                         {{ Form::textarea('description_ro', $resource->getDescription()->getNoteRo(), ['class' => 'form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.description_ro'), 'required' => 'required']) }}
@@ -92,7 +92,7 @@
                 </div><!--form control-->
 
                 <div class="form-group">
-                    {{ Form::label('district', trans('validation.attributes.backend.heritage.resources.address'), ['class' => 'col-lg-2 control-label']) }}
+                    {{ Form::label('district', trans('validation.attributes.backend.heritage.resources.address'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-3">
                         {{ Form::select('district', $administrative_subdivision, $resource->getPlace()->getPlaceAddress()->getStreetName() && $resource->getPlace()->getPlaceAddress()->getStreetName()->getAdministrativeSubdivision() ? $resource->getPlace()->getPlaceAddress()->getStreetName()->getAdministrativeSubdivision()->getId() : '', ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2']) }}
@@ -108,7 +108,7 @@
                 <div class="form-group types">
 @foreach($resource->getProtectionTypes() as $i => $protection)
                     <div id="types{{ $i+1 }}" class="clonedInput row mb-10">
-                        {{ Form::label('protection_type[]', trans('validation.attributes.backend.heritage.resources.protection_type'), ['class' => 'col-lg-2 control-label label_name']) }}
+                        {{ Form::label('protection_type[]', trans('validation.attributes.backend.heritage.resources.protection_type'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                         <div class="col-lg-10 col-xs-10 duplicable">
                             <div class="col-lg-4">
@@ -157,11 +157,11 @@
         <div class="box box-info">
             <div class="box-body">
                 <div class="pull-left">
-                    {{ link_to_route('admin.heritage.resource.index', trans('buttons.general.cancel'), [], ['class' => 'btn btn-danger btn-xs']) }}
+                    {{ link_to_route('admin.heritage.resource.index', trans('buttons.general.cancel'), [], ['class' => 'btn btn-danger btn-sm']) }}
                 </div><!--pull-left-->
 
                 <div class="pull-right">
-                    {{ Form::submit(trans('buttons.general.crud.update'), ['class' => 'btn btn-success btn-xs']) }}
+                    {{ Form::submit(trans('buttons.general.crud.update'), ['class' => 'btn btn-success btn-sm']) }}
                 </div><!--pull-right-->
 
                 <div class="clearfix"></div>

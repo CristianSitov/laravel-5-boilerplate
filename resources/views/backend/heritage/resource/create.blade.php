@@ -92,7 +92,7 @@
                 </div><!--form control-->
 
                 <div class="form-group">
-                    {{ Form::label('district', trans('validation.attributes.backend.heritage.resources.address'), ['class' => 'col-lg-2 control-label']) }}
+                    {{ Form::label('district', trans('validation.attributes.backend.heritage.resources.address'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                     <div class="col-lg-3">
                         {{ Form::select('district', $administrative_subdivision, '', ['required' => 'required', 'class' => 'col-lg-2 control-label basic-select2']) }}
@@ -108,7 +108,7 @@
                 <div class="form-group types">
 
                     <div id="types1" class="clonedInput row mb-10">
-                        {{ Form::label('protection_type[]', trans('validation.attributes.backend.heritage.resources.protection_type'), ['class' => 'col-lg-2 control-label label_name']) }}
+                        {{ Form::label('protection_type[]', trans('validation.attributes.backend.heritage.resources.protection_type'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
 
                         <div class="col-lg-10 col-xs-10 duplicable">
                             <div class="col-lg-4">
