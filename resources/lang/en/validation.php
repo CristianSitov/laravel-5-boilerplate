@@ -154,6 +154,7 @@ return [
 
             'heritage' => [
                 'resources' => [
+                    'current'                  => 'Curent?',
                     'name'                     => 'Name',
                     'date_from'                => 'Date From',
                     'date_to'                  => 'Date To',
@@ -182,12 +183,12 @@ return [
                     'plot_plan'                => 'Plot plan',
                     'modification_type'        => 'Modification Type',
                     'action_button'            => 'Actions',
-                    'add_name_button'          => '+ Add Name',
-                    'delete_name_button'       => '× Delete Name',
-                    'add_type_button'          => '+ Add Type',
-                    'delete_type_button'       => '× Delete Type',
-                    'add_protection_button'    => '+ Add Type',
-                    'delete_protection_button' => '× Delete Type',
+                    'add_name_button'          => 'Add Name',
+                    'delete_name_button'       => 'Delete Name',
+                    'add_type_button'          => 'Add Type',
+                    'delete_type_button'       => 'Delete Type',
+                    'add_protection_button'    => 'Add Type',
+                    'delete_protection_button' => 'Delete Type',
                     'none'                     => 'None',
                     'historical_monument'      => 'Historical Monument',
                     'architectural_ensemble'   => 'Architectural Ensemble',

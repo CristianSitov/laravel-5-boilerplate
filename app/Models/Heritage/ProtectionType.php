@@ -80,18 +80,16 @@ class ProtectionType
     protected $current;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @OGM\Property()
-     * @OGM\Convert(type="datetime", options={"format":"timestamp"})
+     * @OGM\Property(type="string")
      */
     protected $date_from;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @OGM\Property()
-     * @OGM\Convert(type="datetime", options={"format":"timestamp"})
+     * @OGM\Property(type="string")
      */
     protected $date_to;
 
@@ -290,14 +288,14 @@ class ProtectionType
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
     public function getDateFrom()
     {
         return $this->date_from;
     }
     /**
-     * @param \DateTime $date_from
+     * @param string $legal
      */
     public function setDateFrom($date_from)
     {
@@ -305,14 +303,14 @@ class ProtectionType
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
     public function getDateTo()
     {
         return $this->date_to;
     }
     /**
-     * @param \DateTime $date_to
+     * @param string $legal
      */
     public function setDateTo($date_to)
     {

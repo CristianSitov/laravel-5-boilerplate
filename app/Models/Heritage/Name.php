@@ -42,18 +42,16 @@ class Name
     protected $current;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @OGM\Property()
-     * @OGM\Convert(type="datetime", options={"format":"timestamp"})
+     * @OGM\Property(type="string")
      */
     protected $date_from;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @OGM\Property()
-     * @OGM\Convert(type="datetime", options={"format":"timestamp"})
+     * @OGM\Property(type="string")
      */
     protected $date_to;
 
@@ -180,14 +178,14 @@ class Name
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
     public function getDateFrom()
     {
         return $this->date_from;
     }
     /**
-     * @param \DateTime $date_from
+     * @param string $date_from
      */
     public function setDateFrom($date_from)
     {
@@ -195,14 +193,14 @@ class Name
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
     public function getDateTo()
     {
         return $this->date_to;
     }
     /**
-     * @param \DateTime $date_to
+     * @param string $date_to
      */
     public function setDateTo($date_to)
     {

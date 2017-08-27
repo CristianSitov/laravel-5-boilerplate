@@ -71,20 +71,6 @@ class Resource extends Model
     protected $deleted_at;
 
     /**
-     * @var string
-     *
-     * @OGM\Property(type="string")
-     */
-    protected $status;
-
-    /**
-     * @var int
-     *
-     * @OGM\Property(type="int")
-     */
-    protected $progress;
-
-    /**
      * @var Name[]|Collection
      *
      * @OGM\Relationship(type="IsIdentifiedBy", direction="OUTGOING", targetEntity="Name", collection=true, mappedBy="resource")
@@ -238,36 +224,6 @@ class Resource extends Model
     public function setDeletedAt($deleted_at)
     {
         $this->deleted_at = $deleted_at;
-    }
-
-    /**
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
-    /**
-     * @param string $status
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
-    }
-
-    /**
-     * @return int
-     */
-    public function getProgress()
-    {
-        return $this->progress;
-    }
-    /**
-     * @param int $progress
-     */
-    public function setProgress($progress)
-    {
-        $this->progress = $progress;
     }
 
     /**

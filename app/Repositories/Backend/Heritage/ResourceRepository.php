@@ -22,48 +22,6 @@ use Webpatser\Uuid\Uuid;
  */
 class ResourceRepository extends BaseRepository
 {
-    const STATUSES = [
-        'field_ready' => [
-            'label' => 'default',
-            'name' => 'I. Desk - Imported'
-        ],
-        'field_done' => [
-            'label' => 'danger',
-            'name' => 'II. Field - Mapped',
-        ],
-        'moderated' => [
-            'label' => 'warning',
-            'name' => 'III. Desk - Evaluated',
-        ],
-        'published' => [
-            'label' => 'info',
-            'name' => 'IV. Published',
-        ],
-    ];
-
-    const PROGRESSES = [
-        '15' => [
-            'label' => 'default',
-            'value' => '15'
-        ],
-        '30' => [
-            'label' => 'danger',
-            'value' => '30',
-        ],
-        '60' => [
-            'label' => 'warning',
-            'value' => '60',
-        ],
-        '80' => [
-            'label' => 'info',
-            'value' => '80',
-        ],
-        '100' => [
-            'label' => 'success',
-            'value' => '100',
-        ],
-    ];
-
     /**
      * @var EntityManager
      */
@@ -116,16 +74,13 @@ class ResourceRepository extends BaseRepository
 
         $resource = new Resource();
         $resource->setUuid((string)Uuid::generate(4));
-        $resource->setProgress(15);
         $resource->setDeletedAt(null);
         $resource->setPublishedAt(null);
         $resource->setCreatedAt(new \DateTime());
         $resource->setUpdatedAt(new \DateTime());
 
         foreach ($data['name'] as $k => $input_name) {
-            $name = new Name($input_name,
-                \DateTime::createFromFormat('Y', $data['name_date_from'][$k]) ?: null,
-                \DateTime::createFromFormat('Y', $data['name_date_to'][$k]) ?: null);
+            $name = new Name($input_name, $data['name_date_from'][$k] ?: null, $data['name_date_to'][$k] ?: null);
 
             if (isset($data['current_name'])) {
                 if ($data['current_name'] == $k) {
@@ -168,10 +123,8 @@ class ResourceRepository extends BaseRepository
         // LEGALS (judicial, proprietary)
         foreach ($data['protection_type'] as $l => $input_property_type) {
             $protectionType = new ProtectionType($data['protection_type'][$l],
-                \DateTime::createFromFormat('Y', $data['protection_type_date_from'][$l]) ?: null,
-                \DateTime::createFromFormat('Y', $data['protection_type_date_to'][$l]) ?: null,
-                $data['protection_type_legal_set'][$l] ?: null,
-                $data['protection_type_legal'][$l] ?: null);
+                $data['protection_type_date_from'][$l] ?: null, $data['protection_type_date_to'][$l] ?: null,
+                $data['protection_type_legal_set'][$l] ?: null, $data['protection_type_legal'][$l] ?: null);
 
             if (isset($data['current_type'])) {
                 if ($data['current_type'] == $l) {
@@ -213,8 +166,8 @@ class ResourceRepository extends BaseRepository
                 // update this if matches ID
                 $updateName = $this->em->find(Name::class, $name->getId());
                 $updateName->setName($data['name'][$namesArray[$f]]);
-                $updateName->setDateFrom(\DateTime::createFromFormat('Y', $data['name_date_from'][$namesArray[$f]]) ?: null);
-                $updateName->setDateTo(\DateTime::createFromFormat('Y', $data['name_date_to'][$namesArray[$f]]) ?: null);
+                $updateName->setDateFrom($data['name_date_from'][$namesArray[$f]] ?: null);
+                $updateName->setDateTo($data['name_date_to'][$namesArray[$f]] ?: null);
                 unset($namesArray[$f]);
                 $this->em->persist($updateName);
                 $this->em->flush();
@@ -226,9 +179,7 @@ class ResourceRepository extends BaseRepository
 
         if (isset($data['new_name'])) {
             foreach ($data['new_name'] as $k => $newName) {
-                $name = new Name($newName,
-                    \DateTime::createFromFormat('Y', $data['new_name_date_from'][$k]) ?: null,
-                    \DateTime::createFromFormat('Y', $data['new_name_date_to'][$k]) ?: null);
+                $name = new Name($newName, $data['new_name_date_from'][$k] ?: null, $data['new_name_date_to'][$k] ?: null);
 
                 if (isset($data['current_name'])) {
                     if ($data['current_name'] == ($k + count($data['name']))) {
@@ -272,8 +223,8 @@ class ResourceRepository extends BaseRepository
             if ($p !== false) {
                 $updateProtection = $this->em->find(ProtectionType::class, $protectionType->getId());
                 $updateProtection->setType($data['protection_type'][$typesArray[$p]]);
-                $updateProtection->setDateFrom(\DateTime::createFromFormat('Y', $data['protection_type_date_from'][$typesArray[$p]]) ?: null);
-                $updateProtection->setDateTo(\DateTime::createFromFormat('Y', $data['protection_type_date_to'][$typesArray[$p]]) ?: null);
+                $updateProtection->setDateFrom($data['protection_type_date_from'][$typesArray[$p]] ?: null);
+                $updateProtection->setDateTo($data['protection_type_date_to'][$typesArray[$p]] ?: null);
                 $updateProtection->setSet($data['protection_type_legal_set'][$typesArray[$p]]);
                 $updateProtection->setLegal($data['protection_type_legal'][$typesArray[$p]]);
                 $updateProtection->setName($data['protection_type_name'][$typesArray[$p]]);
@@ -293,10 +244,8 @@ class ResourceRepository extends BaseRepository
         if (isset($data['new_protection_type'])) {
             foreach ($data['new_protection_type'] as $k => $newProtectionType) {
                 $protectionType = new ProtectionType($data['new_protection_type'][$k],
-                    \DateTime::createFromFormat('Y', $data['new_protection_type_date_from'][$k]) ?: null,
-                    \DateTime::createFromFormat('Y', $data['new_protection_type_date_to'][$k]) ?: null,
-                    $data['new_protection_type_legal_set'][$k] ?: null,
-                    $data['new_protection_type_legal'][$k] ?: null);
+                    $data['new_protection_type_date_from'][$k] ?: null, $data['new_protection_type_date_to'][$k] ?: null,
+                    $data['new_protection_type_legal_set'][$k] ?: null, $data['new_protection_type_legal'][$k] ?: null);
 
                 $protectionType->setName($data['new_protection_type_name'][$k]);
                 $protectionType->setUuid((string)Uuid::generate(4));
