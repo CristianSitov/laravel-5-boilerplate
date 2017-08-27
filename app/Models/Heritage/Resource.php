@@ -106,6 +106,13 @@ class Resource extends Model
     protected $resourceTypeClassification;
 
     /**
+     * @var LegalDocument[]|Collection
+     *
+     * @OGM\Relationship(type="IsDocumentedBy", direction="OUTGOING", targetEntity="LegalDocument", collection=true, mappedBy="resource")
+     */
+    protected $legalDocuments;
+
+    /**
      * @var Place
      *
      * @OGM\Relationship(type="HasCurrentLocation", direction="OUTGOING", targetEntity="Place", mappedBy="resource")
@@ -141,6 +148,7 @@ class Resource extends Model
         $this->protectionTypes = new Collection();
         $this->productions = new Collection();
         $this->modifications = new Collection();
+        $this->legalDocuments = new Collection();
     }
 
     /**
@@ -370,11 +378,11 @@ class Resource extends Model
     }
 
     /**
-     * @return Modification[]|Collection
+     * @return LegalDocument[]|Collection
      */
-    public function getModifications()
+    public function getLegalDocuments()
     {
-        return $this->modifications;
+        return $this->legalDocuments;
     }
 
     /**

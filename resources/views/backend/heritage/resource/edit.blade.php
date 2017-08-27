@@ -150,6 +150,25 @@
                     </div>
 @endforeach
                 </div>
+                <div class="form-group legals">
+
+                    <div id="legals1" class="clonedInput mb-10">
+                        {{ Form::label('legals[]', trans('validation.attributes.backend.heritage.resources.legals'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
+
+                        <div class="col-lg-10 col-xs-10">
+                            <div class="col-lg-4">
+                                {{ Form::select('legal_type', $legal_document_types, (count($resource->getLegalDocuments()) > 0) ? $resource->getLegalDocuments()[0]->getType() : '', ['class' => 'col-lg-4 form-control']) }}
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon">{{ trans('validation.attributes.backend.heritage.resources.date_from') }}</span>
+                                    {{ Form::text('legal_type_date_from', (count($resource->getLegalDocuments()) > 0) ? $resource->getLegalDocuments()[0]->getDateFrom() : '', ['class' => 'form-control']) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
 
             </div><!-- /.box-body -->
         </div><!--box-->

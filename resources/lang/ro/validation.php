@@ -174,6 +174,7 @@ return [
                     'private'                  => 'Privat',
                     'public_private'           => 'Public/Privat',
                     'other'                    => 'Other',
+                    'legals'                   => 'Documente legale',
                     'protection_type'          => 'Tip protecție',
                     'protection_code'          => 'Cod',
                     'protection_name'          => 'Nume',
@@ -198,6 +199,7 @@ return [
                     'historical_site'          => 'Sit monument istoric',
                     'protection_area'          => 'Zonă de protecție a monumentului istoric',
                     'protected_area'           => 'Zonă construită protejată',
+                    'building_approval'        => 'Aviz de construire',
                 ],
                 'buildings' => [
                     'type'                    => 'Tip corp',

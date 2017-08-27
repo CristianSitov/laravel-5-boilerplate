@@ -174,6 +174,7 @@ return [
                     'private'                  => 'Private',
                     'public_private'           => 'Public/Private',
                     'other'                    => 'Other',
+                    'legals'                   => 'Legal Documents',
                     'protection_type'          => 'Protection Type',
                     'protection_code'          => 'Protection Code',
                     'protection_name'          => 'Protection Name',
@@ -196,6 +197,7 @@ return [
                     'historical_site'          => 'Historical Site',
                     'protection_area'          => 'Protection Area',
                     'protected_area'           => 'Protected Area',
+                    'building_approval'        => 'Building Approval',
                 ],
                 'buildings' => [
                     'type'                    => 'Building Type',

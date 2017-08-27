@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend\Heritage\Resource;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\Heritage\HeritageResourceRequest;
+use App\Models\Heritage\LegalDocument;
 use App\Models\Heritage\ProtectionType;
 use App\Models\Heritage\Resource;
 use App\Repositories\Backend\Heritage\ActorRepository;
@@ -98,6 +99,7 @@ class ResourceController extends Controller
         $protectionSets = ProtectionType::getSetOptions();
         $protectionTypes = ProtectionType::getTypeOptions();
         $propertyTypes = Resource::getPropertyTypeOptions();
+        $legalDocumentTypes = LegalDocument::getPossibleTypes();
 
         return view('backend.heritage.resource.create')
             ->withAdministrativeSubdivision($administrativeSubdivision)
@@ -105,6 +107,7 @@ class ResourceController extends Controller
             ->withProtectionSets($protectionSets)
             ->withProtectionTypes($protectionTypes)
             ->withPropertyTypes($propertyTypes)
+            ->withLegalDocumentTypes($legalDocumentTypes)
             ->withResourceTypeClassifications($resourceTypeClassifications);
     }
 
@@ -145,6 +148,7 @@ class ResourceController extends Controller
         $protectionSets = ProtectionType::getSetOptions();
         $protectionTypes = ProtectionType::getTypeOptions();
         $propertyTypes = Resource::getPropertyTypeOptions();
+        $legalDocumentTypes = LegalDocument::getPossibleTypes();
 
         $resourceNames = $resource->getNames();
         $names = [];
@@ -160,6 +164,7 @@ class ResourceController extends Controller
             ->withProtectionSets($protectionSets)
             ->withProtectionTypes($protectionTypes)
             ->withPropertyTypes($propertyTypes)
+            ->withLegalDocumentTypes($legalDocumentTypes)
             ->withResource($resource);
     }
 

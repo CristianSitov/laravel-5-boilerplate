@@ -6,6 +6,7 @@ use App\Events\Backend\Heritage\ResourceCreated;
 use App\Events\Backend\Heritage\ResourceUpdated;
 use App\Models\Heritage\AdministrativeSubdivision;
 use App\Models\Heritage\Description;
+use App\Models\Heritage\LegalDocument;
 use App\Models\Heritage\Name;
 use App\Models\Heritage\Place;
 use App\Models\Heritage\PlaceAddress;
@@ -143,6 +144,8 @@ class ResourceRepository extends BaseRepository
             $protectionType->setUpdatedAt(new \DateTime());
             $resource->getProtectionTypes()->add($protectionType);
         }
+        $legalDocument = new LegalDocument(null, $data['legal_type'], $data['legal_type_date_from']);
+        $resource->getLegalDocuments()->add($legalDocument);
 
         $this->em->persist($resource);
         $this->em->flush();
@@ -258,6 +261,16 @@ class ResourceRepository extends BaseRepository
         }
 
         $resource->setPropertyType($data['property_type']);
+
+        if(count($resource->getLegalDocuments()) > 0) {
+            $updateLegal = $resource->getLegalDocuments()[0];
+            $updateLegal->setType($data['legal_type']);
+            $updateLegal->setDateFrom($data['legal_type_date_from']);
+            $this->em->persist($updateLegal);
+            $this->em->flush();
+        } else {
+            $resource->getLegalDocuments()->add(new LegalDocument(null, $data['legal_type'], $data['legal_type_date_from']));
+        }
 
         $this->em->persist($resource);
         $this->em->flush();
