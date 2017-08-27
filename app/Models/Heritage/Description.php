@@ -35,6 +35,13 @@ class Description
     protected $note;
 
     /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $note_ro;
+
+    /**
      * @var \DateTime
      *
      * @OGM\Property()
@@ -129,6 +136,22 @@ class Description
     public function setNote($note)
     {
         $this->note = $note;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNoteRo()
+    {
+        return $this->note_ro;
+    }
+
+    /**
+     * @param string $note_ro
+     */
+    public function setNoteRo($note_ro)
+    {
+        $this->note_ro = $note_ro;
     }
 
     /**

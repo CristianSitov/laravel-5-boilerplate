@@ -101,6 +101,7 @@ class ResourceRepository extends BaseRepository
         $description = new Description($resource);
         $description->setUuid((string)Uuid::generate(4));
         $description->setNote($data['description']);
+        $description->setNoteRo($data['description_ro']);
         $description->setCreatedAt(new \DateTime());
         $description->setUpdatedAt(new \DateTime());
 
@@ -199,6 +200,7 @@ class ResourceRepository extends BaseRepository
         }
 
         $resource->getDescription()->setNote($data['description']);
+        $resource->getDescription()->setNoteRo($data['description_ro']);
 
         $street = $resource->getPlace()->getPlaceAddress()->getStreetName();
         if (!$street || $street->getId() != $data['street']) {

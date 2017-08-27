@@ -84,6 +84,14 @@
                 </div><!--form control-->
 
                 <div class="form-group">
+                    {{ Form::label('description_ro', trans('validation.attributes.backend.heritage.resources.description_ro'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
+
+                    <div class="col-lg-10 col-xs-12">
+                        {{ Form::textarea('description_ro', null, ['class' => 'col-lg-10 form-control description', 'placeholder' => trans('validation.attributes.backend.heritage.resources.description_ro'), 'required' => 'required']) }}
+                    </div><!--col-lg-10-->
+                </div><!--form control-->
+
+                <div class="form-group">
                     {{ Form::label('district', trans('validation.attributes.backend.heritage.resources.address'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-3">
