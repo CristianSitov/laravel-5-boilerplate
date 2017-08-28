@@ -7,6 +7,10 @@
 Route::get('/', 'FrontendController@index')->name('index');
 Route::get('macros', 'FrontendController@macros')->name('macros');
 
+Route::group(['namespace' => 'Heritage', 'as' => 'heritage.'], function () {
+    Route::get('resources', 'ResourcesController@index')->name('resources');
+});
+
 /*
  * These frontend controllers require the user to be logged in
  * All route names are prefixed with 'frontend.'
