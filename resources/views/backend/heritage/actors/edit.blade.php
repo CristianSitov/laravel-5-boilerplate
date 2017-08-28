@@ -76,6 +76,13 @@
                 </div>
             </div>
             <div class="form-group">
+                {{ Form::label('description_ro', trans('validation.attributes.backend.heritage.actors.description_ro'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
+
+                <div class="col-lg-10">
+                    {{ Form::textarea('description_ro', $actor->getDescriptionRo(), ['class' => 'form-control']) }}
+                </div>
+            </div>
+            <div class="form-group">
                 <hr />
             </div>
             <div class="form-group">
@@ -103,7 +110,7 @@
             </div>
             <div class="form-group relations">
 @foreach($actor->getIsRelatedTo() as $relation)
-                <div class="row clonedInput">
+                <div class="clonedInput">
                     {{ Form::label('relationship', trans('validation.attributes.backend.heritage.actors.relationship'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
                     <div class="col-lg-3">
                         {{ Form::selectActorRelationshipTypes('relationship['.$relation->getId().']', $relation->getRelation(), ['class' => 'input-sm col-lg-10']) }}

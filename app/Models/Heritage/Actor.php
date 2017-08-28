@@ -68,6 +68,13 @@ class Actor
      *
      * @OGM\Property(type="string")
      */
+    protected $description_ro;
+
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
     protected $keywords;
 
     /**
@@ -316,6 +323,22 @@ class Actor
     public function setDescription($description)
     {
         $this->description = $description;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescriptionRo()
+    {
+        return $this->description_ro;
+    }
+
+    /**
+     * @param string $description_ro
+     */
+    public function setDescriptionRo($description_ro)
+    {
+        $this->description_ro = $description_ro;
     }
 
     /**

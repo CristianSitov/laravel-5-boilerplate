@@ -35,6 +35,7 @@ class ActorRepository extends BaseRepository
         $actor->setIsLegal($data['is_legal']);
         $actor->setKeywords($data['keywords']);
         $actor->setDescription($data['description']);
+        $actor->setDescriptionRo($data['description_ro']);
         $actor->setDateBirth($data['date_birth']);
         $actor->setDateDeath($data['date_death']);
         $actor->setPlaceBirth($data['place_birth']);
@@ -72,6 +73,7 @@ class ActorRepository extends BaseRepository
         $actor->setIsLegal($data['is_legal']);
         $actor->setKeywords($data['keywords']);
         $actor->setDescription($data['description']);
+        $actor->setDescriptionRo($data['description_ro']);
         $actor->setDateBirth($data['date_birth']);
         $actor->setDateDeath($data['date_death']);
         $actor->setPlaceBirth($data['place_birth']);

@@ -76,6 +76,13 @@
                 </div>
             </div>
             <div class="form-group">
+                {{ Form::label('description_ro', trans('validation.attributes.backend.heritage.actors.description_ro'), ['class' => 'col-lg-2 col-xs-12 control-label']) }}
+
+                <div class="col-lg-10">
+                    {{ Form::textarea('description_ro', '', ['class' => 'form-control']) }}
+                </div>
+            </div>
+            <div class="form-group">
                 <hr />
             </div>
             <div class="form-group">
